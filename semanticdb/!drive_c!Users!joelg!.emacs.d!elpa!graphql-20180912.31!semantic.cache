@@ -1,0 +1,30 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("pcase" include nil nil [1189 1205])
+            ("graphql--encode-object" function (:arguments ("obj")) nil [1207 1486])
+            ("graphql--encode-argument-spec" function (:arguments ("spec")) nil [1488 1640])
+            ("graphql--encode-argument" function (:arguments ("key" "value")) nil [1642 1793])
+            ("graphql--encode-argument-value" function (:arguments ("value")) nil [1795 2527])
+            ("graphql--encode-parameter-spec" function (:arguments ("spec")) nil [2529 3627])
+            ("graphql--encode-parameter" function (:arguments ("name" "type" "required" "default")) nil [3629 4091])
+            ("graphql--get-keys" function (:arguments ("g")) nil [4093 4593])
+            ("graphql-encode" function (:arguments ("g")) nil [4595 5462])
+            ("graphql-simplify-response-edges" function (:arguments ("data")) nil [5464 6253])
+            ("graphql--genform-operation" function (:arguments ("args" "kind")) nil [6255 6927])
+            ("graphql-query" function (:arguments ("args")) nil [6929 7150])
+            ("graphql-mutation" function (:arguments ("args")) nil [7152 7382])
+            ("graphql" package nil nil [7384 7402]))          
+      :file "graphql.el"
+      :pointmax 7428
+      :fsize 7427
+      :lastmodtime '(23534 42927 0 0)
+      :unmatched-syntax nil))
+  :file "!drive_c!Users!joelg!.emacs.d!elpa!graphql-20180912.31!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

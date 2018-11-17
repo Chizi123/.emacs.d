@@ -1,0 +1,285 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("url-parse" include nil nil [1784 1804])
+            ("cl-lib" include nil nil [1807 1824])
+            ("ewoc" include nil nil [1825 1840])
+            ("compile" include nil nil [1841 1859])
+            ("etags" include nil nil [1860 1876])
+            ("with-display-buffer-no-window" function (:arguments ("body")) nil [2119 2449])
+            ("ignore-errors-unless-debug" function (:arguments ("body")) nil [1899 2115])
+            ("ggtags" customgroup (:user-visible-flag t) nil [2452 2532])
+            ("ggtags-highlight" variable
+               (:default-value (quote ((t (:underline t))))
+                :type "face")
+                nil [2534 2648])
+            ("ggtags-global-line" variable
+               (:default-value (quote ((t (:inherit secondary-selection))))
+                :type "face")
+                nil [2650 2791])
+            ("ggtags-executable-directory" variable nil nil [2793 2976])
+            ("ggtags-oversize-limit" variable (:default-value (* 10 1024 1024)) nil [2978 3482])
+            ("ggtags-include-pattern" variable (:default-value (quote ("^\\s-*#\\s-*\\(?:include\\|import\\)\\s-*[\"<]\\(?:[./]*\\)?\\(.*?\\)[\">]" . 1))) nil [3484 3900])
+            ("ggtags-use-project-gtagsconf" variable (:default-value t) nil [3972 4313])
+            ("ggtags-project-duration" variable (:default-value 600) nil [4315 4443])
+            ("ggtags-process-environment" variable nil nil [4445 4961])
+            ("ggtags-auto-jump-to-match" variable (:default-value (quote history)) nil [4963 5371])
+            ("ggtags-global-window-height" variable (:default-value 8) nil [5373 5590])
+            ("ggtags-global-abbreviate-filename" variable (:default-value 40) nil [5592 5889])
+            ("ggtags-split-window-function" variable (:default-value split-window-preferred-function) nil [5891 6065])
+            ("ggtags-use-idutils" variable (:default-value (and (executable-find "mkid") t)) nil [6067 6209])
+            ("ggtags-use-sqlite3" variable nil nil [6211 6449])
+            ("ggtags-extra-args" variable nil nil [6451 6624])
+            ("ggtags-sort-by-nearness" variable nil nil [6626 6792])
+            ("ggtags-update-on-save" variable (:default-value t) nil [6794 7076])
+            ("ggtags-global-output-format" variable (:default-value (quote grep)) nil [7078 7361])
+            ("ggtags-global-use-color" variable (:default-value t) nil [7363 7604])
+            ("ggtags-global-ignore-case" variable nil nil [7606 7763])
+            ("ggtags-global-treat-text" variable nil nil [7765 7970])
+            ("ggtags-global-search-libpath-for-reference" variable (:default-value t) nil [8027 8282])
+            ("ggtags-global-large-output" variable (:default-value 1000) nil [8284 8427])
+            ("ggtags-global-history-length" variable (:default-value history-length) nil [8429 8589])
+            ("ggtags-enable-navigation-keys" variable (:default-value t) nil [8591 8754])
+            ("ggtags-find-tag-hook" variable nil nil [8756 8910])
+            ("ggtags-get-definition-function" variable (:default-value (function ggtags-get-definition-default)) nil [8912 9295])
+            ("ggtags-print-definition-function" variable (:default-value (lambda (s) (ggtags-echo "%s" (or s "[definition not found]")))) nil [9297 9509])
+            ("ggtags-mode-sticky" variable (:default-value t) nil [9511 9647])
+            ("ggtags-mode-prefix-key" variable (:default-value "") nil [9649 10265])
+            ("ggtags-completing-read-function" variable nil nil [10267 10540])
+            ("define-obsolete-variable-alias" code nil nil [10542 10635])
+            ("ggtags-highlight-tag" variable (:default-value 0.25) nil [10637 11027])
+            ("ggtags-bounds-of-tag-function" variable (:default-value (lambda nil (bounds-of-thing-at-point (quote symbol)))) nil [11029 11264])
+            ("ggtags-global-error" variable (:default-value "match") nil [11296 11388])
+            ("ggtags-bug-url" variable
+               (:constant-flag t
+                :default-value "https://github.com/leoliu/ggtags/issues")
+                nil [11390 11457])
+            ("ggtags-global-last-buffer" variable nil nil [11459 11497])
+            ("ggtags-global-continuation" variable nil nil [11499 11538])
+            ("ggtags-current-tag-name" variable nil nil [11540 11576])
+            ("ggtags-highlight-tag-overlay" variable nil nil [11578 11619])
+            ("ggtags-highlight-tag-timer" variable nil nil [11621 11660])
+            ("ggtags-with-temp-message" function (:arguments ("message" "body")) nil [11662 12086])
+            ("ggtags-delay-finish-functions" function (:arguments ("body")) nil [12088 12815])
+            ("ggtags-ensure-global-buffer" function (:arguments ("body")) nil [12817 13187])
+            ("ggtags-list-of-string-p" function (:arguments ("xs")) nil [13189 13298])
+            ("ggtags-ensure-localname" function (:arguments ("file")) nil [13300 13393])
+            ("ggtags-echo" function (:arguments ("format-string" "args")) nil [13395 13543])
+            ("ggtags-forward-to-line" function (:arguments ("line")) nil [13545 13755])
+            ("ggtags-kill-window" function (:user-visible-flag t) nil [13757 13866])
+            ("ggtags-program-path" function (:arguments ("name")) nil [13868 14004])
+            ("ggtags-process-succeed-p" function (:arguments ("program" "args")) nil [14006 14354])
+            ("ggtags-process-string" function (:arguments ("program" "args")) nil [14356 14828])
+            ("ggtags-tag-at-point" function nil nil [14830 14972])
+            ("ggtags-projects" variable (:default-value (make-hash-table :size 7 :test (function equal))) nil [15015 15079])
+            ("cl-defstruct" code nil nil [15081 15348])
+            ("ggtags-make-project" function (:arguments ("root")) nil [15350 17178])
+            ("ggtags-project-expired-p" function (:arguments ("project")) nil [17180 17377])
+            ("ggtags-project-update-mtime-maybe" function (:arguments ("project")) nil [17379 17921])
+            ("ggtags-project-oversize-p" function (:arguments ("project")) nil [17923 18167])
+            ("defvar-local" code nil nil [18169 18217])
+            ("defvar-local" code nil nil [18218 18309])
+            ("ggtags-find-project" function nil nil [18326 20096])
+            ("ggtags-current-project-root" function nil nil [20098 20217])
+            ("ggtags-check-project" function nil nil [20219 20310])
+            ("ggtags-ensure-project" function nil nil [20312 20574])
+            ("ggtags-save-project-settings" function
+               (:user-visible-flag t
+                :arguments ("noconfirm"))
+                nil [20576 22391])
+            ("ggtags-toggle-project-read-only" function nil nil [22393 22925])
+            ("ggtags-visit-project-root" function
+               (:user-visible-flag t
+                :arguments ("project"))
+                nil [22927 23424])
+            ("ggtags-with-current-project" function (:arguments ("body")) nil [23426 24568])
+            ("ggtags-get-libpath" function nil nil [24570 24829])
+            ("ggtags-project-relative-file" function (:arguments ("file")) nil [24831 25273])
+            ("ggtags-project-file-p" function (:arguments ("file")) nil [25275 25895])
+            ("ggtags-invalidate-buffer-project-root" function (:arguments ("root")) nil [25897 26191])
+            ("ggtags-create-tags" function
+               (:user-visible-flag t
+                :arguments ("root"))
+                nil [26193 28700])
+            ("ggtags-explain-tags" function (:user-visible-flag t) nil [28702 29181])
+            ("ggtags-update-tags" function
+               (:user-visible-flag t
+                :arguments ("force"))
+                nil [29183 30554])
+            ("ggtags-update-tags-finish" function (:arguments ("buf" "how")) nil [30556 30830])
+            ("ggtags-update-tags-single" function (:arguments ("file" "nowait")) nil [30832 31369])
+            ("ggtags-delete-tags" function (:user-visible-flag t) nil [31371 32681])
+            ("defvar-local" code nil nil [32683 32725])
+            ("ggtags-completion-flag" variable nil nil [32814 32848])
+            ("ggtags-completion-table" variable (:default-value (completion-table-dynamic (lambda (prefix) (let ((cache-key (concat prefix "$" ggtags-completion-flag))) (unless (equal cache-key (car ggtags-completion-cache)) (setq ggtags-completion-cache (cons cache-key (ignore-errors-unless-debug (ggtags-with-current-project (split-string (apply (function ggtags-process-string) "global" (append (and completion-ignore-case (quote ("--ignore-case"))) (list (concat "-c" ggtags-completion-flag) prefix))) "
+" t))))))) (cdr ggtags-completion-cache)))) nil [32869 33843])
+            ("ggtags-completion-at-point" function nil nil [33845 34067])
+            ("ggtags-read-tag" function (:arguments ("type" "confirm" "prompt" "require-match" "default")) nil [34069 35310])
+            ("ggtags-sort-by-nearness-p" function nil nil [35312 35447])
+            ("ggtags-global-build-command" function (:arguments ("cmd" "args")) nil [35449 36883])
+            ("ggtags-global-start-marker" variable nil nil [36986 37025])
+            ("ggtags-global-start-file" variable nil nil [37026 37063])
+            ("ggtags-tag-ring-index" variable nil nil [37064 37098])
+            ("ggtags-global-search-history" variable nil nil [37099 37140])
+            ("ggtags-auto-jump-to-match-target" variable nil nil [37142 37187])
+            ("defvar-local" code nil nil [37189 37231])
+            ("ggtags-global-save-start-marker" function nil nil [37258 37479])
+            ("ggtags-global-start" function (:arguments ("command" "directory")) nil [37481 38531])
+            ("ggtags-find-tag-continue" function nil nil [38533 38799])
+            ("ggtags-find-tag" function (:arguments ("cmd" "args")) nil [38801 38937])
+            ("ggtags-include-file" function nil nil [38939 39372])
+            ("ggtags-find-tag-dwim" function
+               (:user-visible-flag t
+                :arguments ("name" "what"))
+                nil [39389 40659])
+            ("ggtags-find-tag-mouse" function (:arguments ("event")) nil [40661 40899])
+            ("ggtags-find-definition" function (:arguments ("name")) nil [40930 41104])
+            ("ggtags-setup-libpath-search" function (:arguments ("type" "name")) nil [41106 41909])
+            ("ggtags-find-reference" function (:arguments ("name")) nil [41911 42130])
+            ("ggtags-find-other-symbol" function
+               (:user-visible-flag t
+                :arguments ("name"))
+                nil [42132 42405])
+            ("ggtags-quote-pattern" function (:arguments ("pattern")) nil [42407 42499])
+            ("ggtags-idutils-query" function (:arguments ("pattern")) nil [42501 42651])
+            ("ggtags-grep" function
+               (:user-visible-flag t
+                :arguments ("pattern" "invert-match"))
+                nil [42653 43175])
+            ("ggtags-find-file" function (:arguments ("pattern" "invert-match")) nil [43177 43741])
+            ("ggtags-find-tag-regexp" function
+               (:user-visible-flag t
+                :arguments ("regexp" "directory"))
+                nil [43836 44431])
+            ("ggtags-navigation-mode" variable nil nil [44433 44464])
+            ("ggtags-foreach-file" function (:arguments ("fn")) nil [44466 45005])
+            ("ggtags-query-replace" function
+               (:user-visible-flag t
+                :arguments ("from" "to" "delimited"))
+                nil [45007 46058])
+            ("ggtags-global-normalise-command" function (:arguments ("cmd")) nil [46060 46269])
+            ("ggtags-global-search-id" function (:arguments ("cmd" "directory")) nil [46271 46418])
+            ("ggtags-global-current-search" function nil nil [46420 46787])
+            ("ggtags-global-rerun-search" function (:arguments ("data")) nil [46789 47557])
+            ("defvar-local" code nil nil [47559 47603])
+            ("ggtags-view-search-history-last" variable nil nil [47604 47648])
+            ("ggtags-view-search-history-mode-map" variable (:default-value (let ((m (make-sparse-keymap))) (define-key m "p" (quote ggtags-view-search-history-prev)) (define-key m "\360" (quote ggtags-view-search-history-prev)) (define-key m "n" (quote ggtags-view-search-history-next)) (define-key m "\356" (quote ggtags-view-search-history-next)) (define-key m "" (quote ggtags-view-search-history-kill)) (define-key m [remap yank] (lambda (&optional arg) (interactive "P") (yank arg))) (define-key m "" (quote ggtags-view-search-history-update)) (define-key m "r" (quote ggtags-save-to-register)) (define-key m "" (quote ggtags-view-search-history-action)) (define-key m "q" (quote ggtags-kill-window)) m)) nil [47650 48325])
+            ("ggtags-view-search-history-remember" function nil nil [48327 48525])
+            ("ggtags-view-search-history-next" function (:arguments ("arg")) nil [48527 48806])
+            ("ggtags-view-search-history-prev" function (:arguments ("arg")) nil [48808 48934])
+            ("ggtags-view-search-history-kill" function (:arguments ("append")) nil [48936 50217])
+            ("ggtags-view-search-history-update" function
+               (:user-visible-flag t
+                :arguments ("noconfirm"))
+                nil [50219 50632])
+            ("ggtags-view-search-history-action" function nil nil [50634 50937])
+            ("bookmark-make-record-function" variable nil nil [50939 50977])
+            ("define-derived-mode" code nil nil [50979 51341])
+            ("ggtags-view-search-history-restore-last" function nil nil [51343 51728])
+            ("ggtags-view-search-history" function (:user-visible-flag t) nil [51730 53433])
+            ("ggtags-save-to-register" function
+               (:user-visible-flag t
+                :arguments ("r"))
+                nil [53435 54240])
+            ("ggtags-make-bookmark-record" function nil nil [54242 54593])
+            ("declare-function" code nil nil [54595 54642])
+            ("ggtags-bookmark-jump" function (:arguments ("bmk")) nil [54644 54748])
+            ("ggtags-browse-file-as-hypertext" function
+               (:user-visible-flag t
+                :arguments ("file" "line"))
+                nil [54750 55948])
+            ("ggtags-next-mark" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [55950 56982])
+            ("ggtags-prev-mark" function (:user-visible-flag t) nil [56984 57120])
+            ("ggtags-view-tag-history-mode-map" variable (:default-value (let ((m (make-sparse-keymap))) (define-key m "\356" (quote next-error-no-select)) (define-key m "\360" (quote previous-error-no-select)) (define-key m "q" (quote ggtags-kill-window)) m)) nil [57122 57350])
+            ("define-derived-mode" code nil nil [57352 57467])
+            ("ggtags-view-tag-history" function (:user-visible-flag t) nil [57469 60979])
+            ("ggtags-view-tag-history-next-error" function (:arguments ("arg" "reset")) nil [60981 61536])
+            ("ggtags-global-exit-message-1" function nil nil [61538 62150])
+            ("ggtags-global-exit-message-function" function (:arguments ("_process-status" "exit-status" "msg")) nil [62152 63276])
+            ("ggtags-global-column" function (:arguments ("start")) nil [63278 63476])
+            ("ggtags-global-error-regexp-alist-alist" variable (:default-value (append (\` ((path "^\\(?:[^\"'
+]*/\\)?[^ )	
+]+$" 0) (ctags "^\\([^ 	
+]+\\)[ 	]+\\(.*?\\)[ 	]+\\([0-9]+\\)$" 2 3 nil nil 2 (1 font-lock-function-name-face)) (ctags-x "^\\([^ 	
+]+\\)[ 	]+\\([0-9]+\\)[ 	]+\\(\\(?:[^/
+]*/\\)?[^ 	
+]+\\)" 3 2 ((\, (lambda nil (ggtags-global-column (1+ (match-end 0)))))) nil 3 (1 font-lock-function-name-face)) (grep "^\\(.+?\\):\\([0-9]+\\):\\(?:$\\|[^0-9
+]\\|[0-9][^0-9
+]\\|[0-9][0-9].\\)" 1 2 ((\, (lambda nil (ggtags-global-column (1+ (match-end 2)))))) nil 1) (cscope "^\\(.+?\\)[ 	]+\\([^ 	
+]+\\)[ 	]+\\([0-9]+\\).*\\(?:[^0-9
+]\\|[^0-9
+][0-9]\\|[^:
+][0-9][0-9]\\)$" 1 3 nil nil 1 (2 font-lock-function-name-face)))) compilation-error-regexp-alist-alist)) nil [63695 64752])
+            ("ggtags-abbreviate-file" function (:arguments ("start" "end")) nil [64754 65625])
+            ("ggtags-abbreviate-files" function (:arguments ("start" "end")) nil [65627 66450])
+            ("defvar-local" code nil nil [66452 66495])
+            ("ggtags-global--display-buffer" function (:arguments ("buffer" "desired-point")) nil [66497 66973])
+            ("ggtags-global-filter" function nil nil [66975 69520])
+            ("ggtags-global-handle-exit" function (:arguments ("buf" "how")) nil [69522 71319])
+            ("ggtags-global-mode-font-lock-keywords" variable (:default-value (quote (("^Global \\(exited abnormally\\|interrupt\\|killed\\|terminated\\)\\(?:.*with code \\([0-9]+\\)\\)?.*" (1 (quote compilation-error)) (2 (quote compilation-error) nil t)) ("^Global found \\([0-9]+\\)" (1 compilation-info-face))))) nil [71321 71600])
+            ("define-compilation-mode" code nil nil [71602 73413])
+            ("ggtags-navigation-map" variable (:default-value (let ((map (make-sparse-keymap))) (define-key map "\356" (quote next-error)) (define-key map "\360" (quote previous-error)) (define-key map "\375" (quote ggtags-navigation-next-file)) (define-key map "\373" (quote ggtags-navigation-previous-file)) (define-key map "\275" (quote ggtags-navigation-start-file)) (define-key map "\276" (quote ggtags-navigation-last-error)) (define-key map "\274" (quote first-error)) (define-key map "\223" (quote ggtags-navigation-isearch-forward)) (define-key map "\363s" (quote ggtags-navigation-isearch-forward)) (define-key map "" (lambda nil (interactive) (ggtags-ensure-global-buffer (kill-compilation)))) (define-key map "\357" (quote ggtags-navigation-visible-mode)) (define-key map [return] (quote ggtags-navigation-mode-done)) (define-key map "" (quote ggtags-navigation-mode-done)) (define-key map [remap xref-pop-marker-stack] (quote ggtags-navigation-mode-abort)) map)) nil [73565 74698])
+            ("ggtags-mode-map-alist" variable (:default-value (\` ((ggtags-enable-navigation-keys \, ggtags-navigation-map)))) nil [74700 74792])
+            ("ggtags-navigation-mode-map" variable (:default-value (let ((map (make-sparse-keymap)) (menu (make-sparse-keymap "GG-Navigation"))) (define-key map [menu-bar ggtags-navigation] (cons "GG-Navigation" menu)) (define-key menu [visible-mode] (quote (menu-item "Visible mode" ggtags-navigation-visible-mode :button (:toggle ignore-errors (ggtags-ensure-global-buffer visible-mode))))) (define-key menu [done] (quote (menu-item "Finish navigation" ggtags-navigation-mode-done))) (define-key menu [abort] (quote (menu-item "Abort" ggtags-navigation-mode-abort))) (define-key menu [last-match] (quote (menu-item "Last match" ggtags-navigation-last-error))) (define-key menu [first-match] (quote (menu-item "First match" first-error))) (define-key menu [previous-file] (quote (menu-item "Previous file" ggtags-navigation-previous-file))) (define-key menu [next-file] (quote (menu-item "Next file" ggtags-navigation-next-file))) (define-key menu [isearch-forward] (quote (menu-item "Find match with isearch" ggtags-navigation-isearch-forward))) (define-key menu [previous] (quote (menu-item "Previous match" previous-error))) (define-key menu [next] (quote (menu-item "Next match" next-error))) map)) nil [74794 76189])
+            ("ggtags-move-to-tag" function (:arguments ("name")) nil [76191 77139])
+            ("ggtags-navigation-mode-cleanup" function (:arguments ("buf" "kill")) nil [77141 77595])
+            ("ggtags-navigation-mode-done" function nil nil [77597 77796])
+            ("ggtags-navigation-mode-abort" function (:user-visible-flag t) nil [77798 78262])
+            ("ggtags-navigation-next-file" function (:arguments ("n")) nil [78264 78410])
+            ("ggtags-navigation-previous-file" function (:arguments ("n")) nil [78412 78513])
+            ("ggtags-navigation-start-file" function (:user-visible-flag t) nil [78515 79077])
+            ("ggtags-navigation-last-error" function nil nil [79079 79254])
+            ("ggtags-navigation-isearch-forward" function (:arguments ("regexp-p")) nil [79256 79623])
+            ("ggtags-navigation-visible-mode" function (:arguments ("arg")) nil [79625 79789])
+            ("ggtags-global-line-overlay" variable nil nil [79791 79830])
+            ("ggtags-global-next-error-function" function nil nil [79832 81141])
+            ("put" code nil nil [81143 81204])
+            ("ggtags-navigation-mode-lighter" variable (:default-value (quote (" GG[" (:eval (if (not (buffer-live-p ggtags-global-last-buffer)) (quote (:propertize "??" face error help-echo "No Global buffer")) (with-current-buffer ggtags-global-last-buffer (pcase (or ggtags-global-exit-info (quote (0 0 ""))) ((\` ((\, exit) (\, count) (\, db))) (\` ((:propertize (\, (pcase db ((\` "GTAGS") "D") ((\` "GRTAGS") "R") ((\` "GSYMS") "S") ((\` "GPATH") "F") ((\` "ID") "I"))) face success) (:propertize (\, (pcase (get-text-property (line-beginning-position) (quote compilation-message)) ((\` nil) "?") (_ (number-to-string (- (line-number-at-pos) 4))))) face success) "/" (:propertize (\, (number-to-string count)) face success) (\, (unless (zerop exit) (\` (":" (:propertize (\, (number-to-string exit)) face error)))))))))))) "]"))) nil [81206 82470])
+            ("define-minor-mode" code nil nil [82472 83478])
+            ("ggtags-minibuffer-setup-function" function nil nil [83480 83623])
+            ("ggtags-kill-file-buffers" function
+               (:user-visible-flag t
+                :arguments ("interactive"))
+                nil [83625 84502])
+            ("ggtags-after-save-function" function nil nil [84504 84723])
+            ("ggtags-global-output" function (:arguments ("buffer" "cmds" "callback" "cutoff" "sync")) nil [84725 87224])
+            ("cl-defun" code nil nil [87226 87475])
+            ("ggtags-get-definition-default" function (:arguments ("defs")) nil [87477 87634])
+            ("ggtags-show-definition" function (:arguments ("name")) nil [87636 89226])
+            ("ggtags-mode-prefix-map" variable (:default-value (let ((m (make-sparse-keymap))) (define-key m (kbd "M-DEL") (quote ggtags-delete-tags)) (define-key m "\360" (quote ggtags-prev-mark)) (define-key m "\356" (quote ggtags-next-mark)) (define-key m "\346" (quote ggtags-find-file)) (define-key m "\357" (quote ggtags-find-other-symbol)) (define-key m "\347" (quote ggtags-grep)) (define-key m "\351" (quote ggtags-idutils-query)) (define-key m "\342" (quote ggtags-browse-file-as-hypertext)) (define-key m "\353" (quote ggtags-kill-file-buffers)) (define-key m "\350" (quote ggtags-view-tag-history)) (define-key m "\352" (quote ggtags-visit-project-root)) (define-key m "\257" (quote ggtags-view-search-history)) (define-key m (kbd "M-SPC") (quote ggtags-save-to-register)) (define-key m (kbd "M-%") (quote ggtags-query-replace)) (define-key m "\277" (quote ggtags-show-definition)) m)) nil [89228 90133])
+            ("ggtags-mode-map" variable (:default-value (let ((map (make-sparse-keymap)) (menu (make-sparse-keymap "Ggtags"))) (define-key map "\256" (quote ggtags-find-tag-dwim)) (define-key map (kbd "M-]") (quote ggtags-find-reference)) (define-key map (kbd "C-M-.") (quote ggtags-find-tag-regexp)) (define-key map ggtags-mode-prefix-key ggtags-mode-prefix-map) (define-key map [menu-bar ggtags] (cons "Ggtags" menu)) (define-key menu [report-bugs] (\` (menu-item "Report bugs" (lambda nil (interactive) (browse-url ggtags-bug-url) (message "Please visit %s" ggtags-bug-url)) :help (\, (format "Visit %s" ggtags-bug-url))))) (define-key menu [custom-ggtags] (quote (menu-item "Customize Ggtags" (lambda nil (interactive) (customize-group (quote ggtags)))))) (define-key menu [eldoc-mode] (quote (menu-item "Toggle eldoc mode" eldoc-mode :button (:toggle . eldoc-mode)))) (define-key menu [save-project] (quote (menu-item "Save project settings" ggtags-save-project-settings))) (define-key menu [toggle-read-only] (quote (menu-item "Toggle project read-only" ggtags-toggle-project-read-only :button (:toggle . buffer-read-only)))) (define-key menu [visit-project-root] (quote (menu-item "Visit project root" ggtags-visit-project-root))) (define-key menu [sep2] menu-bar-separator) (define-key menu [browse-hypertext] (quote (menu-item "Browse as hypertext" ggtags-browse-file-as-hypertext :enable (ggtags-find-project)))) (define-key menu [delete-tags] (quote (menu-item "Delete tags" ggtags-delete-tags :enable (ggtags-find-project) :help "Delete file GTAGS, GRTAGS, GPATH, ID etc."))) (define-key menu [kill-buffers] (quote (menu-item "Kill project file buffers" ggtags-kill-file-buffers :enable (ggtags-find-project)))) (define-key menu [view-tag] (quote (menu-item "View tag history" ggtags-view-tag-history))) (define-key menu [pop-mark] (quote (menu-item "Pop mark" xref-pop-marker-stack :help "Pop to previous mark and destroy it"))) (define-key menu [next-mark] (quote (menu-item "Next mark" ggtags-next-mark))) (define-key menu [prev-mark] (quote (menu-item "Previous mark" ggtags-prev-mark))) (define-key menu [sep1] menu-bar-separator) (define-key menu [previous-error] (quote (menu-item "Previous match" previous-error))) (define-key menu [next-error] (quote (menu-item "Next match" next-error))) (define-key menu [rerun-search] (quote (menu-item "View past searches" ggtags-view-search-history))) (define-key menu [save-to-register] (quote (menu-item "Save search to register" ggtags-save-to-register))) (define-key menu [find-file] (quote (menu-item "Find files" ggtags-find-file))) (define-key menu [query-replace] (quote (menu-item "Query replace" ggtags-query-replace))) (define-key menu [idutils] (quote (menu-item "Query idutils DB" ggtags-idutils-query))) (define-key menu [grep] (quote (menu-item "Grep" ggtags-grep))) (define-key menu [find-symbol] (quote (menu-item "Find other symbol" ggtags-find-other-symbol :help "Find references without definition"))) (define-key menu [find-tag-regexp] (quote (menu-item "Find tag matching regexp" ggtags-find-tag-regexp))) (define-key menu [show-definition] (quote (menu-item "Show definition" ggtags-show-definition))) (define-key menu [find-reference] (quote (menu-item "Find reference" ggtags-find-reference))) (define-key menu [find-tag-continue] (quote (menu-item "Continue find tag" tags-loop-continue))) (define-key menu [find-tag] (quote (menu-item "Find tag" ggtags-find-tag-dwim))) (define-key menu [update-tags] (quote (menu-item "Update tag files" ggtags-update-tags :visible (ggtags-find-project)))) (define-key menu [run-gtags] (quote (menu-item "Run gtags" ggtags-create-tags :visible (not (ggtags-find-project))))) map)) nil [90135 94293])
+            ("ggtags-mode-line-project-keymap" variable (:default-value (let ((map (make-sparse-keymap))) (define-key map [mode-line mouse-1] (quote ggtags-visit-project-root)) map)) nil [94295 94448])
+            ("put" code nil nil [94450 94510])
+            ("ggtags-mode-line-project-name" variable (:default-value (quote ("[" (:eval (let ((name (if (stringp ggtags-project-root) (file-name-nondirectory (directory-file-name ggtags-project-root)) "?"))) (propertize name (quote face) compilation-info-face (quote help-echo) (if (stringp ggtags-project-root) (concat "mouse-1 to visit " ggtags-project-root) "mouse-1 to set project") (quote mouse-face) (quote mode-line-highlight) (quote keymap) ggtags-mode-line-project-keymap))) "]"))) nil [94511 95349])
+            ("define-minor-mode" code nil nil [95366 96823])
+            ("ggtags-highlight-tag-map" variable (:default-value (let ((map (make-sparse-keymap))) (define-key map [S-mouse-1] (quote ggtags-find-tag-dwim)) (define-key map [S-down-mouse-1] (quote ignore)) (define-key map [S-mouse-3] (quote ggtags-find-reference)) (define-key map [S-down-mouse-3] (quote ignore)) map)) nil [96825 97305])
+            ("put" code nil nil [97307 97355])
+            ("put" code nil nil [97356 97413])
+            ("put" code nil nil [97461 97555])
+            ("ggtags-setup-highlight-tag-at-point" function (:arguments ("flag")) nil [97557 97908])
+            ("ggtags-cancel-highlight-tag-at-point" function (:arguments ("keep-timer")) nil [97910 98278])
+            ("ggtags-highlight-tag-at-point" function nil nil [98280 99646])
+            ("defvar-local" code nil nil [99659 99696])
+            ("declare-function" code nil nil [99698 99738])
+            ("ggtags-eldoc-function" function nil nil [99739 100805])
+            ("ggtags-goto-imenu-index" function (:arguments ("name" "line" "_args")) nil [100818 100933])
+            ("ggtags-build-imenu-index" function nil nil [100950 101818])
+            ("ggtags-try-complete-tag" function (:arguments ("old")) nil [101854 102580])
+            ("ggtags-reload" function (:arguments ("force")) nil [102582 102694])
+            ("ggtags" package nil nil [102696 102713]))          
+      :file "ggtags.el"
+      :pointmax 102738
+      :fsize 102737
+      :lastmodtime '(23534 24057 0 0)
+      :unmatched-syntax '((close-paren 2449 . 2450) (symbol 1879 . 1896) (open-paren 1878 . 1879) (close-paren 1804 . 1805) (symbol 1764 . 1781) (open-paren 1763 . 1764))))
+  :file "!drive_c!Users!joelg!.emacs.d!elpa!ggtags-20181031.1803!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

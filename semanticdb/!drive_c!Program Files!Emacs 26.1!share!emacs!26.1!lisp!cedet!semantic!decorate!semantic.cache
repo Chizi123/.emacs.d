@@ -1,0 +1,84 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl" include nil nil [1373 1386])
+            ("semantic" include nil nil [1388 1407])
+            ("semantic/decorate" include nil nil [1408 1436])
+            ("semantic/tag-ls" include nil nil [1437 1463])
+            ("semantic/util-modes" include nil nil [1464 1494])
+            ("semantic-decoration-styles" variable nil nil [1515 1916])
+            ("semantic-decorate-style-predicate" function (:arguments ("style")) nil [1931 2059])
+            ("semantic-decorate-style-highlighter" function (:arguments ("style")) nil [2061 2201])
+            ("semantic-decorate-style-predicate-default" function (:arguments ("style")) nil [2203 2347])
+            ("semantic-decorate-style-highlighter-default" function (:arguments ("style")) nil [2349 2505])
+            ("semantic-decoration-p" function (:arguments ("object")) nil [2534 2719])
+            ("semantic-decoration-set-property" function (:arguments ("deco" "property" "value")) nil [2721 2940])
+            ("semantic-decoration-get-property" function (:arguments ("deco" "property")) nil [2942 3129])
+            ("semantic-decoration-set-face" function (:arguments ("deco" "face")) nil [3131 3297])
+            ("semantic-decoration-face" function (:arguments ("deco")) nil [3299 3433])
+            ("semantic-decoration-set-priority" function (:arguments ("deco" "priority")) nil [3435 3655])
+            ("semantic-decoration-priority" function (:arguments ("deco")) nil [3657 3803])
+            ("semantic-decoration-move" function (:arguments ("deco" "begin" "end")) nil [3805 4024])
+            ("semantic-decorate-tag" function (:arguments ("tag" "begin" "end" "face")) nil [4049 4639])
+            ("semantic-decorate-clear-tag" function (:arguments ("tag" "deco")) nil [4641 5170])
+            ("semantic-decorate-tag-decoration" function (:arguments ("tag")) nil [5172 5318])
+            ("semantic-decorate-flush-decorations" function (:arguments ("buffer")) nil [5363 5807])
+            ("semantic-decorate-clear-decorations" function (:arguments ("tag-list")) nil [5809 6097])
+            ("semantic-decorate-add-decorations" function (:arguments ("tag-list")) nil [6099 7224])
+            ("semantic-decorate-pending-decoration-hook" variable nil nil [7516 7629])
+            ("semantic-varalias-obsolete" code nil nil [7631 7760])
+            ("semantic-decorate-add-pending-decoration" function (:arguments ("fcn" "buffer")) nil [7762 8178])
+            ("semantic-decorate-flush-pending-decorations" function (:arguments ("buffer")) nil [8180 8565])
+            ("define-minor-mode" code nil nil [8676 9131])
+            ("semantic-decoration-mode-hook" variable nil nil [9133 9275])
+            ("define-minor-mode" code nil nil [9277 11414])
+            ("semantic-add-minor-mode" code nil nil [11416 11495])
+            ("semantic-decorate-tags-after-full-reparse" function (:arguments ("tag-list")) nil [11497 11953])
+            ("semantic-decorate-tags-after-partial-reparse" function (:arguments ("tag-list")) nil [11955 12295])
+            ("semantic-decoration-style-enabled-p" function (:arguments ("style")) nil [12330 12571])
+            ("semantic-toggle-decoration-style" function
+               (:user-visible-flag t
+                :arguments ("name" "arg"))
+                nil [12573 13797])
+            ("semantic-decoration-menu-cache" variable nil nil [13799 13876])
+            ("semantic-decoration-build-style-menu" function (:arguments ("style")) nil [13878 14198])
+            ("semantic-build-decoration-mode-menu" function (:arguments ("ignore")) nil [14200 14535])
+            ("define-semantic-decoration-style" function (:arguments ("name" "doc" "flags")) nil [14573 17476])
+            ("define-semantic-decoration-style" code nil nil [17551 17699])
+            ("semantic-tag-boundary-face" variable
+               (:default-value (quote ((((class color) (background dark)) (:overline "cyan")) (((class color) (background light)) (:overline "blue"))))
+                :type "face")
+                nil [17701 17979])
+            ("semantic-tag-boundary-p-default" function (:arguments ("tag")) nil [17981 18559])
+            ("semantic-tag-boundary-highlight-default" function (:arguments ("tag")) nil [18561 18983])
+            ("define-semantic-decoration-style" code nil nil [19020 19175])
+            ("semantic-decoration-on-private-members-face" variable
+               (:default-value (quote ((((class color) (background dark)) (:background "#200000")) (((class color) (background light)) (:background "#8fffff"))))
+                :type "face")
+                nil [19177 19515])
+            ("semantic-decoration-on-private-members-highlight-default" function (:arguments ("tag")) nil [19517 19747])
+            ("semantic-decoration-on-private-members-p-default" function (:arguments ("tag")) nil [19749 19971])
+            ("semantic-decoration-on-protected-members-face" variable
+               (:default-value (quote ((((class color) (background dark)) (:background "#000020")) (((class color) (background light)) (:background "#fffff8"))))
+                :type "face")
+                nil [20010 20352])
+            ("define-semantic-decoration-style" code nil nil [20354 20513])
+            ("semantic-decoration-on-protected-members-p-default" function (:arguments ("tag")) nil [20515 20743])
+            ("semantic-decoration-on-protected-members-highlight-default" function (:arguments ("tag")) nil [20745 20981])
+            ("declare-function" code nil nil [21022 21114])
+            ("declare-function" code nil nil [21115 21215])
+            ("define-semantic-decoration-style" code nil nil [21216 21444])
+            ("semantic/decorate/mode" package nil nil [21448 21481]))          
+      :file "mode.el"
+      :pointmax 21655
+      :fsize 21654
+      :lastmodtime '(23525 29535 0 0)
+      :unmatched-syntax '((close-paren 1386 . 1387) (symbol 1355 . 1372) (open-paren 1354 . 1355))))
+  :file "!drive_c!Program Files!Emacs 26.1!share!emacs!26.1!lisp!cedet!semantic!decorate!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

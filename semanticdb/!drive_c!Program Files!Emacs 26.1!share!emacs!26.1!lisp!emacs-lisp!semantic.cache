@@ -1,0 +1,275 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("macroexp" include nil nil [3159 3178])
+            ("define-error" code nil nil [3420 3489])
+            ("gv-get" function (:arguments ("place" "do")) nil [3506 5369])
+            ("gv-setter" function (:arguments ("name")) nil [5371 5807])
+            ("gv-letplace" function (:arguments ("vars" "place" "body")) nil [5824 6475])
+            ("gv-define-expander" function (:arguments ("name" "handler")) nil [6545 6929])
+            ("gv--defun-declaration" function (:arguments ("symbol" "name" "args" "handler" "fix")) nil [6946 7778])
+            ("or" code nil nil [7795 8026])
+            ("or" code nil nil [8042 8195])
+            ("gv--defsetter" function (:arguments ("name" "setter" "do" "args" "vars")) nil [8716 9399])
+            ("gv-define-setter" function (:arguments ("name" "arglist" "body")) nil [9416 10251])
+            ("gv-define-simple-setter" function (:arguments ("name" "setter" "fix-return")) nil [10268 11232])
+            ("setf" function (:arguments ("args")) nil [11299 12101])
+            ("put" code nil nil [13323 13375])
+            ("put" code nil nil [13481 13680])
+            ("gv-define-simple-setter" code nil nil [13721 13756])
+            ("gv-define-simple-setter" code nil nil [13757 13793])
+            ("gv-define-simple-setter" code nil nil [13794 13830])
+            ("gv-define-setter" code nil nil [13881 13936])
+            ("gv-define-setter" code nil nil [13937 13992])
+            ("gv-define-setter" code nil nil [13993 14048])
+            ("gv-define-setter" code nil nil [14049 14104])
+            ("gv-define-setter" code nil nil [14105 14222])
+            ("gv-define-simple-setter" code nil nil [14223 14256])
+            ("gv-define-setter" code nil nil [14257 14328])
+            ("put" code nil nil [14403 14565])
+            ("gv-define-simple-setter" code nil nil [14566 14612])
+            ("gv-define-simple-setter" code nil nil [14613 14660])
+            ("gv-define-simple-setter" code nil nil [14661 14703])
+            ("put" code nil nil [14705 15023])
+            ("gv-define-simple-setter" code nil nil [15068 15119])
+            ("gv-define-simple-setter" code nil nil [15120 15186])
+            ("gv-define-simple-setter" code nil nil [15187 15254])
+            ("gv-define-simple-setter" code nil nil [15255 15312])
+            ("gv-define-simple-setter" code nil nil [15313 15369])
+            ("gv-define-simple-setter" code nil nil [15370 15419])
+            ("gv-define-setter" code nil nil [15420 15525])
+            ("gv-define-setter" code nil nil [15526 15631])
+            ("gv-define-simple-setter" code nil nil [15632 15691])
+            ("gv-define-simple-setter" code nil nil [15692 15751])
+            ("gv-define-simple-setter" code nil nil [15752 15815])
+            ("gv-define-simple-setter" code nil nil [15816 15865])
+            ("gv-define-simple-setter" code nil nil [15866 15929])
+            ("gv-define-setter" code nil nil [15930 16046])
+            ("gv-define-setter" code nil nil [16047 16177])
+            ("gv-define-setter" code nil nil [16178 16265])
+            ("gv-define-setter" code nil nil [16266 16343])
+            ("gv-define-setter" code nil nil [16344 16417])
+            ("gv-define-setter" code nil nil [16418 16491])
+            ("gv-define-setter" code nil nil [16493 16640])
+            ("gv-define-expander" code nil nil [16642 18103])
+            ("put" code nil nil [18335 18553])
+            ("let" code nil nil [18555 18887])
+            ("put" code nil nil [18889 19925])
+            ("put" code nil nil [19927 21600])
+            ("gv-synthetic-place" function (:arguments ("getter" "setter")) nil [21602 21971])
+            ("gv-delay-error" function (:arguments ("place")) nil [21973 22579])
+            ("put" code nil nil [22618 22979])
+            ("put" code nil nil [22981 23428])
+            ("gv-ref" function (:arguments ("place")) nil [23461 24369])
+            ("gv-deref" function (:arguments ("ref")) nil [24371 24574])
+            ("gv-define-setter" code nil nil [24818 24878])
+            ("gv" package nil nil [25240 25253]))          
+      :file "gv.el"
+      :pointmax 25274
+      :fsize 25279
+      :lastmodtime '(23525 29542 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :file "macroexp.el"
+      :fsize 23127
+      :lastmodtime '(23525 29542 0 0))
+    (semanticdb-table "semanticdb-table"
+      :file "cl-lib.el"
+      :fsize 26211
+      :lastmodtime '(23525 29539 0 0))
+    (semanticdb-table "semanticdb-table"
+      :file "easy-mmode.el"
+      :fsize 26213
+      :lastmodtime '(23525 29540 0 0))
+    (semanticdb-table "semanticdb-table"
+      :file "pcase.el"
+      :fsize 39971
+      :lastmodtime '(23525 29543 0 0))
+    (semanticdb-table "semanticdb-table"
+      :file "timer.el"
+      :fsize 22578
+      :lastmodtime '(23525 29544 0 0))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("eldoc" customgroup (:user-visible-flag t) nil [2006 2124])
+            ("eldoc-idle-delay" variable (:default-value 0.5) nil [2126 2427])
+            ("eldoc-print-after-edit" variable nil nil [2429 2605])
+            ("eldoc-minor-mode-string" variable (:default-value (purecopy " ElDoc")) nil [2622 2819])
+            ("eldoc-argument-case" variable (:default-value (function identity)) nil [2821 3300])
+            ("make-obsolete-variable" code nil nil [3301 3357])
+            ("eldoc-echo-area-use-multiline-p" variable (:default-value (quote truncate-sym-name-if-fit)) nil [3359 4458])
+            ("eldoc-highlight-function-argument" variable
+               (:default-value (quote ((t (:inherit bold))))
+                :type "face")
+                nil [4460 4714])
+            ("eldoc-message-commands-table-size" variable (:default-value 31) nil [4749 5126])
+            ("eldoc-message-commands" variable (:default-value (make-vector eldoc-message-commands-table-size 0)) nil [5128 5774])
+            ("eldoc-last-data" variable (:default-value (make-vector 3 nil)) nil [5795 6201])
+            ("make-obsolete-variable" code nil nil [6202 6273])
+            ("eldoc-last-message" variable nil nil [6275 6306])
+            ("eldoc-timer" variable nil nil [6308 6356])
+            ("eldoc-current-idle-delay" variable (:default-value eldoc-idle-delay) nil [6358 6527])
+            ("eldoc-message-function" variable (:default-value (function eldoc-minibuffer-message)) nil [6529 6700])
+            ("eldoc-edit-message-commands" function nil nil [6702 7172])
+            ("define-minor-mode" code nil nil [7191 8574])
+            ("define-globalized-minor-mode" code nil nil [8591 8740])
+            ("turn-on-eldoc-mode" function nil nil [8757 8953])
+            ("eldoc--supported-p" function nil nil [8955 9099])
+            ("eldoc-schedule-timer" function nil nil [9103 9876])
+            ("eldoc-mode-line-string" variable nil nil [9878 9913])
+            ("put" code nil nil [9914 9967])
+            ("eldoc-minibuffer-message" function (:arguments ("format-string" "args")) nil [9969 10966])
+            ("eldoc-message" function (:arguments ("string")) nil [10968 11626])
+            ("eldoc--message-command-p" function (:arguments ("command")) nil [11628 11824])
+            ("eldoc-pre-command-refresh-echo-area" function nil nil [12247 12777])
+            ("eldoc-display-message-p" function nil nil [12838 13292])
+            ("eldoc-display-message-no-interference-p" function nil nil [13431 13612])
+            ("eldoc-documentation-function" variable (:default-value (function ignore)) nil [13631 14600])
+            ("eldoc-print-current-symbol-info" function nil nil [14602 15134])
+            ("eldoc-docstring-format-sym-doc" function (:arguments ("prefix" "doc" "face")) nil [15299 16674])
+            ("eldoc-add-command" function (:arguments ("cmds")) nil [17009 17246])
+            ("eldoc-add-command-completions" function (:arguments ("names")) nil [17248 17462])
+            ("eldoc-remove-command" function (:arguments ("cmds")) nil [17464 17703])
+            ("eldoc-remove-command-completions" function (:arguments ("names")) nil [17705 17944])
+            ("eldoc-add-command-completions" code nil nil [17975 18458])
+            ("eldoc" package nil nil [18460 18476]))          
+      :file "eldoc.el"
+      :pointmax 18501
+      :fsize 18500
+      :lastmodtime '(23525 29541 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("pcase" include nil nil [3550 3566])
+            ("define-obsolete-variable-alias" code nil nil [3714 3811])
+            ("generic-font-lock-keywords" variable nil nil [3812 3908])
+            ("make-variable-buffer-local" code nil nil [3909 3965])
+            ("generic-mode-list" variable nil nil [3982 4146])
+            ("define-generic-mode" function (:arguments ("mode" "comment-list" "keyword-list" "font-lock-list" "auto-mode-list" "function-list" "docstring")) nil [4299 6772])
+            ("generic-mode-internal" function (:arguments ("mode" "comment-list" "keyword-list" "font-lock-list" "function-list")) nil [6789 7717])
+            ("generic-mode" function
+               (:user-visible-flag t
+                :arguments ("mode"))
+                nil [7734 8215])
+            ("generic--normalize-comments" function (:arguments ("comment-list")) nil [8244 8699])
+            ("generic-set-comment-syntax" function (:arguments ("st" "comment-list")) nil [8701 10463])
+            ("generic-set-comment-vars" function (:arguments ("comment-list")) nil [10465 10963])
+            ("generic-mode-set-comments" function (:arguments ("comment-list")) nil [10965 11284])
+            ("generic-bracket-support" function nil nil [11286 11507])
+            ("generic-make-keywords-list" function (:arguments ("keyword-list" "face" "prefix" "suffix")) nil [11524 12246])
+            ("generic" package nil nil [12248 12266]))          
+      :file "generic.el"
+      :pointmax 12293
+      :fsize 12292
+      :lastmodtime '(23525 29542 0 0)
+      :unmatched-syntax '((close-paren 3566 . 3567) (symbol 3532 . 3549) (open-paren 3531 . 3532)))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl-lib" include nil nil [1048 1065])
+            ("macroexp" include nil nil [1066 1085])
+            ("gv" include nil nil [1086 1099])
+            ("cl-unload-function" function nil nil [3595 3753])
+            ("dolist" code nil nil [3790 4503])
+            ("dolist" code nil nil [4505 9132])
+            ("cl--wrap-in-nil-block" function (:arguments ("fun" "args")) nil [9134 9216])
+            ("advice-add" code nil nil [9217 9269])
+            ("advice-add" code nil nil [9270 9323])
+            ("cl--pass-args-to-cl-declare" function (:arguments ("specs")) nil [9325 9413])
+            ("advice-add" code nil nil [9414 9472])
+            ("cl-closure-vars" variable nil nil [9632 9660])
+            ("cl--function-convert-cache" variable nil nil [9661 9700])
+            ("cl--function-convert" function (:arguments ("f")) nil [9702 11817])
+            ("lexical-let" function (:arguments ("bindings" "body")) nil [11819 13830])
+            ("lexical-let*" function (:arguments ("bindings" "body")) nil [13832 14362])
+            ("flet" function (:arguments ("bindings" "body")) nil [14441 16195])
+            ("labels" function (:arguments ("bindings" "body")) nil [16197 17141])
+            ("cl--gv-adapt" function (:arguments ("cl-gv" "do")) nil [17337 18227])
+            ("define-setf-expander" function (:arguments ("name" "arglist" "body")) nil [18229 19132])
+            ("defsetf" function (:arguments ("name" "arg1" "args")) nil [19134 20752])
+            ("make-obsolete" code nil nil [22666 22718])
+            ("declare-function" code nil nil [22720 22772])
+            ("define-modify-macro" function (:arguments ("name" "arglist" "func" "doc")) nil [22774 23596])
+            ("define-obsolete-function-alias" code nil nil [23698 23766])
+            ("define-obsolete-variable-alias" code nil nil [23767 23859])
+            ("define-obsolete-function-alias" code nil nil [23860 23936])
+            ("cl-not-hash-table" function (:arguments ("x" "y" "_z")) nil [24074 24223])
+            ("cl-builtin-gethash" variable (:default-value (symbol-function (quote gethash))) nil [24225 24279])
+            ("make-obsolete-variable" code nil nil [24280 24335])
+            ("cl-builtin-remhash" variable (:default-value (symbol-function (quote remhash))) nil [24336 24390])
+            ("make-obsolete-variable" code nil nil [24391 24446])
+            ("cl-builtin-clrhash" variable (:default-value (symbol-function (quote clrhash))) nil [24447 24501])
+            ("make-obsolete-variable" code nil nil [24502 24557])
+            ("cl-builtin-maphash" variable (:default-value (symbol-function (quote maphash))) nil [24558 24612])
+            ("make-obsolete-variable" code nil nil [24614 24669])
+            ("define-obsolete-function-alias" code nil nil [24670 24736])
+            ("define-obsolete-function-alias" code nil nil [24737 24801])
+            ("define-obsolete-function-alias" code nil nil [24802 24862])
+            ("define-obsolete-function-alias" code nil nil [24863 24923])
+            ("define-obsolete-function-alias" code nil nil [24924 24984])
+            ("define-obsolete-function-alias" code nil nil [24985 25045])
+            ("define-obsolete-function-alias" code nil nil [25046 25106])
+            ("define-obsolete-function-alias" code nil nil [25107 25183])
+            ("define-obsolete-function-alias" code nil nil [25184 25254])
+            ("define-obsolete-function-alias" code nil nil [25255 25333])
+            ("define-obsolete-function-alias" code nil nil [25335 25431])
+            ("define-obsolete-function-alias" code nil nil [25432 25508])
+            ("define-obsolete-function-alias" code nil nil [25509 25582])
+            ("define-obsolete-function-alias" code nil nil [25583 25649])
+            ("cl-maclisp-member" function (:arguments ("item" "list")) nil [25651 25806])
+            ("cl-struct-setf-expander" function (:arguments ("x" "name" "accessor" "pred-form" "pos")) nil [25857 26791])
+            ("cl" package nil nil [26793 26806])
+            ("run-hooks" code nil nil [26808 26833]))          
+      :file "cl.el"
+      :pointmax 26855
+      :fsize 26856
+      :lastmodtime '(23525 29540 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("eieio-core" include nil nil [1922 1943])
+            ("cl-generic" include nil nil [1944 1965])
+            ("put" code nil nil [1967 2047])
+            ("eieio--defalias" function (:arguments ("name" "body")) nil [2100 2618])
+            ("defgeneric" function (:arguments ("method" "args" "doc-string")) nil [2635 3342])
+            ("defmethod" function (:arguments ("method" "args")) nil [3359 5452])
+            ("eieio--generic-static-symbol-specializers" function (:arguments ("tag" "_")) nil [5454 5849])
+            ("cl-generic-define-generalizer" code nil nil [5851 6180])
+            ("cl-generic-define-generalizer" code nil nil [6181 6877])
+            ("cl-defmethod" code nil nil [6879 7054])
+            ("eieio--defgeneric-init-form" function (:arguments ("method" "doc-string")) nil [7071 7443])
+            ("eieio--defmethod" function (:arguments ("method" "kind" "argclass" "code")) nil [7460 10210])
+            ("push" code nil nil [10291 10368])
+            ("generic-p" function (:arguments ("fname")) nil [10370 10428])
+            ("no-next-method" function (:arguments ("args")) nil [10430 10561])
+            ("no-applicable-method" function (:arguments ("object" "method" "args")) nil [10563 10727])
+            ("define-obsolete-function-alias" code nil nil [10729 10807])
+            ("next-method-p" function nil nil [10808 11045])
+            ("eieio-defmethod" function (:arguments ("method" "args")) nil [11062 11255])
+            ("eieio-defgeneric" function (:arguments ("method" "doc-string")) nil [11272 11529])
+            ("eieio-defclass" function (:arguments ("cname" "superclasses" "slots" "options")) nil [11546 11716])
+            ("eieio-compat" package nil nil [11796 11819]))          
+      :file "eieio-compat.el"
+      :pointmax 11851
+      :fsize 11850
+      :lastmodtime '(23525 29540 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :file "eieio-core.el"
+      :fsize 43815
+      :lastmodtime '(23525 29541 0 0))
+    (semanticdb-table "semanticdb-table"
+      :file "cl-generic.el"
+      :fsize 57837
+      :lastmodtime '(23525 29539 0 0)))
+  :file "!drive_c!Program Files!Emacs 26.1!share!emacs!26.1!lisp!emacs-lisp!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

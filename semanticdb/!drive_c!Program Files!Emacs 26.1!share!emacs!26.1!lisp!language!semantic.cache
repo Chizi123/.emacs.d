@@ -1,0 +1,66 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("define-coding-system" code nil nil [1278 1632])
+            ("define-coding-system-alias" code nil nil [1634 1697])
+            ("set-language-info-alist" code nil nil [1699 1987])
+            ("set-language-info-alist" code nil nil [1989 2289])
+            ("set-language-info-alist" code nil nil [2291 2564])
+            ("set-language-info-alist" code nil nil [2566 2842])
+            ("set-language-info-alist" code nil nil [2844 3148])
+            ("set-language-info-alist" code nil nil [3150 3405])
+            ("set-language-info-alist" code nil nil [3407 3669])
+            ("set-language-info-alist" code nil nil [3671 3996])
+            ("set-language-info-alist" code nil nil [3998 4281])
+            ("indian-compose-regexp" function (:arguments ("regexp" "table")) nil [4410 4601])
+            ("devanagari-composable-pattern" variable
+               (:constant-flag t
+                :default-value (let ((table (quote (("a" . "[ऀ-ं]") ("A" . "ः") ("V" . "[ऄ-औॠ-ॡॲ]") ("C" . "[क-हक़-य़ॹ-ॿ]") ("R" . "र") ("n" . "़") ("v" . "[ा-ौॎॕॢ-ॣ]") ("H" . "्") ("s" . "[॑-॒]") ("t" . "[॓-॔]") ("N" . "‌") ("J" . "‍") ("X" . "[ऀ-ॿ]"))))) (indian-compose-regexp (concat "\\(?:RH\\)?Vn?\\(?:J?HR\\)?v*n?a?s?t?A?\\|" "Cn?\\(?:J?HJ?Cn?\\)*\\(?:H[NJ]?\\|v*n?a?s?t?A?\\)\\|" "JHR\\|" "X") table)))
+                nil [4603 5663])
+            ("bengali-composable-pattern" variable
+               (:constant-flag t
+                :default-value (let ((table (quote (("a" . "ঁ") ("A" . "[ং-ঃ]") ("V" . "[অ-ঔৠ-ৡ]") ("C" . "[ক-হড়-য়ৱ]") ("B" . "[বয-রৰ]") ("R" . "[রৰ]") ("n" . "়") ("v" . "[া-ৌৗৢ-ৣ]") ("H" . "্") ("T" . "ৎ") ("N" . "‌") ("J" . "‍") ("X" . "[ঀ-৿]"))))) (indian-compose-regexp (concat "\\(?:RH\\)?Vn?\\(?:J?HB\\)?v*n?a?A?\\|" "Cn?\\(?:J?HJ?Cn?\\)*\\(?:H[NJ]?\\|v*[NJ]?v?a?A?\\)\\|" "\\(?:RH\\)?T\\|" "JHB\\|" "X") table)))
+                nil [5665 6790])
+            ("gurmukhi-composable-pattern" variable
+               (:constant-flag t
+                :default-value (let ((table (quote (("a" . "[ਁ-ਂੰ]") ("A" . "ਃ") ("V" . "[ਅ-ਔ]") ("C" . "[ਕ-ਹਖ਼-ਫ਼]") ("Y" . "[ਯ-u0A30ਵਹ]") ("n" . "਼") ("v" . "[ਾ-ੌ]") ("H" . "੍") ("N" . "‌") ("J" . "‍") ("X" . "[਀-੿]"))))) (indian-compose-regexp (concat "Cn?\\(?:J?HJ?Cn?\\)*\\(?:H[NJ]?\\|v*n?a?A?\\)\\|" "Vn?\\(?:J?HY\\)?v*n?a?A?\\|" "JHY\\|" "X") table)))
+                nil [6792 7726])
+            ("gujarati-composable-pattern" variable
+               (:constant-flag t
+                :default-value (let ((table (quote (("a" . "[ઁ-ં]") ("A" . "ઃ") ("V" . "[અ-ઔૠ-ૡ]") ("C" . "[ક-હ]") ("R" . "ર") ("n" . "઼") ("v" . "[ા-ૌૢ-ૣ]") ("H" . "્") ("N" . "‌") ("J" . "‍") ("X" . "[઀-૿]"))))) (indian-compose-regexp (concat "\\(?:RH\\)?Vn?\\(?:J?HR\\)?v*n?a?A?\\|" "Cn?\\(?:J?HJ?Cn?\\)*\\(?:H[NJ]?\\|v*n?a?A?\\)\\|" "JHR\\|" "X") table)))
+                nil [7728 8646])
+            ("oriya-composable-pattern" variable
+               (:constant-flag t
+                :default-value (let ((table (quote (("a" . "ଁ") ("A" . "[ଂ-ଃ]") ("V" . "[ଅ-ଔୠ-ୡ]") ("C" . "[କ-ହଡ଼-ଢ଼ୱ]") ("B" . "[କ-ଗଛ-ଝଟ-ଡଣ-ତଧ-ରଲ-ଵସ-ହ]") ("R" . "ର") ("n" . "଼") ("v" . "[ା-ୌୖ-ୗୢ-ୣ]") ("H" . "୍") ("N" . "‌") ("J" . "‍") ("X" . "[଀-୿]"))))) (indian-compose-regexp (concat "\\(?:RH\\)?Vn?\\(?:J?HB\\)?v*n?a?A?\\|" "Cn?\\(?:J?HJ?Cn?\\)*\\(?:H[NJ]?\\|v*n?a?A?\\)\\|" "JHB\\|" "X") table)))
+                nil [8648 9728])
+            ("tamil-composable-pattern" variable
+               (:constant-flag t
+                :default-value (let ((table (quote (("a" . "ஂ") ("V" . "[அ-ஔ]") ("C" . "[க-ஹ]") ("v" . "[ா-ௌௗ]") ("H" . "்") ("N" . "‌") ("J" . "‍") ("X" . "[஀-௿]"))))) (indian-compose-regexp (concat "C\\(?:J?HJ?C\\)*\\(?:H[NJ]?\\|v*a?\\)\\|" "Vv*a?\\|" "X") table)))
+                nil [9730 10416])
+            ("telugu-composable-pattern" variable
+               (:constant-flag t
+                :default-value (let ((table (quote (("a" . "[ఁ-ః]") ("V" . "[అ-ఔౠ-ౡ]") ("C" . "[క-హౘ-ౙ]") ("v" . "[ా-ౌౕ-ౖౢ-ౣ]") ("H" . "్") ("N" . "‌") ("J" . "‍") ("X" . "[ఀ-౿]"))))) (indian-compose-regexp (concat "C\\(?:J?HJ?C\\)*\\(?:H[NJ]?\\|v*a?\\)\\|" "V\\(?:J?HC\\)?v*a?\\|" "JHC\\|" "X") table)))
+                nil [10418 11238])
+            ("kannada-composable-pattern" variable
+               (:constant-flag t
+                :default-value (let ((table (quote (("A" . "[ಂ-ಃ]") ("V" . "[ಅ-ಔೠ-ೡ]") ("C" . "[ಕ-ಹೞ]") ("R" . "ರ") ("n" . "಼") ("v" . "[ಾ-ೌೕ-ೖೢ-ೣ]") ("H" . "್") ("N" . "‌") ("J" . "‍") ("X" . "[ಀ-೿]"))))) (indian-compose-regexp (concat "\\(?:RH\\)?Vn?\\(?:J?HC\\)?v?A?\\|" "Cn?\\(?:J?HJ?Cn?\\)*\\(?:H[NJ]?\\|v*n?A?\\)\\|" "JHC\\|" "X") table)))
+                nil [11240 12130])
+            ("malayalam-composable-pattern" variable
+               (:constant-flag t
+                :default-value (let ((table (quote (("A" . "[ം-ഃ]") ("V" . "[അ-ഔൠ-ൡ]") ("C" . "[ക-ഹ]") ("Y" . "[യ-രലവ]") ("v" . "[ാ-ൌൗൢ-ൣ]") ("H" . "്") ("N" . "‌") ("J" . "‍") ("X" . "[ഀ-ൿ]"))))) (indian-compose-regexp (concat "C\\(?:J?HJ?C\\)*\\(?:H[NJ]?\\|v?A?\\)\\|" "V\\(?:J?HY\\)?v*?A?\\|" "JHY\\|" "X") table)))
+                nil [12132 13020])
+            ("let" code nil nil [13022 13693])
+            ("indian" package nil nil [13695 13712]))          
+      :file "indian.el"
+      :pointmax 13738
+      :fsize 13761
+      :lastmodtime '(23525 29562 0 0)
+      :unmatched-syntax nil))
+  :file "!drive_c!Program Files!Emacs 26.1!share!emacs!26.1!lisp!language!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,103 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("diff-hl" include nil nil [979 997])
+            ("define-minor-mode" code nil nil [1014 1596])
+            ("diff-hl-amend-setup" function nil nil [1598 1943])
+            ("define-globalized-minor-mode" code nil nil [1960 2064])
+            ("turn-on-diff-hl-amend-mode" function nil nil [2066 2212])
+            ("diff-hl-amend" package nil nil [2214 2238]))          
+      :file "diff-hl-amend.el"
+      :pointmax 2271
+      :fsize 2270
+      :lastmodtime '(23534 42821 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("fringe" include nil nil [1733 1750])
+            ("diff-mode" include nil nil [1751 1771])
+            ("vc" include nil nil [1772 1785])
+            ("vc-dir" include nil nil [1786 1803])
+            ("declare-function" code nil nil [1908 1956])
+            ("face-remap" include nil nil [1884 1905])
+            ("vc-hg" include nil nil [1865 1881])
+            ("vc-git" include nil nil [1845 1862])
+            ("cl-lib" include nil nil [1825 1842])
+            ("diff-hl" customgroup (:user-visible-flag t) nil [1959 2043])
+            ("diff-hl-insert" variable
+               (:default-value (quote ((default :inherit diff-added) (((class color)) :foreground "green4")))
+                :type "face")
+                nil [2045 2208])
+            ("diff-hl-delete" variable
+               (:default-value (quote ((default :inherit diff-removed) (((class color)) :foreground "red3")))
+                :type "face")
+                nil [2210 2372])
+            ("diff-hl-change" variable
+               (:default-value (quote ((default :foreground "blue3") (((class color) (min-colors 88) (background light)) :background "#ddddff") (((class color) (min-colors 88) (background dark)) :background "#333355")))
+                :type "face")
+                nil [2374 2660])
+            ("diff-hl-command-prefix" variable (:default-value (kbd "C-x v")) nil [2662 2787])
+            ("diff-hl-draw-borders" variable (:default-value t) nil [2789 2912])
+            ("diff-hl-highlight-function" variable (:default-value (quote diff-hl-highlight-on-fringe)) nil [2914 3130])
+            ("diff-hl-fringe-bmp-function" variable (:default-value (quote diff-hl-fringe-bmp-from-pos)) nil [3132 3477])
+            ("diff-hl-fringe-face-function" variable (:default-value (quote diff-hl-fringe-face-from-type)) nil [3479 3709])
+            ("diff-hl-side" variable (:default-value (quote left)) nil [3711 4056])
+            ("diff-hl-reference-revision" variable nil nil [4058 4159])
+            ("diff-hl-define-bitmaps" function nil nil [4161 6102])
+            ("diff-hl-maybe-define-bitmaps" function nil nil [6104 6343])
+            ("diff-hl-spec-cache" variable (:default-value (make-hash-table :test (quote equal))) nil [6345 6403])
+            ("diff-hl-fringe-spec" function (:arguments ("type" "pos" "side")) nil [6405 6996])
+            ("diff-hl-fringe-face-from-type" function (:arguments ("type" "_pos")) nil [6998 7085])
+            ("diff-hl-fringe-bmp-from-pos" function (:arguments ("_type" "pos")) nil [7087 7175])
+            ("diff-hl-fringe-bmp-from-type" function (:arguments ("type" "_pos")) nil [7177 7379])
+            ("vc-svn-diff-switches" variable nil nil [7381 7410])
+            ("diff-hl-with-diff-switches" function (:arguments ("body")) nil [7412 8145])
+            ("diff-hl-modified-p" function (:arguments ("state")) nil [8147 8435])
+            ("diff-hl-changes-buffer" function (:arguments ("file" "backend")) nil [8437 8696])
+            ("diff-hl-changes" function nil nil [8698 10224])
+            ("diff-hl-update" function nil nil [10226 11486])
+            ("diff-hl-add-highlighting" function (:arguments ("type" "shape")) nil [11488 11669])
+            ("diff-hl-highlight-on-fringe" function (:arguments ("ovl" "type" "shape")) nil [11671 11859])
+            ("diff-hl-remove-overlays" function (:arguments ("beg" "end")) nil [11861 12075])
+            ("diff-hl-overlay-modified" function (:arguments ("ov" "after-p" "_beg" "_end" "_length")) nil [12077 12359])
+            ("diff-hl-timer" variable nil nil [12361 12387])
+            ("diff-hl-edit" function (:arguments ("_beg" "_end" "_len")) nil [12389 12680])
+            ("diff-hl-after-undo" function (:arguments ("buffer")) nil [12682 12804])
+            ("diff-hl-diff-goto-hunk" function (:user-visible-flag t) nil [12806 13354])
+            ("diff-hl-diff-skip-to" function (:arguments ("line")) nil [13356 14190])
+            ("diff-hl-revert-hunk" function (:user-visible-flag t) nil [14192 16282])
+            ("diff-hl-hunk-overlay-at" function (:arguments ("pos")) nil [16284 16435])
+            ("diff-hl-next-hunk" function
+               (:user-visible-flag t
+                :arguments ("backward"))
+                nil [16437 17128])
+            ("diff-hl-previous-hunk" function (:user-visible-flag t) nil [17130 17270])
+            ("diff-hl-mark-hunk" function nil nil [17272 17501])
+            ("diff-hl-command-map" variable (:default-value (let ((map (make-sparse-keymap))) (define-key map "n" (quote diff-hl-revert-hunk)) (define-key map "[" (quote diff-hl-previous-hunk)) (define-key map "]" (quote diff-hl-next-hunk)) map)) nil [17503 17714])
+            ("fset" code nil nil [17715 17762])
+            ("diff-hl-lighter" variable nil nil [17764 17904])
+            ("define-minor-mode" code nil nil [17921 20170])
+            ("when" code nil nil [20172 20698])
+            ("declare-function" code nil nil [20700 20745])
+            ("declare-function" code nil nil [20746 20797])
+            ("diff-hl-magit-post-refresh" function nil nil [20799 22066])
+            ("diff-hl-dir-update" function nil nil [22068 22445])
+            ("define-minor-mode" code nil nil [22447 22701])
+            ("turn-on-diff-hl-mode" function nil nil [22718 22937])
+            ("define-globalized-minor-mode" code nil nil [22954 23081])
+            ("diff-hl-global-mode-change" function nil nil [23083 23280])
+            ("diff-hl" package nil nil [23282 23300]))          
+      :file "diff-hl.el"
+      :pointmax 23327
+      :fsize 23326
+      :lastmodtime '(23534 42821 0 0)
+      :unmatched-syntax '((close-paren 1956 . 1957) (symbol 1805 . 1822) (open-paren 1804 . 1805))))
+  :file "!drive_c!Users!joelg!.emacs.d!elpa!diff-hl-20180201.1155!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

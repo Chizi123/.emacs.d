@@ -1,0 +1,72 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("thingatpt" include nil nil [2323 2343])
+            ("browse-url-url-at-point" function (:prototype-flag t) nil [2344 2392])
+            ("unless" code nil nil [2437 2489])
+            ("unless" code nil nil [2490 2585])
+            ("unless" code nil nil [2586 2669])
+            ("unless" code nil nil [2670 2771])
+            ("goto-address" customgroup (:user-visible-flag t) nil [2773 2885])
+            ("goto-address-fontify-p" variable (:default-value t) nil [2954 3155])
+            ("goto-address-highlight-p" variable (:default-value t) nil [3157 3306])
+            ("goto-address-fontify-maximum-size" variable (:default-value 30000) nil [3308 3594])
+            ("goto-address-mail-regexp" variable (:default-value "[-a-zA-Z0-9=._+]+@\\([-a-zA-z0-9_]+\\.\\)+[a-zA-Z0-9]+") nil [3596 3827])
+            ("goto-address-url-regexp" variable (:default-value (concat "\\<\\(" (mapconcat (quote identity) (delete "mailto:" (delete "data:" (copy-sequence thing-at-point-uri-schemes))) "\\|") "\\)" thing-at-point-url-path-regexp)) nil [3829 4541])
+            ("goto-address-highlight-keymap" variable (:default-value (let ((m (make-sparse-keymap))) (define-key m (if (featurep (quote xemacs)) (kbd "<button2>") (kbd "<mouse-2>")) (quote goto-address-at-point)) (define-key m (kbd "C-c RET") (quote goto-address-at-point)) m)) nil [4543 4858])
+            ("goto-address-url-face" variable (:default-value (quote link)) nil [4860 4962])
+            ("goto-address-url-mouse-face" variable (:default-value (quote highlight)) nil [4964 5103])
+            ("goto-address-mail-face" variable (:default-value (quote italic)) nil [5105 5222])
+            ("goto-address-mail-mouse-face" variable (:default-value (quote secondary-selection)) nil [5224 5386])
+            ("goto-address-unfontify" function (:arguments ("start" "end")) nil [5388 5609])
+            ("goto-address-prog-mode" variable nil nil [5611 5642])
+            ("goto-address-fontify" function (:arguments ("start" "end")) nil [5644 7858])
+            ("goto-address-fontify-region" function (:arguments ("start" "end")) nil [7860 8172])
+            ("define-obsolete-function-alias" code nil nil [8288 8375])
+            ("goto-address-at-point" function
+               (:user-visible-flag t
+                :arguments ("event"))
+                nil [8392 9209])
+            ("goto-address-find-address-at-point" function nil nil [9211 9725])
+            ("goto-address" function (:user-visible-flag t) nil [9742 10227])
+            ("define-minor-mode" code nil nil [10306 10820])
+            ("define-minor-mode" code nil nil [10837 11195])
+            ("goto-addr" package nil nil [11197 11217]))          
+      :file "goto-addr.el"
+      :pointmax 11246
+      :fsize 11245
+      :lastmodtime '(23525 29575 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl-lib" include nil nil [1385 1402])
+            ("gnutls" customgroup (:user-visible-flag t) nil [1404 1521])
+            ("gnutls-algorithm-priority" variable nil nil [1523 1792])
+            ("gnutls-verify-error" variable nil nil [1794 3095])
+            ("gnutls-trustfiles" variable (:default-value (quote ("/etc/ssl/certs/ca-certificates.crt" "/etc/pki/tls/certs/ca-bundle.crt" "/etc/ssl/ca-bundle.pem" "/usr/ssl/certs/ca-bundle.crt" "/usr/local/share/certs/ca-root-nss.crt" "/etc/ssl/cert.pem"))) nil [3097 3862])
+            ("gnutls-min-prime-bits" variable (:default-value 256) nil [3879 4538])
+            ("open-gnutls-stream" function (:arguments ("name" "buffer" "host" "service" "nowait")) nil [4540 6485])
+            ("define-error" code nil nil [6487 6530])
+            ("declare-function" code nil nil [6532 6594])
+            ("declare-function" code nil nil [6595 6646])
+            ("gnutls-log-level" variable nil nil [6647 6672])
+            ("cl-defun" code nil nil [6699 8264])
+            ("cl-defun" code nil nil [8266 12866])
+            ("gnutls-trustfiles" function nil nil [12868 13142])
+            ("declare-function" code nil nil [13144 13201])
+            ("gnutls-message-maybe" function (:arguments ("doit" "format" "params")) nil [13203 13579])
+            ("gnutls" package nil nil [13581 13598]))          
+      :file "gnutls.el"
+      :pointmax 13624
+      :fsize 13623
+      :lastmodtime '(23525 29575 0 0)
+      :unmatched-syntax nil))
+  :file "!drive_c!Program Files!Emacs 26.1!share!emacs!26.1!lisp!net!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

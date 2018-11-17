@@ -1,0 +1,16 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags nil
+      :file "zenburn-theme-autoloads.el"
+      :pointmax 365
+      :fsize 995
+      :lastmodtime '(23536 531 0 0)
+      :unmatched-syntax nil))
+  :file "!drive_c!Users!joelg!.emacs.d!elpa!zenburn-theme-20181014.1555!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

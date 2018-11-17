@@ -1,0 +1,38 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("url" include nil nil [859 873])
+            ("url-cache" include nil nil [874 894])
+            ("image" include nil nil [895 911])
+            ("gravatar" customgroup (:user-visible-flag t) nil [913 983])
+            ("gravatar-automatic-caching" variable (:default-value t) nil [985 1103])
+            ("gravatar-cache-ttl" variable (:default-value (days-to-time 30)) nil [1175 1313])
+            ("gravatar-rating" variable (:default-value "g") nil [1368 1467])
+            ("gravatar-size" variable (:default-value 32) nil [1469 1575])
+            ("gravatar-base-url" variable
+               (:constant-flag t
+                :default-value "http://www.gravatar.com/avatar")
+                nil [1577 1676])
+            ("gravatar-hash" function (:arguments ("mail-address")) nil [1678 1783])
+            ("gravatar-build-url" function (:arguments ("mail-address")) nil [1785 2030])
+            ("gravatar-cache-expired" function (:arguments ("url")) nil [2032 2485])
+            ("gravatar-get-data" function nil nil [2487 2760])
+            ("gravatar-data->image" function nil nil [2762 2974])
+            ("help-function-arglist" function (:prototype-flag t) nil [2976 3020])
+            ("gravatar-retrieve" function (:arguments ("mail-address" "cb" "cbargs")) nil [3037 3854])
+            ("gravatar-retrieve-synchronously" function (:arguments ("mail-address")) nil [3871 4473])
+            ("gravatar-retrieved" function (:arguments ("status" "cb" "cbargs")) nil [4476 4848])
+            ("gravatar" package nil nil [4850 4869]))          
+      :file "gravatar.el"
+      :pointmax 4897
+      :fsize 4896
+      :lastmodtime '(23525 29558 0 0)
+      :unmatched-syntax nil))
+  :file "!drive_c!Program Files!Emacs 26.1!share!emacs!26.1!lisp!image!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,60 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("mode-local" include nil nil [998 1019])
+            ("srecode" include nil nil [1020 1038])
+            ("srecode/insert" include nil nil [1039 1064])
+            ("srecode/find" include nil nil [1065 1088])
+            ("srecode/map" include nil nil [1089 1111])
+            ("semantic/decorate" include nil nil [1112 1140])
+            ("semantic/wisent" include nil nil [1141 1167])
+            ("semantic/senator" include nil nil [1168 1195])
+            ("semantic/wisent" include nil nil [1196 1222])
+            ("semantic/find" include nil nil [1245 1269])
+            ("srecode-minor-mode-hook" variable nil nil [1283 1416])
+            ("srecode-prefix-key" variable (:default-value [(control 99) 47]) nil [1539 1633])
+            ("srecode-prefix-map" variable (:default-value (let ((km (make-sparse-keymap))) (define-key km "/" (quote srecode-insert)) (define-key km [insert] (quote srecode-insert)) (define-key km "." (quote srecode-insert-again)) (define-key km "E" (quote srecode-edit)) (let ((k 97)) (while (<= k 122) (define-key km (format "%c" k) (quote srecode-bind-insert)) (setq k (1+ k)))) km)) nil [1635 2118])
+            ("srecode-menu-bar" variable (:default-value (list "SRecoder" (semantic-menu-item ["Insert Template" srecode-insert :active t :help "Insert a template by name."]) (semantic-menu-item ["Insert Template Again" srecode-insert-again :active t :help "Run the same template as last time again."]) (semantic-menu-item ["Edit Template" srecode-edit :active t :help "Edit a template for this language by name."]) "---" (quote ("Insert ..." :filter srecode-minor-mode-templates-menu)) (\` ("Generate ..." :filter srecode-minor-mode-generate-menu)) "---" (semantic-menu-item ["Customize..." (customize-group "srecode") :active t :help "Customize SRecode options"]) (list "Debugging Tools..." (semantic-menu-item ["Dump Template MAP" srecode-get-maps :active t :help "Calculate (if needed) and display the current template file map."]) (semantic-menu-item ["Dump Tables" srecode-dump-templates :active t :help "Dump the current template table."]) (semantic-menu-item ["Dump Dictionary" srecode-dictionary-dump :active t :help "Calculate and dump a dictionary for point."]) (semantic-menu-item ["Show Macro Help" srecode-macro-help :active t :help "Display the different types of macros available."])))) nil [2120 3603])
+            ("srecode-minor-menu" variable nil nil [3605 3683])
+            ("srecode-takeover-INS-key" variable nil nil [3685 3808])
+            ("srecode-mode-map" variable (:default-value (let ((km (make-sparse-keymap))) (define-key km srecode-prefix-key srecode-prefix-map) (easy-menu-define srecode-minor-menu km "Srecode Minor Mode Menu" srecode-menu-bar) (when srecode-takeover-INS-key (define-key km [insert] srecode-prefix-map)) km)) nil [3810 4167])
+            ("define-minor-mode" code nil nil [4184 5106])
+            ("define-minor-mode" code nil nil [5123 5480])
+            ("semantic-add-minor-mode" code nil nil [5526 5574])
+            ("srecode-minor-mode-templates-menu" function (:arguments ("menu-def")) nil [5596 7605])
+            ("srecode-minor-mode-generators" variable nil nil [7607 7715])
+            ("srecode-minor-mode-generate-menu" function (:arguments ("menu-def")) nil [7717 8324])
+            ("srecode-bind-insert" function (:user-visible-flag t) nil [8353 8895])
+            ("srecode-edit" function
+               (:user-visible-flag t
+                :arguments ("template-name"))
+                nil [8897 10446])
+            ("srecode-add-code-generator" function (:arguments ("function" "name" "binding")) nil [10448 12192])
+            ("srecode-add-code-generator" code nil nil [12226 12302])
+            ("srecode-add-code-generator" code nil nil [12303 12368])
+            ("srecode/mode" package nil nil [12370 12393]))          
+      :file "mode.el"
+      :pointmax 12544
+      :fsize 12543
+      :lastmodtime '(23525 29537 0 0)
+      :unmatched-syntax '((close-paren 1269 . 1270) (symbol 1225 . 1242) (open-paren 1224 . 1225)))
+    (semanticdb-table "semanticdb-table"
+      :file "insert.el"
+      :fsize 39156
+      :lastmodtime '(23525 29537 0 0))
+    (semanticdb-table "semanticdb-table"
+      :file "find.el"
+      :fsize 10440
+      :lastmodtime '(23525 29537 0 0))
+    (semanticdb-table "semanticdb-table"
+      :file "map.el"
+      :fsize 13549
+      :lastmodtime '(23525 29537 0 0)))
+  :file "!drive_c!Program Files!Emacs 26.1!share!emacs!26.1!lisp!cedet!srecode!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

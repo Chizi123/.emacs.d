@@ -1,0 +1,22 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("setup-environment" package nil nil [1 29])
+            ("setq" code nil nil [31 62])
+            ("setq" code nil nil [64 240])
+            ("winner-mode" code nil nil [242 257])
+            ("column-number-mode" code nil nil [259 281])
+            ("load-theme" code nil nil [283 306]))          
+      :file "setup-environment.el"
+      :pointmax 307
+      :fsize 319
+      :lastmodtime '(23536 746 0 0)
+      :unmatched-syntax nil))
+  :file "!drive_c!Users!joelg!.emacs.d!custom!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")
