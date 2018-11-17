@@ -12,3 +12,10 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (load-theme 'zenburn t)
+
+;; remove backup files
+(when (eq system-type 'windows-nt)
+  (defadvice backup-buffer (after my-backup-make-hidden activate)
+    (let ((backup-file-name (make-backup-file-name (buffer-file-name))))
+      (when (file-exists-p backup-file-name)
+	(call-process "attrib.exe" nil nil nil "+I" "+H" backup-file-name)))))
