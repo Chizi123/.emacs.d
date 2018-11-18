@@ -114,7 +114,9 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (add-to-list 'company-backends 'company-c-headers)
 (setq company-backends (delete 'company-semantic company-backends))
-;; (define-key c-mode-base-map  [(tab)] 'company-complete)
+(add-hook 'c-mode-common-hook
+	  (lambda ()
+	    (define-key c-mode-base-map  [(tab)] 'company-complete)))
 ;; (define-key c++-mode-map  [(tab)] 'company-complete)
 
 ;; ibuffer-vc config
@@ -208,6 +210,13 @@
 (setq x86-lookup-pdf "D:/Coding/x86-8664 reference.pdf")
 (global-set-key (kbd "C-h x") #'x86-lookup)
 
+;; org-bullets
+(require 'org-bullets)
+(add-hook 'org-mode-hook 'org-bullets-mode)
+
+;; golden ratio
+(require 'golden-ratio)
+(golden-ratio-mode 1)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -216,7 +225,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (x86-lookup ztree yasnippet workgroups2 volatile-highlights undo-tree srefactor smartparens nyan-mode magit ibuffer-vc helm-projectile guide-key ggtags flycheck-tip flycheck-pos-tip diff-hl company-c-headers clean-aindent-mode))))
+    (org org-bullets x86-lookup ztree yasnippet workgroups2 volatile-highlights undo-tree srefactor smartparens nyan-mode magit ibuffer-vc helm-projectile guide-key ggtags flycheck-tip flycheck-pos-tip diff-hl company-c-headers clean-aindent-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
