@@ -21,12 +21,66 @@
       :major-mode emacs-lisp-mode
       :tags 
         '( ("setup-files" package nil nil [1 23])
-            ("when" code nil nil [40 108]))          
+            ("when" code nil nil [40 108])
+            ("setq" code nil nil [109 141]))          
       :file "setup-files.el"
-      :pointmax 109
-      :fsize 113
-      :lastmodtime '(23537 8854 0 0)
-      :unmatched-syntax nil))
+      :pointmax 142
+      :fsize 147
+      :lastmodtime '(23537 11060 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("setup-external" package nil nil [1 26]))          
+      :file "setup-external.el"
+      :pointmax 27
+      :fsize 27
+      :lastmodtime '(23534 46723 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :file "setup-applications.el"
+      :fsize 1050
+      :lastmodtime '(23535 15277 0 0))
+    (semanticdb-table "semanticdb-table"
+      :file "setup-communication.el"
+      :fsize 32
+      :lastmodtime '(23534 46818 0 0))
+    (semanticdb-table "semanticdb-table"
+      :file "setup-convenience.el"
+      :fsize 2253
+      :lastmodtime '(23535 16050 0 0))
+    (semanticdb-table "semanticdb-table"
+      :file "setup-data.el"
+      :fsize 23
+      :lastmodtime '(23534 46591 0 0))
+    (semanticdb-table "semanticdb-table"
+      :file "setup-development.el"
+      :fsize 302
+      :lastmodtime '(23534 43396 0 0))
+    (semanticdb-table "semanticdb-table"
+      :file "setup-editing.el"
+      :fsize 8276
+      :lastmodtime '(23534 46502 0 0))
+    (semanticdb-table "semanticdb-table"
+      :file "setup-faces.el"
+      :fsize 24
+      :lastmodtime '(23534 46722 0 0))
+    (semanticdb-table "semanticdb-table"
+      :file "setup-help.el"
+      :fsize 23
+      :lastmodtime '(23534 46722 0 0))
+    (semanticdb-table "semanticdb-table"
+      :file "setup-programming.el"
+      :fsize 32
+      :lastmodtime '(23534 46110 0 0))
+    (semanticdb-table "semanticdb-table"
+      :file "setup-text.el"
+      :fsize 23
+      :lastmodtime '(23534 46746 0 0))
+    (semanticdb-table "semanticdb-table"
+      :file "setup-local.el"
+      :fsize 24
+      :lastmodtime '(23534 46721 0 0)))
   :file "!drive_c!Users!joelg!.emacs.d!custom!semantic.cache"
   :semantic-tag-version "2.0"
   :semanticdb-version "2.2")

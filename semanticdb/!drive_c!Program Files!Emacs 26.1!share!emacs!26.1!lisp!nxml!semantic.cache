@@ -1,0 +1,132 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("xmltok-type" variable nil nil [3998 4022])
+            ("xmltok-start" variable nil nil [4023 4048])
+            ("xmltok-name-colon" variable nil nil [4049 4079])
+            ("xmltok-name-end" variable nil nil [4080 4108])
+            ("xmltok-replacement" variable nil nil [4109 4211])
+            ("xmltok-attributes" variable nil nil [4213 4623])
+            ("xmltok-namespace-attributes" variable nil nil [4625 4778])
+            ("xmltok-dtd" variable nil nil [4780 6027])
+            ("xmltok-errors" variable nil nil [6030 6434])
+            ("xmltok-save" function (:arguments ("body")) nil [6436 6679])
+            ("xmltok-attribute-name-start" function (:arguments ("att")) nil [6681 6740])
+            ("xmltok-attribute-name-colon" function (:arguments ("att")) nil [6742 6801])
+            ("xmltok-attribute-name-end" function (:arguments ("att")) nil [6803 6860])
+            ("xmltok-attribute-value-start" function (:arguments ("att")) nil [6862 6922])
+            ("xmltok-attribute-value-end" function (:arguments ("att")) nil [6924 6982])
+            ("xmltok-attribute-raw-normalized-value" function (:arguments ("att")) nil [6984 7308])
+            ("xmltok-attribute-refs" function (:arguments ("att")) nil [7310 7643])
+            ("xmltok-attribute-prefix" function (:arguments ("att")) nil [7645 7831])
+            ("xmltok-attribute-local-name" function (:arguments ("att")) nil [7833 8074])
+            ("xmltok-attribute-value" function (:arguments ("att")) nil [8076 8330])
+            ("xmltok-start-tag-prefix" function nil nil [8332 8479])
+            ("xmltok-start-tag-local-name" function nil nil [8481 8624])
+            ("xmltok-end-tag-prefix" function nil nil [8626 8772])
+            ("xmltok-end-tag-local-name" function nil nil [8774 8950])
+            ("xmltok-start-tag-qname" function nil nil [8952 9055])
+            ("xmltok-end-tag-qname" function nil nil [9057 9158])
+            ("xmltok-make-attribute" function (:arguments ("name-begin" "name-colon" "name-end" "value-begin" "value-end" "raw-normalized-value")) nil [9160 9611])
+            ("xmltok-error-message" function (:arguments ("err")) nil [9613 9665])
+            ("xmltok-error-start" function (:arguments ("err")) nil [9667 9717])
+            ("xmltok-error-end" function (:arguments ("err")) nil [9719 9767])
+            ("xmltok-make-error" function (:arguments ("message" "start" "end")) nil [9769 9846])
+            ("xmltok-add-error" function (:arguments ("message" "start" "end")) nil [9848 10056])
+            ("xmltok-forward" function nil nil [10058 11143])
+            ("xmltok+" function (:arguments ("args")) nil [11497 11839])
+            ("xmltok-r" function (:arguments ("str")) nil [11392 11433])
+            ("xmltok-defregexp" function (:arguments ("sym" "r")) nil [13062 13751])
+            ("xmltok-get-index" function (:arguments ("elem" "list")) nil [12378 12707])
+            ("xmltok-p" function (:arguments ("r")) nil [12232 12319])
+            ("xmltok-g" function (:arguments ("name" "r")) nil [11975 12228])
+            ("let*" code nil nil [13776 19784])
+            ("xmltok-ncname-regexp" variable
+               (:constant-flag t
+                :default-value (xmltok-ncname regexp))
+                nil [19787 19841])
+            ("xmltok-scan-after-lt" function nil nil [19843 23640])
+            ("xmltok-scan-after-processing-instruction-open" function nil nil [23805 25014])
+            ("xmltok-scan-after-comment-open" function nil nil [25016 25250])
+            ("xmltok-scan-attributes" function nil nil [25252 27832])
+            ("xmltok-add-attribute" function nil nil [27834 28760])
+            ("xmltok-normalize-attribute" function (:arguments ("att")) nil [28762 30034])
+            ("xmltok-scan-after-amp" function (:arguments ("entity-handler")) nil [30036 31019])
+            ("xmltok-entity-error-messages" variable
+               (:constant-flag t
+                :default-value (quote ((unparsed . "Referenced entity is unparsed") (not-well-formed . "Referenced entity is not well-formed") (external nil . "Referenced entity is external") (element nil . "Referenced entity contains <"))))
+                nil [31021 31277])
+            ("xmltok-handle-entity" function (:arguments ("start" "end" "attributep")) nil [31279 32055])
+            ("xmltok-scan-char-ref" function (:arguments ("start" "end" "base")) nil [32057 32431])
+            ("xmltok-char-number" function (:arguments ("start" "end")) nil [32433 32719])
+            ("xmltok-valid-char-p" function (:arguments ("n")) nil [32721 32965])
+            ("xmltok-unicode-to-char" function (:arguments ("n")) nil [32967 33126])
+            ("xmltok-contains-doctype" variable nil nil [33148 33184])
+            ("xmltok-doctype-external-subset-flag" variable nil nil [33185 33233])
+            ("xmltok-internal-subset-start" variable nil nil [33234 33275])
+            ("xmltok-had-param-entity-ref" variable nil nil [33276 33316])
+            ("xmltok-prolog-regions" variable nil nil [33317 33351])
+            ("xmltok-standalone" variable nil nil [33352 33457])
+            ("xmltok-markup-declaration-doctype-flag" variable nil nil [33458 33509])
+            ("xmltok-predefined-entity-alist" variable
+               (:constant-flag t
+                :default-value (quote (("lt" "<" . "<") ("gt" ">" . ">") ("amp" "&" . "&") ("apos" "'" . "'") ("quot" "\"" . "\""))))
+                nil [33511 33665])
+            ("xmltok-forward-prolog" function nil nil [33667 35033])
+            ("xmltok-bad-xml-decl-regexp" variable
+               (:constant-flag t
+                :default-value "[ 	
+]*<\\?xml\\(?:[ 	
+]\\|\\?>\\)")
+                nil [35035 35118])
+            ("xmltok-get-declared-encoding-position" function (:arguments ("limit")) nil [35135 36213])
+            ("xmltok-scan-xml-declaration" function nil nil [36215 37963])
+            ("xmltok-markup-declaration-alist" variable
+               (:constant-flag t
+                :default-value (quote (("ELEMENT" . xmltok-parse-element-declaration) ("ATTLIST" . xmltok-parse-attlist-declaration) ("ENTITY" . xmltok-parse-entity-declaration) ("NOTATION" . xmltok-parse-notation-declaration))))
+                nil [37965 38212])
+            ("xmltok-parse-prolog-item" function nil nil [38214 40160])
+            ("xmltok-parse-doctype" function nil nil [40162 40990])
+            ("xmltok-parse-attlist-declaration" function nil nil [40992 41781])
+            ("xmltok-parse-nmtoken-group" function nil nil [41783 41963])
+            ("xmltok-parse-element-declaration" function nil nil [41965 42563])
+            ("xmltok-parse-model-group" function nil nil [42565 43060])
+            ("xmltok-parse-model-group-member" function nil nil [43062 43267])
+            ("xmltok-parse-entity-declaration" function nil nil [43269 44097])
+            ("xmltok-define-entity" function (:arguments ("name" "value")) nil [44099 44312])
+            ("xmltok-parse-entity-value" function nil nil [44314 45454])
+            ("xmltok-parse-notation-declaration" function nil nil [45456 45867])
+            ("xmltok-parse-external-id" function nil nil [45869 46148])
+            ("xmltok-require-next-token" function (:arguments ("types")) nil [46150 46264])
+            ("xmltok-require-token" function (:arguments ("types")) nil [46266 46893])
+            ("xmltok-current-token-string" function nil nil [46895 46989])
+            ("define-error" code nil nil [46991 47083])
+            ("xmltok-markup-declaration-parse-error" function nil nil [47085 47187])
+            ("xmltok-skip-markup-declaration" function nil nil [47189 47762])
+            ("xmltok-prolog-region-type" function (:arguments ("required")) nil [47764 48044])
+            ("xmltok-next-prolog-token" function nil nil [48073 51723])
+            ("xmltok-scan-prolog-literal" function nil nil [51725 52346])
+            ("xmltok-scan-prolog-after-processing-instruction-open" function nil nil [52348 54691])
+            ("xmltok-parse-entities" function nil nil [54693 55005])
+            ("xmltok-parse-entity" function (:arguments ("name-def")) nil [55007 55567])
+            ("xmltok-parse-entity-replacement" function nil nil [55569 57382])
+            ("xmltok-handle-nested-entity" function (:arguments ("start" "end")) nil [57384 57810])
+            ("xmltok-append-entity-def" function (:arguments ("d1" "d2")) nil [57812 58187])
+            ("xmltok-add-prolog-region" function (:arguments ("type" "start" "end")) nil [58189 58330])
+            ("xmltok-merge-attributes" function nil nil [58332 59291])
+            ("xmltok-forward-test" function nil nil [59306 59449])
+            ("xmltok-next-prolog-token-test" function nil nil [59451 59683])
+            ("xmltok" package nil nil [59685 59702]))          
+      :file "xmltok.el"
+      :pointmax 59728
+      :fsize 59727
+      :lastmodtime '(23525 29581 0 0)
+      :unmatched-syntax '((close-paren 19784 . 19785) (symbol 13756 . 13773) (open-paren 13755 . 13756) (close-paren 13751 . 13752) (symbol 11843 . 11860) (open-paren 11842 . 11843) (close-paren 11839 . 11840) (symbol 11146 . 11163) (open-paren 11145 . 11146))))
+  :file "!drive_c!Program Files!Emacs 26.1!share!emacs!26.1!lisp!nxml!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")
