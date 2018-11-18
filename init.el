@@ -38,15 +38,7 @@
 (package-initialize)
 
 ;; helm
-;; (require 'helm)
 (require 'helm-config)
-
-;; (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
-;; (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB work in terminal
-;; (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
-
-(when (executable-find "curl")
-  (setq helm-google-suggest-use-curl-p t))
 
 (setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
       helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
@@ -69,10 +61,6 @@
 (add-hook 'helm-minibuffer-set-up-hook
           'spacemacs//helm-hide-minibuffer-maybe)
 
-(setq helm-autoresize-max-height 0)
-(setq helm-autoresize-min-height 20)
-;; (helm-autoresize-mode 1)
-
 (global-set-key (kbd "M-x") 'helm-M-x)
 (setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
 
@@ -88,19 +76,19 @@
 
 (helm-mode 1)
 
-;; undo-tree config
+;; undo-tree
 (require 'undo-tree)
 (global-undo-tree-mode)
 
-;; volatile highlights config
+;; volatile highlights
 (require 'volatile-highlights)
 (volatile-highlights-mode t)
 
-;; yasnippet config
+;; yasnippet
 (require 'yasnippet)
 (yas-global-mode 1)
 
-;; ggtags config
+;; ggtags
 (require 'ggtags)
 (add-hook 'c-mode-common-hook
           (lambda
@@ -108,12 +96,13 @@
               (ggtags-mode 1))))
 (add-hook 'dired-mode-hook 'ggtags-mode)
 
-;; workgroups2 config
+;; workgroups2
 (require 'workgroups2)
 (workgroups-mode 1)
 
-;; smartparens config
+;; smartparens
 (require 'smartparens-config)
+(add-hook 'prog-mode-hook #'smartparens-mode)
 (setq sp-base-key-bindings 'paredit)
 (setq sp-autoskip-closing-pair 'always)
 (setq sp-hybrid-kill-entire-symbol nil)
@@ -212,21 +201,7 @@
 
 ;; guide-key
 (require 'guide-key)
-(setq guide-key/guide-key-sequence '("C-x" "C-c"))
+(setq guide-key/guide-key-sequence '("C-x" "C-c" "M-g"))
 (setq guide-key/recursive-key-sequence-flag t)
+(setq guide-key/popup-window-position 'bottom)
 (guide-key-mode 1)  ; Enable guide-key-mode
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (zenburn-theme guide-key ztree yasnippet workgroups2 volatile-highlights undo-tree srefactor smartparens nyan-mode magit ibuffer-vc helm-projectile ggtags flycheck-tip flycheck-pos-tip diff-hl company-c-headers clean-aindent-mode))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

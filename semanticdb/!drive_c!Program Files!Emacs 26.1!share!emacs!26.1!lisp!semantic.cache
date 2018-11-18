@@ -4347,7 +4347,210 @@ mouse-1: Display Line and Column Mode Menu")))))))))) nil [14517 16636])
     (semanticdb-table "semanticdb-table"
       :file "widget.el"
       :fsize 3916
-      :lastmodtime '(23525 29521 0 0)))
+      :lastmodtime '(23525 29521 0 0))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("ansi-color" include nil nil [3956 3977])
+            ("cl-lib" include nil nil [3978 3995])
+            ("button" include nil nil [3996 4013])
+            ("man" customgroup (:user-visible-flag t) nil [4015 4114])
+            ("Man-notify" variable nil nil [4116 4135])
+            ("Man-filter-list" variable nil nil [4137 4742])
+            ("Man-uses-untabify-flag" variable (:default-value t) nil [4744 4845])
+            ("Man-sed-script" variable nil nil [4846 4941])
+            ("Man-fontify-manpage-flag" variable (:default-value t) nil [4943 5062])
+            ("Man-overstrike" variable
+               (:default-value (quote ((t (:inherit bold))))
+                :type "face")
+                nil [5064 5189])
+            ("Man-underline" variable
+               (:default-value (quote ((t (:inherit underline))))
+                :type "face")
+                nil [5191 5321])
+            ("Man-reverse" variable
+               (:default-value (quote ((t (:inherit highlight))))
+                :type "face")
+                nil [5323 5453])
+            ("Man-ansi-color-map" variable (:default-value (let ((ansi-color-faces-vector [default Man-overstrike default Man-underline Man-underline default default Man-reverse])) (ansi-color-make-color-map))) nil [5455 5703])
+            ("Man-notify-method" variable (:default-value (if (boundp (quote Man-notify)) Man-notify (quote friendly))) nil [5770 6848])
+            ("Man-width" variable nil nil [6850 7306])
+            ("Man-frame-parameters" variable nil nil [7308 7529])
+            ("Man-downcase-section-letters-flag" variable (:default-value t) nil [7531 7995])
+            ("Man-circular-pages-flag" variable (:default-value t) nil [7997 8138])
+            ("Man-section-translations-alist" variable (:default-value (list (quote ("3C++" . "3")) (quote ("3X11" . "3")) (quote ("1-UCB" . "")))) nil [8140 8779])
+            ("Man-header-file-path" variable (:default-value (let ((arch (with-temp-buffer (when (eq 0 (ignore-errors (call-process "gcc" nil (quote (t nil)) nil "-print-multiarch"))) (goto-char (point-min)) (buffer-substring (point) (line-end-position))))) (base (quote ("/usr/include" "/usr/local/include")))) (if (zerop (length arch)) base (append base (list (expand-file-name arch "/usr/include")))))) nil [8819 9473])
+            ("Man-name-local-regexp" variable (:default-value (concat "^" (regexp-opt (quote ("NOM" "NAME"))) "$")) nil [9475 9729])
+            ("manual-program" variable (:default-value "man") nil [9731 9841])
+            ("Man-untabify-command" variable (:default-value "pr") nil [9843 9953])
+            ("Man-untabify-command-args" variable (:default-value (list "-t" "-e")) nil [9955 10122])
+            ("Man-sed-command" variable (:default-value "sed") nil [10124 10237])
+            ("Man-awk-command" variable (:default-value "awk") nil [10239 10352])
+            ("Man-coding-system" variable nil nil [10510 10720])
+            ("Man-mode-hook" variable nil nil [10722 10818])
+            ("Man-cooked-hook" variable nil nil [10820 10952])
+            ("Man-name-regexp" variable (:default-value "[-[:alnum:]_­+][-[:alnum:]_.:­+]*") nil [10954 11089])
+            ("Man-section-regexp" variable (:default-value "[0-9][a-zA-Z0-9+]*\\|[LNln]") nil [11091 11220])
+            ("Man-page-header-regexp" variable (:default-value (if (string-match "-solaris2\\." system-configuration) (concat "^[-[:alnum:]_].*[ 	]\\(" Man-name-regexp "(\\(" Man-section-regexp "\\))\\)$") (concat "^[ 	]*\\(" Man-name-regexp "(\\(" Man-section-regexp "\\))\\).*\\1"))) nil [11222 11558])
+            ("Man-heading-regexp" variable (:default-value "^\\([[:upper:]][[:upper:]0-9 /-]+\\)$") nil [11560 11686])
+            ("Man-see-also-regexp" variable (:default-value "\\(SEE ALSO\\|VOIR AUSSI\\|SIEHE AUCH\\|VÉASE TAMBIÉN\\|VEJA TAMBÉM\\|VEDERE ANCHE\\|ZOBACZ TAKŻE\\|İLGİLİ BELGELER\\|参照\\|参见 SEE ALSO\\|參見 SEE ALSO\\)") nil [11688 11987])
+            ("Man-first-heading-regexp" variable (:default-value "^NAME$\\|^[ 	]*No manual entry fo.*$") nil [12203 12397])
+            ("Man-reference-regexp" variable (:default-value (concat "\\(" Man-name-regexp "\\(‐?
+[ 	]+" Man-name-regexp "\\)*\\)[ 	]*(\\(" Man-section-regexp "\\))")) nil [12399 12611])
+            ("Man-apropos-regexp" variable (:default-value (concat "\\[\\(" Man-name-regexp "\\)\\][ 	]*(\\(" Man-section-regexp "\\))")) nil [12613 12801])
+            ("Man-synopsis-regexp" variable (:default-value "SYNOPSIS") nil [12803 12959])
+            ("Man-files-regexp" variable (:default-value "FILES\\>") nil [12961 13191])
+            ("Man-include-regexp" variable (:default-value "#[ 	]*include[ 	]*") nil [13193 13310])
+            ("Man-file-name-regexp" variable (:default-value "[^<>\", 	
+]+") nil [13312 13432])
+            ("Man-normal-file-prefix-regexp" variable (:default-value "[/~$]") nil [13434 13553])
+            ("Man-header-regexp" variable (:default-value (concat "\\(" Man-include-regexp "\\)" "[<\"]" "\\(" Man-file-name-regexp "\\)" "[>\"]")) nil [13555 13764])
+            ("Man-normal-file-regexp" variable (:default-value (concat Man-normal-file-prefix-regexp Man-file-name-regexp)) nil [13766 13921])
+            ("Man-hyphenated-reference-regexp" variable (:default-value (concat "\\(" Man-name-regexp "\\)\\((\\(" Man-section-regexp "\\))\\)?")) nil [14019 14206])
+            ("Man-switches" variable nil nil [14208 14442])
+            ("Man-specified-section-option" variable (:default-value (if (string-match "-solaris[0-9.]*$" system-configuration) "-s" "")) nil [14444 14622])
+            ("Man-support-local-filenames" variable (:default-value (quote auto-detect)) nil [14624 14897])
+            ("man-imenu-title" variable (:default-value "Contents") nil [14899 15050])
+            ("Man-original-frame" variable nil nil [15100 15127])
+            ("make-variable-buffer-local" code nil nil [15128 15176])
+            ("Man-arguments" variable nil nil [15177 15199])
+            ("make-variable-buffer-local" code nil nil [15200 15243])
+            ("put" code nil nil [15244 15283])
+            ("Man--sections" variable nil nil [15285 15311])
+            ("make-variable-buffer-local" code nil nil [15312 15355])
+            ("Man--refpages" variable nil nil [15356 15382])
+            ("make-variable-buffer-local" code nil nil [15383 15426])
+            ("Man-page-list" variable nil nil [15427 15453])
+            ("make-variable-buffer-local" code nil nil [15454 15497])
+            ("Man-current-page" variable nil nil [15498 15525])
+            ("make-variable-buffer-local" code nil nil [15526 15572])
+            ("Man-page-mode-string" variable (:default-value "1 of 1") nil [15573 15611])
+            ("make-variable-buffer-local" code nil nil [15612 15662])
+            ("Man-sysv-sed-script" variable
+               (:constant-flag t
+                :default-value "// {	s/_//g
+	s/_//g
+        s/o+/o/g
+        s/+o/o/g
+	:ovstrk
+	s/\\(.\\)\\1/\\1/g
+	t ovstrk
+	}
+/\\[[0-9][0-9]*m/ s///g")
+                nil [15664 15910])
+            ("Man-berkeley-sed-script" variable
+               (:constant-flag t
+                :default-value "// {	s/_//g\\
+	s/_//g\\
+        s/o+/o/g\\
+        s/+o/o/g\\
+	:ovstrk\\
+	s/\\(.\\)\\1/\\1/g\\
+	t ovstrk\\
+	}\\
+/\\[[0-9][0-9]*m/ s///g")
+                nil [15912 16182])
+            ("Man-topic-history" variable nil nil [16184 16236])
+            ("Man-mode-syntax-table" variable (:default-value (let ((table (copy-syntax-table (standard-syntax-table)))) (modify-syntax-entry 46 "w" table) (modify-syntax-entry 95 "w" table) (modify-syntax-entry 58 "w" table) table)) nil [16238 16539])
+            ("Man-mode-map" variable (:default-value (let ((map (make-sparse-keymap))) (suppress-keymap map) (set-keymap-parent map (make-composed-keymap button-buffer-map special-mode-map)) (define-key map "n" (quote Man-next-section)) (define-key map "p" (quote Man-previous-section)) (define-key map "n" (quote Man-next-manpage)) (define-key map "p" (quote Man-previous-manpage)) (define-key map "." (quote beginning-of-buffer)) (define-key map "r" (quote Man-follow-manual-reference)) (define-key map "g" (quote Man-goto-section)) (define-key map "s" (quote Man-goto-see-also-section)) (define-key map "k" (quote Man-kill)) (define-key map "u" (quote Man-update-manpage)) (define-key map "m" (quote man)) (define-key map "" (quote man-follow)) (easy-menu-define nil map "`Man-mode' menu." (quote ("Man" ["Next Section" Man-next-section t] ["Previous Section" Man-previous-section t] ["Go To Section..." Man-goto-section t] ["Go To \"SEE ALSO\" Section" Man-goto-see-also-section :active (cl-member Man-see-also-regexp Man--sections :test (function string-match-p))] ["Follow Reference..." Man-follow-manual-reference :active Man--refpages :help "Go to a manpage referred to in the \"SEE ALSO\" section"] "--" ["Next Manpage" Man-next-manpage :active (> (length Man-page-list) 1)] ["Previous Manpage" Man-previous-manpage :active (> (length Man-page-list) 1)] "--" ["Man..." man t] ["Kill Buffer" Man-kill t] ["Quit" quit-window t]))) map)) nil [16541 18304])
+            ("define-button-type" code nil nil [18317 18480])
+            ("Man-xref-button-action" function (:arguments ("button")) nil [18482 18763])
+            ("define-button-type" code nil nil [18765 18865])
+            ("define-button-type" code nil nil [18868 19183])
+            ("define-button-type" code nil nil [19185 19563])
+            ("Man-init-defvars" function nil nil [19655 22416])
+            ("Man-make-page-mode-string" function nil nil [22418 22649])
+            ("Man-build-man-command" function nil nil [22651 23738])
+            ("Man-translate-cleanup" function (:arguments ("string")) nil [23741 24161])
+            ("Man-translate-references" function (:arguments ("ref")) nil [24163 25528])
+            ("Man-support-local-filenames" function nil nil [25530 26896])
+            ("Man-default-man-entry" function (:arguments ("pos")) nil [27017 30523])
+            ("defalias" code nil nil [30712 30741])
+            ("Man-completion-cache" variable nil nil [30743 30981])
+            ("Man-man-k-use-anchor" variable (:default-value (memq system-type (quote (gnu gnu/linux gnu/kfreebsd)))) nil [30983 31511])
+            ("Man-parse-man-k" function nil nil [31513 33169])
+            ("Man-completion-table" function (:arguments ("string" "pred" "action")) nil [33171 36417])
+            ("man" function
+               (:user-visible-flag t
+                :arguments ("man-args"))
+                nil [36434 38770])
+            ("man-follow" function
+               (:user-visible-flag t
+                :arguments ("man-args"))
+                nil [38787 39045])
+            ("Man-start-calling" function (:arguments ("body")) nil [39047 41610])
+            ("Man-getpage-in-background" function (:arguments ("topic")) nil [41612 43363])
+            ("Man-update-manpage" function (:user-visible-flag t) nil [43365 44304])
+            ("Man-notify-when-ready" function (:arguments ("man-buffer")) nil [44306 45874])
+            ("Man-softhyphen-to-minus" function nil nil [45876 46208])
+            ("Man-fontify-manpage" function (:user-visible-flag t) nil [46210 48673])
+            ("Man-highlight-references" function (:arguments ("xref-man-type")) nil [48675 49904])
+            ("Man-highlight-references0" function (:arguments ("start-section" "regexp" "button-pos" "target" "type")) nil [49906 50701])
+            ("Man-cleanup-manpage" function
+               (:user-visible-flag t
+                :arguments ("interactive"))
+                nil [50703 51970])
+            ("Man-bgproc-filter" function (:arguments ("process" "string")) nil [51972 52948])
+            ("Man-bgproc-sentinel" function (:arguments ("process" "msg")) nil [52950 56452])
+            ("Man-page-from-arguments" function (:arguments ("args")) nil [56454 56709])
+            ("bookmark-make-record-function" variable nil nil [56837 56875])
+            ("define-derived-mode" code nil nil [56877 59363])
+            ("Man-build-section-alist" function nil nil [59365 59792])
+            ("Man-build-references-alist" function nil nil [59794 61033])
+            ("Man-build-page-list" function nil nil [61035 62171])
+            ("Man-strip-page-headers" function nil nil [62173 63048])
+            ("Man-unindent" function nil nil [63050 64348])
+            ("Man-next-section" function
+               (:user-visible-flag t
+                :arguments ("n"))
+                nil [64448 65011])
+            ("Man-previous-section" function
+               (:user-visible-flag t
+                :arguments ("n"))
+                nil [65013 65326])
+            ("Man-find-section" function (:arguments ("section")) nil [65328 65690])
+            ("Man--last-section" variable nil nil [65692 65722])
+            ("Man-goto-section" function
+               (:user-visible-flag t
+                :arguments ("section"))
+                nil [65724 66308])
+            ("Man-goto-see-also-section" function (:user-visible-flag t) nil [66311 66629])
+            ("Man-possibly-hyphenated-word" function nil nil [66631 67324])
+            ("Man--last-refpage" variable nil nil [67326 67356])
+            ("Man-follow-manual-reference" function
+               (:user-visible-flag t
+                :arguments ("reference"))
+                nil [67358 68602])
+            ("Man-kill" function (:user-visible-flag t) nil [68604 68701])
+            ("Man-goto-page" function
+               (:user-visible-flag t
+                :arguments ("page" "noerror"))
+                nil [68703 69684])
+            ("Man-next-manpage" function (:user-visible-flag t) nil [69687 70080])
+            ("Man-previous-manpage" function (:user-visible-flag t) nil [70082 70484])
+            ("Man-view-header-file" function (:arguments ("file")) nil [70509 70952])
+            ("declare-function" code nil nil [70979 71091])
+            ("declare-function" code nil nil [71092 71155])
+            ("declare-function" code nil nil [71156 71216])
+            ("declare-function" code nil nil [71217 71281])
+            ("Man-default-bookmark-title" function nil nil [71283 71608])
+            ("Man-bookmark-make-record" function nil nil [71610 71884])
+            ("Man-bookmark-jump" function (:arguments ("bookmark")) nil [71901 72552])
+            ("Man-init-defvars" code nil nil [72612 72630])
+            ("man" package nil nil [72632 72646]))          
+      :file "man.el"
+      :pointmax 72669
+      :fsize 72699
+      :lastmodtime '(23525 29513 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :file "ansi-color.el"
+      :fsize 25013
+      :lastmodtime '(23525 29502 0 0))
+    (semanticdb-table "semanticdb-table"
+      :file "button.el"
+      :fsize 20279
+      :lastmodtime '(23525 29503 0 0)))
   :file "!drive_c!Program Files!Emacs 26.1!share!emacs!26.1!lisp!semantic.cache"
   :semantic-tag-version "2.0"
   :semanticdb-version "2.2")

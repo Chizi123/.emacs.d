@@ -14,8 +14,19 @@
             ("load-theme" code nil nil [283 306]))          
       :file "setup-environment.el"
       :pointmax 307
-      :fsize 319
-      :lastmodtime '(23536 746 0 0)
+      :fsize 701
+      :lastmodtime '(23536 3823 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("setup-files" package nil nil [1 23])
+            ("add-to-list" code nil nil [40 98])
+            ("when" code nil nil [99 386]))          
+      :file "setup-files.el"
+      :pointmax 387
+      :fsize 417
+      :lastmodtime '(23537 8397 0 0)
       :unmatched-syntax nil))
   :file "!drive_c!Users!joelg!.emacs.d!custom!semantic.cache"
   :semantic-tag-version "2.0"
