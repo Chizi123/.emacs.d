@@ -1,0 +1,84 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("enriched" package nil nil [1607 1626])
+            ("enriched" customgroup (:user-visible-flag t) nil [1675 1762])
+            ("enriched-verbose" variable (:default-value t) nil [1764 1899])
+            ("fixed" variable
+               (:default-value (quote ((t (:weight bold))))
+                :type "face")
+                nil [2108 2397])
+            ("excerpt" variable
+               (:default-value (quote ((t (:slant italic))))
+                :type "face")
+                nil [2399 2597])
+            ("enriched-display-table" variable
+               (:constant-flag t
+                :default-value (or (copy-sequence standard-display-table) (make-display-table)))
+                nil [2599 2706])
+            ("aset" code nil nil [2707 2776])
+            ("enriched-par-props" variable
+               (:constant-flag t
+                :default-value (quote (left-margin right-margin justification)))
+                nil [2778 2972])
+            ("enriched-initial-annotation" variable
+               (:constant-flag t
+                :default-value (lambda nil (format "Content-Type: text/enriched
+Text-Width: %d
+
+" fill-column)))
+                nil [3043 3369])
+            ("enriched-annotation-format" variable
+               (:constant-flag t
+                :default-value "<%s%s>")
+                nil [3371 3466])
+            ("enriched-annotation-regexp" variable
+               (:constant-flag t
+                :default-value "<\\(/\\)?\\([-A-Za-z0-9]+\\)>")
+                nil [3468 3596])
+            ("enriched-translations" variable (:default-value (quote ((face (bold-italic "bold" "italic") (bold "bold") (italic "italic") (underline "underline") (fixed "fixed") (excerpt "excerpt") (default) (nil enriched-encode-other-face)) (left-margin (4 "indent")) (right-margin (4 "indentright")) (justification (none "nofill") (right "flushright") (left "flushleft") (full "flushboth") (center "center")) (PARAMETER (t "param")) (FUNCTION (enriched-decode-foreground "x-color") (enriched-decode-background "x-bg-color") (enriched-decode-display-prop "x-display")) (read-only (t "x-read-only")) (display (nil enriched-handle-display-prop)) (unknown (nil format-annotate-value))))) nil [3598 4829])
+            ("enriched-ignore" variable
+               (:constant-flag t
+                :default-value (quote (front-sticky rear-nonsticky hard)))
+                nil [4831 5074])
+            ("enriched-mode-hook" variable nil nil [5100 5428])
+            ("enriched-allow-eval-in-display-props" variable nil nil [5430 6138])
+            ("enriched-old-bindings" variable nil nil [6140 6289])
+            ("make-variable-buffer-local" code nil nil [6290 6341])
+            ("enriched-default-text-properties-local-flag" variable (:default-value t) nil [6608 6662])
+            ("enriched-rerun-flag" variable nil nil [6859 6891])
+            ("enriched-mode-map" variable (:default-value (let ((map (make-sparse-keymap))) (define-key map [remap move-beginning-of-line] (quote beginning-of-line-text)) (define-key map "" (quote reindent-then-newline-and-indent)) (define-key map [remap newline-and-indent] (quote reindent-then-newline-and-indent)) (define-key map "\352" (quote facemenu-justification-menu)) (define-key map "\323" (quote set-justification-center)) (define-key map "	" (quote increase-left-margin)) (define-key map "[" (quote set-left-margin)) (define-key map "]" (quote set-right-margin)) map)) nil [6918 7501])
+            ("put" code nil nil [7532 7571])
+            ("define-minor-mode" code nil nil [7587 9950])
+            ("enriched-before-change-major-mode" function nil nil [9952 10121])
+            ("enriched-after-change-major-mode" function nil nil [10123 10249])
+            ("add-hook" code nil nil [10251 10325])
+            ("fset" code nil nil [10328 10371])
+            ("enriched-map-property-regions" function (:arguments ("prop" "func" "from" "to")) nil [10454 11444])
+            ("put" code nil nil [11446 11502])
+            ("enriched-insert-indentation" function (:arguments ("from" "to")) nil [11504 11935])
+            ("enriched-encode" function (:arguments ("from" "to" "orig-buf")) nil [11980 13149])
+            ("enriched-make-annotation" function (:arguments ("internal-ann" "positive")) nil [13151 13874])
+            ("enriched-encode-other-face" function (:arguments ("old" "new")) nil [13876 14120])
+            ("enriched-face-ans" function (:arguments ("face")) nil [14122 15194])
+            ("enriched-decode" function (:arguments ("from" "to")) nil [15239 16305])
+            ("enriched-next-annotation" function nil nil [16307 17165])
+            ("enriched-get-file-width" function nil nil [17167 17355])
+            ("enriched-remove-header" function nil nil [17357 17563])
+            ("enriched-decode-foreground" function (:arguments ("from" "to" "color")) nil [17565 17757])
+            ("enriched-decode-background" function (:arguments ("from" "to" "color")) nil [17759 17954])
+            ("enriched-handle-display-prop" function (:arguments ("old" "new")) nil [17996 18547])
+            ("enriched-decode-display-prop" function (:arguments ("start" "end" "param")) nil [18549 19202]))          
+      :file "enriched.el"
+      :pointmax 19230
+      :fsize 19229
+      :lastmodtime '(23525 29607 0 0)
+      :unmatched-syntax nil))
+  :file "!drive_c!Program Files!Emacs 26.1!share!emacs!26.1!lisp!textmodes!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

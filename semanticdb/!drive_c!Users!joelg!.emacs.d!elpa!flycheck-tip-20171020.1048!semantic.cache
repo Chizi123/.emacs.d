@@ -1,0 +1,47 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl-lib" include nil nil [982 999])
+            ("popup" include nil nil [1000 1016])
+            ("notifications" include nil nil [1017 1041])
+            ("error-tip-notify-keep-messages" variable nil nil [1075 1254])
+            ("error-tip-notify-last-notification" variable nil nil [1256 1329])
+            ("error-tip-notify-timeout" variable (:default-value (* 60 1000)) nil [1331 1432])
+            ("error-tip-notify-parametors" variable (:default-value (quote (:title "flycheck-tip" :category "im.error"))) nil [1434 1775])
+            ("error-tip-popup-object" variable nil nil [1798 1833])
+            ("error-tip-timer-object" variable nil nil [1834 1869])
+            ("error-tip-current-errors" variable nil nil [1870 1907])
+            ("error-tip-timer-delay" variable (:default-value 0.3) nil [1908 2052])
+            ("error-tip-newline-character" variable nil nil [2053 2175])
+            ("error-tip-state" variable nil nil [2176 2204])
+            ("error-tip-cycle" function (:arguments ("errors" "reverse")) nil [2206 3333])
+            ("error-tip-get" function (:arguments ("err" "element")) nil [3335 3444])
+            ("error-tip-collect-current-file-errors" function (:arguments ("errors")) nil [3446 4375])
+            ("error-tip-popup-error-message" function (:arguments ("errors" "point")) nil [4377 4949])
+            ("error-tip-get-point" function nil nil [4951 5053])
+            ("error-tip-format" function (:arguments ("errors")) nil [5055 5307])
+            ("error-tip-get-errors" function nil nil [5309 6118])
+            ("error-tip-delete-popup" function nil nil [6120 6437])
+            ("error-tip-register-timer" function nil nil [6439 6697])
+            ("error-tip-cancel-timer" function nil nil [6699 6852])
+            ("error-tip-error-p" function nil nil [6869 7238])
+            ("error-tip-cycle-dwim" function
+               (:user-visible-flag t
+                :arguments ("reverse"))
+                nil [7255 7652])
+            ("error-tip-cycle-dwim-reverse" function (:user-visible-flag t) nil [7669 7822])
+            ("error-tip-notify" function nil nil [7872 8544])
+            ("error-tip" package nil nil [8839 8859]))          
+      :file "error-tip.el"
+      :pointmax 8954
+      :fsize 8969
+      :lastmodtime '(23534 43242 0 0)
+      :unmatched-syntax nil))
+  :file "!drive_c!Users!joelg!.emacs.d!elpa!flycheck-tip-20171020.1048!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

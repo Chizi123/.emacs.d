@@ -1,0 +1,16 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode c-mode
+      :tags nil
+      :file "loop.c"
+      :pointmax 77
+      :fsize 94
+      :lastmodtime '(23537 8813)
+      :unmatched-syntax nil))
+  :file "!drive_c!plink!!joel@192.168.1.113!!!home!joel!Documents!Code!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,701 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("ede" include nil nil [1240 1254])
+            ("declare-function" code nil nil [1256 1311])
+            ("declare-function" code nil nil [1312 1371])
+            ("declare-function" code nil nil [1372 1430])
+            ("declare-function" code nil nil [1431 1484])
+            ("ede--disable-inode" variable nil nil [1486 1571])
+            ("ede-find-file" function
+               (:user-visible-flag t
+                :arguments ("file"))
+                nil [1598 2030])
+            ("ede-flush-project-hash" function (:user-visible-flag t) nil [2032 2274])
+            ("cl-defmethod" code nil nil [2340 2534])
+            ("cl-defmethod" code nil nil [2536 2953])
+            ("ede-inode-directory-hash" variable (:default-value (make-hash-table :test (quote equal))) nil [3185 3357])
+            ("ede--put-inode-dir-hash" function (:arguments ("dir" "inode")) nil [3359 3548])
+            ("ede--get-inode-dir-hash" function (:arguments ("dir")) nil [3550 3719])
+            ("ede--inode-for-dir" function (:arguments ("dir")) nil [3721 4044])
+            ("cl-defmethod" code nil nil [4046 4299])
+            ("ede--inode-get-toplevel-open-project" function (:arguments ("inode")) nil [4301 4716])
+            ("ede-directory-get-open-project" function (:arguments ("dir" "rootreturn")) nil [4953 5868])
+            ("ede-directory-get-toplevel-open-project" function (:arguments ("dir" "exact")) nil [5963 7965])
+            ("cl-defmethod" code nil nil [7967 8777])
+            ("ede-project-directory-hash" variable (:default-value (make-hash-table :test (quote equal))) nil [9002 9196])
+            ("ede-flush-directory-hash" function (:user-visible-flag t) nil [9198 9612])
+            ("ede-project-directory-remove-hash" function (:arguments ("dir")) nil [9614 10218])
+            ("ede--directory-project-from-hash" function (:arguments ("dir")) nil [10220 10457])
+            ("ede--directory-project-add-description-to-hash" function (:arguments ("dir" "desc")) nil [10459 10707])
+            ("ede-directory-project-p" function (:arguments ("dir" "force")) nil [10944 11727])
+            ("ede-directory-project-cons" function (:arguments ("dir" "force")) nil [11729 12590])
+            ("ede-toplevel-project" function (:arguments ("dir")) nil [12792 13460])
+            ("defalias" code nil nil [13462 13523])
+            ("cl-defmethod" code nil nil [13559 14117])
+            ("cl-defmethod" code nil nil [14119 14850])
+            ("ede-get-locator-object" function (:arguments ("proj")) nil [14878 15315])
+            ("cl-defmethod" code nil nil [15317 17681])
+            ("cl-defmethod" code nil nil [17683 18471])
+            ("cl-defmethod" code nil nil [18473 18892])
+            ("cl-defmethod" code nil nil [18894 19450])
+            ("cl-defmethod" code nil nil [19452 19828])
+            ("ede-up-directory" function (:arguments ("dir")) nil [19848 20167])
+            ("ede/files" package nil nil [20170 20190]))          
+      :file "files.el"
+      :pointmax 20335
+      :fsize 20334
+      :lastmodtime '(23525 29529 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("eieio" include nil nil [924 940])
+            ("cl-generic" include nil nil [941 962])
+            ("eieio-speedbar" include nil nil [963 988])
+            ("ede/auto" include nil nil [989 1008])
+            ("ede-projects" variable nil nil [1032 1053])
+            ("ede-object" variable nil nil [1054 1073])
+            ("ede-object-root-project" variable nil nil [1074 1106])
+            ("declare-function" code nil nil [1108 1161])
+            ("declare-function" code nil nil [1162 1229])
+            ("declare-function" code nil nil [1230 1289])
+            ("declare-function" code nil nil [1290 1350])
+            ("ede-target" type
+               (:superclasses "eieio-speedbar-directory-button"
+                :members 
+                  ( ("buttonface" variable (:default-value "speedbar-file-face") nil nil)
+                    ("name" variable
+                       (:documentation "Name of this target."
+                        :type "string")
+                        nil nil)
+                    ("path" variable
+                       (:documentation "The path to the sources of this target.
+Relative to the path of the project it belongs to."
+                        :type "string")
+                        nil nil)
+                    ("source" variable
+                       (:documentation "Source files in this target."
+                        :default-value "nil"
+                        :type "list")
+                        nil nil)
+                    ("versionsource" variable
+                       (:documentation "Source files with a version string in them.
+These files are checked for a version string whenever the EDE version
+of the master project is changed.  When strings are found, the version
+previously there is updated."
+                        :default-value "nil"
+                        :type "list")
+                        nil nil)
+                    ("sourcetype" variable
+                       (:documentation "A list of `ede-sourcecode' objects this class will handle.
+This is used to match target objects with the compilers they can use, and
+which files this object is interested in."
+                        :static-flag t
+                        :type "list")
+                        nil nil)
+                    ("keybindings" variable
+                       (:documentation "Keybindings specialized to this type of target."
+                        :static-flag t
+                        :default-value "((\"D\" . ede-debug-target))")
+                        nil nil)
+                    ("menu" variable
+                       (:documentation "Menu specialized to this type of target."
+                        :static-flag t
+                        :default-value "([\"Debug target\" ede-debug-target (ede-buffer-belongs-to-target-p)] [\"Run target\" ede-run-target (ede-buffer-belongs-to-target-p)])")
+                        nil nil))                  
+                :type "class")
+                nil [1462 3742])
+            ("ede-project-placeholder" type
+               (:superclasses "eieio-speedbar-directory-button"
+                :members 
+                  ( ("name" variable
+                       (:documentation "The name used when generating distribution files."
+                        :default-value "Untitled"
+                        :type "string")
+                        nil nil)
+                    ("version" variable
+                       (:documentation "The version number used when distributing files."
+                        :default-value "1.0"
+                        :type "string")
+                        nil nil)
+                    ("directory" variable
+                       (:documentation "Directory this project is associated with."
+                        :type "string")
+                        nil nil)
+                    ("dirinode" variable (:documentation "The inode id for :directory.") nil nil)
+                    ("file" variable
+                       (:documentation "The File uniquely tagging this project instance.
+For some project types, this will be the file that stores the project configuration.
+In other projects types, this file is merely a unique identifier to this type of project."
+                        :type "string")
+                        nil nil)
+                    ("rootproject" variable
+                       (:documentation "Pointer to our root project."
+                        :default-value "nil"
+                        :type "(or null ede-project-placeholder-child)")
+                        nil nil))                  
+                :type "class")
+                nil [3980 5287])
+            ("unless" code nil nil [5721 5814])
+            ("ede-project" type
+               (:superclasses "ede-project-placeholder"
+                :members 
+                  ( ("subproj" variable
+                       (:documentation "Sub projects controlled by this project.
+For Automake based projects, each directory is treated as a project."
+                        :default-value "nil"
+                        :type "list")
+                        nil nil)
+                    ("targets" variable
+                       (:documentation "List of top level targets in this project."
+                        :type "ede-target-list")
+                        nil nil)
+                    ("locate-obj" variable
+                       (:documentation "A locate object to use as a backup to `ede-expand-filename'."
+                        :type "(or null ede-locate-base-child)")
+                        nil nil)
+                    ("tool-cache" variable
+                       (:documentation "List of tool cache configurations in this project.
+This allows any tool to create, manage, and persist project-specific settings."
+                        :type "list")
+                        nil nil)
+                    ("mailinglist" variable
+                       (:documentation "An email address where users might send email for help."
+                        :type "string")
+                        nil nil)
+                    ("web-site-url" variable
+                       (:documentation "URL to this projects web site.
+This is a URL to be sent to a web site for documentation."
+                        :type "string")
+                        nil nil)
+                    ("web-site-directory" variable (:documentation "A directory where web pages can be found by Emacs.
+For remote locations use a path compatible with ange-ftp or EFS.
+You can also use TRAMP for use with rcp & scp.") nil nil)
+                    ("web-site-file" variable (:documentation "A file which contains the home page for this project.
+This file can be relative to slot `web-site-directory'.
+This can be a local file, use ange-ftp, EFS, or TRAMP.") nil nil)
+                    ("ftp-site" variable
+                       (:documentation "FTP site where this project's distribution can be found.
+This FTP site should be in Emacs form, as needed by `ange-ftp', but can
+also be of a form used by TRAMP for use with scp, or rcp."
+                        :type "string")
+                        nil nil)
+                    ("ftp-upload-site" variable
+                       (:documentation "FTP Site to upload new distributions to.
+This FTP site should be in Emacs form as needed by `ange-ftp'.
+If this slot is nil, then use `ftp-site' instead."
+                        :type "string")
+                        nil nil)
+                    ("configurations" variable
+                       (:documentation "List of available configuration types.
+Individual target/project types can form associations between a configuration,
+and target specific elements such as build variables."
+                        :default-value "(\"debug\" \"release\")"
+                        :type "list")
+                        nil nil)
+                    ("configuration-default" variable
+                       (:documentation "The default configuration."
+                        :default-value "debug")
+                        nil nil)
+                    ("local-variables" variable
+                       (:documentation "Project local variables"
+                        :default-value "nil")
+                        nil nil)
+                    ("keybindings" variable
+                       (:documentation "Keybindings specialized to this type of target."
+                        :static-flag t
+                        :default-value "((\"D\" . ede-debug-target) (\"R\" . ede-run-target))")
+                        nil nil)
+                    ("menu" variable
+                       (:documentation "Menu specialized to this type of target."
+                        :static-flag t
+                        :default-value "([\"Update Version\" ede-update-version ede-object] [\"Version Control Status\" ede-vc-project-directory ede-object] [\"Edit Project Homepage\" ede-edit-web-page (and ede-object (oref (ede-toplevel) web-site-file))] [\"Browse Project URL\" ede-web-browse-home (and ede-object (not (string= \"\" (oref (ede-toplevel) web-site-url))))] \"--\" [\"Rescan Project Files\" ede-rescan-toplevel t] [\"Edit Projectfile\" ede-edit-file-target (ede-buffer-belongs-to-project-p)])")
+                        nil nil))                  
+                :type "class")
+                nil [5816 10357])
+            ("ede-with-projectfile" function (:arguments ("obj" "forms")) nil [10403 10975])
+            ("ede-project-placeholder-cache-file" variable (:default-value (locate-user-emacs-file "ede-projects.el" ".projects.ede")) nil [11168 11404])
+            ("ede-project-cache-files" variable nil nil [11406 11489])
+            ("ede-save-cache" function (:user-visible-flag t) nil [11491 12531])
+            ("ede-load-cache" function nil nil [12533 13437])
+            ("cl-defmethod" code nil nil [14048 14574])
+            ("cl-defmethod" code nil nil [14576 14800])
+            ("cl-defmethod" code nil nil [15011 15109])
+            ("cl-defmethod" code nil nil [15111 15259])
+            ("cl-defmethod" code nil nil [15261 15420])
+            ("cl-defmethod" code nil nil [15422 15671])
+            ("cl-defmethod" code nil nil [15673 15881])
+            ("ede-header-file" function nil nil [16156 16380])
+            ("cl-defmethod" code nil nil [16382 16503])
+            ("cl-defmethod" code nil nil [16505 17042])
+            ("ede-documentation-files" function nil nil [17044 17370])
+            ("cl-defmethod" code nil nil [17372 17559])
+            ("cl-defmethod" code nil nil [17561 18060])
+            ("cl-defmethod" code nil nil [18062 18558])
+            ("cl-defmethod" code nil nil [18560 18767])
+            ("ede-html-documentation-files" function nil nil [18769 18929])
+            ("cl-defmethod" code nil nil [18931 19051])
+            ("cl-defmethod" code nil nil [19203 19522])
+            ("cl-defmethod" code nil nil [19524 19857])
+            ("cl-defmethod" code nil nil [19859 20123])
+            ("ede-adebug-project" function (:user-visible-flag t) nil [20145 20445])
+            ("ede-adebug-project-parent" function (:user-visible-flag t) nil [20447 20759])
+            ("ede-adebug-project-root" function (:user-visible-flag t) nil [20761 21059])
+            ("ede-toplevel" function (:arguments ("subproj")) nil [21193 21639])
+            ("ede-normalize-file/directory" function (:arguments ("this" "project-file-name")) nil [21669 22367])
+            ("ede/base" package nil nil [22594 22613]))          
+      :file "base.el"
+      :pointmax 22756
+      :fsize 22755
+      :lastmodtime '(23525 29528 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("eieio" include nil nil [1091 1107])
+            ("cl-generic" include nil nil [1108 1129])
+            ("declare-function" code nil nil [1131 1176])
+            ("declare-function" code nil nil [1177 1232])
+            ("ede-project-autoload-dirmatch" type
+               (:members 
+                  ( ("fromconfig" variable
+                       (:documentation "A config file within which the match pattern lives."
+                        :default-value "nil")
+                        nil nil)
+                    ("configregex" variable
+                       (:documentation "A regexp to identify the dirmatch pattern."
+                        :default-value "nil")
+                        nil nil)
+                    ("configregexidx" variable
+                       (:documentation "An index into the match-data of `configregex'."
+                        :default-value "nil")
+                        nil nil)
+                    ("subdir-only" variable
+                       (:documentation "Non-nil means an exact match to the found directory is a non-match.
+This implies projects exist only in subdirectories of the configuration path.
+If `:subdir-only' is nil, then the directory from the configuration file is the project."
+                        :default-value "t")
+                        nil nil)
+                    ("configdatastash" variable (:documentation "Save discovered match string.") nil nil))                  
+                :type "class")
+                nil [1234 2360])
+            ("cl-defmethod" code nil nil [2362 2795])
+            ("cl-defmethod" code nil nil [2798 4813])
+            ("declare-function" code nil nil [4815 4860])
+            ("declare-function" code nil nil [4861 4916])
+            ("ede-project-autoload" type
+               (:members 
+                  ( ("name" variable (:documentation "Name of this project type") nil nil)
+                    ("file" variable (:documentation "The lisp file belonging to this class.") nil nil)
+                    ("proj-file" variable (:documentation "Name of a project file of this type.") nil nil)
+                    ("root-only" variable
+                       (:documentation "Non-nil if project detection only finds proj-file @ project root."
+                        :default-value "t")
+                        nil nil)
+                    ("proj-root-dirmatch" variable
+                       (:documentation "To avoid loading a project, check if the directory matches this.
+Specifying this matcher object will allow EDE to perform a complex
+check without loading the project.
+
+NOTE: If you use dirmatch, you may need to set :root-only to nil.
+While it may be a root based project, all subdirs will happen to return
+true for the dirmatch, so for scanning purposes, set it to nil."
+                        :default-value "nil"
+                        :type "(or null string ede-project-autoload-dirmatch)")
+                        nil nil)
+                    ("proj-root" variable
+                       (:documentation "A function symbol to call for the project root.
+This function takes no arguments, and returns the current directories
+root, if available.  Leave blank to use the EDE directory walking
+routine instead."
+                        :type "function")
+                        nil nil)
+                    ("initializers" variable
+                       (:documentation "Initializers passed to the project object.
+These are used so there can be multiple types of projects
+associated with a single object class, based on the initializers used."
+                        :default-value "nil")
+                        nil nil)
+                    ("load-type" variable (:documentation "Fn symbol used to load this project file.") nil nil)
+                    ("class-sym" variable (:documentation "Symbol representing the project class to use.") nil nil)
+                    ("generic-p" variable
+                       (:documentation "Generic projects are added to the project list at the end.
+The add routine will set this to non-nil so that future non-generic placement will
+be successful."
+                        :default-value "nil")
+                        nil nil)
+                    ("new-p" variable
+                       (:documentation "Non-nil if this is an option when a user creates a project."
+                        :default-value "t")
+                        nil nil)
+                    ("safe-p" variable
+                       (:documentation "Non-nil if the project load files are \"safe\".
+An unsafe project is one that loads project variables via Emacs
+Lisp code.  A safe project is one that loads project variables by
+scanning files without loading Lisp code from them."
+                        :default-value "t")
+                        nil nil))                  
+                :type "class")
+                nil [4918 7513])
+            ("ede-project-class-files" variable (:default-value (list (ede-project-autoload :name "Make" :file (quote ede/proj) :proj-file "Project.ede" :root-only nil :load-type (quote ede-proj-load) :class-sym (quote ede-proj-project) :safe-p nil) (ede-project-autoload :name "Automake" :file (quote ede/proj) :proj-file "Project.ede" :root-only nil :initializers (quote (:makefile-type Makefile\.am)) :load-type (quote ede-proj-load) :class-sym (quote ede-proj-project) :safe-p nil) (ede-project-autoload :name "automake" :file (quote ede/project-am) :proj-file "Makefile.am" :root-only nil :load-type (quote project-am-load) :class-sym (quote project-am-makefile) :new-p nil :safe-p t))) nil [7515 8261])
+            ("put" code nil nil [8263 8317])
+            ("ede-show-supported-projects" function (:user-visible-flag t) nil [8319 8675])
+            ("ede-add-project-autoload" function (:arguments ("projauto" "flag")) nil [8677 10349])
+            ("cl-defmethod" code nil nil [10414 11055])
+            ("cl-defmethod" code nil nil [11057 11856])
+            ("cl-defmethod" code nil nil [11972 12143])
+            ("cl-defmethod" code nil nil [12194 12289])
+            ("ede/auto" package nil nil [12291 12310]))          
+      :file "auto.el"
+      :pointmax 12338
+      :fsize 12337
+      :lastmodtime '(23525 29528 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("ede" include nil nil [1072 1086])
+            ("ede-web-browse-home" function (:user-visible-flag t) nil [1138 1465])
+            ("ede-edit-web-page" function (:user-visible-flag t) nil [1482 2031])
+            ("ede-upload-distribution" function (:user-visible-flag t) nil [2048 3218])
+            ("ede-upload-html-documentation" function (:user-visible-flag t) nil [3235 4317])
+            ("ede-vc-project-directory" function (:user-visible-flag t) nil [4412 4589])
+            ("ede/system" package nil nil [4591 4612]))          
+      :file "system.el"
+      :pointmax 4759
+      :fsize 4758
+      :lastmodtime '(23525 29530 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("eieio-base" include nil nil [1058 1079])
+            ("ede-sourcecode" type
+               (:superclasses "eieio-instance-inheritor"
+                :members 
+                  ( ("name" variable
+                       (:documentation "The name of this type of source code.
+Such as \"C\" or \"Emacs Lisp\""
+                        :type "string")
+                        nil nil)
+                    ("sourcepattern" variable
+                       (:documentation "Emacs regexp matching sourcecode this target accepts."
+                        :default-value ".*"
+                        :type "string")
+                        nil nil)
+                    ("auxsourcepattern" variable
+                       (:documentation "Emacs regexp matching auxiliary source code this target accepts.
+Aux source are source code files needed for compilation, which are not compiled
+themselves."
+                        :default-value "nil"
+                        :type "(or null string)")
+                        nil nil)
+                    ("enable-subdirectories" variable
+                       (:documentation "Non nil if this sourcecode type uses subdirectories.
+If sourcecode always lives near the target creating it, this should be nil.
+If sourcecode can, or typically lives in a subdirectory of the owning
+target, set this to t."
+                        :default-value "nil"
+                        :type "boolean")
+                        nil nil)
+                    ("garbagepattern" variable
+                       (:documentation "Shell file regexp matching files considered as garbage.
+This is a list of items added to an `rm' command when executing a `clean'
+type directive."
+                        :default-value "nil"
+                        :type "list")
+                        nil nil))                  
+                :type "class")
+                nil [1091 2465])
+            ("ede-sourcecode-list" variable nil nil [2467 2541])
+            ("cl-defmethod" code nil nil [2558 3062])
+            ("cl-defmethod" code nil nil [3064 3290])
+            ("cl-defmethod" code nil nil [3292 3513])
+            ("cl-defmethod" code nil nil [3515 3818])
+            ("cl-defmethod" code nil nil [3820 4097])
+            ("cl-defmethod" code nil nil [4099 4379])
+            ("cl-defmethod" code nil nil [4381 4637])
+            ("cl-defmethod" code nil nil [4639 5082])
+            ("when" code nil nil [5109 5591])
+            ("ede-source-scheme" variable (:default-value (ede-sourcecode "ede-source-scheme" :name "Scheme" :sourcepattern "\\.scm$")) nil [5698 5846])
+            ("ede/source" package nil nil [6017 6038]))          
+      :file "source.el"
+      :pointmax 6068
+      :fsize 6067
+      :lastmodtime '(23525 29530 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("ede/auto" include nil nil [1185 1204])
+            ("when" code nil nil [1228 1578])
+            ("ede--detect-stop-scan-p" function (:arguments ("dir")) nil [1607 1780])
+            ("ede--detect-found-project" variable nil nil [1843 1943])
+            ("ede--detect-ldf-predicate" function (:arguments ("dir")) nil [1945 2475])
+            ("ede--detect-scan-directory-for-project" function (:arguments ("directory")) nil [2477 2943])
+            ("ede--detect-ldf-rootonly-predicate" function (:arguments ("dir")) nil [3159 3745])
+            ("ede--detect-scan-directory-for-rootonly-project" function (:arguments ("directory")) nil [3747 4231])
+            ("ede--detect-nomatch-auto" variable nil nil [4361 4447])
+            ("ede--detect-ldf-root-predicate" function (:arguments ("dir")) nil [4449 4980])
+            ("ede--detect-scan-directory-for-project-root" function (:arguments ("directory" "auto")) nil [4982 5458])
+            ("ede-detect-directory-for-project" function (:arguments ("directory")) nil [5530 6569])
+            ("ede-detect-qtest" function (:user-visible-flag t) nil [6619 7025])
+            ("ede/detect" package nil nil [7028 7049]))          
+      :file "detect.el"
+      :pointmax 7079
+      :fsize 7078
+      :lastmodtime '(23525 29528 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("ede" include nil nil [1087 1101])
+            ("ede-update-version" function
+               (:user-visible-flag t
+                :arguments ("newversion"))
+                nil [1168 1785])
+            ("cl-defmethod" code nil nil [1787 2006])
+            ("cl-defmethod" code nil nil [2008 2320])
+            ("cl-defmethod" code nil nil [2322 3050])
+            ("ede-make-buffer-writable" function (:arguments ("buffer")) nil [3175 3403])
+            ("ede/util" package nil nil [3405 3424]))          
+      :file "util.el"
+      :pointmax 3567
+      :fsize 3566
+      :lastmodtime '(23525 29530 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl" include nil nil [990 1003])
+            ("speedbar" include nil nil [1005 1024])
+            ("eieio-speedbar" include nil nil [1025 1050])
+            ("ede" include nil nil [1051 1065])
+            ("ede-speedbar-key-map" variable nil nil [1096 1181])
+            ("ede-speedbar-make-map" function nil nil [1183 2178])
+            ("ede-speedbar-menu" variable (:default-value (quote (["Compile" ede-speedbar-compile-line t] ["Compile Project" ede-speedbar-compile-project (ede-project-child-p (speedbar-line-token))] "---" ["Edit File/Tag" speedbar-edit-line (not (eieio-object-p (speedbar-line-token)))] ["Expand" speedbar-expand-line (save-excursion (beginning-of-line) (looking-at "[0-9]+: *.\\+. "))] ["Contract" speedbar-contract-line (save-excursion (beginning-of-line) (looking-at "[0-9]+: *.-. "))] "---" ["Remove File from Target" ede-speedbar-remove-file-from-target (stringp (speedbar-line-token))] ["Customize Project/Target" eieio-speedbar-customize-line (eieio-object-p (speedbar-line-token))] ["Edit Project File" ede-speedbar-edit-projectfile t] ["Make Distribution" ede-speedbar-make-distribution (ede-project-child-p (speedbar-line-token))]))) nil [2180 3176])
+            ("eieio-speedbar-create" code nil nil [3178 3342])
+            ("ede-speedbar" function (:user-visible-flag t) nil [3345 3551])
+            ("ede-speedbar-toplevel-buttons" function (:arguments ("dir")) nil [3553 3739])
+            ("ede-speedbar-remove-file-from-target" function (:user-visible-flag t) nil [3784 3987])
+            ("ede-speedbar-compile-line" function (:user-visible-flag t) nil [3989 4396])
+            ("ede-speedbar-get-top-project-for-line" function (:user-visible-flag t) nil [4398 4820])
+            ("ede-speedbar-compile-project" function (:user-visible-flag t) nil [4822 4997])
+            ("ede-speedbar-compile-file-project" function (:user-visible-flag t) nil [4999 5417])
+            ("ede-speedbar-make-distribution" function (:user-visible-flag t) nil [5419 5584])
+            ("ede-speedbar-edit-projectfile" function (:user-visible-flag t) nil [5586 5757])
+            ("ede-find-nearest-file-line" function nil nil [5791 6170])
+            ("cl-defmethod" code nil nil [6172 6366])
+            ("cl-defmethod" code nil nil [6368 6969])
+            ("cl-defmethod" code nil nil [6971 7100])
+            ("cl-defmethod" code nil nil [7102 7230])
+            ("cl-defmethod" code nil nil [7232 7500])
+            ("cl-defmethod" code nil nil [7502 7748])
+            ("cl-defmethod" code nil nil [7750 7899])
+            ("cl-defmethod" code nil nil [7901 8133])
+            ("cl-defmethod" code nil nil [8135 8280])
+            ("cl-defmethod" code nil nil [8282 8681])
+            ("ede-file-find" function (:arguments ("text" "token" "indent")) nil [8726 8980])
+            ("ede-create-tag-buttons" function (:arguments ("filename" "indent")) nil [8982 9452])
+            ("ede-tag-expand" function (:arguments ("text" "token" "indent")) nil [9454 10220])
+            ("ede-tag-find" function (:arguments ("text" "token" "indent")) nil [10222 10828])
+            ("ede-speedbar-file-menu-additions" variable (:default-value (quote ("----" ["Create EDE Target" ede-new-target (ede-current-project)] ["Add to project" ede-speedbar-file-add-to-project (ede-current-project)] ["Compile project" ede-speedbar-compile-project (ede-current-project)] ["Compile file target" ede-speedbar-compile-file-target (ede-current-project)] ["Make distribution" ede-make-dist (ede-current-project)]))) nil [10964 11444])
+            ("ede-speedbar-file-keymap" variable (:default-value (let ((km (make-sparse-keymap))) (define-key km "a" (quote ede-speedbar-file-add-to-project)) (define-key km "t" (quote ede-new-target)) (define-key km "s" (quote ede-speedbar)) (define-key km "C" (quote ede-speedbar-compile-project)) (define-key km "c" (quote ede-speedbar-compile-file-target)) (define-key km "d" (quote ede-make-dist)) km)) nil [11446 11854])
+            ("ede-speedbar-file-setup" function nil nil [11871 12414])
+            ("ede/speedbar" package nil nil [12416 12439]))          
+      :file "speedbar.el"
+      :pointmax 12590
+      :fsize 12589
+      :lastmodtime '(23525 29530 0 0)
+      :unmatched-syntax '((close-paren 1003 . 1004) (symbol 972 . 989) (open-paren 971 . 972)))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl" include nil nil [1180 1193])
+            ("ede" include nil nil [1196 1210])
+            ("ede/make" include nil nil [1211 1230])
+            ("declare-function" code nil nil [1232 1293])
+            ("declare-function" code nil nil [1294 1353])
+            ("declare-function" code nil nil [1354 1411])
+            ("project-linux" customgroup (:user-visible-flag t) nil [1423 1531])
+            ("project-linux-build-directory-default" variable (:default-value (quote ask)) nil [1533 1762])
+            ("project-linux-architecture-default" variable (:default-value (quote ask)) nil [1764 2016])
+            ("project-linux-compile-target-command" variable (:default-value (concat ede-make-command " -k -C %s SUBDIRS=%s")) nil [2019 2202])
+            ("project-linux-compile-project-command" variable (:default-value (concat ede-make-command " -k -C %s")) nil [2204 2378])
+            ("ede-linux-version" function (:arguments ("dir")) nil [2380 3058])
+            ("ede-linux-project" type
+               (:superclasses "ede-project"
+                :members 
+                  ( ("build-directory" variable
+                       (:documentation "Build directory."
+                        :type "string")
+                        nil nil)
+                    ("architecture" variable
+                       (:documentation "Target architecture."
+                        :type "string")
+                        nil nil)
+                    ("include-path" variable
+                       (:documentation "Include directories.
+Contains both common and target architecture-specific directories."
+                        :type "list")
+                        nil nil))                  
+                :type "class")
+                nil [3060 3638])
+            ("ede-linux--get-build-directory" function (:arguments ("dir")) nil [3641 4102])
+            ("ede-linux--get-archs" function (:arguments ("dir")) nil [4105 4716])
+            ("ede-linux--detect-architecture" function (:arguments ("dir")) nil [4719 5517])
+            ("ede-linux--get-architecture" function (:arguments ("dir" "bdir")) nil [5519 5972])
+            ("ede-linux--include-path" function (:arguments ("dir" "bdir" "arch")) nil [5975 6673])
+            ("ede-linux-load" function (:arguments ("dir" "_rootproj")) nil [6690 7417])
+            ("ede-add-project-autoload" code nil nil [7434 7765])
+            ("ede-linux-target-c" type
+               (:superclasses "ede-target"
+                :type "class")
+                nil [7767 7897])
+            ("ede-linux-target-misc" type
+               (:superclasses "ede-target"
+                :type "class")
+                nil [7899 8036])
+            ("cl-defmethod" code nil nil [8038 8281])
+            ("cl-defmethod" code nil nil [8301 8541])
+            ("cl-defmethod" code nil nil [8543 8628])
+            ("cl-defmethod" code nil nil [8630 8819])
+            ("ede-linux-find-matching-target" function (:arguments ("class" "dir" "targets")) nil [8846 9134])
+            ("cl-defmethod" code nil nil [9136 9849])
+            ("cl-defmethod" code nil nil [9877 10542])
+            ("ede-linux-file-exists-name" function (:arguments ("name" "root" "subdir")) nil [10544 10770])
+            ("cl-defmethod" code nil nil [10772 11747])
+            ("cl-defmethod" code nil nil [11772 12284])
+            ("cl-defmethod" code nil nil [12286 12890])
+            ("cl-defmethod" code nil nil [12892 13361])
+            ("ede/linux" package nil nil [13363 13383]))          
+      :file "linux.el"
+      :pointmax 13528
+      :fsize 13527
+      :lastmodtime '(23525 29529 0 0)
+      :unmatched-syntax '((close-paren 1193 . 1194) (symbol 1162 . 1179) (open-paren 1161 . 1162)))
+    (semanticdb-table "semanticdb-table"
+      :file "make.el"
+      :fsize 3591
+      :lastmodtime '(23525 29529 0 0))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("ede" include nil nil [6133 6147])
+            ("semantic-lex-spp-project-macro-symbol-obarray" variable nil nil [6149 6203])
+            ("declare-function" code nil nil [6204 6269])
+            ("declare-function" code nil nil [6270 6331])
+            ("declare-function" code nil nil [6332 6391])
+            ("declare-function" code nil nil [6392 6449])
+            ("ede-cpp-root-project-list" variable nil nil [6687 6788])
+            ("ede-cpp-root-target" type
+               (:superclasses "ede-target"
+                :members 
+                  ( ("project" variable (:default-value "nil") nil nil))                  
+                :type "class")
+                nil [7473 7642])
+            ("ede-cpp-root-project" type
+               (:interfaces ("eieio-instance-tracker")
+                :superclasses "ede-project"
+                :members 
+                  ( ("tracking-symbol" variable (:default-value "(quote ede-cpp-root-project-list)") nil nil)
+                    ("include-path" variable
+                       (:documentation "The default locate function expands filenames within a project.
+If a header file (.h, .hh, etc) name is expanded, and
+the :locate-fcn slot is nil, then the include path is checked
+first, and other directories are ignored.  For very large
+projects, this optimization can save a lot of time.
+
+Directory names in the path can be relative to the current
+buffer's `default-directory' (not starting with a /).  Directories
+that are relative to the project's root should start with a /, such
+as  \"/include\", meaning the directory `include' off the project root
+directory."
+                        :default-value "(quote (\"/include\" \"../include/\"))"
+                        :type "list")
+                        nil nil)
+                    ("system-include-path" variable
+                       (:documentation "The system include path for files in this project.
+C files initialized in an ede-cpp-root-project have their semantic
+system include path set to this value.  If this is nil, then the
+semantic path is not modified."
+                        :default-value "nil"
+                        :type "list")
+                        nil nil)
+                    ("spp-table" variable
+                       (:documentation "C Preprocessor macros for your files.
+Preprocessor symbols will be used while parsing your files.
+These macros might be passed in through the command line compiler, or
+are critical symbols derived from header files.  Providing header files
+macro values through this slot improves accuracy and performance.
+Use `:spp-files' to use these files directly."
+                        :default-value "nil"
+                        :type "list")
+                        nil nil)
+                    ("spp-files" variable
+                       (:documentation "C header file with Preprocessor macros for your files.
+The PreProcessor symbols appearing in these files will be used while
+parsing files in this project.
+See `semantic-lex-c-preprocessor-symbol-map' for more on how this works."
+                        :default-value "nil"
+                        :type "list")
+                        nil nil)
+                    ("header-match-regexp" variable
+                       (:documentation "Regexp used to identify C/C++ header files."
+                        :default-value "\\.\\(h\\(h\\|xx\\|pp\\|\\+\\+\\)?\\|H\\)$\\|\\<\\w+$"
+                        :type "string")
+                        nil nil)
+                    ("locate-fcn" variable
+                       (:documentation "The locate function can be used in place of
+`ede-expand-filename' so you can quickly customize your custom target
+to use specialized local routines instead of the EDE routines.
+The function symbol must take two arguments:
+  NAME - The name of the file to find.
+  DIR - The directory root for this cpp-root project.
+
+It should return the fully qualified file name passed in from NAME.  If that file does not
+exist, it should return nil."
+                        :default-value "nil"
+                        :type "(or null function)")
+                        nil nil)
+                    ("compile-command" variable
+                       (:documentation "Compilation command that will be used for this project.
+It could be string or function that will accept proj argument and should return string.
+The string will be passed to `compile' function that will be issued in root
+directory of project."
+                        :default-value "nil"
+                        :type "(or null string function)")
+                        nil nil))                  
+                :type "class")
+                nil [7659 10837])
+            ("cl-defmethod" code nil nil [11078 12290])
+            ("cl-defmethod" code nil nil [12448 12601])
+            ("cl-defmethod" code nil nil [12778 13304])
+            ("cl-defmethod" code nil nil [13605 14679])
+            ("cl-defmethod" code nil nil [14681 14769])
+            ("cl-defmethod" code nil nil [14771 14886])
+            ("cl-defmethod" code nil nil [15028 15234])
+            ("cl-defmethod" code nil nil [15236 15844])
+            ("cl-defmethod" code nil nil [15846 16002])
+            ("cl-defmethod" code nil nil [16004 16971])
+            ("cl-defmethod" code nil nil [16973 17146])
+            ("cl-defmethod" code nil nil [17148 17311])
+            ("cl-defmethod" code nil nil [17313 17949])
+            ("cl-defmethod" code nil nil [17951 18222])
+            ("cl-defmethod" code nil nil [18225 18378])
+            ("ede-create-lots-of-projects-under-dir" function (:arguments ("dir" "projfile" "attributes")) nil [18395 18972])
+            ("ede/cpp-root" package nil nil [18974 18997]))          
+      :file "cpp-root.el"
+      :pointmax 19148
+      :fsize 19147
+      :lastmodtime '(23525 29528 0 0)
+      :unmatched-syntax nil))
+  :file "!drive_c!Program Files!Emacs 26.1!share!emacs!26.1!lisp!cedet!ede!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

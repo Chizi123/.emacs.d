@@ -21,12 +21,11 @@
       :major-mode emacs-lisp-mode
       :tags 
         '( ("setup-files" package nil nil [1 23])
-            ("add-to-list" code nil nil [40 98])
-            ("when" code nil nil [99 386]))          
+            ("when" code nil nil [40 108]))          
       :file "setup-files.el"
-      :pointmax 387
-      :fsize 417
-      :lastmodtime '(23537 8397 0 0)
+      :pointmax 109
+      :fsize 113
+      :lastmodtime '(23537 8854 0 0)
       :unmatched-syntax nil))
   :file "!drive_c!Users!joelg!.emacs.d!custom!semantic.cache"
   :semantic-tag-version "2.0"
