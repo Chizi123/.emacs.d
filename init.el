@@ -29,9 +29,6 @@
 (require 'ispell)
 (setq-default ispell-program-name "aspell")
 
-;; x86 reference
-(setq x86-lookup-pdf "D:/Coding/x86-8664 reference.pdf")
-
 ;; Melpa repo
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
@@ -201,7 +198,28 @@
 
 ;; guide-key
 (require 'guide-key)
-(setq guide-key/guide-key-sequence '("C-x" "C-c" "M-g"))
+(setq guide-key/guide-key-sequence '("C-x" "C-c" "M-g" "C-h"))
 (setq guide-key/recursive-key-sequence-flag t)
 (setq guide-key/popup-window-position 'bottom)
 (guide-key-mode 1)  ; Enable guide-key-mode
+
+;; x86 reference
+(require 'x86-lookup)
+(setq x86-lookup-pdf "D:/Coding/x86-8664 reference.pdf")
+(global-set-key (kbd "C-h x") #'x86-lookup)
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (x86-lookup ztree yasnippet workgroups2 volatile-highlights undo-tree srefactor smartparens nyan-mode magit ibuffer-vc helm-projectile guide-key ggtags flycheck-tip flycheck-pos-tip diff-hl company-c-headers clean-aindent-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
