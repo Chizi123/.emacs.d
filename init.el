@@ -3,7 +3,6 @@
 ;; set paths for executable
 (add-to-list 'exec-path "C:/msys64/usr/bin")
 (add-to-list 'exec-path "C:/msys64/mingw64/bin")
-(add-to-list 'exec-path "C:/Program Files/xpdf-tools-win-4.00/bin64")
 (setenv "PATH" (mapconcat #'identity exec-path path-separator))
 
 ;; adding modules to load path
@@ -29,10 +28,21 @@
 (require 'ispell)
 (setq-default ispell-program-name "aspell")
 
-;; Melpa repo
+;; Repos
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+
+;; use-package
 (package-initialize)
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(eval-when-compile
+  (require 'use-package))
+
 
 ;; helm
 (require 'helm-config)
@@ -205,18 +215,17 @@
 (setq guide-key/popup-window-position 'bottom)
 (guide-key-mode 1)  ; Enable guide-key-mode
 
-;; x86 reference
+;; x86 lookup
 (require 'x86-lookup)
-(setq x86-lookup-pdf "D:/Coding/x86-8664 reference.pdf")
+(setq x86-lookup-pdf "D:/Coding/x86-instructions.pdf")
 (global-set-key (kbd "C-h x") #'x86-lookup)
 
 ;; org-bullets
 (require 'org-bullets)
 (add-hook 'org-mode-hook 'org-bullets-mode)
 
-;; golden ratio
-(require 'golden-ratio)
-(golden-ratio-mode 1)
+;; pdf-tools
+(pdf-tools-install)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -225,7 +234,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (org org-bullets x86-lookup ztree yasnippet workgroups2 volatile-highlights undo-tree srefactor smartparens nyan-mode magit ibuffer-vc helm-projectile guide-key ggtags flycheck-tip flycheck-pos-tip diff-hl company-c-headers clean-aindent-mode))))
+    (use-package pdf-tools org org-bullets x86-lookup ztree yasnippet workgroups2 volatile-highlights undo-tree srefactor smartparens nyan-mode magit ibuffer-vc helm-projectile guide-key ggtags flycheck-tip flycheck-pos-tip diff-hl company-c-headers clean-aindent-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
