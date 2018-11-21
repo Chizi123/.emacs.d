@@ -3,10 +3,12 @@
 ;; set paths for executable
 (add-to-list 'exec-path "C:/msys64/usr/bin")
 (add-to-list 'exec-path "C:/msys64/mingw64/bin")
+(add-to-list 'exec-path "c:/Program Files/Racket")
 (setenv "PATH" (mapconcat #'identity exec-path path-separator))
 
 ;; adding modules to load path
 (add-to-list 'load-path "~/.emacs.d/custom/")
+(add-to-list 'load-path "~/.emacs.d/elpa/")
 
 ;; load your modules
 (require 'setup-applications)
@@ -44,188 +46,314 @@
   (require 'use-package))
 
 
+;; auto-package-update
+(use-package auto-package-update
+  :config
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
+
 ;; helm
-(require 'helm-config)
-
-(setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
-      helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
-      helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
-      helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
-      helm-ff-file-name-history-use-recentf t
-      helm-echo-input-in-header-line t)
-
-(defun spacemacs//helm-hide-minibuffer-maybe ()
-  "Hide minibuffer in Helm session if we use the header line as input field."
-  (when (with-helm-buffer helm-echo-input-in-header-line)
-    (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
-      (overlay-put ov 'window (selected-window))
-      (overlay-put ov 'face
-                   (let ((bg-color (face-background 'default nil)))
-                     `(:background ,bg-color :foreground ,bg-color)))
-      (setq-local cursor-type nil))))
-
-
-(add-hook 'helm-minibuffer-set-up-hook
-          'spacemacs//helm-hide-minibuffer-maybe)
-
-(global-set-key (kbd "M-x") 'helm-M-x)
-(setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
-
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-
-(global-set-key (kbd "C-x b") 'helm-mini)
-(setq helm-buffers-fuzzy-matching t
-      helm-recentf-fuzzy-match    t)
-
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-
-(global-set-key (kbd "C-c h o") 'helm-occur)
-
-(helm-mode 1)
+(use-package helm-config
+  :ensure helm
+  :bind (("M-x" . helm-M-x)
+	 ("C-x C-f" . helm-find-files)
+	 ("M-y" . helm-show-kill-ring)
+	 ("C-x b" . helm-mini)
+	 ("C-c h o" . helm-occur))
+  :config
+  (setq helm-M-x-fuzzy-match t)
+  (setq helm-buffers-fuzzy-matching t
+	helm-recentf-fuzzy-match    t)
+  (setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
+	helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
+	helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
+	helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
+	helm-ff-file-name-history-use-recentf t
+	helm-echo-input-in-header-line t)
+  (defun spacemacs//helm-hide-minibuffer-maybe ()
+    "Hide minibuffer in Helm session if we use the header line as input field."
+    (when (with-helm-buffer helm-echo-input-in-header-line)
+      (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
+	(overlay-put ov 'window (selected-window))
+	(overlay-put ov 'face
+                     (let ((bg-color (face-background 'default nil)))
+                       `(:background ,bg-color :foreground ,bg-color)))
+	(setq-local cursor-type nil))))
+  (add-hook 'helm-minibuffer-set-up-hook
+            'spacemacs//helm-hide-minibuffer-maybe)
+  (helm-mode 1)
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
 ;; undo-tree
-(require 'undo-tree)
-(global-undo-tree-mode)
+(use-package undo-tree
+  :ensure t
+  :config
+  (global-undo-tree-mode)
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
 ;; volatile highlights
-(require 'volatile-highlights)
-(volatile-highlights-mode t)
+(use-package volatile-highlights
+  :ensure t
+  :config
+  (volatile-highlights-mode t)
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
 ;; yasnippet
-(require 'yasnippet)
-(yas-global-mode 1)
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-global-mode 1)
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
 ;; ggtags
-(require 'ggtags)
-(add-hook 'c-mode-common-hook
-          (lambda
-            (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-              (ggtags-mode 1))))
-(add-hook 'dired-mode-hook 'ggtags-mode)
+(use-package ggtags
+  :ensure t
+  :config
+  (add-hook 'c-mode-common-hook
+            (lambda
+	      (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+		(ggtags-mode 1))))
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
 ;; workgroups2
-(require 'workgroups2)
-(workgroups-mode 1)
+(use-package workgroups
+  :ensure t
+  :config
+  (workgroups-mode 1)
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
 ;; smartparens
-(require 'smartparens-config)
-(add-hook 'prog-mode-hook #'smartparens-mode)
-(setq sp-base-key-bindings 'paredit)
-(setq sp-autoskip-closing-pair 'always)
-(setq sp-hybrid-kill-entire-symbol nil)
-(sp-use-paredit-bindings)
+(use-package smartparens
+  :ensure t
+  :diminish smartparens-mode
+  :config
+  (progn
+    (require 'smartparens-config)
+    (smartparens-global-mode 1))
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
 ;; clean-aindent-mode
-(require 'clean-aindent-mode)
-(add-hook 'prog-mode-hook 'clean-aindent-mode)
+(use-package clean-aindent-mode
+  :ensure t
+  :hook prog-mode
+  :config
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
 ;; company config
-(require 'company)
-(add-hook 'after-init-hook 'global-company-mode)
-(add-to-list 'company-backends 'company-c-headers)
-(setq company-backends (delete 'company-semantic company-backends))
-(add-hook 'c-mode-common-hook
-	  (lambda ()
-	    (define-key c-mode-base-map  [(tab)] 'company-complete)))
-;; (define-key c++-mode-map  [(tab)] 'company-complete)
-
-;; ibuffer-vc config
-(add-hook 'ibuffer-hook
-	  (lambda ()
-	    (ibuffer-vc-set-filter-groups-by-vc-root)
-	    (unless (eq ibuffer-sorting-mode 'alphabetic)
-              (ibuffer-do-sort-by-alphabetic))))
-
-(setq ibuffer-formats
-      '((mark modified read-only vc-status-mini " "
-              (name 18 18 :left :elide)
-              " "
-              (size 9 -1 :right)
-              " "
-              (mode 16 16 :left :elide)
-              " "
-              (vc-status 16 16 :left)
-              " "
-              filename-and-process)))
+(use-package company
+  :ensure t
+  :init (global-company-mode)
+  :config
+  (add-to-list 'company-backends 'company-c-headers)
+  (add-hook 'c-mode-common-hook
+	    (lambda ()
+	      (define-key c-mode-base-map  [(tab)] 'company-complete)))
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
 ;; projectile config
-(projectile-global-mode)
-(setq projectile-completion-system 'helm)
-(helm-projectile-on)
-(setq projectile-indexing-method 'alien)
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(use-package projectile
+  :ensure t
+  :bind (("C-c p" . projectile-command-map))
+  :config
+  (projectile-global-mode)
+  (setq projectile-completion-system 'helm)
+  (setq projectile-indexing-method 'alien)
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
-;; ztree config
-(require 'ztree-diff)
-(require 'ztree-dir)
-
-;; diff-hl config
-(global-diff-hl-mode)
-(add-hook 'dired-mode-hook 'diff-hl-dired-mode)
+(use-package helm-projectile
+  :ensure t
+  :config
+  (helm-projectile-on)
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
 ;; magit config
-(require 'magit)
-(set-default 'magit-stage-all-confirm nil)
-(add-hook 'magit-mode-hook 'magit-load-config-extensions)
-;; full screen magit-status
-(defadvice magit-status (around magit-fullscreen activate)
-  (window-configuration-to-register :magit-fullscreen)
-  ad-do-it
-  (delete-other-windows))
+(use-package magit
+  :commands magit-get-top-dir
+  :bind (("C-x g s" . magit-status)
+         ("C-x g f" . magit-file-log)
+         ("C-x g h" . magit-log)
+	 ("C-x g c" . magit-branch)
+	 ("C-x g t" . magit-tag))
+  :init
+  (progn
 
-(global-unset-key (kbd "C-x g"))
-(global-set-key (kbd "C-x g h") 'magit-log)
-(global-set-key (kbd "C-x g f") 'magit-file-log)
-(global-set-key (kbd "C-x g b") 'magit-blame-mode)
-(global-set-key (kbd "C-x g m") 'magit-branch-manager)
-(global-set-key (kbd "C-x g c") 'magit-branch)
-(global-set-key (kbd "C-x g s") 'magit-status)
-(global-set-key (kbd "C-x g r") 'magit-reflog)
-(global-set-key (kbd "C-x g t") 'magit-tag)
+    ;; we no longer need vc-git
+    (delete 'Git vc-handled-backends)
+    ;; make magit status go full-screen but remember previous window
+    ;; settings
+    ;; from: http://whattheemacsd.com/setup-magit.el-01.html
+    (defadvice magit-status (around magit-fullscreen activate)
+      (window-configuration-to-register :magit-fullscreen)
+      ad-do-it
+      (delete-other-windows))
+
+    ;; Close popup when commiting - this stops the commit window
+    ;; hanging around
+    ;; From: http://git.io/rPBE0Q
+    (defadvice git-commit-commit (after delete-window activate)
+      (delete-window))
+
+    (defadvice git-commit-abort (after delete-window activate)
+      (delete-window))
+
+    ;; these two force a new line to be inserted into a commit window,
+    ;; which stops the invalid style showing up.
+    ;; From: http://git.io/rPBE0Q
+    (defun magit-commit-mode-init ()
+      (when (looking-at "\n")
+        (open-line 1)))
+
+    (add-hook 'git-commit-mode-hook 'magit-commit-mode-init))
+  :config
+  (progn
+    ;; restore previously hidden windows
+    (defadvice magit-quit-window (around magit-restore-screen activate)
+      (let ((current-mode major-mode))
+        ad-do-it
+        ;; we only want to jump to register when the last seen buffer
+        ;; was a magit-status buffer.
+        (when (eq 'magit-status-mode current-mode)
+          (jump-to-register :magit-fullscreen))))
+
+    (defun magit-maybe-commit (&optional show-options)
+      "Runs magit-commit unless prefix is passed"
+      (interactive "P")
+      (if show-options
+          (magit-key-mode-popup-committing)
+        (magit-commit)))
+
+    (define-key magit-mode-map "c" 'magit-maybe-commit)
+
+    ;; major mode for editing `git rebase -i` files
+    (use-package rebase-mode)
+
+    ;; magit settings
+    (setq
+     ;; use ido to look for branches
+     magit-completing-read-function 'magit-ido-completing-read
+     ;; don't put "origin-" in front of new branch names by default
+     magit-default-tracking-name-function 'magit-default-tracking-name-branch-only
+     ;; open magit status in same window as current buffer
+     magit-status-buffer-switch-function 'switch-to-buffer
+     ;; highlight word/letter changes in hunk diffs
+     magit-diff-refine-hunk t
+     ;; ask me if I want to include a revision when rewriting
+     magit-rewrite-inclusive 'ask
+     ;; ask me to save buffers
+     magit-save-some-buffers t
+     ;; pop the process buffer if we're taking a while to complete
+     magit-process-popup-time 10
+     ;; ask me if I want a tracking upstream
+     magit-set-upstream-on-push 'askifnotset
+     )
+    (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe)))
 
 ;; flycheck
-(require 'flycheck)
-(add-hook 'after-init-hook #'global-flycheck-mode)
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode)
+  :config
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
-;; flycheck-pos-tip
-(with-eval-after-load 'flycheck
-  (flycheck-pos-tip-mode))
+(use-package flycheck-pos-tip
+  :ensure t
+  :after flycheck
+  :config
+  (flycheck-pos-tip-mode)
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
 ;; nyan mode
-(case window-system ((x w32) (nyan-mode)))
+(use-package nyan-mode
+  :if window-system
+  :ensure t
+  :config
+  (nyan-mode))
 
 ;; semantic refactor
-(require 'srefactor)
-(require 'srefactor-lisp)
-
-;; OPTIONAL: ADD IT ONLY IF YOU USE C/C++.
-(semantic-mode 1) ;; -> this is optional for Lisp
-
-(define-key c-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
-(define-key c++-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
-(global-set-key (kbd "M-RET o") 'srefactor-lisp-one-line)
-(global-set-key (kbd "M-RET m") 'srefactor-lisp-format-sexp)
-(global-set-key (kbd "M-RET d") 'srefactor-lisp-format-defun)
-(global-set-key (kbd "M-RET b") 'srefactor-lisp-format-buffer)
+(use-package srefactor
+  :ensure t
+  :config
+  (semantic-mode 1)
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
 ;; guide-key
-(require 'guide-key)
-(setq guide-key/guide-key-sequence '("C-x" "C-c" "M-g" "C-h"))
-(setq guide-key/recursive-key-sequence-flag t)
-(setq guide-key/popup-window-position 'bottom)
-(guide-key-mode 1)  ; Enable guide-key-mode
+(use-package guide-key
+  :ensure t
+  :config
+  (setq guide-key/guide-key-sequence '("C-x" "C-c" "M-g" "C-h"))
+  (setq guide-key/recursive-key-sequence-flag t)
+  (setq guide-key/popup-window-position 'bottom)
+  (guide-key-mode 1)
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
 ;; x86 lookup
-(require 'x86-lookup)
-(setq x86-lookup-pdf "D:/Coding/x86-instructions.pdf")
-(global-set-key (kbd "C-h x") #'x86-lookup)
+(use-package x86-lookup
+  :ensure t
+  :init
+  (setq x86-lookup-pdf "D:/Coding/x86-instructions.pdf")
+  :bind ("C-h x" . x86-lookup)
+  :config
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
 ;; org-bullets
-(require 'org-bullets)
-(add-hook 'org-mode-hook 'org-bullets-mode)
+(use-package org-bullets
+  :ensure t
+  :hook org-mode
+  :config
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
 ;; pdf-tools
-(pdf-tools-install)
+(use-package pdf-tools
+  :ensure t
+  :config
+  (pdf-tools-install)
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
+
+(use-package org
+  :ensure t
+  :config
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -234,7 +362,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (use-package pdf-tools org org-bullets x86-lookup ztree yasnippet workgroups2 volatile-highlights undo-tree srefactor smartparens nyan-mode magit ibuffer-vc helm-projectile guide-key ggtags flycheck-tip flycheck-pos-tip diff-hl company-c-headers clean-aindent-mode))))
+    (org flycheck-pos-tip flycheck rtags racket-mode geiser auto-package-update use-package pdf-tools org-bullets x86-lookup ztree yasnippet workgroups2 volatile-highlights undo-tree srefactor smartparens nyan-mode magit ibuffer-vc helm-projectile guide-key ggtags diff-hl company-c-headers clean-aindent-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
