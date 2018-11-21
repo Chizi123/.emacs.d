@@ -1,6 +1,7 @@
 (provide 'init)
 
 ;; set paths for executable
+;; use mingw64 for aspell, poppler (pdf-tools), gcc
 (add-to-list 'exec-path "C:/msys64/usr/bin")
 (add-to-list 'exec-path "C:/msys64/mingw64/bin")
 (add-to-list 'exec-path "c:/Program Files/Racket")
@@ -57,7 +58,7 @@
 (use-package zenburn-theme
   :ensure t
   :config
-  (load-theme 'zenburn)
+  (load-theme 'zenburn t)
   (setq auto-package-update-delete-old-versions t)
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
@@ -208,9 +209,6 @@
 	 ("C-x g t" . magit-tag))
   :init
   (progn
-
-    ;; we no longer need vc-git
-    (delete 'Git vc-handled-backends)
     ;; make magit status go full-screen but remember previous window
     ;; settings
     ;; from: http://whattheemacsd.com/setup-magit.el-01.html
