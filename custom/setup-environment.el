@@ -10,9 +10,6 @@
 
 (column-number-mode 1)
 
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'zenburn t)
-
 ;; remove backup files
 (when (eq system-type 'windows-nt)
   (defadvice backup-buffer (after my-backup-make-hidden activate)

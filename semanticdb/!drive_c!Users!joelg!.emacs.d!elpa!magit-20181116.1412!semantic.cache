@@ -268,7 +268,156 @@
       :pointmax 45389
       :fsize 45392
       :lastmodtime '(23535 16490 0 0)
-      :unmatched-syntax '((close-paren 2085 . 2086) (symbol 2050 . 2067) (open-paren 2049 . 2050) (close-paren 1736 . 1737) (symbol 1704 . 1721) (open-paren 1703 . 1704) (close-paren 1684 . 1685) (symbol 1647 . 1664) (open-paren 1646 . 1647))))
+      :unmatched-syntax '((close-paren 2085 . 2086) (symbol 2050 . 2067) (open-paren 2049 . 2050) (close-paren 1736 . 1737) (symbol 1704 . 1721) (open-paren 1703 . 1704) (close-paren 1684 . 1685) (symbol 1647 . 1664) (open-paren 1646 . 1647)))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl-lib" include nil nil [1013 1030])
+            ("dash" include nil nil [1031 1046])
+            ("magit-git" include nil nil [1048 1068])
+            ("autorevert" include nil nil [1070 1091])
+            ("magit-auto-revert" customgroup (:user-visible-flag t) nil [1106 1377])
+            ("auto-revert-buffer-list-filter" variable nil nil [1379 2581])
+            ("magit-auto-revert-tracked-only" variable (:default-value t) nil [2583 3012])
+            ("magit-auto-revert-immediately" variable (:default-value t) nil [3014 3785])
+            ("magit-turn-on-auto-revert-mode-if-desired" function (:arguments ("file")) nil [3797 4383])
+            ("define-globalized-minor-mode" code nil nil [4400 5289])
+            ("magit-auto-revert-mode--init-kludge" function nil nil [6121 6917])
+            ("if" code nil nil [6918 7260])
+            ("put" code nil nil [7262 8591])
+            ("magit-auto-revert-buffers" function nil nil [8593 8960])
+            ("magit-auto-revert-toplevel" variable nil nil [8962 9001])
+            ("when" code nil nil [9003 9137])
+            ("magit-auto-revert-buffer-p" function (:arguments ("buffer")) nil [9139 9442])
+            ("magit-auto-revert-repository-buffer-p" function (:arguments ("buffer" "fallback")) nil [9444 10441])
+            ("auto-revert-buffers--buffer-list-filter" function nil nil [10443 10742])
+            ("advice-add" code nil nil [10744 10838])
+            ("magit-autorevert" package nil nil [10846 10873]))          
+      :file "magit-autorevert.el"
+      :pointmax 10908
+      :fsize 10907
+      :lastmodtime '(23535 16490 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :file "magit-git.el"
+      :fsize 92509
+      :lastmodtime '(23535 16490 0 0))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("ansi-color" include nil nil [1218 1239])
+            ("cl-lib" include nil nil [1240 1257])
+            ("dash" include nil nil [1258 1273])
+            ("subr-x" include nil nil [1296 1313])
+            ("with-editor" include nil nil [1316 1338])
+            ("magit-utils" include nil nil [1339 1361])
+            ("magit-section" include nil nil [1362 1386])
+            ("magit-git" include nil nil [1387 1407])
+            ("magit-mode" include nil nil [1408 1429])
+            ("declare-function" code nil nil [1431 1562])
+            ("magit-process-connection-type" variable (:default-value (not (eq system-type (quote cygwin)))) nil [1577 1946])
+            ("magit-need-cygwin-noglob" variable (:default-value (and (eq system-type (quote windows-nt)) (with-temp-buffer (let ((process-environment (append magit-git-environment process-environment))) (condition-case e (process-file magit-git-executable nil (current-buffer) nil "-c" "alias.echo=!echo" "echo" "x{0}") (file-error (lwarn (quote magit-process) :warning "Could not run Git: %S" e)))) (equal "x0
+" (buffer-string))))) nil [1948 2941])
+            ("magit-process-popup-time" variable (:default-value -1) nil [2943 3231])
+            ("magit-process-log-max" variable (:default-value 32) nil [3233 3701])
+            ("magit-process-error-tooltip-max-lines" variable (:default-value 20) nil [3703 4154])
+            ("magit-credential-cache-daemon-socket" variable (:default-value (--some (pcase-let (((\` ((\, prog) \, args)) (split-string it))) (if (and prog (string-match-p "\\`\\(?:\\(?:/.*/\\)?git-credential-\\)?cache\\'" prog)) (or (cl-loop for (opt val) on args if (string= opt "--socket") return val) (expand-file-name "~/.git-credential-cache/socket")))) (ignore-errors (let ((process-environment (append magit-git-environment process-environment))) (process-lines magit-git-executable "config" "--get-all" "credential.helper"))))) nil [4156 6094])
+            ("magit-process-yes-or-no-prompt-regexp" variable (:default-value " [[(]\\([Yy]\\(?:es\\)?\\)[/|]\\([Nn]o?\\)[])] ?[?:] ?$") nil [6096 6352])
+            ("magit-process-password-prompt-regexps" variable (:default-value (quote ("^\\(Enter \\)?[Pp]assphrase\\( for \\(RSA \\)?key '.*'\\)?: ?$" "^\\(Enter \\)?[Pp]assword\\( for '\\(https?://\\)?\\(?99:.*\\)'\\)?: ?$" "^.*'s password: ?$" "^Yubikey for .*: ?$" "^Enter PIN for .*: ?$"))) nil [6354 6908])
+            ("magit-process-find-password-functions" variable nil nil [6910 7768])
+            ("magit-process-username-prompt-regexps" variable (:default-value (quote ("^Username for '.*': ?$"))) nil [7770 8013])
+            ("magit-process-ensure-unix-line-ending" variable (:default-value t) nil [8015 8219])
+            ("magit-process-display-mode-line-error" variable (:default-value t) nil [8221 8431])
+            ("magit-process-ok" variable
+               (:default-value (quote ((t :inherit magit-section-heading :foreground "green")))
+                :type "face")
+                nil [8433 8572])
+            ("magit-process-ng" variable
+               (:default-value (quote ((t :inherit magit-section-heading :foreground "red")))
+                :type "face")
+                nil [8574 8715])
+            ("magit-mode-line-process" variable
+               (:default-value (quote ((t :inherit mode-line-emphasis)))
+                :type "face")
+                nil [8717 8887])
+            ("magit-mode-line-process-error" variable
+               (:default-value (quote ((t :inherit error)))
+                :type "face")
+                nil [8889 9084])
+            ("magit-process-mode-map" variable (:default-value (let ((map (make-sparse-keymap))) (set-keymap-parent map magit-mode-map) map)) nil [9104 9260])
+            ("define-derived-mode" code nil nil [9262 9646])
+            ("magit-process-buffer" function
+               (:user-visible-flag t
+                :arguments ("nodisplay"))
+                nil [9648 11154])
+            ("magit-process-kill" function (:user-visible-flag t) nil [11156 11443])
+            ("magit-process-raise-error" variable nil nil [11472 11510])
+            ("magit-git" function (:arguments ("args")) nil [11512 11962])
+            ("magit-run-git" function (:arguments ("args")) nil [11964 12729])
+            ("magit-pre-call-git-hook" variable nil nil [12731 12767])
+            ("magit-call-git" function (:arguments ("args")) nil [12769 13362])
+            ("magit-call-process" function (:arguments ("program" "args")) nil [13364 13840])
+            ("magit-process-file" function (:arguments ("process" "infile" "buffer" "display" "args")) nil [13842 14295])
+            ("magit-process-environment" function nil nil [14297 15161])
+            ("magit-this-process" variable nil nil [15163 15194])
+            ("magit-run-git-with-input" function (:arguments ("args")) nil [15196 16786])
+            ("magit-run-git-with-logfile" function (:arguments ("file" "args")) nil [16788 17083])
+            ("magit-run-git-async" function (:arguments ("args")) nil [17113 17799])
+            ("magit-run-git-with-editor" function (:arguments ("args")) nil [17801 18393])
+            ("magit-run-git-sequencer" function (:arguments ("args")) nil [18395 19166])
+            ("magit-pre-start-git-hook" variable nil nil [19168 19205])
+            ("magit-start-git" function (:arguments ("input" "args")) nil [19207 20133])
+            ("magit-start-process" function (:arguments ("program" "input" "args")) nil [20135 22617])
+            ("magit-parse-git-async" function (:arguments ("args")) nil [22619 23435])
+            ("magit-process-setup" function (:arguments ("program" "args")) nil [23460 23777])
+            ("magit-process-insert-section" function (:arguments ("pwd" "program" "args" "errcode" "errlog")) nil [23779 25580])
+            ("magit-process-truncate-log" function nil nil [25582 26379])
+            ("magit-process-sentinel" function (:arguments ("process" "event")) nil [26381 27167])
+            ("magit-sequencer-process-sentinel" function (:arguments ("process" "event")) nil [27169 28227])
+            ("magit-process-filter" function (:arguments ("proc" "string")) nil [28229 29175])
+            ("magit-process-kill-on-abort" function (:arguments ("proc" "body")) nil [29177 29617])
+            ("magit-process-yes-or-no-prompt" function (:arguments ("process" "string")) nil [29619 30119])
+            ("magit-process-password-auth-source" function (:arguments ("key")) nil [30121 31237])
+            ("magit-process-password-prompt" function (:arguments ("process" "string")) nil [31239 32107])
+            ("magit-process-username-prompt" function (:arguments ("process" "string")) nil [32109 32458])
+            ("magit-process-match-prompt" function (:arguments ("prompts" "string")) nil [32460 32901])
+            ("magit--process-coding-system" function nil nil [32903 33287])
+            ("magit-credential-hook" variable nil nil [33289 33366])
+            ("magit-credential-cache-daemon-process" variable nil nil [33368 33418])
+            ("magit-maybe-start-credential-cache-daemon" function nil nil [33420 35039])
+            ("add-hook" code nil nil [35041 35118])
+            ("tramp-sh-handle-start-file-process--magit-tramp-process-environment" function (:arguments ("fn" "name" "buffer" "program" "args")) nil [35120 35495])
+            ("advice-add" code nil nil [35497 35634])
+            ("tramp-sh-handle-process-file--magit-tramp-process-environment" function (:arguments ("fn" "program" "infile" "destination" "display" "args")) nil [35636 36009])
+            ("advice-add" code nil nil [36011 36136])
+            ("magit-mode-line-process-map" variable (:default-value (let ((map (make-sparse-keymap))) (define-key map (kbd "<mode-line> <mouse-1>") (quote magit-process-buffer)) map)) nil [36138 36334])
+            ("magit-process-set-mode-line" function (:arguments ("program" "args")) nil [36336 37176])
+            ("magit-process-set-mode-line-error-status" function (:arguments ("error" "str")) nil [37178 39664])
+            ("magit-process-unset-mode-line-error-status" function nil nil [39666 40052])
+            ("magit-process-unset-mode-line" function nil nil [40054 40412])
+            ("magit-process-error-message-regexps" variable (:default-value (list "^\\*ERROR\\*: Canceled by user$" "^\\(?:error\\|fatal\\|git\\): \\(.*\\)$" "^\\(Cannot rebase:.*\\)$")) nil [40414 40586])
+            ("define-error" code nil nil [40588 40631])
+            ("magit-process-error-summary" function (:arguments ("process-buf" "section")) nil [40633 41446])
+            ("magit-process-error-tooltip" function (:arguments ("process-buf" "section")) nil [41448 42453])
+            ("defvar-local" code nil nil [42455 42490])
+            ("magit-process-finish-apply-ansi-colors" variable nil nil [42492 42543])
+            ("magit-process-finish" function (:arguments ("arg" "process-buf" "command-buf" "default-dir" "section")) nil [42545 45789])
+            ("magit-process-display-buffer" function (:arguments ("process")) nil [45791 46690])
+            ("magit--log-action" function (:arguments ("summary" "line" "list")) nil [46692 47418])
+            ("magit-process" package nil nil [47426 47450]))          
+      :file "magit-process.el"
+      :pointmax 47482
+      :fsize 47481
+      :lastmodtime '(23535 16490 0 0)
+      :unmatched-syntax '((close-paren 1313 . 1314) (symbol 1276 . 1293) (open-paren 1275 . 1276)))
+    (semanticdb-table "semanticdb-table"
+      :file "magit-section.el"
+      :fsize 60715
+      :lastmodtime '(23535 16490 0 0))
+    (semanticdb-table "semanticdb-table"
+      :file "magit-mode.el"
+      :fsize 58319
+      :lastmodtime '(23535 16490 0 0)))
   :file "!drive_c!Users!joelg!.emacs.d!elpa!magit-20181116.1412!semantic.cache"
   :semantic-tag-version "2.0"
   :semanticdb-version "2.2")

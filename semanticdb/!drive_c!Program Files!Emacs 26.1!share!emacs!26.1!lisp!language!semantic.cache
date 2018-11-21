@@ -60,6 +60,391 @@
       :pointmax 13738
       :fsize 13761
       :lastmodtime '(23525 29562 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("setup-japanese-environment-internal" function nil nil [1129 1483])
+            ("japanese-kana-table" variable
+               (:constant-flag t
+                :default-value (quote ((12354 12450 65393) (12356 12452 65394) (12358 12454 65395) (12360 12456 65396) (12362 12458 65397) (12363 12459 65398) (12365 12461 65399) (12367 12463 65400) (12369 12465 65401) (12371 12467 65402) (12373 12469 65403) (12375 12471 65404) (12377 12473 65405) (12379 12475 65406) (12381 12477 65407) (12383 12479 65408) (12385 12481 65409) (12388 12484 65410) (12390 12486 65411) (12392 12488 65412) (12394 12490 65413) (12395 12491 65414) (12396 12492 65415) (12397 12493 65416) (12398 12494 65417) (12399 12495 65418) (12402 12498 65419) (12405 12501 65420) (12408 12504 65421) (12411 12507 65422) (12414 12510 65423) (12415 12511 65424) (12416 12512 65425) (12417 12513 65426) (12418 12514 65427) (12420 12516 65428) (12422 12518 65429) (12424 12520 65430) (12425 12521 65431) (12426 12522 65432) (12427 12523 65433) (12428 12524 65434) (12429 12525 65435) (12431 12527 65436) (12432 12528 "ï½²") (12433 12529 "ï½´") (12434 12530 65382) (12435 12531 65437) (12364 12460 "ï½¶ï¾") (12366 12462 "ï½·ï¾") (12368 12464 "ï½¸ï¾") (12370 12466 "ï½¹ï¾") (12372 12468 "ï½ºï¾") (12374 12470 "ï½»ï¾") (12376 12472 "ï½¼ï¾") (12378 12474 "ï½½ï¾") (12380 12476 "ï½¾ï¾") (12382 12478 "ï½¿ï¾") (12384 12480 "ï¾€ï¾") (12386 12482 "ï¾ï¾") (12389 12485 "ï¾‚ï¾") (12391 12487 "ï¾ƒï¾") (12393 12489 "ï¾„ï¾") (12400 12496 "ï¾Šï¾") (12403 12499 "ï¾‹ï¾") (12406 12502 "ï¾Œï¾") (12409 12505 "ï¾ï¾") (12412 12508 "ï¾ï¾") (12401 12497 "ï¾Šï¾Ÿ") (12404 12500 "ï¾‹ï¾Ÿ") (12407 12503 "ï¾Œï¾Ÿ") (12410 12506 "ï¾ï¾Ÿ") (12413 12509 "ï¾ï¾Ÿ") (12353 12449 65383) (12355 12451 65384) (12357 12453 65385) (12359 12455 65386) (12361 12457 65387) (12387 12483 65391) (12419 12515 65388) (12421 12517 65389) (12423 12519 65390) (12430 12526 "ï¾œ") (12445 12541) (12446 12542) ("ã†ã‚›" 12532 "ï½³ï¾") (nil 12533 "ï½¶") (nil 12534 "ï½¹"))))
+                nil [1485 2850])
+            ("let" code nil nil [2968 4116])
+            ("japanese-symbol-table" variable
+               (:constant-flag t
+                :default-value (quote ((12288 32) (65292 44 65380) (65294 46 65377) (12289 44 65380) (12290 46 65377) (12539 nil 65381) (65306 58) (65307 59) (65311 63) (65281 33) (12443 nil 65438) (12444 nil 65439) (180 39) (65344 96) (65342 94) (65343 95) (12540 45 65392) (8212 45) (8208 45) (65295 47) (65340 92) (12316 126) (65372 124) (8216 96) (8217 39) (8220 34) (8221 34) (65288 40) (65289 41) (65339 91) (65341 93) (65371 123) (65373 125) (12296 60) (12297 62) (12300 nil 65378) (12301 nil 65379) (65291 43) (8722 45) (65309 61) (65308 60) (65310 62) (8242 39) (8243 34) (65509 92) (65284 36) (65285 37) (65283 35) (65286 38) (65290 42) (65312 64) (8213 45) (65374 126) (65293 45))))
+                nil [4118 4954])
+            ("let" code nil nil [5082 5637])
+            ("japanese-alpha-numeric-table" variable
+               (:constant-flag t
+                :default-value (quote ((65296 . 48) (65297 . 49) (65298 . 50) (65299 . 51) (65300 . 52) (65301 . 53) (65302 . 54) (65303 . 55) (65304 . 56) (65305 . 57) (65313 . 65) (65314 . 66) (65315 . 67) (65316 . 68) (65317 . 69) (65318 . 70) (65319 . 71) (65320 . 72) (65321 . 73) (65322 . 74) (65323 . 75) (65324 . 76) (65325 . 77) (65326 . 78) (65327 . 79) (65328 . 80) (65329 . 81) (65330 . 82) (65331 . 83) (65332 . 84) (65333 . 85) (65334 . 86) (65335 . 87) (65336 . 88) (65337 . 89) (65338 . 90) (65345 . 97) (65346 . 98) (65347 . 99) (65348 . 100) (65349 . 101) (65350 . 102) (65351 . 103) (65352 . 104) (65353 . 105) (65354 . 106) (65355 . 107) (65356 . 108) (65357 . 109) (65358 . 110) (65359 . 111) (65360 . 112) (65361 . 113) (65362 . 114) (65363 . 115) (65364 . 116) (65365 . 117) (65366 . 118) (65367 . 119) (65368 . 120) (65369 . 121) (65370 . 122))))
+                nil [5639 6531])
+            ("let" code nil nil [6656 6916])
+            ("japanese-string-conversion" function (:arguments ("str" "func" "args")) nil [6979 7216])
+            ("japanese-katakana" function (:arguments ("obj" "hankaku")) nil [7233 7848])
+            ("japanese-hiragana" function (:arguments ("obj")) nil [7865 8216])
+            ("japanese-hankaku" function (:arguments ("obj" "ascii-only")) nil [8233 8756])
+            ("japanese-zenkaku" function (:arguments ("obj")) nil [8773 9123])
+            ("japanese-replace-region" function (:arguments ("from" "to" "string")) nil [9125 9297])
+            ("japanese-katakana-region" function
+               (:user-visible-flag t
+                :arguments ("from" "to" "hankaku"))
+                nil [9314 10238])
+            ("japanese-hiragana-region" function
+               (:user-visible-flag t
+                :arguments ("from" "to"))
+                nil [10256 11020])
+            ("japanese-hankaku-region" function
+               (:user-visible-flag t
+                :arguments ("from" "to" "ascii-only"))
+                nil [11037 11806])
+            ("japanese-zenkaku-region" function
+               (:user-visible-flag t
+                :arguments ("from" "to" "katakana-only"))
+                nil [11823 12867])
+            ("read-hiragana-string" function (:arguments ("prompt" "initial-input")) nil [12884 13168])
+            ("japan-util" package nil nil [13173 13194]))          
+      :file "japan-util.el"
+      :pointmax 13224
+      :fsize 15809
+      :lastmodtime '(23525 29562 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("robin" include nil nil [1300 1316])
+            ("exit-ethiopic-environment-data" variable nil nil [1367 1410])
+            ("setup-ethiopic-environment-internal" function nil nil [1427 2538])
+            ("exit-ethiopic-environment" function nil nil [2540 3008])
+            ("ethio-primary-language" variable (:default-value (quote tigrigna)) nil [3453 3633])
+            ("ethio-secondary-language" variable (:default-value (quote english)) nil [3635 3818])
+            ("ethio-use-colon-for-colon" variable nil nil [3820 4067])
+            ("ethio-use-three-dot-question" variable nil nil [4069 4358])
+            ("ethio-quote-vowel-always" variable nil nil [4360 4603])
+            ("ethio-W-sixth-always" variable nil nil [4605 4757])
+            ("ethio-numeric-reduction" variable nil nil [4759 5125])
+            ("ethio-java-save-lowercase" variable nil nil [5127 5272])
+            ("ethio-prefer-amharic-p" function nil nil [5274 5450])
+            ("ethio-prefer-amharic" function (:arguments ("arg")) nil [5452 5907])
+            ("ethio-use-colon-for-colon" function (:arguments ("arg")) nil [5909 6222])
+            ("ethio-use-three-dot-question" function (:arguments ("arg")) nil [6224 6487])
+            ("ethio-adjust-robin" function nil nil [6489 6686])
+            ("add-hook" code nil nil [6688 6739])
+            ("ethio-sera-to-fidel-buffer" function
+               (:user-visible-flag t
+                :arguments ("secondary" "force"))
+                nil [6780 7462])
+            ("ethio-sera-being-called-by-w3" variable nil nil [7534 7572])
+            ("sera-being-called-by-w3" variable nil nil [7633 7665])
+            ("ethio-sera-to-fidel-region" function
+               (:user-visible-flag t
+                :arguments ("begin" "end" "secondary" "force"))
+                nil [7682 9604])
+            ("ethio-sera-to-fidel-region-noethio" function nil nil [9606 10427])
+            ("ethio-sera-to-fidel-region-ethio" function (:arguments ("lang")) nil [10429 12405])
+            ("ethio-process-language-flag" function nil nil [12407 13781])
+            ("ethio-flag-to-language" function (:arguments ("flag")) nil [13783 14021])
+            ("ethio-process-digits" function nil nil [14023 14755])
+            ("ethio-sera-to-fidel-marker" function
+               (:user-visible-flag t
+                :arguments ("force"))
+                nil [14772 15434])
+            ("ethio-language-to-flag" function (:arguments ("lang")) nil [15460 15607])
+            ("ethio-fidel-to-sera-buffer" function
+               (:user-visible-flag t
+                :arguments ("secondary" "force"))
+                nil [15624 16396])
+            ("ethio-fidel-to-sera-region" function
+               (:user-visible-flag t
+                :arguments ("begin" "end" "secondary" "force"))
+                nil [16413 19920])
+            ("ethio-fidel-to-sera-marker" function
+               (:user-visible-flag t
+                :arguments ("force"))
+                nil [19937 20538])
+            ("ethio-modify-vowel" function (:user-visible-flag t) nil [20584 21138])
+            ("ethio-get-consonant" function (:arguments ("ch")) nil [21140 21571])
+            ("ethio-replace-space" function
+               (:user-visible-flag t
+                :arguments ("ch" "begin" "end"))
+                nil [21616 23537])
+            ("ethio-input-special-character" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [23610 23940])
+            ("ethio-fidel-to-tex-buffer" function (:user-visible-flag t) nil [23979 25206])
+            ("ethio-tex-to-fidel-buffer" function (:user-visible-flag t) nil [25223 25869])
+            ("ethio-fidel-to-java-buffer" function nil nil [25909 26443])
+            ("ethio-java-to-fidel-buffer" function nil nil [26460 26880])
+            ("ethio-find-file" function nil nil [26922 27845])
+            ("ethio-write-file" function nil nil [27862 28914])
+            ("ethio-record-user-preference" function nil nil [28916 29070])
+            ("ethio-prefer-ascii-space" variable (:default-value t) nil [29122 29157])
+            ("make-variable-buffer-local" code nil nil [29158 29212])
+            ("ethio-toggle-space" function (:user-visible-flag t) nil [29214 29392])
+            ("ethio-insert-space" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [29394 30273])
+            ("ethio-insert-ethio-space" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [30290 30478])
+            ("ethio-composition-function" function (:arguments ("pos" "to" "font-object" "string")) nil [30516 30957])
+            ("ethio-gemination" function (:user-visible-flag t) nil [30998 31485])
+            ("robin-define-package" code nil nil [31515 39574])
+            ("register-input-method" code nil nil [39576 39684])
+            ("robin-define-package" code nil nil [39686 48257])
+            ("ethio-util" package nil nil [48389 48410]))          
+      :file "ethio-util.el"
+      :pointmax 48440
+      :fsize 51016
+      :lastmodtime '(23525 29561 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("default-korean-keyboard" variable (:default-value (purecopy (if (string-match "3" (or (getenv "HANGUL_KEYBOARD_TYPE") "")) "3" ""))) nil [1094 1304])
+            ("toggle-korean-input-method" function (:user-visible-flag t) nil [1349 1614])
+            ("quail-hangul-switch-symbol-ksc" function
+               (:user-visible-flag t
+                :arguments ("ignore"))
+                nil [1616 1949])
+            ("quail-hangul-switch-hanja" function
+               (:user-visible-flag t
+                :arguments ("ignore"))
+                nil [1951 2314])
+            ("isearch-toggle-korean-input-method" function nil nil [2378 2665])
+            ("isearch-hangul-switch-symbol-ksc" function nil nil [2667 2956])
+            ("isearch-hangul-switch-hanja" function nil nil [2958 3237])
+            ("korean-key-bindings" variable (:default-value (\` ((global [33554464] toggle-korean-input-method nil) (global [Hangul] toggle-korean-input-method nil) (global [C-f9] quail-hangul-switch-symbol-ksc nil) (global [f9] hangul-to-hanja-conversion nil) (global [Hangul_Hanja] hangul-to-hanja-conversion nil) ((\, isearch-mode-map) [33554464] isearch-toggle-korean-input-method nil) ((\, isearch-mode-map) [Hangul] isearch-toggle-korean-input-method nil) ((\, isearch-mode-map) [C-f9] isearch-hangul-switch-symbol-ksc nil) ((\, isearch-mode-map) [f9] isearch-hangul-switch-hanja nil)))) nil [3298 3867])
+            ("setup-korean-environment-internal" function nil nil [3884 4433])
+            ("exit-korean-environment" function nil nil [4435 4980])
+            ("korea-util" package nil nil [4985 5006]))          
+      :file "korea-util.el"
+      :pointmax 5036
+      :fsize 5035
+      :lastmodtime '(23525 29562 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("set-language-info-alist" code nil nil [1115 1309])
+            ("burmese-composable-pattern" variable (:default-value (let ((table (quote (("K" . "[á€„áš]á€ºá€¹") ("C" . "[á€€-á€ªá€¿á-á‰ááš-áá¡á¥-á¦á®á±áµá‚á‚ê© -ê©¯ê©±-ê©¶]") ("V" . "á€¹") ("A" . "á€º") ("S" . "[á€€-á€™á€œá€á€ á€¡áš]") ("M" . "[á€»-á€¾EE-F0]") ("v" . "[á€«-á€ºá€¼-á€¾á¢-á¤á§-á­á±-á´á‚‚-á‚á‚á‚šá‚œê©°]")))) (regexp "\\(K\\)?C\\(VS\\)?\\(VS\\)?A?M*v*")) (let ((case-fold-search nil)) (dolist (elt table) (setq regexp (replace-regexp-in-string (car elt) (cdr elt) regexp t t)))) regexp)) nil [1311 2131])
+            ("let" code nil nil [2133 2399]))          
+      :file "burmese.el"
+      :pointmax 2400
+      :fsize 2433
+      :lastmodtime '(23525 29561 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("iso2022-gb-designation" variable (:default-value "$A") nil [2183 2221])
+            ("hz-gb-designation" variable (:default-value "~{") nil [2265 2296])
+            ("iso2022-ascii-designation" variable (:default-value "(B") nil [2345 2386])
+            ("hz-ascii-designation" variable (:default-value "~}") nil [2429 2463])
+            ("zw-start-gb" variable (:default-value "^zW") nil [2506 2532])
+            ("hz/zw-start-gb" variable (:default-value (concat hz-gb-designation "\\|" zw-start-gb "\\|[^ -]")) nil [2600 2686])
+            ("decode-hz-line-continuation" variable nil nil [2688 2799])
+            ("hz-set-msb-table" variable
+               (:constant-flag t
+                :default-value (eval-when-compile (let ((chars nil) (i 0)) (while (< i 33) (push i chars) (setq i (1+ i))) (while (< i 127) (push (decode-char (quote eight-bit) (+ i 128)) chars) (setq i (1+ i))) (apply (quote string) (nreverse chars)))))
+                nil [2801 3068])
+            ("decode-hz-region" function
+               (:user-visible-flag t
+                :arguments ("beg" "end"))
+                nil [3085 4101])
+            ("decode-hz-buffer" function (:user-visible-flag t) nil [4118 4259])
+            ("hz-category-table" variable nil nil [4261 4291])
+            ("encode-hz-region" function
+               (:user-visible-flag t
+                :arguments ("beg" "end"))
+                nil [4308 5992])
+            ("encode-hz-buffer" function (:user-visible-flag t) nil [6009 6146])
+            ("post-read-decode-hz" function (:arguments ("len")) nil [6163 6382])
+            ("pre-write-encode-hz" function (:arguments ("from" "to")) nil [6399 6684])
+            ("china-util" package nil nil [6688 6709]))          
+      :file "china-util.el"
+      :pointmax 6739
+      :fsize 6738
+      :lastmodtime '(23525 29561 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("define-coding-system" code nil nil [1369 1569])
+            ("define-coding-system-alias" code nil nil [1571 1628])
+            ("define-coding-system-alias" code nil nil [1724 1783])
+            ("define-coding-system-alias" code nil nil [1784 1843])
+            ("set-language-info-alist" code nil nil [1845 2240])
+            ("set-language-info-alist" code nil nil [2242 2465])
+            ("define-coding-system" code nil nil [2467 2660])
+            ("define-coding-system-alias" code nil nil [2661 2711])
+            ("define-coding-system" code nil nil [2713 2859])
+            ("define-coding-system-alias" code nil nil [2860 2903])
+            ("hebrew-font-get-precomposed" function (:arguments ("font-object")) nil [3006 4523])
+            ("hebrew-shape-gstring" function (:arguments ("gstring")) nil [5087 9050])
+            ("let*" code nil nil [9052 9796])
+            ("hebrew" package nil nil [9798 9815]))          
+      :file "hebrew.el"
+      :pointmax 9841
+      :fsize 9844
+      :lastmodtime '(23525 29562 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("define-coding-system" code nil nil [3787 3997])
+            ("define-coding-system-alias" code nil nil [3999 4054])
+            ("set-language-info-alist" code nil nil [4056 4405])
+            ("tibetan-composable-pattern" variable
+               (:constant-flag t
+                :default-value "[à½€-à½©à½ª][à¾-à¾¹à¾ºà¾»à¾¼]*[à½°ö‚à½±à½²-à½½à¾€à¾à¾„]*[à½¾à¾‚à¾ƒà¾†-à¾‹à¼™à¼µà¼·]*")
+                nil [4788 4934])
+            ("tibetan-consonant-transcription-alist" variable
+               (:constant-flag t
+                :default-value (quote (("tsh" . "à½š") ("dzh" . "à½œ") ("kSH" . "à½©") ("kh" . "à½") ("gh" . "à½ƒ") ("ng" . "à½„") ("ch" . "à½†") ("ny" . "à½‰") ("TH" . "à½‹") ("DH" . "à½") ("th" . "à½") ("dh" . "à½’") ("ph" . "à½•") ("bh" . "à½—") ("ts" . "à½™") ("dz" . "à½›") ("zh" . "à½") ("sh" . "à½¤") ("SH" . "à½¥") ("k" . "à½€") ("g" . "à½‚") ("c" . "à½…") ("j" . "à½‡") ("T" . "à½Š") ("D" . "à½Œ") ("N" . "à½") ("t" . "à½") ("d" . "à½‘") ("n" . "à½“") ("p" . "à½”") ("b" . "à½–") ("m" . "à½˜") ("w" . "à½") ("z" . "à½Ÿ") ("'" . "à½ ") ("y" . "à½¡") ("r" . "à½¢") ("l" . "à½£") ("s" . "à½¦") ("h" . "à½§") ("H" . "à½§") ("A" . "à½¨") ("R" . "à½ª"))))
+                nil [5082 5900])
+            ("tibetan-vowel-transcription-alist" variable
+               (:constant-flag t
+                :default-value (quote (("frr" . "à½·") ("fll" . "à½¹") ("fa" . "à½±") ("fi" . "à½³") ("fu" . "à½µ") ("fr" . "à½¶") ("fl" . "à½¸") ("fI" . "à¾") ("ai" . "à½»") ("au" . "à½½") ("ee" . "à½»") ("oo" . "à½½") ("a" . "ö‚") ("i" . "à½²") ("u" . "à½´") ("e" . "à½º") ("o" . "à½¼") ("E" . "à½»") ("O" . "à½½") ("I" . "à¾€") ("," . "à¾„"))))
+                nil [5903 6434])
+            ("tibetan-modifier-transcription-alist" variable
+               (:constant-flag t
+                :default-value (quote (("M" . "à½¾") ("~" . "à¾‚") ("`" . "à¾ƒ") ("x" . "à¾ˆ") ("X" . "à¾‰") ("v" . "à¾†") ("V" . "à¾‡") ("q" . "à¾Š") ("Q" . "à¾‹") ("_/" . "à¼™") ("_o" . "à¼·") ("_O" . "à¼µ"))))
+                nil [6436 6679])
+            ("tibetan-precomposed-transcription-alist" variable
+               (:constant-flag t
+                :default-value (quote (("phyw" . "ö…€") ("tshw" . "ö„¢") ("rtsw" . "ö†…") ("khw" . "ö„›") ("nyw" . "ö„") ("tsw" . "ö„¡") ("zhw" . "ö„£") ("shw" . "ö„§") ("khy" . "ö„º") ("phy" . "ö„½") ("khr" . "ö…Š") ("thr" . "ö…") ("phr" . "ö…") ("shr" . "ö…“") ("dzr" . "ö…—") ("grw" . "ö…˜") ("rng" . "ö…º") ("rny" . "ö…¼") ("rts" . "ö†‚") ("rdz" . "ö†ƒ") ("rgw" . "ö†„") ("rky" . "ö†‡") ("rgy" . "ö†ˆ") ("rmy" . "ö†‰") ("lng" . "ö†™") ("sng" . "ö†©") ("sny" . "ö†ª") ("sts" . "ö†±") ("sky" . "ö†·") ("sgy" . "ö†¸") ("spy" . "ö†¹") ("sby" . "ö†º") ("smy" . "ö†»") ("skr" . "ö‡‡") ("sgr" . "ö‡ˆ") ("snr" . "ö‡‰") ("spr" . "ö‡Š") ("sbr" . "ö‡‹") ("smr" . "ö‡Œ") ("kw" . "ö„š") ("gw" . "ö„œ") ("cw" . "ö„") ("tw" . "ö„Ÿ") ("dw" . "ö„ ") ("zw" . "ö„¤") ("rw" . "ö„¥") ("lw" . "ö„¦") ("sw" . "ö„¨") ("hw" . "ö„©") ("ky" . "ö„¹") ("gy" . "ö„»") ("py" . "ö„¼") ("by" . "ö„¾") ("my" . "ö„¿") ("kr" . "ö…‰") ("gr" . "ö…‹") ("tr" . "ö…Œ") ("dr" . "ö…") ("pr" . "ö…") ("brk" . "à½–ö…¸") ("brg" . "à½–ö…¹") ("brng" . "à½–ö…º") ("brj" . "à½–ö…»") ("brny" . "à½–ö…¼") ("brt" . "à½–ö…½") ("brd" . "à½–ö…¾") ("brn" . "à½–ö…¿") ("brts" . "à½–ö†‚") ("brdz" . "à½–ö†ƒ") ("brl" . "à½–ö…") ("br" . "ö…‘") ("mr" . "ö…’") ("sr" . "ö…”") ("hr" . "ö…•") ("jr" . "ö…–") ("kl" . "ö…™") ("gl" . "ö…š") ("blt" . "à½–ö†œ") ("bld" . "à½–ö†") ("bl" . "ö…›") ("zl" . "ö…œ") ("rl" . "ö…") ("sl" . "ö…") ("rk" . "ö…¸") ("rg" . "ö…¹") ("rj" . "ö…»") ("rt" . "ö…½") ("rd" . "ö…¾") ("rn" . "ö…¿") ("rb" . "ö†€") ("rm" . "ö†") ("lk" . "ö†—") ("lg" . "ö†˜") ("lc" . "ö†š") ("lj" . "ö†›") ("lt" . "ö†œ") ("ld" . "ö†") ("ln" . "ö€€") ("lp" . "ö†") ("lb" . "ö†Ÿ") ("lh" . "ö† ") ("sk" . "ö†§") ("sg" . "ö†¨") ("st" . "ö†«") ("sd" . "ö†¬") ("sn" . "ö†­") ("sp" . "ö†®") ("sb" . "ö†¯") ("sm" . "ö†°"))))
+                nil [6681 8678])
+            ("tibetan-subjoined-transcription-alist" variable
+               (:constant-flag t
+                :default-value (sort (quote (("+k" . "à¾") ("+kh" . "à¾‘") ("+g" . "à¾’") ("+gh" . "à¾“") ("+ng" . "à¾”") ("+c" . "à¾•") ("+ch" . "à¾–") ("+j" . "à¾—") ("+ny" . "à¾™") ("+T" . "à¾š") ("+TH" . "à¾›") ("+D" . "à¾œ") ("+DH" . "à¾") ("+N" . "à¾") ("+t" . "à¾Ÿ") ("+th" . "à¾ ") ("+d" . "à¾¡") ("+dh" . "à¾¢") ("+n" . "à¾£") ("+p" . "à¾¤") ("+ph" . "à¾¥") ("+b" . "à¾¦") ("+bh" . "à¾§") ("+m" . "à¾¨") ("+ts" . "à¾©") ("+tsh" . "à¾ª") ("+dz" . "à¾«") ("+dzh" . "à¾¬") ("+w" . "à¾­") ("+zh" . "à¾®") ("+z" . "à¾¯") ("+'" . "à¾°") ("+y" . "à¾±") ("+r" . "à¾²") ("+l" . "à¾³") ("+sh" . "à¾´") ("+SH" . "à¾µ") ("+s" . "à¾¶") ("+h" . "à¾·") ("+A" . "à¾¸") ("+kSH" . "à¾¹") ("+W" . "à¾º") ("+Y" . "à¾»") ("+R" . "à¾¼"))) (lambda (x y) (> (length (car x)) (length (car y))))))
+                nil [8681 9665])
+            ("tibetan-base-to-subjoined-alist" variable
+               (:constant-flag t
+                :default-value (quote (("à½€" . "à¾") ("à½" . "à¾‘") ("à½‚" . "à¾’") ("à½ƒ" . "à¾“") ("à½„" . "à¾”") ("à½…" . "à¾•") ("à½†" . "à¾–") ("à½‡" . "à¾—") ("à½‰" . "à¾™") ("à½Š" . "à¾š") ("à½‹" . "à¾›") ("à½Œ" . "à¾œ") ("à½" . "à¾") ("à½" . "à¾") ("à½" . "à¾Ÿ") ("à½" . "à¾ ") ("à½‘" . "à¾¡") ("à½’" . "à¾¢") ("à½“" . "à¾£") ("à½”" . "à¾¤") ("à½•" . "à¾¥") ("à½–" . "à¾¦") ("à½—" . "à¾§") ("à½˜" . "à¾¨") ("à½™" . "à¾©") ("à½š" . "à¾ª") ("à½›" . "à¾«") ("à½œ" . "à¾¬") ("à½" . "à¾­") ("à½" . "à¾®") ("à½Ÿ" . "à¾¯") ("à½ " . "à¾°") ("à½¡" . "à¾±") ("à½¢" . "à¾²") ("à½£" . "à¾³") ("à½¤" . "à¾´") ("à½¥" . "à¾µ") ("à½¦" . "à¾¶") ("à½§" . "à¾·") ("à½¨" . "à¾¸") ("à½©" . "à¾¹") ("à½ª" . "à¾¼"))))
+                nil [9748 10535])
+            ("tibetan-composite-vowel-alist" variable
+               (:constant-flag t
+                :default-value (quote (("à½³" 3953 (tc . bc) 3954) ("à½µ" 3953 (bc . tc) 3956) ("à½¶" 4018 (tc . bc) 3968) ("à½·" 4018 (bc . tc) 3953 (tc . bc) 3968) ("à½¸" 4019 (tc . bc) 3968) ("à½¹" 4019 (bc . tc) 3953 (tc . bc) 3968) ("à¾" 3953 (tc . bc) 3968))))
+                nil [10652 11106])
+            ("tibetan-precomposition-rule-alist" variable
+               (:constant-flag t
+                :default-value (\` (("à½•à¾±à¾­" . "ö…€") ("à½‚à¾²à¾­" . "ö…˜") ("à½šà¾­" . "ö„¢") ("à½¢à¾©à¾­" . "ö†…") ("à½¢à¾’à¾­" . "ö†„") ("à½¢à¾à¾±" . "ö†‡") ("à½¢à¾’à¾±" . "ö†ˆ") ("à½¢à¾¨à¾±" . "ö†‰") ("à½¦à¾à¾±" . "ö†·") ("à½¦à¾’à¾±" . "ö†¸") ("à½¦à¾¤à¾±" . "ö†¹") ("à½¦à¾¦à¾±" . "ö†º") ("à½¦à¾¨à¾±" . "ö†»") ("à½¦à¾à¾²" . "ö‡‡") ("à½¦à¾’à¾²" . "ö‡ˆ") ("à½¦à¾£à¾²" . "ö‡‰") ("à½¦à¾¤à¾²" . "ö‡Š") ("à½¦à¾¦à¾²" . "ö‡‹") ("à½¦à¾¨à¾²" . "ö‡Œ") ("à½à¾­" . "ö„›") ("à½‰à¾­" . "ö„") ("à½™à¾­" . "ö„¡") ("à½à¾­" . "ö„£") ("à½¤à¾­" . "ö„§") ("à½à¾±" . "ö„º") ("à½•à¾±" . "ö„½") ("à½à¾²" . "ö…Š") ("à½à¾²" . "ö…") ("à½•à¾²" . "ö…") ("à½¤à¾²" . "ö…“") ("à½›à¾²" . "ö…—") ("à½¢à¾”" . "ö…º") ("à½¢à¾™" . "ö…¼") ("à½¢à¾©" . "ö†‚") ("à½¢à¾«" . "ö†ƒ") ("à½£à¾”" . "ö†™") ("à½¦à¾”" . "ö†©") ("à½¦à¾™" . "ö†ª") ("à½¦à¾©" . "ö†±") ("à½€à¾­" . "ö„š") ("à½‚à¾­" . "ö„œ") ("à½…à¾­" . "ö„") ("à½à¾­" . "ö„Ÿ") ("à½‘à¾­" . "ö„ ") ("à½Ÿà¾­" . "ö„¤") ("à½¢à¾­" . "ö„¥") ("à½£à¾­" . "ö„¦") ("à½¦à¾­" . "ö„¨") ("à½§à¾­" . "ö„©") ("à½€à¾±" . "ö„¹") ("à½‚à¾±" . "ö„»") ("à½”à¾±" . "ö„¼") ("à½–à¾±" . "ö„¾") ("à½˜à¾±" . "ö„¿") ("à½€à¾²" . "ö…‰") ("à½‚à¾²" . "ö…‹") ("à½à¾²" . "ö…Œ") ("à½‘à¾²" . "ö…") ("à½”à¾²" . "ö…") ("à½–à¾²" . "ö…‘") ("à½˜à¾²" . "ö…’") ("à½¦à¾²" . "ö…”") ("à½§à¾²" . "ö…•") ("à½‡à¾²" . "ö…–") ("à½€à¾³" . "ö…™") ("à½‚à¾³" . "ö…š") ("à½–à¾³" . "ö…›") ("à½Ÿà¾³" . "ö…œ") ("à½¢à¾³" . "ö…") ("à½¦à¾³" . "ö…") ("à½¢à¾" . "ö…¸") ("à½¢à¾’" . "ö…¹") ("à½¢à¾—" . "ö…»") ("à½¢à¾Ÿ" . "ö…½") ("à½¢à¾¡" . "ö…¾") ("à½¢à¾£" . "ö…¿") ("à½¢à¾¦" . "ö†€") ("à½¢à¾¨" . "ö†") ("à½£à¾" . "ö†—") ("à½£à¾’" . "ö†˜") ("à½£à¾£" . "ö€€") ("à½£à¾•" . "ö†š") ("à½£à¾—" . "ö†›") ("à½£à¾Ÿ" . "ö†œ") ("à½£à¾¡" . "ö†") ("à½£à¾¤" . "ö†") ("à½£à¾¦" . "ö†Ÿ") ("à½£à¾·" . "ö† ") ("à½¦à¾" . "ö†§") ("à½¦à¾’" . "ö†¨") ("à½¦à¾Ÿ" . "ö†«") ("à½¦à¾¡" . "ö†¬") ("à½¦à¾£" . "ö†­") ("à½¦à¾¤" . "ö†®") ("à½¦à¾¦" . "ö†¯") ("à½¦à¾¨" . "ö†°"))))
+                nil [11246 12997])
+            ("tibetan-regexp" variable
+               (:constant-flag t
+                :default-value (let ((l (list tibetan-precomposed-transcription-alist tibetan-consonant-transcription-alist tibetan-vowel-transcription-alist tibetan-modifier-transcription-alist tibetan-subjoined-transcription-alist)) (separator "\\|") tail pattern) (while l (setq tail (car l) l (cdr l)) (while tail (setq pattern (cons separator (cons (car (car tail)) pattern)) tail (cdr tail)))) (apply (quote concat) (nreverse (cdr pattern)))))
+                nil [12999 13695])
+            ("tibetan-precomposed-regexp" variable (:default-value (purecopy (let ((l tibetan-precomposed-transcription-alist) temp) (setq temp "^\\(") (setq temp (concat temp (car (car l)))) (setq l (cdr l)) (while l (setq temp (concat temp "\\|" (car (car l)))) (setq l (cdr l))) (concat temp "\\)")))) nil [13697 14230])
+            ("tibetan-precomposition-rule-regexp" variable (:default-value (purecopy (let ((l tibetan-precomposition-rule-alist) temp) (setq temp "\\(") (setq temp (concat temp (car (car l)))) (setq l (cdr l)) (while l (setq temp (concat temp "\\|" (car (car l)))) (setq l (cdr l))) (concat temp "\\)")))) nil [14232 14884])
+            ("tibetan-decomposed" variable nil nil [14886 14917])
+            ("tibetan-decomposed-temp" variable nil nil [14918 14954])
+            ("set-char-table-range" code nil nil [14986 15119])
+            ("tibetan" package nil nil [15121 15139]))          
+      :file "tibetan.el"
+      :pointmax 15166
+      :fsize 18065
+      :lastmodtime '(23525 29563 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("tibetan-obsolete-glyphs" variable
+               (:constant-flag t
+                :default-value (\` (("à¼" . "à¼") ("à¼" . "à¼") ("à¼" . "à¼") ("à¼‘" . "à¼‘") ("à½¿" . "à½¿") ("à¼‹" . "à¼‹") ("à¼”" . "à¼”") ("à¼ à¼" \, (compose-string "à¼ à¼" 0 3 [3854 (Br . Bl) 32 (Br . Bl) 3854])) ("à¼„à¼…à¼…" \, (compose-string "à¿à¿‚à¿‚à¿‚" 0 4 [4033 (Br . Bl) 4034 (Br . Bl) 4034 (Br . Bl) 4034])) ("à¼„à¼…" \, (compose-string "à¿à¿‚à¿‚" 0 3 [4033 (Br . Bl) 4034 (Br . Bl) 4034])) ("à¼†" \, (compose-string "à¿à¿‚à¼™" 0 3 [4033 (Br . Bl) 4034 (br . tr) 3865])) ("à¼„" \, (compose-string "à¿à¿‚" 0 2 [4033 (Br . Bl) 4034])))))
+                nil [1397 1970])
+            ("tibetan-char-p" function (:arguments ("ch")) nil [1987 2170])
+            ("tibetan-tibetan-to-transcription" function (:arguments ("str")) nil [2241 3174])
+            ("tibetan-transcription-to-tibetan" function (:arguments ("str")) nil [3191 4540])
+            ("tibetan-add-components" function (:arguments ("components" "char")) nil [5673 7816])
+            ("tibetan-compose-string" function (:arguments ("str")) nil [7833 8672])
+            ("tibetan-compose-region" function
+               (:user-visible-flag t
+                :arguments ("beg" "end"))
+                nil [8689 9719])
+            ("tibetan-decompose-precomposition-alist" variable (:default-value (mapcar (function (lambda (x) (cons (string-to-char (cdr x)) (car x)))) tibetan-precomposition-rule-alist)) nil [9721 9880])
+            ("tibetan-decompose-region" function
+               (:user-visible-flag t
+                :arguments ("from" "to"))
+                nil [9897 10474])
+            ("tibetan-decompose-string" function (:arguments ("str")) nil [10492 10977])
+            ("setq-default" code nil nil [11046 11083])
+            ("tibetan-decompose-buffer" function (:user-visible-flag t) nil [11100 11456])
+            ("tibetan-compose-buffer" function (:user-visible-flag t) nil [11473 11765])
+            ("tibetan-post-read-conversion" function (:arguments ("len")) nil [11782 12160])
+            ("tibetan-pre-write-conversion" function (:arguments ("from" "to")) nil [12178 12589])
+            ("tibetan-canonicalize-for-unicode-alist" variable (:default-value (quote (("ö‚" . "") ("à½³" . "à½±à½²") ("à½µ" . "à½±à½´") ("à½¶" . "à¾²à¾€") ("à½·" . "à¾²à½±à¾€") ("à½¸" . "à¾³à¾€") ("à½¹" . "à¾³à½±à¾€") ("à¾" . "à½±à¾€")))) nil [12635 12958])
+            ("tibetan-canonicalize-for-unicode-regexp" variable (:default-value "[ö‚à½³à½µà½¶à½·à½¸à½¹à¾]") nil [12960 13085])
+            ("tibetan-canonicalize-for-unicode-region" function (:arguments ("from" "to")) nil [13087 13580])
+            ("tibetan-strict-unicode" variable (:default-value t) nil [13582 13875])
+            ("tibetan-pre-write-canonicalize-for-unicode" function (:arguments ("from" "to")) nil [13892 14306])
+            ("tibet-util" package nil nil [14308 14329]))          
+      :file "tibet-util.el"
+      :pointmax 14359
+      :fsize 14643
+      :lastmodtime '(23525 29563 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("thai-auto-composition-mode" variable nil nil [1103 1138])
+            ("thai-category-table" variable
+               (:constant-flag t
+                :default-value (make-category-table))
+                nil [1184 1236])
+            ("define-category" code nil nil [1237 1294])
+            ("define-category" code nil nil [1295 1360])
+            ("define-category" code nil nil [1361 1418])
+            ("define-category" code nil nil [1419 1491])
+            ("define-category" code nil nil [1492 1556])
+            ("define-category" code nil nil [1557 1626])
+            ("thai-composition-pattern" variable (:default-value "\\cc\\(\\cu\\|\\cI\\cU\\|\\cv\\ct?\\)\\|\\cv\\ct\\|\\cI\\cU") nil [2026 2182])
+            ("let" code nil nil [2184 5439])
+            ("thai-compose-syllable" function (:arguments ("beg" "end" "category-set" "string")) nil [5441 6058])
+            ("thai-compose-region" function
+               (:user-visible-flag t
+                :arguments ("beg" "end"))
+                nil [6075 6708])
+            ("thai-compose-string" function (:arguments ("string")) nil [6725 7061])
+            ("thai-compose-buffer" function (:user-visible-flag t) nil [7078 7223])
+            ("thai-composition-function" function (:arguments ("gstring")) nil [7240 7764])
+            ("thai-word" include nil nil [7831 7851])
+            ("thai-word-mode-map" variable (:default-value (let ((map (make-sparse-keymap))) (define-key map [remap forward-word] (quote thai-forward-word)) (define-key map [remap backward-word] (quote thai-backward-word)) (define-key map [remap kill-word] (quote thai-kill-word)) (define-key map [remap backward-kill-word] (quote thai-backward-kill-word)) (define-key map [remap transpose-words] (quote thai-transpose-words)) map)) nil [7853 8277])
+            ("define-minor-mode" code nil nil [8279 9150])
+            ("setup-thai-language-environment-internal" function nil nil [9215 9287])
+            ("exit-thai-language-environment-internal" function nil nil [9351 9423])
+            ("thai-util" package nil nil [9428 9448]))          
+      :file "thai-util.el"
+      :pointmax 9477
+      :fsize 9674
+      :lastmodtime '(23525 29563 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :file "thai-word.el"
+      :fsize 223494
+      :lastmodtime '(23525 29563 0 0))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("tai-viet-re" variable
+               (:constant-flag t
+                :default-value "[êª€-ê«‚ê«›-ê«Ÿ]+")
+                nil [1008 1062])
+            ("tai-viet-glyph-info" variable
+               (:constant-flag t
+                :default-value (let ((table (make-char-table nil)) (specials (quote ((right-overhang . "êªŠêª‹êªŒêªêªêª“êª–êªœêªêª¡êª¤êª¨") (left-overhang . "ê«‚") (combining-vowel . "êª°êª²êª³êª´êª·êª¸êª¾") (combining-tone . "êª¿ê«") (misc . "-"))))) (set-char-table-range table (cons 43648 43714) t) (set-char-table-range table (cons 43739 43743) t) (dolist (elt specials) (let ((category (car elt)) (chars (cdr elt))) (dotimes (i (length chars)) (aset table (aref chars i) category)))) table))
+                nil [1134 1728])
+            ("tai-viet-compose-string" function (:arguments ("from" "to" "string")) nil [1730 2472])
+            ("tai-viet-compose-region" function (:arguments ("from" "to")) nil [2474 4425])
+            ("tai-viet-composition-function" function (:arguments ("from" "to" "font-object" "string")) nil [4443 4729])
+            ("tai-viet-util" package nil nil [4734 4758]))          
+      :file "tv-util.el"
+      :pointmax 4759
+      :fsize 4802
+      :lastmodtime '(23525 29563 0 0)
       :unmatched-syntax nil))
   :file "!drive_c!Program Files!Emacs 26.1!share!emacs!26.1!lisp!language!semantic.cache"
   :semantic-tag-version "2.0"

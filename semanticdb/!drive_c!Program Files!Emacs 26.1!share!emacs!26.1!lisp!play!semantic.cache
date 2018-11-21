@@ -175,7 +175,1059 @@
       :pointmax 44684
       :fsize 44683
       :lastmodtime '(23525 29595 0 0)
-      :unmatched-syntax nil))
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("bb-board" variable nil nil [2957 2998])
+            ("bb-x" variable (:default-value -1) nil [3000 3040])
+            ("bb-y" variable (:default-value -1) nil [3042 3082])
+            ("bb-score" variable nil nil [3084 3122])
+            ("bb-detour-count" variable nil nil [3124 3173])
+            ("bb-balls-placed" variable nil nil [3175 3237])
+            ("blackbox-redefine-key" function (:arguments ("map" "oldfun" "newfun")) nil [3485 3653])
+            ("blackbox-mode-map" variable (:default-value (let ((map (make-keymap))) (suppress-keymap map t) (blackbox-redefine-key map (quote backward-char) (quote bb-left)) (blackbox-redefine-key map (quote left-char) (quote bb-left)) (blackbox-redefine-key map (quote forward-char) (quote bb-right)) (blackbox-redefine-key map (quote right-char) (quote bb-right)) (blackbox-redefine-key map (quote previous-line) (quote bb-up)) (blackbox-redefine-key map (quote next-line) (quote bb-down)) (blackbox-redefine-key map (quote move-end-of-line) (quote bb-eol)) (blackbox-redefine-key map (quote move-beginning-of-line) (quote bb-bol)) (define-key map " " (quote bb-romp)) (define-key map "q" (quote bury-buffer)) (define-key map [insert] (quote bb-romp)) (define-key map [return] (quote bb-done)) (blackbox-redefine-key map (quote newline) (quote bb-done)) map)) nil [3656 4394])
+            ("define-derived-mode" code nil nil [4461 4924])
+            ("blackbox" function
+               (:user-visible-flag t
+                :arguments ("num"))
+                nil [4941 10224])
+            ("bb-init-board" function (:arguments ("num-balls")) nil [10226 10470])
+            ("bb-insert-board" function nil nil [10472 10800])
+            ("bb-right" function (:arguments ("count")) nil [10802 10960])
+            ("bb-left" function (:arguments ("count")) nil [10962 11121])
+            ("bb-up" function (:arguments ("count")) nil [11123 11297])
+            ("bb-down" function (:arguments ("count")) nil [11299 11470])
+            ("bb-eol" function nil nil [11472 11550])
+            ("bb-bol" function nil nil [11552 11631])
+            ("bb-romp" function nil nil [11633 11851])
+            ("bb-place-ball" function (:arguments ("x" "y")) nil [11853 12179])
+            ("bb-trace-ray" function (:arguments ("x" "y")) nil [12181 13264])
+            ("bb-trace-ray-2" function (:arguments ("first" "x" "dx" "y" "dy")) nil [13266 13683])
+            ("bb-done" function (:user-visible-flag t) nil [13685 14396])
+            ("bb-show-bogus-balls" function (:arguments ("balls-placed" "board")) nil [14398 14544])
+            ("bb-show-bogus-balls-2" function (:arguments ("list-1" "list-2" "c")) nil [14546 14824])
+            ("bb-outside-box" function (:arguments ("x" "y")) nil [14826 14895])
+            ("bb-goto" function (:arguments ("pos")) nil [14897 14972])
+            ("bb-update-board" function (:arguments ("c")) nil [14974 15136])
+            ("blackbox" package nil nil [15138 15157]))          
+      :file "blackbox.el"
+      :pointmax 15185
+      :fsize 15184
+      :lastmodtime '(23525 29594 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("bubbles-version" variable
+               (:constant-flag t
+                :default-value "0.5")
+                nil [2714 2778])
+            ("gamegrid" include nil nil [2780 2799])
+            ("bubbles-game-theme" variable (:default-value (quote easy)) nil [2903 3300])
+            ("bubbles-set-game-easy" function (:user-visible-flag t) nil [3302 3426])
+            ("bubbles-set-game-medium" function (:user-visible-flag t) nil [3428 3558])
+            ("bubbles-set-game-difficult" function (:user-visible-flag t) nil [3560 3699])
+            ("bubbles-set-game-hard" function (:user-visible-flag t) nil [3701 3825])
+            ("bubbles-set-game-userdefined" function (:user-visible-flag t) nil [3827 3974])
+            ("bubbles" customgroup (:user-visible-flag t) nil [3976 4042])
+            ("bubbles-graphics-theme" variable (:default-value (quote circles)) nil [4044 4516])
+            ("bubbles--grid-small" variable
+               (:constant-flag t
+                :default-value (quote (10 . 10)))
+                nil [4518 4594])
+            ("bubbles--grid-medium" variable
+               (:constant-flag t
+                :default-value (quote (15 . 10)))
+                nil [4596 4674])
+            ("bubbles--grid-large" variable
+               (:constant-flag t
+                :default-value (quote (20 . 15)))
+                nil [4676 4752])
+            ("bubbles--grid-huge" variable
+               (:constant-flag t
+                :default-value (quote (30 . 20)))
+                nil [4754 4828])
+            ("bubbles-grid-size" variable (:default-value bubbles--grid-medium) nil [4830 5293])
+            ("bubbles--colors-2" variable
+               (:constant-flag t
+                :default-value (quote ("orange" "violet")))
+                nil [5295 5395])
+            ("bubbles--colors-3" variable
+               (:constant-flag t
+                :default-value (quote ("lightblue" "palegreen" "pink")))
+                nil [5397 5512])
+            ("bubbles--colors-4" variable
+               (:constant-flag t
+                :default-value (quote ("firebrick" "sea green" "steel blue" "chocolate")))
+                nil [5514 5646])
+            ("bubbles--colors-5" variable
+               (:constant-flag t
+                :default-value (quote ("firebrick" "sea green" "steel blue" "sandy brown" "bisque3")))
+                nil [5648 5822])
+            ("bubbles-colors" variable (:default-value bubbles--colors-3) nil [5824 6372])
+            ("bubbles-chars" variable (:default-value (quote (43 79 35 88 46 42 38 167))) nil [6374 6617])
+            ("bubbles-shift-mode" variable (:default-value (quote default)) nil [6619 6912])
+            ("bubbles-mode-hook" variable nil nil [6914 7009])
+            ("bubbles-customize" function (:user-visible-flag t) nil [7011 7127])
+            ("bubbles--score" variable nil nil [7226 7278])
+            ("bubbles--neighborhood-score" variable nil nil [7280 7360])
+            ("bubbles--faces" variable nil nil [7362 7423])
+            ("bubbles--playing" variable nil nil [7425 7481])
+            ("bubbles--empty-image" variable nil nil [7483 7571])
+            ("bubbles--images" variable nil nil [7573 7633])
+            ("bubbles--images-ok" variable nil nil [7635 7726])
+            ("bubbles--col-offset" variable nil nil [7728 7812])
+            ("bubbles--row-offset" variable nil nil [7814 7896])
+            ("bubbles--save-data" variable nil nil [7898 7991])
+            ("bubbles--image-template-circle" variable
+               (:constant-flag t
+                :default-value "/* XPM */
+static char * dot_xpm[] = {
+\"20 20 2 1\",
+\" 	c None\",
+\".	c #FFFFFF\",
+\"       ......       \",
+\"     ..........     \",
+\"   ..............   \",
+\"  ................  \",
+\"  ................  \",
+\" .................. \",
+\" .................. \",
+\"....................\",
+\"....................\",
+\"....................\",
+\"....................\",
+\"....................\",
+\"....................\",
+\" .................. \",
+\" .................. \",
+\"  ................  \",
+\"  ................  \",
+\"   ..............   \",
+\"     ..........     \",
+\"       ......       \"};")
+                nil [7993 8643])
+            ("bubbles--image-template-square" variable
+               (:constant-flag t
+                :default-value "/* XPM */
+static char * dot_xpm[] = {
+\"20 20 2 1\",
+\"0	c None\",
+\"1	c #FFFFFF\",
+\"00000000000000000000\",
+\"01111111111111111110\",
+\"01111111111111111110\",
+\"01111111111111111110\",
+\"01111111111111111110\",
+\"01111111111111111110\",
+\"01111111111111111110\",
+\"01111111111111111110\",
+\"01111111111111111110\",
+\"01111111111111111110\",
+\"01111111111111111110\",
+\"01111111111111111110\",
+\"01111111111111111110\",
+\"01111111111111111110\",
+\"01111111111111111110\",
+\"01111111111111111110\",
+\"01111111111111111110\",
+\"01111111111111111110\",
+\"01111111111111111110\",
+\"00000000000000000000\"};")
+                nil [8645 9295])
+            ("bubbles--image-template-diamond" variable
+               (:constant-flag t
+                :default-value "/* XPM */
+static char * dot_xpm[] = {
+\"20 20 2 1\",
+\"0	c None\",
+\"1	c #FFFFFF\",
+\"00000000011000000000\",
+\"00000000111100000000\",
+\"00000001111110000000\",
+\"00000011111111000000\",
+\"00000111111111100000\",
+\"00001111111111110000\",
+\"00011111111111111000\",
+\"00111111111111111100\",
+\"01111111111111111110\",
+\"11111111111111111111\",
+\"01111111111111111110\",
+\"00111111111111111100\",
+\"00011111111111111000\",
+\"00001111111111110000\",
+\"00000111111111100000\",
+\"00000011111111000000\",
+\"00000001111110000000\",
+\"00000000111100000000\",
+\"00000000011000000000\",
+\"00000000000000000000\"};")
+                nil [9297 9948])
+            ("bubbles--image-template-emacs" variable
+               (:constant-flag t
+                :default-value "/* XPM */
+static char * emacs_24_xpm[] = {
+\"24 24 129 2\",
+\"  	c None\",
+\". 	c #837DA4\",
+\"+ 	c #807AA0\",
+\"@ 	c #9894B2\",
+\"# 	c #CCCAD9\",
+\"$ 	c #C2C0D2\",
+\"% 	c #B6B3C9\",
+\"& 	c #A19DB9\",
+\"* 	c #8681A5\",
+\"= 	c #7D779B\",
+\"- 	c #B6B3C7\",
+\"; 	c #ABA7BE\",
+\"> 	c #9792AF\",
+\", 	c #AAA6BD\",
+\"' 	c #CBC9D7\",
+\") 	c #AAA7BE\",
+\"! 	c #908BAA\",
+\"~ 	c #797397\",
+\"{ 	c #948FAC\",
+\"] 	c #9A95B1\",
+\"^ 	c #EBEAEF\",
+\"/ 	c #F1F1F5\",
+\"( 	c #BCB9CB\",
+\"_ 	c #A9A5BD\",
+\": 	c #757093\",
+\"< 	c #918DA9\",
+\"[ 	c #DDDBE4\",
+\"} 	c #FFFFFF\",
+\"| 	c #EAE9EF\",
+\"1 	c #A7A4BA\",
+\"2 	c #716C8F\",
+\"3 	c #8D89A5\",
+\"4 	c #9C98B1\",
+\"5 	c #DBDAE3\",
+\"6 	c #A4A1B7\",
+\"7 	c #6E698A\",
+\"8 	c #8B87A1\",
+\"9 	c #928EA7\",
+\"0 	c #C5C3D1\",
+\"a 	c #F8F8F9\",
+\"b 	c #CCCAD6\",
+\"c 	c #A29FB4\",
+\"d 	c #6A6585\",
+\"e 	c #88849D\",
+\"f 	c #B5B2C2\",
+\"g 	c #F0F0F3\",
+\"h 	c #E1E0E6\",
+\"i 	c #A5A2B5\",
+\"j 	c #A09DB1\",
+\"k 	c #676281\",
+\"l 	c #85819A\",
+\"m 	c #9591A7\",
+\"n 	c #E1E0E5\",
+\"o 	c #F0EFF2\",
+\"p 	c #B3B0C0\",
+\"q 	c #9D9AAE\",
+\"r 	c #635F7C\",
+\"s 	c #827F96\",
+\"t 	c #9997AA\",
+\"u 	c #F7F7F9\",
+\"v 	c #C8C7D1\",
+\"w 	c #89869D\",
+\"x 	c #9B99AB\",
+\"y 	c #5F5B78\",
+\"z 	c #7F7C93\",
+\"A 	c #CFCDD6\",
+\"B 	c #B7B5C2\",
+\"C 	c #9996A9\",
+\"D 	c #5C5873\",
+\"E 	c #7A778D\",
+\"F 	c #F5F5F6\",
+\"G 	c #8E8C9E\",
+\"H 	c #7D798F\",
+\"I 	c #58546F\",
+\"J 	c #6C6981\",
+\"K 	c #D5D4DB\",
+\"L 	c #F5F4F6\",
+\"M 	c #9794A5\",
+\"N 	c #625F78\",
+\"O 	c #79768C\",
+\"P 	c #55516A\",
+\"Q 	c #605C73\",
+\"R 	c #CAC9D1\",
+\"S 	c #EAE9EC\",
+\"T 	c #B4B3BE\",
+\"U 	c #777488\",
+\"V 	c #514E66\",
+\"W 	c #DEDEE2\",
+\"X 	c #F4F4F5\",
+\"Y 	c #9D9BA9\",
+\"Z 	c #747185\",
+\"` 	c #4E4B62\",
+\" .	c #DEDDE1\",
+\"..	c #A6A5B0\",
+\"+.	c #716F81\",
+\"@.	c #4A475D\",
+\"#.	c #A4A3AE\",
+\"$.	c #F4F3F5\",
+\"%.	c #777586\",
+\"&.	c #6E6C7D\",
+\"*.	c #464358\",
+\"=.	c #514E62\",
+\"-.	c #B9B8C0\",
+\";.	c #D1D0D5\",
+\">.	c #747282\",
+\",.	c #6B6979\",
+\"'.	c #434054\",
+\").	c #5A5769\",
+\"!.	c #D0CFD4\",
+\"~.	c #5B5869\",
+\"{.	c #696676\",
+\"].	c #403D50\",
+\"^.	c #DBDADE\",
+\"/.	c #F3F3F4\",
+\"(.	c #646271\",
+\"_.	c #666473\",
+\":.	c #3D3A4C\",
+\"<.	c #555362\",
+\"[.	c #9E9DA6\",
+\"}.	c #9E9CA5\",
+\"|.	c #646170\",
+\"1.	c #393647\",
+\"2.	c #514E5D\",
+\"3.	c #83818C\",
+\"4.	c #A8A7AE\",
+\"5.	c #E6E6E8\",
+\"6.	c #DAD9DC\",
+\"7.	c #353343\",
+\"8.	c #32303E\",
+\"      . . . . . . . . . . . . . . . . . .       \",
+\"  + @ # $ % % % % % % % % % % % % % % & * + +   \",
+\"  = - ; > > > > > > > > , ' ) > > > > > > ! =   \",
+\"~ ~ { { { { { { { { { { { ] ^ / ( { { { { _ ~ ~ \",
+\": : < < < < < < < < < < < < [ } } | < < < 1 : : \",
+\"2 2 3 3 3 3 3 3 3 3 3 3 4 5 } } } 5 3 3 3 6 2 2 \",
+\"7 7 8 8 8 8 8 8 8 8 9 0 a } } } b 8 8 8 8 c 7 7 \",
+\"d d e e e e e e e f g } } } h i e e e e e j d d \",
+\"k k l l l l l m n } } } o p l l l l l l l q k k \",
+\"r r s s s s t u } } } v w s s s s s s s s x r r \",
+\"y y z z z z A } } } B z z z z z z z z z z C y y \",
+\"D D D D D D E F } } G D D D D D D D D D D H D D \",
+\"I I I I I I I J K } L M N I I I I I I I I O I I \",
+\"P P P P P P Q R } } } S T P P P P P P P P U P P \",
+\"V V V V V V W } } X Y V V V V V V V V V V Z V V \",
+\"` ` ` ` ` `  .} } ..` ` ` ` ` ` ` ` ` ` ` +.` ` \",
+\"@.@.@.@.@.@.@.#.$.$.%.@.@.@.@.@.@.@.@.@.@.&.@.@.\",
+\"*.*.*.*.*.*.*.*.=.-.} ;.>.*.*.*.*.*.*.*.*.,.*.*.\",
+\"'.'.'.'.'.'.'.'.'.'.).!.} !.~.'.'.'.'.'.'.{.'.'.\",
+\"].].].].].].].].].].].].^.} /.(.].].].].]._.].].\",
+\":.:.:.:.:.:.:.:.:.:.<.[./.} } }.:.:.:.:.:.|.:.:.\",
+\"  1.1.1.1.1.1.1.1.2.3.4.5.6.3.1.1.1.1.1.1.1.1.  \",
+\"  7.7.7.7.7.7.7.7.7.7.7.7.7.7.7.7.7.7.7.7.7.7.  \",
+\"      8.8.8.8.8.8.8.8.8.8.8.8.8.8.8.8.8.8.      \"};")
+                nil [9950 13670])
+            ("bubbles--image-template-ball" variable
+               (:constant-flag t
+                :default-value "/* XPM */
+static char * dot3d_xpm[] = {
+\"20 20 190 2\",
+\"  	c None\",
+\". 	c #F9F6F6\",
+\"+ 	c #D6D0D0\",
+\"@ 	c #BFBBBB\",
+\"# 	c #AAA4A4\",
+\"$ 	c #ABAAAB\",
+\"% 	c #A8A8A8\",
+\"& 	c #A29D9D\",
+\"* 	c #B5B2B2\",
+\"= 	c #CDC9C9\",
+\"- 	c #D7D0D0\",
+\"; 	c #B3AFAF\",
+\"> 	c #B5B5B5\",
+\", 	c #B7B7B7\",
+\"' 	c #B8B8B8\",
+\") 	c #B6B6B6\",
+\"! 	c #B3B3B3\",
+\"~ 	c #AFAFAF\",
+\"{ 	c #A9A9A9\",
+\"] 	c #A2A2A2\",
+\"^ 	c #9C9A9A\",
+\"/ 	c #C9C5C5\",
+\"( 	c #FDFBFB\",
+\"_ 	c #C3BCBC\",
+\": 	c #BBBBBB\",
+\"< 	c #C0C0C0\",
+\"[ 	c #C3C2C2\",
+\"} 	c #C3C3C3\",
+\"| 	c #C2C2C2\",
+\"1 	c #BEBEBE\",
+\"2 	c #B9B9B9\",
+\"3 	c #B2B2B2\",
+\"4 	c #ABAAAA\",
+\"5 	c #999999\",
+\"6 	c #ACA7A7\",
+\"7 	c #C2BBBB\",
+\"8 	c #C5C5C5\",
+\"9 	c #CACBCB\",
+\"0 	c #CECECE\",
+\"a 	c #CFCFCF\",
+\"b 	c #CDCDCD\",
+\"c 	c #C8C9C9\",
+\"d 	c #9F9F9F\",
+\"e 	c #959595\",
+\"f 	c #A9A5A5\",
+\"g 	c #D5CFCE\",
+\"h 	c #BDBDBD\",
+\"i 	c #C6C6C6\",
+\"j 	c #D5D5D5\",
+\"k 	c #D9D9D9\",
+\"l 	c #DADADA\",
+\"m 	c #D8D8D8\",
+\"n 	c #D2D2D2\",
+\"o 	c #CBCBCB\",
+\"p 	c #A4A4A5\",
+\"q 	c #9A9A9A\",
+\"r 	c #8F8F8F\",
+\"s 	c #C3BFBF\",
+\"t 	c #AFACAB\",
+\"u 	c #CCCCCC\",
+\"v 	c #D6D6D6\",
+\"w 	c #DEDEDE\",
+\"x 	c #E4E4E4\",
+\"y 	c #E5E5E5\",
+\"z 	c #E2E2E2\",
+\"A 	c #DBDBDB\",
+\"B 	c #C9C8C8\",
+\"C 	c #A8A9A8\",
+\"D 	c #9D9E9D\",
+\"E 	c #929292\",
+\"F 	c #8A8888\",
+\"G 	c #D3CECE\",
+\"H 	c #B0B0B0\",
+\"I 	c #D1D1D1\",
+\"J 	c #DCDCDC\",
+\"K 	c #E6E6E6\",
+\"L 	c #EEEEEE\",
+\"M 	c #F1F1F0\",
+\"N 	c #EBEBEB\",
+\"O 	c #D7D7D8\",
+\"P 	c #ABABAB\",
+\"Q 	c #A0A0A0\",
+\"R 	c #949494\",
+\"S 	c #898989\",
+\"T 	c #C0BDBD\",
+\"U 	c #B9B6B6\",
+\"V 	c #B1B1B1\",
+\"W 	c #BCBCBC\",
+\"X 	c #C8C8C8\",
+\"Y 	c #D3D3D3\",
+\"Z 	c #DFDFDE\",
+\"` 	c #EAEAEA\",
+\" .	c #F5F5F5\",
+\"..	c #FAFAFA\",
+\"+.	c #F1F1F1\",
+\"@.	c #CECFCF\",
+\"#.	c #ACACAC\",
+\"$.	c #A1A1A1\",
+\"%.	c #8A8A8A\",
+\"&.	c #9B9999\",
+\"*.	c #C7C7C7\",
+\"=.	c #DDDDDD\",
+\"-.	c #E8E8E8\",
+\";.	c #F2F2F2\",
+\">.	c #898A89\",
+\",.	c #7A7878\",
+\"'.	c #AEAEAE\",
+\").	c #C4C4C4\",
+\"!.	c #CBCBCA\",
+\"~.	c #AAAAAA\",
+\"{.	c #939393\",
+\"].	c #888888\",
+\"^.	c #7C7C7C\",
+\"/.	c #AAAAAB\",
+\"(.	c #BFBFBF\",
+\"_.	c #C9C9C9\",
+\":.	c #DFDEDF\",
+\"<.	c #A6A6A6\",
+\"[.	c #9B9B9B\",
+\"}.	c #909191\",
+\"|.	c #858586\",
+\"1.	c #797979\",
+\"2.	c #989494\",
+\"3.	c #A5A6A5\",
+\"4.	c #B9B9B8\",
+\"5.	c #C1C1C1\",
+\"6.	c #CFCFCE\",
+\"7.	c #979797\",
+\"8.	c #8D8D8D\",
+\"9.	c #828282\",
+\"0.	c #747171\",
+\"a.	c #ADAAAA\",
+\"b.	c #A9A8A9\",
+\"c.	c #B8B9B9\",
+\"d.	c #A5A5A5\",
+\"e.	c #9C9C9C\",
+\"f.	c #7E7E7D\",
+\"g.	c #929191\",
+\"h.	c #C9C4C4\",
+\"i.	c #989898\",
+\"j.	c #ADADAD\",
+\"k.	c #9D9D9D\",
+\"l.	c #8C8C8C\",
+\"m.	c #787878\",
+\"n.	c #B8B6B6\",
+\"o.	c #939191\",
+\"p.	c #A5A5A6\",
+\"q.	c #ABABAA\",
+\"r.	c #A8A8A9\",
+\"s.	c #A3A3A3\",
+\"t.	c #858585\",
+\"u.	c #757474\",
+\"v.	c #C5C1C1\",
+\"w.	c #969696\",
+\"x.	c #9B9B9C\",
+\"y.	c #A4A4A4\",
+\"z.	c #9E9E9E\",
+\"A.	c #939394\",
+\"B.	c #7D7D7D\",
+\"C.	c #747474\",
+\"D.	c #B7B5B5\",
+\"E.	c #A5A1A1\",
+\"F.	c #919191\",
+\"G.	c #9A9999\",
+\"H.	c #838383\",
+\"I.	c #757575\",
+\"J.	c #939090\",
+\"K.	c #A29E9E\",
+\"L.	c #868686\",
+\"M.	c #8D8D8C\",
+\"N.	c #8E8E8E\",
+\"O.	c #8D8D8E\",
+\"P.	c #8B8C8C\",
+\"Q.	c #848485\",
+\"R.	c #7F7F80\",
+\"S.	c #7A7A7A\",
+\"T.	c #737373\",
+\"U.	c #929090\",
+\"V.	c #828080\",
+\"W.	c #818181\",
+\"X.	c #808080\",
+\"Y.	c #7E7E7E\",
+\"Z.	c #737272\",
+\"`.	c #B7B4B4\",
+\" +	c #BCBABA\",
+\".+	c #959494\",
+\"++	c #747172\",
+\"@+	c #767676\",
+\"#+	c #6F6D6D\",
+\"$+	c #8F8E8E\",
+\"          . + @ # $ % & * = .           \",
+\"        - ; > , ' ) ! ~ { ] ^ /         \",
+\"    ( _ > : < [ } | 1 2 3 4 ] 5 6 (     \",
+\"    7 ) 1 8 9 0 a b c | : 3 { d e f     \",
+\"  g ! h i 0 j k l m n o | 2 ~ p q r s   \",
+\". t ' | u v w x y z A n B 1 ! C D E F . \",
+\"G H : i I J K L M N z O b | ) P Q R S T \",
+\"U V W X Y Z `  ...+.y l @.} ' #.$.e %.&.\",
+\"& H W *.n =.-.;. .L x k 0 [ , #.Q e >.,.\",
+\"] '.2 ).a k z -.` K w j !.< > ~.d {.].^.\",
+\"d /.> (._.I k =.:.J v 0 8 : V <.[.}.|.1.\",
+\"2.3.~ 4.5._.6.n Y I u i 1 > P $.7.8.9.0.\",
+\"a.d b.V c.(.).*.X i | h ) '.d.e.E ].f.g.\",
+\"h.i.$.C ~ > 2 W W : ' ! j.d.k.e l.9.m.n.\",
+\". o.i.d p.q.'.H V H j.r.s.k.e 8.t.^.u.. \",
+\"  v.r w.x.Q s.d.d.y.] z.5 A.8.t.B.C.D.  \",
+\"    E.l.F.e i.G.q 5 7.{.r %.H.^.I.J.    \",
+\"    ( K.L.%.M.N.N.O.P.S Q.R.S.T.U.(     \",
+\"        @ V.W.H.H.9.X.Y.S.I.Z.`.        \",
+\"          .  +.+++@+C.#+$+D..           \"};")
+                nil [13672 18110])
+            ("bubbles--grid-width" function nil nil [18200 18570])
+            ("bubbles--grid-height" function nil nil [18572 18944])
+            ("bubbles--colors" function nil nil [18946 19245])
+            ("bubbles--shift-mode" function nil nil [19247 19516])
+            ("bubbles-save-settings" function (:user-visible-flag t) nil [19518 19792])
+            ("bubbles--empty-char" function nil nil [19794 19896])
+            ("bubbles-set-graphics-theme-ascii" function (:user-visible-flag t) nil [19898 20067])
+            ("bubbles-set-graphics-theme-circles" function (:user-visible-flag t) nil [20069 20275])
+            ("bubbles-set-graphics-theme-squares" function (:user-visible-flag t) nil [20277 20483])
+            ("bubbles-set-graphics-theme-diamonds" function (:user-visible-flag t) nil [20485 20694])
+            ("bubbles-set-graphics-theme-balls" function (:user-visible-flag t) nil [20696 20896])
+            ("bubbles-set-graphics-theme-emacs" function (:user-visible-flag t) nil [20898 21098])
+            ("bubbles-game-theme-menu" variable (:default-value (let ((menu (make-sparse-keymap "Game Theme"))) (define-key menu [bubbles-set-game-userdefined] (list (quote menu-item) "User defined" (quote bubbles-set-game-userdefined) :button (quote (:radio eq bubbles-game-theme (quote user-defined))))) (define-key menu [bubbles-set-game-hard] (list (quote menu-item) "Hard" (quote bubbles-set-game-hard) :button (quote (:radio eq bubbles-game-theme (quote hard))))) (define-key menu [bubbles-set-game-difficult] (list (quote menu-item) "Difficult" (quote bubbles-set-game-difficult) :button (quote (:radio eq bubbles-game-theme (quote difficult))))) (define-key menu [bubbles-set-game-medium] (list (quote menu-item) "Medium" (quote bubbles-set-game-medium) :button (quote (:radio eq bubbles-game-theme (quote medium))))) (define-key menu [bubbles-set-game-easy] (list (quote menu-item) "Easy" (quote bubbles-set-game-easy) :button (quote (:radio eq bubbles-game-theme (quote easy))))) menu)) nil [21119 22116])
+            ("bubbles-graphics-theme-menu" variable (:default-value (let ((menu (make-sparse-keymap "Graphics Theme"))) (define-key menu [bubbles-set-graphics-theme-ascii] (list (quote menu-item) "ASCII" (quote bubbles-set-graphics-theme-ascii) :button (quote (:radio eq bubbles-graphics-theme (quote ascii))))) (define-key menu [bubbles-set-graphics-theme-emacs] (list (quote menu-item) "Emacs" (quote bubbles-set-graphics-theme-emacs) :button (quote (:radio eq bubbles-graphics-theme (quote emacs))))) (define-key menu [bubbles-set-graphics-theme-balls] (list (quote menu-item) "Balls" (quote bubbles-set-graphics-theme-balls) :button (quote (:radio eq bubbles-graphics-theme (quote balls))))) (define-key menu [bubbles-set-graphics-theme-diamonds] (list (quote menu-item) "Diamonds" (quote bubbles-set-graphics-theme-diamonds) :button (quote (:radio eq bubbles-graphics-theme (quote diamonds))))) (define-key menu [bubbles-set-graphics-theme-squares] (list (quote menu-item) "Squares" (quote bubbles-set-graphics-theme-squares) :button (quote (:radio eq bubbles-graphics-theme (quote squares))))) (define-key menu [bubbles-set-graphics-theme-circles] (list (quote menu-item) "Circles" (quote bubbles-set-graphics-theme-circles) :button (quote (:radio eq bubbles-graphics-theme (quote circles))))) menu)) nil [22141 23452])
+            ("bubbles-menu" variable (:default-value (let ((menu (make-sparse-keymap "Bubbles"))) (define-key menu [bubbles-quit] (list (quote menu-item) "Quit" (quote bubbles-quit))) (define-key menu [bubbles] (list (quote menu-item) "New game" (quote bubbles))) (define-key menu [bubbles-separator-1] (quote ("--"))) (define-key menu [bubbles-save-settings] (list (quote menu-item) "Save all settings" (quote bubbles-save-settings))) (define-key menu [bubbles-customize] (list (quote menu-item) "Edit all settings" (quote bubbles-customize))) (define-key menu [bubbles-game-theme-menu] (list (quote menu-item) "Game Theme" bubbles-game-theme-menu)) (define-key menu [bubbles-graphics-theme-menu] (list (quote menu-item) "Graphics Theme" bubbles-graphics-theme-menu :enable (quote bubbles--playing))) (define-key menu [bubbles-separator-2] (quote ("--"))) (define-key menu [bubbles-undo] (list (quote menu-item) "Undo last move" (quote bubbles-undo) :enable (quote (and bubbles--playing (listp buffer-undo-list))))) menu)) nil [23462 24487])
+            ("bubbles-mode-map" variable (:default-value (let ((map (make-sparse-keymap (quote bubbles-mode-map)))) (define-key map "q" (quote bubbles-quit)) (define-key map "
+" (quote bubbles-plop)) (define-key map " " (quote bubbles-plop)) (define-key map [double-down-mouse-1] (quote bubbles-plop)) (define-key map [mouse-2] (quote bubbles-plop)) (define-key map "" (quote bubbles-plop)) (define-key map "u" (quote bubbles-undo)) (define-key map "p" (quote previous-line)) (define-key map "n" (quote next-line)) (define-key map "f" (quote forward-char)) (define-key map "b" (quote backward-char)) (define-key map [down-mouse-3] bubbles-menu) (define-key map [menu-bar Bubbles] (cons "Bubbles" bubbles-menu)) map)) nil [24509 25282])
+            ("define-derived-mode" code nil nil [25284 25583])
+            ("bubbles" function (:user-visible-flag t) nil [25600 26418])
+            ("bubbles-quit" function (:user-visible-flag t) nil [26420 26520])
+            ("declare-function" code nil nil [26522 26591])
+            ("bubbles--compute-offsets" function nil nil [26593 28062])
+            ("bubbles--remove-overlays" function nil nil [28064 28182])
+            ("bubbles--initialize" function nil nil [28184 29651])
+            ("bubbles--initialize-faces" function nil nil [29653 30223])
+            ("bubbles--row" function (:arguments ("pos")) nil [30225 30389])
+            ("bubbles--col" function (:arguments ("pos")) nil [30391 30517])
+            ("bubbles--goto" function (:arguments ("row" "col")) nil [30519 30871])
+            ("bubbles--char-at" function (:arguments ("row" "col")) nil [30873 31042])
+            ("bubbles--mark-direct-neighbors" function (:arguments ("row" "col" "char")) nil [31044 31808])
+            ("bubbles--mark-neighborhood" function (:arguments ("pos")) nil [31810 32860])
+            ("bubbles--neighborhood-available" function nil nil [32862 33353])
+            ("bubbles--count" function nil nil [33355 33684])
+            ("bubbles--reset-score" function nil nil [33686 33832])
+            ("bubbles--update-score" function nil nil [33834 34007])
+            ("bubbles--update-neighborhood-score" function (:arguments ("size")) nil [34009 34273])
+            ("bubbles--show-scores" function nil nil [34275 34901])
+            ("bubbles--game-over" function nil nil [34903 35883])
+            ("bubbles-plop" function (:user-visible-flag t) nil [35885 39391])
+            ("bubbles-undo" function (:user-visible-flag t) nil [39393 39790])
+            ("bubbles--shift" function (:arguments ("from" "row" "col")) nil [39792 40846])
+            ("bubbles--initialize-images" function nil nil [40848 43908])
+            ("bubbles--update-faces-or-images" function nil nil [43910 44060])
+            ("bubbles--set-faces" function nil nil [44062 44884])
+            ("bubbles--show-images" function nil nil [44886 46203])
+            ("bubbles" package nil nil [46205 46223]))          
+      :file "bubbles.el"
+      :pointmax 46250
+      :fsize 46250
+      :lastmodtime '(23525 29594 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("gamegrid-use-glyphs" variable (:default-value t) nil [1029 1104])
+            ("gamegrid-use-color" variable (:default-value t) nil [1106 1179])
+            ("gamegrid-font" variable (:default-value "-*-courier-medium-r-*-*-*-140-100-75-*-*-iso8859-*") nil [1181 1293])
+            ("gamegrid-face" variable nil nil [1295 1365])
+            ("make-variable-buffer-local" code nil nil [1366 1409])
+            ("gamegrid-display-options" variable nil nil [1411 1448])
+            ("gamegrid-buffer-width" variable nil nil [1450 1482])
+            ("gamegrid-buffer-height" variable nil nil [1483 1516])
+            ("gamegrid-blank" variable nil nil [1517 1542])
+            ("gamegrid-timer" variable nil nil [1544 1571])
+            ("gamegrid-display-mode" variable nil nil [1573 1607])
+            ("gamegrid-display-table" variable nil nil [1609 1640])
+            ("gamegrid-face-table" variable nil nil [1642 1674])
+            ("gamegrid-buffer-start" variable (:default-value 1) nil [1676 1708])
+            ("gamegrid-score-file-length" variable (:default-value 50) nil [1710 1783])
+            ("gamegrid-user-score-file-directory" variable (:default-value (locate-user-emacs-file "games/")) nil [1785 2012])
+            ("make-variable-buffer-local" code nil nil [2014 2063])
+            ("make-variable-buffer-local" code nil nil [2064 2112])
+            ("make-variable-buffer-local" code nil nil [2113 2156])
+            ("make-variable-buffer-local" code nil nil [2157 2211])
+            ("make-variable-buffer-local" code nil nil [2212 2263])
+            ("make-variable-buffer-local" code nil nil [2264 2316])
+            ("make-variable-buffer-local" code nil nil [2317 2361])
+            ("make-variable-buffer-local" code nil nil [2362 2406])
+            ("make-variable-buffer-local" code nil nil [2407 2458])
+            ("make-variable-buffer-local" code nil nil [2459 2511])
+            ("make-variable-buffer-local" code nil nil [2512 2561])
+            ("make-variable-buffer-local" code nil nil [2562 2613])
+            ("make-variable-buffer-local" code nil nil [2614 2670])
+            ("gamegrid-grid-x-face" variable nil nil [2752 2785])
+            ("gamegrid-mono-x-face" variable nil nil [2786 2819])
+            ("gamegrid-mono-tty-face" variable nil nil [2820 2855])
+            ("gamegrid-glyph-height" variable
+               (:constant-flag t
+                :default-value 16)
+                nil [2937 2972])
+            ("gamegrid-xpm" variable
+               (:constant-flag t
+                :default-value "/* XPM */
+static char *noname[] = {
+/* width height ncolors chars_per_pixel */
+\"16 16 3 1\",
+/* colors */
+\"+ s col1\",
+\". s col2\",
+\"- s col3\",
+/* pixels */
+\"---------------+\",
+\"--------------++\",
+\"--............++\",
+\"--............++\",
+\"--............++\",
+\"--............++\",
+\"--............++\",
+\"--............++\",
+\"--............++\",
+\"--............++\",
+\"--............++\",
+\"--............++\",
+\"--............++\",
+\"--............++\",
+\"-+++++++++++++++\",
+\"++++++++++++++++\"
+};
+")
+                nil [2974 3560])
+            ("gamegrid-xbm" variable (:default-value "/* gamegrid XBM */
+#define gamegrid_width 16
+#define gamegrid_height 16
+static unsigned char gamegrid_bits[] = {
+   0xff, 0xff, 0xff, 0x7f, 0xff, 0x3f, 0xaf, 0x0a, 0x57, 0x15, 0xaf, 0x0a,
+   0x57, 0x15, 0xaf, 0x0a, 0x57, 0x15, 0xaf, 0x0a, 0x57, 0x15, 0xaf, 0x0a,
+   0x57, 0x15, 0x07, 0x00, 0x03, 0x00, 0x01, 0x00 };") nil [3562 3946])
+            ("gamegrid-characterp" function (:arguments ("arg")) nil [4028 4135])
+            ("gamegrid-event-x" function (:arguments ("event")) nil [4137 4263])
+            ("gamegrid-event-y" function (:arguments ("event")) nil [4265 4391])
+            ("gamegrid-color" function (:arguments ("color" "shade")) nil [4473 4662])
+            ("gamegrid-set-font" function (:arguments ("face")) nil [4664 4795])
+            ("gamegrid-setup-face" function (:arguments ("face" "color")) nil [4797 5123])
+            ("gamegrid-make-mono-tty-face" function nil nil [5125 5261])
+            ("gamegrid-make-color-tty-face" function (:arguments ("color")) nil [5263 5520])
+            ("gamegrid-make-grid-x-face" function nil nil [5522 5649])
+            ("gamegrid-make-mono-x-face" function nil nil [5651 5918])
+            ("gamegrid-make-color-x-face" function (:arguments ("color")) nil [5920 6134])
+            ("gamegrid-make-face" function (:arguments ("data-spec-list" "color-spec-list")) nil [6136 6872])
+            ("gamegrid-colorize-glyph" function (:arguments ("color")) nil [6874 7301])
+            ("gamegrid-match-spec" function (:arguments ("spec")) nil [7303 7559])
+            ("gamegrid-match-spec-list" function (:arguments ("spec-list")) nil [7561 7720])
+            ("gamegrid-make-glyph" function (:arguments ("data-spec-list" "color-spec-list")) nil [7722 8126])
+            ("gamegrid-make-image-from-vector" function (:arguments ("vect")) nil [8128 8379])
+            ("gamegrid-display-type" function nil nil [8381 8738])
+            ("gamegrid-set-display-table" function nil nil [8740 9001])
+            ("declare-function" code nil nil [9003 9072])
+            ("gamegrid-setup-default-font" function nil nil [9074 10063])
+            ("gamegrid-initialize-display" function nil nil [10065 10623])
+            ("gamegrid-set-face" function (:arguments ("c")) nil [10626 10913])
+            ("gamegrid-cell-offset" function (:arguments ("x" "y")) nil [10915 11022])
+            ("gamegrid-get-cell" function (:arguments ("x" "y")) nil [11104 11177])
+            ("gamegrid-set-cell" function (:arguments ("x" "y" "c")) nil [11179 11385])
+            ("gamegrid-init-buffer" function (:arguments ("width" "height" "blank")) nil [11387 12055])
+            ("gamegrid-init" function (:arguments ("options")) nil [12057 12257])
+            ("gamegrid-start-timer" function (:arguments ("period" "func")) nil [12339 12604])
+            ("gamegrid-set-timer" function (:arguments ("delay")) nil [12606 12890])
+            ("gamegrid-kill-timer" function nil nil [12892 13081])
+            ("gamegrid-add-score" function (:arguments ("file" "score")) nil [13163 14183])
+            ("gamegrid-shared-game-dir" variable nil nil [15411 15444])
+            ("gamegrid-add-score-with-update-game-score" function (:arguments ("file" "score")) nil [15446 16418])
+            ("gamegrid-add-score-with-update-game-score-1" function (:arguments ("file" "target" "score")) nil [16420 17806])
+            ("gamegrid-add-score-insecure" function (:arguments ("file" "score" "directory")) nil [17808 18575])
+            ("gamegrid" package nil nil [18658 18677]))          
+      :file "gamegrid.el"
+      :pointmax 18705
+      :fsize 18704
+      :lastmodtime '(23525 29595 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl-lib" include nil nil [951 968])
+            ("gamegrid" include nil nil [971 990])
+            ("pong" customgroup (:user-visible-flag t) nil [1011 1118])
+            ("pong-buffer-name" variable (:default-value "*Pong*") nil [1120 1227])
+            ("pong-width" variable (:default-value 50) nil [1229 1316])
+            ("pong-height" variable (:default-value (min 30 (- (frame-height) 6))) nil [1318 1434])
+            ("pong-bat-width" variable (:default-value 3) nil [1436 1530])
+            ("pong-blank-color" variable (:default-value "black") nil [1532 1629])
+            ("pong-bat-color" variable (:default-value "yellow") nil [1631 1721])
+            ("pong-ball-color" variable (:default-value "red") nil [1723 1815])
+            ("pong-border-color" variable (:default-value "white") nil [1817 1917])
+            ("pong-left-key" variable (:default-value "4") nil [1919 2099])
+            ("pong-right-key" variable (:default-value "6") nil [2101 2285])
+            ("pong-up-key" variable (:default-value "8") nil [2287 2463])
+            ("pong-down-key" variable (:default-value "2") nil [2465 2647])
+            ("pong-quit-key" variable (:default-value "q") nil [2649 2789])
+            ("pong-pause-key" variable (:default-value "p") nil [2791 2933])
+            ("pong-resume-key" variable (:default-value "p") nil [2935 3079])
+            ("pong-timer-delay" variable (:default-value 0.1) nil [3081 3182])
+            ("pong-blank-options" variable (:default-value (quote (((glyph colorize) (t 32)) ((color-x color-x) (mono-x grid-x) (color-tty color-tty)) (((glyph color-x) [0 0 0]) (color-tty pong-blank-color))))) nil [3231 3435])
+            ("pong-bat-options" variable (:default-value (quote (((glyph colorize) (emacs-tty 79) (t 32)) ((color-x color-x) (mono-x mono-x) (color-tty color-tty) (mono-tty mono-tty)) (((glyph color-x) [1 1 0]) (color-tty pong-bat-color))))) nil [3437 3682])
+            ("pong-ball-options" variable (:default-value (quote (((glyph colorize) (t 42)) ((color-x color-x) (mono-x grid-x) (color-tty color-tty)) (((glyph color-x) [1 0 0]) (color-tty pong-ball-color))))) nil [3684 3884])
+            ("pong-border-options" variable (:default-value (quote (((glyph colorize) (t 43)) ((color-x color-x) (mono-x grid-x) (color-tty color-tty)) (((glyph color-x) [0.5 0.5 0.5]) (color-tty pong-border-color))))) nil [3886 4096])
+            ("pong-blank" variable (:constant-flag t) nil [4098 4121])
+            ("pong-bat" variable
+               (:constant-flag t
+                :default-value 1)
+                nil [4122 4143])
+            ("pong-ball" variable
+               (:constant-flag t
+                :default-value 2)
+                nil [4144 4166])
+            ("pong-border" variable
+               (:constant-flag t
+                :default-value 3)
+                nil [4167 4191])
+            ("pong-xx" variable nil nil [4245 4299])
+            ("pong-yy" variable nil nil [4301 4353])
+            ("pong-x" variable nil nil [4355 4411])
+            ("pong-y" variable nil nil [4413 4467])
+            ("pong-bat-player1" variable nil nil [4469 4530])
+            ("pong-bat-player2" variable nil nil [4532 4593])
+            ("pong-score-player1" variable nil nil [4595 4626])
+            ("pong-score-player2" variable nil nil [4627 4658])
+            ("pong-mode-map" variable (:default-value (let ((map (make-sparse-keymap (quote pong-mode-map)))) (define-key map [left] (quote pong-move-left)) (define-key map [right] (quote pong-move-right)) (define-key map [up] (quote pong-move-up)) (define-key map [down] (quote pong-move-down)) (define-key map pong-left-key (quote pong-move-left)) (define-key map pong-right-key (quote pong-move-right)) (define-key map pong-up-key (quote pong-move-up)) (define-key map pong-down-key (quote pong-move-down)) (define-key map pong-quit-key (quote pong-quit)) (define-key map pong-pause-key (quote pong-pause)) map)) nil [4681 5270])
+            ("pong-null-map" variable (:default-value (make-sparse-keymap (quote pong-null-map))) nil [5272 5358])
+            ("pong-display-options" function nil nil [5389 5936])
+            ("pong-init-buffer" function (:user-visible-flag t) nil [5940 6936])
+            ("pong-move-left" function (:user-visible-flag t) nil [6939 7250])
+            ("pong-move-right" function (:user-visible-flag t) nil [7254 7488])
+            ("pong-move-up" function (:user-visible-flag t) nil [7492 7704])
+            ("pong-move-down" function (:user-visible-flag t) nil [7708 7958])
+            ("pong-update-bat" function (:arguments ("x" "y")) nil [7962 8404])
+            ("pong-init" function nil nil [8408 8941])
+            ("pong-update-game" function (:arguments ("pong-buffer")) nil [8945 10602])
+            ("pong-update-score" function nil nil [10606 10982])
+            ("pong-pause" function (:user-visible-flag t) nil [10986 11335])
+            ("pong-resume" function (:user-visible-flag t) nil [11339 11519])
+            ("pong-quit" function (:user-visible-flag t) nil [11523 11776])
+            ("pong" function (:user-visible-flag t) nil [11795 12114])
+            ("pong" package nil nil [12118 12133]))          
+      :file "pong.el"
+      :pointmax 12157
+      :fsize 12156
+      :lastmodtime '(23525 29595 0 0)
+      :unmatched-syntax '((close-paren 968 . 969) (symbol 933 . 950) (open-paren 932 . 933)))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl-lib" include nil nil [2718 2735])
+            ("baseward-step" variable nil nil [2757 2779])
+            ("fly-step" variable nil nil [2780 2797])
+            ("fly-row-start" variable nil nil [2798 2820])
+            ("pole-width" variable nil nil [2821 2840])
+            ("pole-char" variable nil nil [2841 2859])
+            ("line-offset" variable nil nil [2860 2880])
+            ("hanoi" customgroup (:user-visible-flag t) nil [2882 2943])
+            ("hanoi-horizontal-flag" variable nil nil [2945 3068])
+            ("hanoi-move-period" variable (:default-value 1.0) nil [3070 3323])
+            ("hanoi-use-faces" variable nil nil [3325 3439])
+            ("hanoi-pole-face" variable (:default-value (quote highlight)) nil [3441 3563])
+            ("hanoi-base-face" variable (:default-value (quote highlight)) nil [3565 3686])
+            ("hanoi-even-ring-face" variable (:default-value (quote region)) nil [3688 3826])
+            ("hanoi-odd-ring-face" variable (:default-value (quote secondary-selection)) nil [3828 3977])
+            ("hanoi" function
+               (:user-visible-flag t
+                :arguments ("nrings"))
+                nil [4045 4351])
+            ("hanoi-unix" function (:user-visible-flag t) nil [4368 4844])
+            ("hanoi-unix-64" function (:user-visible-flag t) nil [4861 5358])
+            ("hanoi-internal" function (:arguments ("nrings" "bits" "start-time")) nil [5360 11795])
+            ("hanoi-put-face" function (:arguments ("start" "end" "value" "object")) nil [11797 12009])
+            ("hanoi-0" function (:arguments ("rings" "from" "to" "work" "start-time")) nil [12283 12505])
+            ("hanoi-n" function (:arguments ("bits" "rings" "from" "to" "work" "start-time")) nil [12622 13117])
+            ("hanoi-insert-ring" function (:arguments ("ring" "pole")) nil [13182 13639])
+            ("hanoi-goto-char" function (:arguments ("pos")) nil [13766 13939])
+            ("hanoi-move-ring" function (:arguments ("ring" "from" "to" "start-time")) nil [14005 16315])
+            ("hanoi-sit-for" function (:arguments ("seconds")) nil [16403 16516])
+            ("hanoi-ring-to-pos" function (:arguments ("ring" "pos")) nil [16581 18273])
+            ("hanoi-pos-on-tower-p" function (:arguments ("pos")) nil [18344 18494])
+            ("hanoi" package nil nil [18496 18512]))          
+      :file "hanoi.el"
+      :pointmax 18537
+      :fsize 18536
+      :lastmodtime '(23525 29595 0 0)
+      :unmatched-syntax '((close-paren 2735 . 2736) (symbol 2700 . 2717) (open-paren 2699 . 2700)))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("ps-printer-name" variable nil nil [2474 2498])
+            ("ps-lpr-command" variable nil nil [2499 2522])
+            ("ps-lpr-switches" variable nil nil [2523 2547])
+            ("handwrite" customgroup (:user-visible-flag t) nil [2564 2684])
+            ("handwrite-psindex" variable nil nil [2686 2754])
+            ("menu-bar-handwrite-map" variable (:default-value (let ((map (make-sparse-keymap "Handwrite functions."))) (define-key map [numbering] (quote (menu-item "Page numbering" handwrite-set-pagenumber :button (:toggle . handwrite-pagenumbering)))) (define-key map [handwrite-separator2] (quote ("----"))) (define-key map [10pt] (quote (menu-item "10 pt" handwrite-10pt :button (:radio eq handwrite-fontsize 10)))) (define-key map [11pt] (quote (menu-item "11 pt" handwrite-11pt :button (:radio eq handwrite-fontsize 11)))) (define-key map [12pt] (quote (menu-item "12 pt" handwrite-12pt :button (:radio eq handwrite-fontsize 12)))) (define-key map [13pt] (quote (menu-item "13 pt" handwrite-13pt :button (:radio eq handwrite-fontsize 13)))) (define-key map [handwrite-separator1] (quote ("----"))) (define-key map [handwrite] (quote ("Write by hand" . handwrite))) map)) nil [2755 3740])
+            ("fset" code nil nil [3741 3794])
+            ("handwrite-numlines" variable (:default-value 60) nil [3826 3973])
+            ("handwrite-fontsize" variable (:default-value 11) nil [3974 4113])
+            ("handwrite-linespace" variable (:default-value 12) nil [4114 4245])
+            ("handwrite-xstart" variable (:default-value 30) nil [4246 4380])
+            ("handwrite-ystart" variable (:default-value 810) nil [4381 4516])
+            ("handwrite-pagenumbering" variable nil nil [4517 4669])
+            ("handwrite-10pt-numlines" variable (:default-value 65) nil [4670 4814])
+            ("handwrite-11pt-numlines" variable (:default-value 60) nil [4815 4959])
+            ("handwrite-12pt-numlines" variable (:default-value 55) nil [4960 5104])
+            ("handwrite-13pt-numlines" variable (:default-value 50) nil [5105 5249])
+            ("handwrite" function (:user-visible-flag t) nil [5292 9612])
+            ("handwrite-set-pagenumber" function (:user-visible-flag t) nil [9615 9819])
+            ("handwrite-10pt" function (:user-visible-flag t) nil [9821 10189])
+            ("handwrite-11pt" function (:user-visible-flag t) nil [10192 10560])
+            ("handwrite-12pt" function (:user-visible-flag t) nil [10562 10930])
+            ("handwrite-13pt" function (:user-visible-flag t) nil [10932 11300])
+            ("handwrite-insert-header" function (:arguments ("buf-name")) nil [11416 11691])
+            ("handwrite-insert-preamble" function nil nil [11743 13008])
+            ("handwrite-insert-info" function nil nil [13106 13544])
+            ("handwrite-insert-font" function nil nil [13724 62611])
+            ("handwrite-set-pagenumber-off" function nil nil [62639 62748])
+            ("handwrite-set-pagenumber-on" function nil nil [62775 62881])
+            ("handwrite" package nil nil [63147 63167]))          
+      :file "handwrite.el"
+      :pointmax 63197
+      :fsize 63228
+      :lastmodtime '(23525 29595 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("fortune" customgroup (:user-visible-flag t) nil [2462 2590])
+            ("fortune-signature" customgroup (:user-visible-flag t) nil [2591 2704])
+            ("fortune-dir" variable (:default-value "~/docs/ascii/misc/fortunes/") nil [2706 2858])
+            ("fortune-file" variable (:default-value (expand-file-name "usenet" fortune-dir)) nil [2859 3017])
+            ("fortune-database-extension" variable (:default-value ".dat") nil [3018 3202])
+            ("fortune-program" variable (:default-value "fortune") nil [3203 3314])
+            ("fortune-program-options" variable nil nil [3315 3551])
+            ("fortune-strfile" variable (:default-value "strfile") nil [3552 3670])
+            ("fortune-strfile-options" variable nil nil [3671 3798])
+            ("fortune-quiet-strfile-options" variable (:default-value "> /dev/null") nil [3799 4052])
+            ("fortune-always-compile" variable (:default-value t) nil [4054 4243])
+            ("fortune-author-line-prefix" variable (:default-value "                  -- ") nil [4244 4407])
+            ("fortune-fill-column" variable (:default-value fill-column) nil [4408 4531])
+            ("fortune-from-mail" variable (:default-value "private e-mail") nil [4532 4719])
+            ("fortune-sigstart" variable nil nil [4720 4867])
+            ("fortune-sigend" variable nil nil [4868 5012])
+            ("fortune-buffer-name" variable (:default-value "*fortune*") nil [5044 5084])
+            ("fortune-end-sep" variable
+               (:constant-flag t
+                :default-value "
+%
+")
+                nil [5085 5119])
+            ("fortune-append" function (:arguments ("string" "interactive" "file")) nil [5169 5996])
+            ("fortune-ask-file" function nil nil [5998 6156])
+            ("fortune-add-fortune" function
+               (:user-visible-flag t
+                :arguments ("string" "file"))
+                nil [6173 6504])
+            ("fortune-from-region" function
+               (:user-visible-flag t
+                :arguments ("beg" "end" "file"))
+                nil [6521 7882])
+            ("fortune-compile" function
+               (:user-visible-flag t
+                :arguments ("file"))
+                nil [7957 8870])
+            ("fortune-to-signature" function
+               (:user-visible-flag t
+                :arguments ("file"))
+                nil [8937 9707])
+            ("fortune-in-buffer" function (:arguments ("_interactive" "file")) nil [9749 10700])
+            ("fortune-message" function
+               (:user-visible-flag t
+                :arguments ("file"))
+                nil [10717 11209])
+            ("fortune" function
+               (:user-visible-flag t
+                :arguments ("file"))
+                nil [11226 11789])
+            ("fortune" package nil nil [11815 11833]))          
+      :file "fortune.el"
+      :pointmax 11860
+      :fsize 11859
+      :lastmodtime '(23525 29594 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl-lib" include nil nil [945 962])
+            ("gamegrid" include nil nil [965 984])
+            ("tetris" customgroup (:user-visible-flag t) nil [1066 1150])
+            ("tetris-use-glyphs" variable (:default-value t) nil [1152 1262])
+            ("tetris-use-color" variable (:default-value t) nil [1264 1372])
+            ("tetris-draw-border-with-glyphs" variable (:default-value t) nil [1374 1508])
+            ("tetris-default-tick-period" variable (:default-value 0.3) nil [1510 1641])
+            ("tetris-update-speed-function" variable (:default-value (quote tetris-default-update-speed-function)) nil [1643 2027])
+            ("tetris-mode-hook" variable nil nil [2029 2127])
+            ("tetris-tty-colors" variable (:default-value ["blue" "white" "yellow" "magenta" "cyan" "green" "red"]) nil [2129 2488])
+            ("tetris-x-colors" variable (:default-value [[0 0 1] [0.7 0 1] [1 1 0] [1 0 1] [0 1 1] [0 1 0] [1 0 0]]) nil [2490 3079])
+            ("tetris-buffer-name" variable (:default-value "*Tetris*") nil [3081 3188])
+            ("tetris-buffer-width" variable (:default-value 30) nil [3190 3294])
+            ("tetris-buffer-height" variable (:default-value 22) nil [3296 3402])
+            ("tetris-width" variable (:default-value 10) nil [3404 3491])
+            ("tetris-height" variable (:default-value 20) nil [3493 3582])
+            ("tetris-top-left-x" variable (:default-value 3) nil [3584 3692])
+            ("tetris-top-left-y" variable (:default-value 1) nil [3694 3802])
+            ("tetris-next-x" variable (:default-value (+ (* 2 tetris-top-left-x) tetris-width)) nil [3804 3897])
+            ("tetris-next-y" variable (:default-value tetris-top-left-y) nil [3899 3969])
+            ("tetris-score-x" variable (:default-value tetris-next-x) nil [3971 4033])
+            ("tetris-score-y" variable (:default-value (+ tetris-next-y 6)) nil [4035 4103])
+            ("tetris-score-file" variable (:default-value "tetris-scores") nil [4233 4443])
+            ("tetris-blank-options" variable (:default-value (quote (((glyph colorize) (t 32)) ((color-x color-x) (mono-x grid-x) (color-tty color-tty)) (((glyph color-x) [0 0 0]) (color-tty "black"))))) nil [4525 4722])
+            ("tetris-cell-options" variable (:default-value (quote (((glyph colorize) (emacs-tty 79) (t 32)) ((color-x color-x) (mono-x mono-x) (color-tty color-tty) (mono-tty mono-tty))))) nil [4724 4990])
+            ("tetris-border-options" variable (:default-value (quote (((glyph colorize) (t 43)) ((color-x color-x) (mono-x grid-x) (color-tty color-tty)) (((glyph color-x) [0.5 0.5 0.5]) (color-tty "white"))))) nil [4992 5194])
+            ("tetris-space-options" variable (:default-value (quote (((t 32)) nil nil))) nil [5196 5258])
+            ("tetris-shapes" variable
+               (:constant-flag t
+                :default-value [[[[0 0] [1 0] [0 1] [1 1]]] [[[0 0] [1 0] [2 0] [2 1]] [[1 -1] [1 0] [1 1] [0 1]] [[0 -1] [0 0] [1 0] [2 0]] [[1 -1] [2 -1] [1 0] [1 1]]] [[[0 0] [1 0] [2 0] [0 1]] [[0 -1] [1 -1] [1 0] [1 1]] [[2 -1] [0 0] [1 0] [2 0]] [[1 -1] [1 0] [1 1] [2 1]]] [[[0 0] [1 0] [1 1] [2 1]] [[1 0] [0 1] [1 1] [0 2]]] [[[1 0] [2 0] [0 1] [1 1]] [[0 0] [0 1] [1 1] [1 2]]] [[[1 0] [0 1] [1 1] [2 1]] [[1 0] [1 1] [2 1] [1 2]] [[0 1] [1 1] [2 1] [1 2]] [[1 0] [0 1] [1 1] [1 2]]] [[[0 0] [1 0] [2 0] [3 0]] [[1 -1] [1 0] [1 1] [1 2]]]])
+                nil [5340 6126])
+            ("tetris-shape-scores" variable
+               (:constant-flag t
+                :default-value [[6] [6 7 6 7] [6 7 6 7] [6 7] [6 7] [5 5 6 5] [5 8]])
+                nil [6232 6319])
+            ("tetris-shape-dimensions" variable
+               (:constant-flag t
+                :default-value [[2 2] [3 2] [3 2] [3 2] [3 2] [3 2] [4 1]])
+                nil [6321 6401])
+            ("tetris-blank" variable
+               (:constant-flag t
+                :default-value 7)
+                nil [6403 6428])
+            ("tetris-border" variable
+               (:constant-flag t
+                :default-value 8)
+                nil [6430 6456])
+            ("tetris-space" variable
+               (:constant-flag t
+                :default-value 9)
+                nil [6458 6483])
+            ("tetris-default-update-speed-function" function (:arguments ("_shapes" "rows")) nil [6485 6569])
+            ("tetris-shape" variable nil nil [6651 6674])
+            ("tetris-rot" variable nil nil [6675 6696])
+            ("tetris-next-shape" variable nil nil [6697 6725])
+            ("tetris-n-shapes" variable nil nil [6726 6752])
+            ("tetris-n-rows" variable nil nil [6753 6777])
+            ("tetris-score" variable nil nil [6778 6801])
+            ("tetris-pos-x" variable nil nil [6802 6825])
+            ("tetris-pos-y" variable nil nil [6826 6849])
+            ("tetris-paused" variable nil nil [6850 6876])
+            ("make-variable-buffer-local" code nil nil [6878 6920])
+            ("make-variable-buffer-local" code nil nil [6921 6961])
+            ("make-variable-buffer-local" code nil nil [6962 7009])
+            ("make-variable-buffer-local" code nil nil [7010 7055])
+            ("make-variable-buffer-local" code nil nil [7056 7099])
+            ("make-variable-buffer-local" code nil nil [7100 7142])
+            ("make-variable-buffer-local" code nil nil [7143 7185])
+            ("make-variable-buffer-local" code nil nil [7186 7228])
+            ("make-variable-buffer-local" code nil nil [7229 7272])
+            ("tetris-mode-map" variable (:default-value (let ((map (make-sparse-keymap (quote tetris-mode-map)))) (define-key map "n" (quote tetris-start-game)) (define-key map "q" (quote tetris-end-game)) (define-key map "p" (quote tetris-pause-game)) (define-key map " " (quote tetris-move-bottom)) (define-key map [left] (quote tetris-move-left)) (define-key map [right] (quote tetris-move-right)) (define-key map [up] (quote tetris-rotate-prev)) (define-key map [down] (quote tetris-move-down)) map)) nil [7354 7806])
+            ("tetris-null-map" variable (:default-value (let ((map (make-sparse-keymap (quote tetris-null-map)))) (define-key map "n" (quote tetris-start-game)) map)) nil [7808 7939])
+            ("tetris-display-options" function nil nil [8021 8647])
+            ("tetris-get-tick-period" function nil nil [8649 8865])
+            ("tetris-get-shape-cell" function (:arguments ("block")) nil [8867 9001])
+            ("tetris-shape-width" function nil nil [9003 9087])
+            ("tetris-shape-rotations" function nil nil [9089 9167])
+            ("tetris-draw-score" function nil nil [9169 9617])
+            ("tetris-update-score" function nil nil [9619 9759])
+            ("tetris-new-shape" function nil nil [9761 10108])
+            ("tetris-draw-next-shape" function nil nil [10110 10649])
+            ("tetris-draw-shape" function nil nil [10651 11032])
+            ("tetris-erase-shape" function nil nil [11034 11416])
+            ("tetris-test-shape" function nil nil [11418 12015])
+            ("tetris-full-row" function (:arguments ("y")) nil [12017 12270])
+            ("tetris-shift-row" function (:arguments ("y")) nil [12272 12707])
+            ("tetris-shift-down" function nil nil [12709 12924])
+            ("tetris-draw-border-p" function nil nil [12926 13041])
+            ("tetris-init-buffer" function nil nil [13043 14037])
+            ("tetris-reset-game" function nil nil [14039 14314])
+            ("tetris-shape-done" function nil nil [14316 14559])
+            ("tetris-update-game" function (:arguments ("tetris-buffer")) nil [14561 14978])
+            ("tetris-move-bottom" function (:user-visible-flag t) nil [14980 15358])
+            ("tetris-move-left" function (:user-visible-flag t) nil [15360 15637])
+            ("tetris-move-right" function (:user-visible-flag t) nil [15639 15911])
+            ("tetris-move-down" function (:user-visible-flag t) nil [15913 16185])
+            ("tetris-rotate-prev" function (:user-visible-flag t) nil [16187 16573])
+            ("tetris-rotate-next" function (:user-visible-flag t) nil [16575 16979])
+            ("tetris-end-game" function (:user-visible-flag t) nil [16981 17167])
+            ("tetris-start-game" function (:user-visible-flag t) nil [17169 17437])
+            ("tetris-pause-game" function (:user-visible-flag t) nil [17439 17632])
+            ("tetris-active-p" function nil nil [17634 17703])
+            ("put" code nil nil [17705 17744])
+            ("define-derived-mode" code nil nil [17746 18438])
+            ("tetris" function (:user-visible-flag t) nil [18455 19377])
+            ("tetris" package nil nil [19379 19396]))          
+      :file "tetris.el"
+      :pointmax 19422
+      :fsize 19421
+      :lastmodtime '(23525 29595 0 0)
+      :unmatched-syntax '((close-paren 962 . 963) (symbol 927 . 944) (open-paren 926 . 927))))
   :file "!drive_c!Program Files!Emacs 26.1!share!emacs!26.1!lisp!play!semantic.cache"
   :semantic-tag-version "2.0"
   :semanticdb-version "2.2")

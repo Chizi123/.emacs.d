@@ -1303,6 +1303,157 @@ n,SPC -next diff     |     h -highlighting       |  r -restore buf C's old diff
       :pointmax 122041
       :fsize 122040
       :lastmodtime '(23525 29614 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("change-log" customgroup (:user-visible-flag t) nil [1289 1448])
+            ("change-log-default-name" variable nil nil [1451 1626])
+            ("put" code nil nil [1642 1711])
+            ("change-log-mode-hook" variable nil nil [1713 1826])
+            ("add-log-current-defun-function" variable nil nil [1895 2213])
+            ("add-log-full-name" variable nil nil [2230 2474])
+            ("add-log-mailing-address" variable nil nil [2491 2989])
+            ("add-log-time-format" variable (:default-value (quote add-log-iso8601-time-string)) nil [2991 3482])
+            ("add-log-keep-changes-together" variable nil nil [3484 4325])
+            ("add-log-always-start-new-record" variable nil nil [4327 4501])
+            ("add-log-buffer-file-name-function" variable (:default-value (quote buffer-file-name)) nil [4503 4724])
+            ("add-log-file-name-function" variable nil nil [4726 5114])
+            ("change-log-version-info-enabled" variable nil nil [5117 5287])
+            ("change-log-version-number-regexp-list" variable (:default-value (let ((re "\\([0-9]+\\.[0-9.]+\\)")) (list (concat "^(def[^ 	
+]+[ 	]+[^ 	
+][ 	]\"" re) (concat "^;+ *Revision: +[^ 	
+]+[ 	]+" re)))) nil [5289 5830])
+            ("change-log-directory-files" variable (:default-value (quote (".bzr" ".git" ".hg" ".svn"))) nil [5832 6177])
+            ("change-log-date" variable
+               (:default-value (quote ((t (:inherit font-lock-string-face))))
+                :type "face")
+                nil [6179 6333])
+            ("change-log-name" variable
+               (:default-value (quote ((t (:inherit font-lock-constant-face))))
+                :type "face")
+                nil [6335 6483])
+            ("change-log-email" variable
+               (:default-value (quote ((t (:inherit font-lock-variable-name-face))))
+                :type "face")
+                nil [6485 6649])
+            ("change-log-file" variable
+               (:default-value (quote ((t (:inherit font-lock-function-name-face))))
+                :type "face")
+                nil [6651 6802])
+            ("change-log-list" variable
+               (:default-value (quote ((t (:inherit font-lock-keyword-face))))
+                :type "face")
+                nil [6804 6984])
+            ("change-log-conditionals" variable
+               (:default-value (quote ((t (:inherit font-lock-variable-name-face))))
+                :type "face")
+                nil [6986 7167])
+            ("change-log-function" variable
+               (:default-value (quote ((t (:inherit font-lock-variable-name-face))))
+                :type "face")
+                nil [7169 7340])
+            ("change-log-acknowledgment" variable
+               (:default-value (quote ((t (:inherit font-lock-comment-face))))
+                :type "face")
+                nil [7342 7502])
+            ("define-obsolete-face-alias" code nil nil [7503 7595])
+            ("change-log-file-names-re" variable
+               (:constant-flag t
+                :default-value "^\\( +\\|	\\)\\* \\([^ ,:([
+]+\\)")
+                nil [7597 7670])
+            ("change-log-start-entry-re" variable
+               (:constant-flag t
+                :default-value "^\\sw.........[0-9:+ ]*")
+                nil [7671 7733])
+            ("change-log-font-lock-keywords" variable (:default-value (\` (("^[0-9-]+ +\\|^ \\{11,\\}\\|^	 \\{3,\\}\\|^\\(Sun\\|Mon\\|Tue\\|Wed\\|Thu\\|Fri\\|Sat\\) [A-z][a-z][a-z] [0-9:+ ]+" (0 (quote change-log-date)) ("\\([^<(]+?\\)[ 	]*[(<]\\([A-Za-z0-9_.+-]+@[A-Za-z0-9_.-]+\\)[>)]" nil nil (1 (quote change-log-name)) (2 (quote change-log-email)))) ((\, change-log-file-names-re) (2 (quote change-log-file)) ("\\=, \\([^ ,:([
+]+\\)" nil nil (1 (quote change-log-file))) ("\\= (\\([^(),
+]+\\|(\\(setf\\|SETF\\) [^() ,
+]+)\\)" nil nil (1 (quote change-log-list))) ("\\=, *\\([^(),
+]+\\|(\\(setf\\|SETF\\) [^() ,
+]+)\\)" nil nil (1 (quote change-log-list)))) ("^\\( +\\|	\\)(\\([^(),
+]+\\|(\\(setf\\|SETF\\) [^() ,
+]+)\\)" (2 (quote change-log-list)) ("\\=, *\\([^(),
+]+\\|(\\(setf\\|SETF\\) [^() ,
+]+)\\)" nil nil (1 (quote change-log-list)))) ("\\[!?\\([^]
+]+\\)\\]\\(:\\| (\\)" (1 (quote change-log-conditionals))) ("<\\([^>
+]+\\)>\\(:\\| (\\)" (1 (quote change-log-function))) ("\\(^\\( +\\|	\\)\\|  \\)\\(Thanks to\\|Patch\\(es\\)? by\\|Report\\(ed by\\| from\\)\\|Suggest\\(ed by\\|ion from\\)\\)" 3 (quote change-log-acknowledgment))))) nil [7735 9881])
+            ("change-log-search-file-name" function (:arguments ("where")) nil [9883 10958])
+            ("change-log-find-file" function (:user-visible-flag t) nil [10960 11221])
+            ("change-log-search-tag-name-1" function (:arguments ("from")) nil [11223 12094])
+            ("change-log-tag-re" variable
+               (:constant-flag t
+                :default-value "(\\(\\(?:\\sw\\|\\s_\\)+\\(?:[, 	]+\\(?:\\sw\\|\\s_\\)+\\)*\\))")
+                nil [12096 12247])
+            ("change-log-search-tag-name" function (:arguments ("at")) nil [12249 14369])
+            ("change-log-find-head" variable nil nil [14371 14404])
+            ("change-log-find-tail" variable nil nil [14405 14438])
+            ("change-log-find-window" variable nil nil [14439 14474])
+            ("change-log-goto-source-1" function (:arguments ("tag" "regexp" "file" "buffer" "window" "first" "last")) nil [14476 16820])
+            ("change-log-goto-source" function (:user-visible-flag t) nil [16822 19000])
+            ("change-log-next-error" function
+               (:user-visible-flag t
+                :arguments ("argp" "reset"))
+                nil [19002 19937])
+            ("change-log-mode-map" variable (:default-value (let ((map (make-sparse-keymap)) (menu-map (make-sparse-keymap))) (define-key map [3 16] (quote add-log-edit-prev-comment)) (define-key map [3 14] (quote add-log-edit-next-comment)) (define-key map [3 6] (quote change-log-find-file)) (define-key map [3 3] (quote change-log-goto-source)) (define-key map [menu-bar changelog] (cons "ChangeLog" menu-map)) (define-key menu-map [gs] (quote (menu-item "Go To Source" change-log-goto-source :help "Go to source location of ChangeLog tag near point"))) (define-key menu-map [ff] (quote (menu-item "Find File" change-log-find-file :help "Visit the file for the change under point"))) (define-key menu-map [sep] (quote ("--"))) (define-key menu-map [nx] (quote (menu-item "Next Log-Edit Comment" add-log-edit-next-comment :help "Cycle forward through Log-Edit mode comment history"))) (define-key menu-map [pr] (quote (menu-item "Previous Log-Edit Comment" add-log-edit-prev-comment :help "Cycle backward through Log-Edit mode comment history"))) map)) nil [19939 21053])
+            ("defvaralias" code nil nil [21201 21265])
+            ("add-log-time-zone-rule" variable nil nil [21266 21485])
+            ("put" code nil nil [21486 21584])
+            ("add-log-iso8601-time-zone" function (:arguments ("time" "zone")) nil [21586 21716])
+            ("add-log-iso8601-with-time-zone" variable nil nil [21718 21761])
+            ("add-log-iso8601-time-string" function (:arguments ("time" "zone")) nil [21763 21920])
+            ("change-log-name" function nil nil [21922 22063])
+            ("add-log-edit-prev-comment" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [22065 22820])
+            ("add-log-edit-next-comment" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [22822 23026])
+            ("prompt-for-change-log-name" function nil nil [23043 23683])
+            ("change-log-version-number-search" function nil nil [23685 24599])
+            ("declare-function" code nil nil [24601 24701])
+            ("find-change-log" function (:arguments ("file-name" "buffer-file")) nil [24718 27795])
+            ("add-log-file-name" function (:arguments ("buffer-file" "log-file")) nil [27797 29028])
+            ("add-change-log-entry" function
+               (:user-visible-flag t
+                :arguments ("whoami" "file-name" "other-window" "new-entry" "put-new-entry-on-new-line"))
+                nil [29045 37097])
+            ("add-change-log-entry-other-window" function
+               (:user-visible-flag t
+                :arguments ("whoami" "file-name"))
+                nil [37114 37501])
+            ("change-log-indent-text" variable nil nil [37504 37537])
+            ("change-log-fill-parenthesized-list" function nil nil [37539 38624])
+            ("change-log-indent" function nil nil [38626 39289])
+            ("smerge-resolve-function" variable nil nil [39292 39324])
+            ("copyright-at-end-flag" variable nil nil [39325 39355])
+            ("define-derived-mode" code nil nil [39372 41833])
+            ("change-log-next-buffer" function (:arguments ("buffer" "wrap")) nil [41835 43220])
+            ("change-log-fill-forward-paragraph" function (:arguments ("n")) nil [43222 43539])
+            ("add-log-current-defun-header-regexp" variable (:default-value "^\\([[:upper:]][[:upper:]_ ]*[[:upper:]_]\\|[-_[:alpha:]]+\\)[ 	]*[:=]") nil [43542 43858])
+            ("declare-function" code nil nil [43860 43909])
+            ("declare-function" code nil nil [43910 43959])
+            ("add-log-current-defun" function nil nil [43976 45086])
+            ("change-log-get-method-definition-md" variable nil nil [45088 45132])
+            ("change-log-get-method-definition-1" function (:arguments ("end")) nil [45312 45504])
+            ("change-log-get-method-definition" function nil nil [45506 46176])
+            ("timezone-make-date-sortable" function (:prototype-flag t) nil [46179 46229])
+            ("change-log-sortable-date-at" function nil nil [46231 46718])
+            ("change-log-resolve-conflict" function nil nil [46720 47787])
+            ("change-log-merge" function
+               (:user-visible-flag t
+                :arguments ("other-log"))
+                nil [47804 49621])
+            ("change-log-beginning-of-defun" function nil nil [49623 49722])
+            ("change-log-end-of-defun" function nil nil [49724 50683])
+            ("add-log" package nil nil [50685 50703]))          
+      :file "add-log.el"
+      :pointmax 50730
+      :fsize 50729
+      :lastmodtime '(23525 29613 0 0)
       :unmatched-syntax nil))
   :file "!drive_c!Program Files!Emacs 26.1!share!emacs!26.1!lisp!vc!semantic.cache"
   :semantic-tag-version "2.0"

@@ -10,7 +10,131 @@
       :pointmax 351
       :fsize 2598
       :lastmodtime '(23535 56419 0 0)
-      :unmatched-syntax nil))
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl" include nil nil [2313 2326])
+            ("popwin:version" variable
+               (:constant-flag t
+                :default-value "1.0.0")
+                nil [2329 2362])
+            ("popwin:listify" function (:arguments ("object")) nil [2380 2538])
+            ("popwin:subsitute-in-tree" function (:arguments ("map" "tree")) nil [2540 2748])
+            ("popwin:get-buffer" function (:arguments ("buffer-or-name" "if-not-found")) nil [2750 3343])
+            ("popwin:switch-to-buffer" function (:arguments ("buffer-or-name" "norecord")) nil [3345 3661])
+            ("popwin:select-window" function (:arguments ("window" "norecord")) nil [3663 3836])
+            ("popwin:buried-buffer-p" function (:arguments ("buffer")) nil [3838 3981])
+            ("popwin:window-point" function (:arguments ("window")) nil [3983 4251])
+            ("popwin:window-deletable-p" function (:arguments ("window")) nil [4253 4528])
+            ("popwin:save-selected-window" function (:arguments ("body")) nil [4530 4678])
+            ("popwin:minibuffer-window-selected-p" function nil nil [4680 4822])
+            ("popwin:last-selected-window" function nil nil [4824 5061])
+            ("popwin:debug" variable nil nil [5078 5103])
+            ("popwin:dummy-buffer" variable nil nil [5105 5137])
+            ("popwin:dummy-buffer" function nil nil [5139 5307])
+            ("popwin:kill-dummy-buffer" function nil nil [5309 5460])
+            ("popwin:window-trailing-edge-adjustable-p" function (:arguments ("window")) nil [5462 5763])
+            ("popwin:adjust-window-edges" function (:arguments ("window" "edges" "hfactor" "vfactor")) nil [5765 6645])
+            ("popwin:window-config-tree-1" function (:arguments ("node")) nil [6647 7276])
+            ("popwin:window-config-tree" function nil nil [7278 7519])
+            ("popwin:replicate-window-config" function (:arguments ("window" "node" "hfactor" "vfactor")) nil [7521 8675])
+            ("popwin:restore-window-outline" function (:arguments ("node" "outline")) nil [8677 9733])
+            ("popwin:position-horizontal-p" function (:arguments ("position")) nil [9735 9875])
+            ("popwin:position-vertical-p" function (:arguments ("position")) nil [9877 10013])
+            ("popwin:create-popup-window-1" function (:arguments ("window" "size" "position")) nil [10015 10665])
+            ("popwin:create-popup-window" function (:arguments ("size" "position" "adjust")) nil [10667 12549])
+            ("popwin" customgroup (:user-visible-flag t) nil [12581 12670])
+            ("popwin:popup-window-position" variable (:default-value (quote bottom)) nil [12672 12833])
+            ("popwin:popup-window-width" variable (:default-value 30) nil [12835 13128])
+            ("popwin:popup-window-height" variable (:default-value 15) nil [13130 13426])
+            ("popwin:reuse-window" variable (:default-value (quote current)) nil [13428 13669])
+            ("popwin:adjust-other-windows" variable (:default-value t) nil [13671 13849])
+            ("popwin:context-stack" variable nil nil [13851 13884])
+            ("popwin:popup-window" variable nil nil [13886 13950])
+            ("popwin:popup-buffer" variable nil nil [13952 14035])
+            ("popwin:popup-last-config" variable nil nil [14037 14127])
+            ("popwin:master-window" variable nil nil [14143 14213])
+            ("popwin:focus-window" variable nil nil [14215 14331])
+            ("popwin:selected-window" variable nil nil [14333 14425])
+            ("popwin:popup-window-dedicated-p" variable nil nil [14427 14549])
+            ("popwin:popup-window-stuck-p" variable nil nil [14551 14642])
+            ("popwin:window-outline" variable nil nil [14644 14756])
+            ("popwin:window-map" variable nil nil [14758 14833])
+            ("popwin:window-config" variable nil nil [14835 14921])
+            ("popwin:close-popup-window-timer" variable nil nil [14923 15006])
+            ("popwin:close-popup-window-timer-interval" variable (:default-value 0.05) nil [15008 15113])
+            ("popwin:before-popup-hook" variable nil nil [15115 15152])
+            ("popwin:after-popup-hook" variable nil nil [15154 15190])
+            ("symbol-macrolet" code nil nil [15192 16652])
+            ("popwin:popup-window-live-p" function nil nil [16654 16777])
+            ("popwin:update-window-reference" function (:arguments ("symbol" "map" "safe" "recursive")) nil [16779 17261])
+            ("popwin:start-close-popup-window-timer" function nil nil [17263 17610])
+            ("popwin:stop-close-popup-window-timer" function nil nil [17612 17798])
+            ("popwin:close-popup-window-timer" function nil nil [17800 18025])
+            ("popwin:close-popup-window" function
+               (:user-visible-flag t
+                :arguments ("keep-selected"))
+                nil [18027 19010])
+            ("popwin:close-popup-window-if-necessary" function nil nil [19012 23206])
+            ("popwin:popup-buffer" function
+               (:user-visible-flag t
+                :arguments ("buffer" "width" "height" "position" "noselect" "dedicated" "stick" "tail"))
+                nil [23223 25980])
+            ("popwin:popup-last-buffer" function
+               (:user-visible-flag t
+                :arguments ("noselect"))
+                nil [25982 26470])
+            ("defalias" code nil nil [26471 26535])
+            ("popwin:select-popup-window" function (:user-visible-flag t) nil [26537 26753])
+            ("popwin:stick-popup-window" function (:user-visible-flag t) nil [26755 27088])
+            ("popwin:without-special-displaying" function (:arguments ("body")) nil [27114 27613])
+            ("popwin:special-display-config" variable (:default-value (quote (("*Miniedit Help*" :noselect t) help-mode (completion-list-mode :noselect t) (compilation-mode :noselect t) (grep-mode :noselect t) (occur-mode :noselect t) ("*Pp Macroexpand Output*" :noselect t) "*Shell Command Output*" "*vc-diff*" "*vc-change-log*" (" *undo-tree*" :width 60 :position right) ("^\\*anything.*\\*$" :regexp t) "*slime-apropos*" "*slime-macroexpansion*" "*slime-description*" ("*slime-compilation*" :noselect t) "*slime-xref*" (sldb-mode :stick t) slime-repl-mode slime-connection-list-mode))) nil [27615 31730])
+            ("popwin:apply-display-buffer" function (:arguments ("function" "buffer" "not-this-window")) nil [31732 32773])
+            ("popwin:original-display-buffer" function (:arguments ("buffer" "not-this-window")) nil [32775 32983])
+            ("popwin:original-pop-to-buffer" function (:arguments ("buffer" "not-this-window")) nil [32985 33190])
+            ("popwin:original-display-last-buffer" function (:user-visible-flag t) nil [33192 33471])
+            ("popwin:switch-to-last-buffer" function (:user-visible-flag t) nil [33473 33770])
+            ("popwin:original-pop-to-last-buffer" function (:user-visible-flag t) nil [33772 34048])
+            ("popwin:reuse-window-p" function (:arguments ("buffer-or-name" "not-this-window")) nil [34050 34591])
+            ("popwin:match-config" function (:arguments ("buffer")) nil [34593 35389])
+            ("popwin:display-buffer-1" function (:arguments ("buffer-or-name" "default-config-keywords" "if-buffer-not-found" "if-config-not-found")) nil [35391 37137])
+            ("popwin:display-buffer" function
+               (:user-visible-flag t
+                :arguments ("buffer-or-name" "not-this-window"))
+                nil [37154 37852])
+            ("popwin:special-display-popup-window" function (:arguments ("buffer" "ignore")) nil [37854 37968])
+            ("popwin:pop-to-buffer-1" function (:arguments ("buffer" "default-config-keywords" "other-window" "norecord")) nil [37970 38467])
+            ("popwin:pop-to-buffer" function
+               (:user-visible-flag t
+                :arguments ("buffer" "other-window" "norecord"))
+                nil [38484 38920])
+            ("popwin:universal-display-config" variable (:default-value (quote (t))) nil [38948 39119])
+            ("popwin:universal-display" function (:user-visible-flag t) nil [39136 39553])
+            ("popwin:one-window" function (:user-visible-flag t) nil [39589 39814])
+            ("popwin:popup-buffer-tail" function
+               (:user-visible-flag t
+                :arguments ("same-as-popwin:popup-buffer"))
+                nil [39831 40153])
+            ("popwin:find-file" function
+               (:user-visible-flag t
+                :arguments ("filename" "wildcards"))
+                nil [40170 40567])
+            ("popwin:find-file-tail" function
+               (:user-visible-flag t
+                :arguments ("file" "wildcard"))
+                nil [40584 40986])
+            ("popwin:messages" function (:user-visible-flag t) nil [41003 41136])
+            ("popwin:display-buffer-condition" function (:arguments ("buffer" "action")) nil [41157 41251])
+            ("popwin:display-buffer-action" function (:arguments ("buffer" "alist")) nil [41253 41422])
+            ("define-minor-mode" code nil nil [41424 42071])
+            ("popwin:keymap" variable (:default-value (let ((map (make-sparse-keymap))) (define-key map "b" (quote popwin:popup-buffer)) (define-key map "l" (quote popwin:popup-last-buffer)) (define-key map "o" (quote popwin:display-buffer)) (define-key map "" (quote popwin:switch-to-last-buffer)) (define-key map "" (quote popwin:original-pop-to-last-buffer)) (define-key map "" (quote popwin:original-display-last-buffer)) (define-key map " " (quote popwin:select-popup-window)) (define-key map "s" (quote popwin:stick-popup-window)) (define-key map "0" (quote popwin:close-popup-window)) (define-key map "f" (quote popwin:find-file)) (define-key map "" (quote popwin:find-file)) (define-key map "e" (quote popwin:messages)) (define-key map "" (quote popwin:universal-display)) (define-key map "1" (quote popwin:one-window)) map)) nil [42089 43778])
+            ("popwin" package nil nil [43780 43797]))          
+      :file "popwin.el"
+      :pointmax 43822
+      :fsize 43821
+      :lastmodtime '(23535 56419 0 0)
+      :unmatched-syntax '((close-paren 2326 . 2327) (symbol 2295 . 2312) (open-paren 2294 . 2295))))
   :file "!drive_c!Users!joelg!.emacs.d!elpa!popwin-20150315.1300!semantic.cache"
   :semantic-tag-version "2.0"
   :semanticdb-version "2.2")

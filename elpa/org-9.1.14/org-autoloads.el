@@ -1306,6 +1306,13 @@ ARG can also be a list of checker names, as symbols, to run.
 
 ;;;***
 
+;;;### (autoloads nil "org-loaddefs" "org-loaddefs.el" (0 0 0 0))
+;;; Generated autoloads from org-loaddefs.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-loaddefs" '(#("org" 0 3 (fontified nil)))))
+
+;;;***
+
 ;;;### (autoloads nil "org-macro" "org-macro.el" (0 0 0 0))
 ;;; Generated autoloads from org-macro.el
 
@@ -1526,11 +1533,11 @@ The location of ODT styles.")
 ;;;;;;  "ob-matlab.el" "ob-tangle.el" "ob.el" "org-archive.el" "org-attach.el"
 ;;;;;;  "org-bbdb.el" "org-clock.el" "org-datetree.el" "org-element.el"
 ;;;;;;  "org-feed.el" "org-footnote.el" "org-id.el" "org-indent.el"
-;;;;;;  "org-install.el" "org-irc.el" "org-loaddefs.el" "org-mobile.el"
-;;;;;;  "org-pkg.el" "org-plot.el" "org-table.el" "org-timer.el"
-;;;;;;  "ox-ascii.el" "ox-beamer.el" "ox-html.el" "ox-icalendar.el"
-;;;;;;  "ox-latex.el" "ox-man.el" "ox-md.el" "ox-odt.el" "ox-org.el"
-;;;;;;  "ox-publish.el" "ox-texinfo.el" "ox.el") (0 0 0 0))
+;;;;;;  "org-install.el" "org-irc.el" "org-mobile.el" "org-pkg.el"
+;;;;;;  "org-plot.el" "org-table.el" "org-timer.el" "ox-ascii.el"
+;;;;;;  "ox-beamer.el" "ox-html.el" "ox-icalendar.el" "ox-latex.el"
+;;;;;;  "ox-man.el" "ox-md.el" "ox-odt.el" "ox-org.el" "ox-publish.el"
+;;;;;;  "ox-texinfo.el" "ox.el") (0 0 0 0))
 
 ;;;***
 

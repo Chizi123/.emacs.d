@@ -12,9 +12,85 @@
       :lastmodtime '(23535 56420 0 0)
       :unmatched-syntax nil)
     (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("face-remap" include nil nil [8299 8320])
+            ("cl" include nil nil [8283 8296])
+            ("dash" include nil nil [8323 8338])
+            ("popwin" include nil nil [8339 8356])
+            ("s" include nil nil [8357 8369])
+            ("guide-key" customgroup (:user-visible-flag t) nil [8385 8470])
+            ("guide-key/guide-key-sequence" variable (:user-visible-flag t) nil [8472 9201])
+            ("guide-key/polling-time" variable
+               (:user-visible-flag t
+                :default-value 0.1)
+                nil [9203 9326])
+            ("guide-key/idle-delay" variable
+               (:user-visible-flag t
+                :default-value 1.0)
+                nil [9328 9455])
+            ("guide-key/highlight-prefix-regexp" variable
+               (:user-visible-flag t
+                :default-value "prefix")
+                nil [9457 9580])
+            ("guide-key/highlight-command-regexp" variable (:user-visible-flag t) nil [9582 10496])
+            ("guide-key/align-command-by-space-flag" variable (:user-visible-flag t) nil [10498 10634])
+            ("guide-key/popup-window-position" variable
+               (:user-visible-flag t
+                :default-value (quote right))
+                nil [10636 10890])
+            ("guide-key/text-scale-amount" variable (:user-visible-flag t) nil [10892 11187])
+            ("guide-key/recursive-key-sequence-flag" variable (:user-visible-flag t) nil [11189 11506])
+            ("guide-key/prefix-command-face" variable
+               (:default-value (quote ((((class color) (background dark)) (:foreground "cyan")) (((class color) (background light)) (:foreground "blue"))))
+                :type "face")
+                nil [11508 11743])
+            ("guide-key/highlight-command-face" variable
+               (:default-value (quote ((((class color) (background dark)) (:foreground "yellow")) (((class color) (background light)) (:foreground "orange red"))))
+                :type "face")
+                nil [11745 11984])
+            ("guide-key/key-face" variable
+               (:default-value (quote ((((class color) (background dark)) (:foreground "red")) (((class color) (background light)) (:foreground "dark green"))))
+                :type "face")
+                nil [11986 12219])
+            ("guide-key/polling-timer" variable nil nil [12244 12330])
+            ("guide-key/idle-timer" variable nil nil [12332 12420])
+            ("guide-key/guide-buffer-name" variable (:default-value " *guide-key*") nil [12422 12506])
+            ("guide-key/last-key-sequence-vector" variable nil nil [12508 12609])
+            ("define-minor-mode" code nil nil [12844 13234])
+            ("guide-key/popup-function" function (:arguments ("input")) nil [13236 14017])
+            ("guide-key/polling-function" function nil nil [14043 14435])
+            ("guide-key/popup-guide-buffer" function nil nil [14437 15079])
+            ("guide-key/popup-window-size" function (:arguments ("horizontal")) nil [15081 15702])
+            ("guide-key/close-guide-buffer" function nil nil [15704 15911])
+            ("add-hook" code nil nil [15913 15971])
+            ("guide-key/update-guide-buffer-p" function (:arguments ("key-seq")) nil [15973 16129])
+            ("guide-key/popup-guide-buffer-p" function (:arguments ("key-seq")) nil [16131 16502])
+            ("guide-key/buffer-key-sequences" function nil nil [16504 17225])
+            ("guide-key/vbutlast" function (:arguments ("vec" "n")) nil [17227 17378])
+            ("guide-key/convert-key-sequence-to-vector" function (:arguments ("key-seq")) nil [17380 17603])
+            ("guide-key/turn-on-idle-timer" function nil nil [17605 17854])
+            ("guide-key/turn-off-idle-timer" function nil nil [17856 18029])
+            ("guide-key/turn-on-timer" function nil nil [18032 18247])
+            ("guide-key/turn-off-timer" function nil nil [18249 18392])
+            ("guide-key/format-guide-buffer" function (:arguments ("key-seq" "regexp")) nil [18394 19688])
+            ("guide-key/insert-following-key" function (:arguments ("fkey-str-list" "horizontal")) nil [19690 20644])
+            ("guide-key/fontified-string" function (:arguments ("key" "space" "command" "regexp")) nil [20646 21181])
+            ("guide-key/get-highlight-face" function (:arguments ("string" "regexp")) nil [21183 22513])
+            ("guide-key/buffer-max-width" function nil nil [22515 22731])
+            ("guide-key/add-local-guide-key-sequence" function (:arguments ("key")) nil [22733 22857])
+            ("guide-key/add-local-highlight-command-regexp" function (:arguments ("regexp")) nil [22859 23270])
+            ("this-command-keys" function (:arguments ("after" "key-chord-hack" "disable")) nil [23291 23911])
+            ("this-command-keys-vector" function (:arguments ("after" "key-chord-hack" "disable")) nil [23913 24554])
+            ("guide-key/key-chord-hack-on" function (:user-visible-flag t) nil [24556 24951])
+            ("guide-key/key-chord-hack-off" function (:user-visible-flag t) nil [24953 25234])
+            ("guide-key/message-events" function nil nil [25246 25619])
+            ("guide-key" package nil nil [25701 25721]))          
       :file "guide-key.el"
+      :pointmax 25749
       :fsize 25748
-      :lastmodtime '(23535 56420 0 0)))
+      :lastmodtime '(23535 56420 0 0)
+      :unmatched-syntax '((close-paren 8320 . 8321) (symbol 8263 . 8280) (open-paren 8262 . 8263))))
   :file "!drive_c!Users!joelg!.emacs.d!elpa!guide-key-20150108.635!semantic.cache"
   :semantic-tag-version "2.0"
   :semanticdb-version "2.2")

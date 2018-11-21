@@ -1286,9 +1286,65 @@
       :lastmodtime '(23525 29553 0 0)
       :unmatched-syntax '((close-paren 923 . 924) (symbol 892 . 909) (open-paren 891 . 892)))
     (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl" include nil nil [1117 1130])
+            ("parse-time" include nil nil [1132 1153])
+            ("nnimap" include nil nil [1154 1171])
+            ("epg" include nil nil [1192 1206])
+            ("epg-make-context" function (:prototype-flag t) nil [1247 1281])
+            ("epg-context-set-passphrase-callback" function (:prototype-flag t) nil [1282 1335])
+            ("epg-decrypt-string" function (:prototype-flag t) nil [1336 1372])
+            ("epg-encrypt-string" function (:prototype-flag t) nil [1373 1409])
+            ("gnus-cloud" customgroup (:user-visible-flag t) nil [1411 1501])
+            ("gnus-cloud-synced-files" variable (:default-value (quote ("~/.authinfo.gpg" "~/.gnus.el" (:directory "~/News" :match ".*.SCORE\\'")))) nil [1503 2072])
+            ("gnus-cloud-storage-method" variable (:default-value (if (featurep (quote epg)) (quote epg) (quote base64-gzip))) nil [2074 2448])
+            ("gnus-cloud-interactive" variable (:default-value t) nil [2450 2594])
+            ("gnus-cloud-group-name" variable (:default-value "Emacs-Cloud") nil [2596 2640])
+            ("gnus-cloud-covered-servers" variable nil nil [2641 2680])
+            ("gnus-cloud-version" variable (:default-value 1) nil [2682 2711])
+            ("gnus-cloud-sequence" variable (:default-value 1) nil [2712 2742])
+            ("gnus-cloud-method" variable nil nil [2744 3076])
+            ("gnus-cloud-make-chunk" function (:arguments ("elems")) nil [3078 3267])
+            ("gnus-cloud-insert-data" function (:arguments ("elems")) nil [3269 4290])
+            ("gnus-cloud-encode-data" function nil nil [4292 5409])
+            ("gnus-cloud-decode-data" function nil nil [5411 6301])
+            ("gnus-cloud-parse-chunk" function nil nil [6303 6889])
+            ("gnus-cloud-parse-version-1" function nil nil [6891 7755])
+            ("gnus-cloud-update-all" function (:arguments ("elems")) nil [7757 8123])
+            ("gnus-cloud-update-newsrc-data" function (:arguments ("group" "elem" "force-older")) nil [8125 9625])
+            ("gnus-cloud-update-file" function (:arguments ("elem" "op")) nil [9627 11181])
+            ("gnus-cloud-replace-file" function (:arguments ("file-name" "date" "new-contents")) nil [11183 11521])
+            ("gnus-cloud-file-covered-p" function (:arguments ("file-name")) nil [11523 12190])
+            ("gnus-cloud-all-files" function nil nil [12192 12730])
+            ("gnus-cloud-file-timestamps" variable nil nil [12732 12771])
+            ("gnus-cloud-files-to-upload" function (:arguments ("full")) nil [12773 13219])
+            ("gnus-cloud-timestamp" function (:arguments ("time")) nil [13221 13342])
+            ("gnus-cloud-file-new-p" function (:arguments ("file" "full")) nil [13344 13622])
+            ("declare-function" code nil nil [13624 13749])
+            ("declare-function" code nil nil [13750 13854])
+            ("gnus-cloud-ensure-cloud-group" function nil nil [13856 14440])
+            ("gnus-cloud-upload-all-data" function (:user-visible-flag t) nil [14442 14582])
+            ("gnus-cloud-upload-data" function
+               (:user-visible-flag t
+                :arguments ("full"))
+                nil [14584 15849])
+            ("gnus-cloud-add-timestamps" function (:arguments ("elems")) nil [15851 16239])
+            ("gnus-cloud-available-chunks" function nil nil [16241 16957])
+            ("gnus-cloud-chunk-sequence" function (:arguments ("string")) nil [16959 17110])
+            ("gnus-cloud-prune-old-chunks" function (:arguments ("headers")) nil [17130 17699])
+            ("gnus-cloud-download-all-data" function (:user-visible-flag t) nil [17701 17885])
+            ("gnus-cloud-download-data" function (:arguments ("update" "sequence-override")) nil [17887 19339])
+            ("gnus-cloud-server-p" function (:arguments ("server")) nil [19341 19422])
+            ("gnus-cloud-host-server-p" function (:arguments ("server")) nil [19424 19500])
+            ("gnus-cloud-host-acceptable-method-p" function (:arguments ("server")) nil [19502 19611])
+            ("gnus-cloud-collect-full-newsrc" function nil nil [19613 20081])
+            ("gnus-cloud" package nil nil [20083 20104]))          
       :file "gnus-cloud.el"
+      :pointmax 20134
       :fsize 20133
-      :lastmodtime '(23525 29551 0 0))
+      :lastmodtime '(23525 29551 0 0)
+      :unmatched-syntax '((close-paren 1206 . 1207) (symbol 1174 . 1191) (open-paren 1173 . 1174) (close-paren 1130 . 1131) (symbol 1099 . 1116) (open-paren 1098 . 1099)))
     (semanticdb-table "semanticdb-table"
       :major-mode emacs-lisp-mode
       :tags 
@@ -4985,13 +5041,424 @@ Thank you for your help in stamping out bugs.
       :fsize 27793
       :lastmodtime '(23525 29557 0 0))
     (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl" include nil nil [933 946])
+            ("gnus" include nil nil [949 964])
+            ("gnus-sum" include nil nil [965 984])
+            ("gnus-art" include nil nil [985 1004])
+            ("gnus-range" include nil nil [1005 1026])
+            ("gnus-win" include nil nil [1027 1046])
+            ("message" include nil nil [1047 1065])
+            ("score-mode" include nil nil [1066 1087])
+            ("gmm-utils" include nil nil [1088 1108])
+            ("gnus-global-score-files" variable nil nil [1110 1746])
+            ("gnus-score-file-single-match-alist" variable nil nil [1748 2385])
+            ("gnus-score-file-multiple-match-alist" variable nil nil [2387 3051])
+            ("gnus-score-file-suffix" variable (:default-value "SCORE") nil [3053 3169])
+            ("gnus-adaptive-file-suffix" variable (:default-value "ADAPT") nil [3171 3326])
+            ("gnus-score-find-score-files-function" variable (:default-value (quote gnus-score-find-bnews)) nil [3328 4667])
+            ("gnus-score-interactive-default-score" variable (:default-value 1000) nil [4669 4849])
+            ("gnus-score-expiry-days" variable (:default-value 7) nil [4851 5097])
+            ("gnus-update-score-entry-dates" variable (:default-value t) nil [5099 5358])
+            ("gnus-decay-scores" variable nil nil [5360 5696])
+            ("gnus-decay-score-function" variable (:default-value (quote gnus-decay-score)) nil [5698 5954])
+            ("gnus-score-decay-constant" variable (:default-value 3) nil [5956 6088])
+            ("gnus-score-decay-scale" variable (:default-value 0.05) nil [6090 6218])
+            ("gnus-home-score-file" variable nil nil [6220 7431])
+            ("gnus-home-adapt-file" variable nil nil [7433 7767])
+            ("gnus-default-adaptive-score-alist" variable (:default-value (\` ((gnus-kill-file-mark) (gnus-unread-mark) (gnus-read-mark (from (\, (+ 2 gnus-score-decay-constant))) (subject (\, (+ 27 gnus-score-decay-constant)))) (gnus-catchup-mark (subject (\, (+ -7 (* -1 gnus-score-decay-constant))))) (gnus-killed-mark (from (\, (- -1 gnus-score-decay-constant))) (subject (\, (+ -17 (* -1 gnus-score-decay-constant))))) (gnus-del-mark (from (\, (- -1 gnus-score-decay-constant))) (subject (\, (+ -12 (* -1 gnus-score-decay-constant)))))))) nil [7769 8675])
+            ("gnus-adaptive-word-length-limit" variable nil nil [8677 8950])
+            ("gnus-ignored-adaptive-words" variable nil nil [8952 9113])
+            ("gnus-default-ignored-adaptive-words" variable (:default-value (quote ("a" "i" "the" "to" "of" "and" "in" "is" "it" "for" "that" "if" "you" "this" "be" "on" "with" "not" "have" "are" "or" "as" "from" "can" "but" "by" "at" "an" "will" "no" "all" "was" "do" "there" "my" "one" "so" "we" "they" "what" "would" "any" "which" "about" "get" "your" "use" "some" "me" "then" "name" "like" "out" "when" "up" "time" "other" "more" "only" "just" "end" "also" "know" "how" "new" "should" "been" "than" "them" "he" "who" "make" "may" "people" "these" "now" "their" "here" "into" "first" "could" "way" "had" "see" "work" "well" "were" "two" "very" "where" "while" "us" "because" "good" "same" "even" "much" "most" "many" "such" "long" "his" "over" "last" "since" "right" "before" "our" "without" "too" "those" "why" "must" "part" "being" "current" "back" "still" "go" "point" "value" "each" "did" "both" "true" "off" "say" "another" "state" "might" "under" "start" "try" "re"))) nil [9115 10236])
+            ("gnus-default-adaptive-word-score-alist" variable (:default-value (\` (((\, gnus-read-mark) . 30) ((\, gnus-catchup-mark) . -10) ((\, gnus-killed-mark) . -20) ((\, gnus-del-mark) . -15)))) nil [10238 10543])
+            ("gnus-adaptive-word-minimum" variable nil nil [10545 10733])
+            ("gnus-adaptive-word-no-group-words" variable nil nil [10735 10895])
+            ("gnus-score-mimic-keymap" variable nil nil [10897 11049])
+            ("gnus-score-exact-adapt-limit" variable (:default-value 10) nil [11051 11557])
+            ("gnus-score-uncacheable-files" variable (:default-value "ADAPT$") nil [11559 11741])
+            ("gnus-adaptive-pretty-print" variable nil nil [11743 11947])
+            ("gnus-score-default-header" variable nil nil [11949 12635])
+            ("gnus-score-default-type" variable nil nil [12637 13401])
+            ("gnus-score-default-fold" variable nil nil [13403 13551])
+            ("gnus-score-default-duration" variable nil nil [13553 13945])
+            ("gnus-score-after-write-file-function" variable nil nil [13947 14139])
+            ("gnus-score-thread-simplify" variable nil nil [14141 14287])
+            ("gnus-inhibit-slow-scoring" variable nil nil [14289 14679])
+            ("gnus-score-use-all-scores" variable (:default-value t) nil [14708 14809])
+            ("gnus-adaptive-word-syntax-table" variable (:default-value (let ((table (copy-syntax-table (standard-syntax-table))) (numbers (quote (48 49 50 51 52 53 54 55 56 57)))) (while numbers (modify-syntax-entry (pop numbers) " " table)) (modify-syntax-entry 39 "w" table) table)) nil [14811 15134])
+            ("gnus-scores-exclude-files" variable nil nil [15136 15174])
+            ("gnus-internal-global-score-files" variable nil nil [15175 15220])
+            ("gnus-score-file-list" variable nil nil [15221 15254])
+            ("gnus-short-name-score-file-cache" variable nil nil [15256 15301])
+            ("gnus-score-help-winconf" variable nil nil [15303 15339])
+            ("gnus-adaptive-score-alist" variable (:default-value gnus-default-adaptive-score-alist) nil [15340 15408])
+            ("gnus-adaptive-word-score-alist" variable (:default-value gnus-default-adaptive-word-score-alist) nil [15409 15487])
+            ("gnus-score-trace" variable nil nil [15488 15517])
+            ("gnus-score-edit-buffer" variable nil nil [15518 15553])
+            ("gnus-score-alist" variable nil nil [15555 16270])
+            ("gnus-score-cache" variable nil nil [16272 16301])
+            ("gnus-scores-articles" variable nil nil [16302 16335])
+            ("gnus-score-index" variable nil nil [16336 16365])
+            ("gnus-header-index" variable
+               (:constant-flag t
+                :default-value (quote (("number" 0 gnus-score-integer) ("subject" 1 gnus-score-string) ("from" 2 gnus-score-string) ("date" 3 gnus-score-date) ("message-id" 4 gnus-score-string) ("references" 5 gnus-score-string) ("chars" 6 gnus-score-integer) ("lines" 7 gnus-score-integer) ("xref" 8 gnus-score-string) ("extra" 9 gnus-score-string) ("head" -1 gnus-score-body) ("body" -1 gnus-score-body) ("all" -1 gnus-score-body) ("followup" 2 gnus-score-followup) ("thread" 5 gnus-score-thread))))
+                nil [16368 16943])
+            ("gnus-define-keys" code nil nil [16975 17421])
+            ("gnus-summary-lower-score" function
+               (:user-visible-flag t
+                :arguments ("score" "symp"))
+                nil [17589 18090])
+            ("gnus-score-kill-help-buffer" function nil nil [18092 18292])
+            ("gnus-summary-increase-score" function
+               (:user-visible-flag t
+                :arguments ("score" "symp"))
+                nil [18294 25382])
+            ("appt-select-lowest-window" function (:prototype-flag t) nil [25384 25428])
+            ("gnus-score-insert-help" function (:arguments ("string" "alist" "idx")) nil [25430 26910])
+            ("gnus-summary-header" function (:arguments ("header" "no-err" "extra")) nil [26912 27485])
+            ("gnus-newsgroup-score-alist" function nil nil [27487 27769])
+            ("gnus-score-get" function (:arguments ("symbol" "alist")) nil [27771 27955])
+            ("gnus-summary-score-entry" function (:arguments ("header" "match" "type" "score" "date" "prompt" "silent" "extra")) nil [27957 31198])
+            ("gnus-summary-score-effect" function
+               (:user-visible-flag t
+                :arguments ("header" "match" "type" "score" "extra"))
+                nil [31200 32735])
+            ("gnus-score-set-mark-below" function
+               (:user-visible-flag t
+                :arguments ("score"))
+                nil [32836 33286])
+            ("gnus-score-update-lines" function nil nil [33288 33494])
+            ("gnus-score-update-all-lines" function nil nil [33496 33911])
+            ("gnus-score-set-expunge-below" function
+               (:user-visible-flag t
+                :arguments ("score"))
+                nil [33913 34304])
+            ("gnus-score-followup-article" function
+               (:user-visible-flag t
+                :arguments ("score"))
+                nil [34306 34834])
+            ("gnus-score-followup-thread" function
+               (:user-visible-flag t
+                :arguments ("score"))
+                nil [34836 35346])
+            ("gnus-score-set" function (:arguments ("symbol" "value" "alist" "warn")) nil [35348 35904])
+            ("gnus-summary-raise-score" function
+               (:user-visible-flag t
+                :arguments ("n"))
+                nil [35906 36124])
+            ("gnus-summary-set-score" function
+               (:user-visible-flag t
+                :arguments ("n"))
+                nil [36126 36756])
+            ("gnus-summary-current-score" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [36758 37115])
+            ("gnus-score-change-score-file" function
+               (:user-visible-flag t
+                :arguments ("file"))
+                nil [37117 37348])
+            ("gnus-score-edit-exit-function" variable nil nil [37350 37388])
+            ("gnus-score-edit-current-scores" function
+               (:user-visible-flag t
+                :arguments ("file"))
+                nil [37389 38171])
+            ("gnus-score-edit-all-score" function (:user-visible-flag t) nil [38173 38496])
+            ("gnus-score-edit-file" function
+               (:user-visible-flag t
+                :arguments ("file"))
+                nil [38498 39201])
+            ("gnus-score-edit-file-at-point" function (:arguments ("format")) nil [39203 40334])
+            ("gnus-score-load-file" function (:arguments ("file")) nil [40336 44602])
+            ("gnus-score-load" function (:arguments ("file")) nil [44604 44977])
+            ("gnus-score-remove-from-cache" function (:arguments ("file")) nil [44979 45103])
+            ("gnus-score-load-score-alist" function (:arguments ("file")) nil [45105 46122])
+            ("gnus-score-check-syntax" function (:arguments ("alist" "file")) nil [46124 47414])
+            ("gnus-score-transform-old-to-new" function (:arguments ("alist")) nil [47416 48100])
+            ("gnus-score-save" function nil nil [48102 49858])
+            ("gnus-score-load-files" function (:arguments ("score-files")) nil [49860 50742])
+            ("gnus-score-headers" function (:arguments ("score-files" "trace")) nil [50744 54300])
+            ("gnus-score-lower-thread" function (:arguments ("thread" "score-adjust")) nil [54302 55155])
+            ("gnus-score-orphans" function (:arguments ("score")) nil [55157 56134])
+            ("gnus-score-integer" function (:arguments ("scores" "header" "now" "expire" "trace")) nil [56136 57917])
+            ("gnus-score-date" function (:arguments ("scores" "header" "now" "expire" "trace")) nil [57919 59981])
+            ("gnus-score-decode-text-parts" function nil nil [59983 60922])
+            ("gnus-score-body" function (:arguments ("scores" "header" "now" "expire" "trace")) nil [60924 66476])
+            ("gnus-score-thread" function (:arguments ("scores" "header" "now" "expire" "trace")) nil [66478 66603])
+            ("gnus-score-followup" function (:arguments ("scores" "header" "now" "expire" "trace" "thread")) nil [66605 70258])
+            ("gnus-score-add-followups" function (:arguments ("header" "score" "scores" "thread")) nil [70260 70873])
+            ("gnus-score-string" function (:arguments ("score-list" "header" "now" "expire" "trace")) nil [70875 80114])
+            ("gnus-enter-score-words-into-hashtb" function (:arguments ("hashtb")) nil [80116 80980])
+            ("gnus-score-string<" function (:arguments ("a1" "a2")) nil [80982 81213])
+            ("gnus-current-score-file-nondirectory" function (:arguments ("score-file")) nil [81215 81439])
+            ("gnus-score-adaptive" function nil nil [81441 85787])
+            ("gnus-score-edit-done" function nil nil [85789 86083])
+            ("gnus-score-find-trace" function (:user-visible-flag t) nil [86085 88476])
+            ("gnus-score-find-favourite-words" function (:user-visible-flag t) nil [88478 89767])
+            ("gnus-summary-rescore" function (:user-visible-flag t) nil [89769 90025])
+            ("gnus-score-flush-cache" function (:user-visible-flag t) nil [90027 90274])
+            ("gnus-add-shutdown" code nil nil [90276 90319])
+            ("gnus-score-file-alist-cache" variable nil nil [90321 90361])
+            ("gnus-score-close" function nil nil [90363 90557])
+            ("gnus-summary-raise-same-subject-and-select" function
+               (:user-visible-flag t
+                :arguments ("score"))
+                nil [90595 90960])
+            ("gnus-summary-raise-same-subject" function
+               (:user-visible-flag t
+                :arguments ("score"))
+                nil [90962 91298])
+            ("gnus-score-delta-default" function (:arguments ("level")) nil [91300 91423])
+            ("gnus-summary-raise-thread" function
+               (:user-visible-flag t
+                :arguments ("score"))
+                nil [91425 92066])
+            ("gnus-summary-lower-same-subject-and-select" function
+               (:user-visible-flag t
+                :arguments ("score"))
+                nil [92068 92281])
+            ("gnus-summary-lower-same-subject" function
+               (:user-visible-flag t
+                :arguments ("score"))
+                nil [92283 92454])
+            ("gnus-summary-lower-thread" function
+               (:user-visible-flag t
+                :arguments ("score"))
+                nil [92456 92656])
+            ("gnus-score-score-files" function (:arguments ("group")) nil [92684 94146])
+            ("gnus-score-score-files-1" function (:arguments ("dir")) nil [94148 94982])
+            ("gnus-score-file-regexp" function nil nil [94984 95180])
+            ("gnus-score-find-bnews" function (:arguments ("group")) nil [95182 98426])
+            ("gnus-score-find-single" function (:arguments ("group")) nil [98428 98658])
+            ("gnus-score-find-hierarchical" function (:arguments ("group")) nil [98660 99467])
+            ("gnus-score-file-rank" function (:arguments ("file")) nil [99469 100113])
+            ("gnus-sort-score-files" function (:arguments ("files")) nil [100115 100404])
+            ("gnus-score-find-alist" function (:arguments ("group")) nil [100406 101589])
+            ("gnus-all-score-files" function (:arguments ("group")) nil [101591 103773])
+            ("gnus-possibly-score-headers" function (:arguments ("trace")) nil [103775 103982])
+            ("gnus-score-file-name" function (:arguments ("newsgroup" "suffix")) nil [103984 104856])
+            ("gnus-score-search-global-directories" function
+               (:user-visible-flag t
+                :arguments ("files"))
+                nil [104858 105426])
+            ("gnus-score-default-fold-toggle" function (:user-visible-flag t) nil [105428 105770])
+            ("gnus-home-score-file" function (:arguments ("group" "adapt")) nil [105794 106708])
+            ("gnus-hierarchial-home-score-file" function (:arguments ("group")) nil [106710 107055])
+            ("gnus-hierarchial-home-adapt-file" function (:arguments ("group")) nil [107057 107408])
+            ("gnus-current-home-score-file" function (:arguments ("group")) nil [107410 107539])
+            ("gnus-decay-score" function (:arguments ("score")) nil [107567 107851])
+            ("gnus-decay-scores" function (:arguments ("alist" "day")) nil [107853 108582])
+            ("gnus-score" package nil nil [108584 108605]))          
       :file "gnus-score.el"
+      :pointmax 108635
       :fsize 108634
-      :lastmodtime '(23525 29553 0 0))
+      :lastmodtime '(23525 29553 0 0)
+      :unmatched-syntax '((close-paren 946 . 947) (symbol 915 . 932) (open-paren 914 . 915)))
     (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl" include nil nil [903 916])
+            ("gnus" include nil nil [919 934])
+            ("gnus-start" include nil nil [935 956])
+            ("gnus-spec" include nil nil [957 977])
+            ("gnus-group" include nil nil [978 999])
+            ("gnus-int" include nil nil [1000 1019])
+            ("gnus-range" include nil nil [1020 1041])
+            ("gnus-cloud" include nil nil [1042 1063])
+            ("gnus-group-make-nnir-group" function (:prototype-flag t) nil [1065 1110])
+            ("gnus-server-mode-hook" variable nil nil [1112 1229])
+            ("gnus-server-exit-hook" variable nil nil [1231 1349])
+            ("gnus-server-line-format" variable (:default-value "     {%(%h:%w%)} %s%a%c
+") nil [1351 1816])
+            ("gnus-server-mode-line-format" variable (:default-value "Gnus: %%b") nil [1818 1970])
+            ("gnus-server-browse-in-group-buffer" variable nil nil [1972 2215])
+            ("gnus-tmp-how" variable nil nil [2242 2263])
+            ("gnus-tmp-name" variable nil nil [2264 2286])
+            ("gnus-tmp-where" variable nil nil [2287 2310])
+            ("gnus-tmp-status" variable nil nil [2311 2335])
+            ("gnus-tmp-agent" variable nil nil [2336 2359])
+            ("gnus-tmp-cloud" variable nil nil [2360 2383])
+            ("gnus-tmp-news-server" variable nil nil [2384 2413])
+            ("gnus-tmp-news-method" variable nil nil [2414 2443])
+            ("gnus-tmp-user-defined" variable nil nil [2444 2474])
+            ("gnus-inserted-opened-servers" variable nil nil [2476 2517])
+            ("gnus-server-line-format-alist" variable (:default-value (\` ((104 gnus-tmp-how 115) (110 gnus-tmp-name 115) (119 gnus-tmp-where 115) (115 gnus-tmp-status 115) (97 gnus-tmp-agent 115) (99 gnus-tmp-cloud 115)))) nil [2519 2718])
+            ("gnus-server-mode-line-format-alist" variable (:default-value (\` ((83 gnus-tmp-news-server 115) (77 gnus-tmp-news-method 115) (117 gnus-tmp-user-defined 115)))) nil [2720 2864])
+            ("gnus-server-line-format-spec" variable nil nil [2866 2907])
+            ("gnus-server-mode-line-format-spec" variable nil nil [2908 2954])
+            ("gnus-server-killed-servers" variable nil nil [2955 2994])
+            ("gnus-server-mode-map" variable nil nil [2996 3025])
+            ("gnus-server-menu-hook" variable nil nil [3027 3157])
+            ("gnus-server-make-menu-bar" function nil nil [3159 4534])
+            ("gnus-server-mode-map" variable nil nil [4536 4569])
+            ("put" code nil nil [4570 4614])
+            ("unless" code nil nil [4616 5730])
+            ("gnus-server-agent" variable
+               (:default-value (quote ((((class color) (background light)) (:foreground "PaleTurquoise" :bold t)) (((class color) (background dark)) (:foreground "PaleTurquoise" :bold t)) (t (:bold t))))
+                :type "face")
+                nil [5732 6011])
+            ("put" code nil nil [6044 6104])
+            ("put" code nil nil [6105 6156])
+            ("gnus-server-cloud" variable
+               (:default-value (quote ((((class color) (background light)) (:foreground "ForestGreen" :bold t)) (((class color) (background dark)) (:foreground "PaleGreen" :bold t)) (t (:bold t))))
+                :type "face")
+                nil [6158 6434])
+            ("gnus-server-cloud-host" variable
+               (:default-value (quote ((((class color) (background light)) (:foreground "ForestGreen" :inverse-video t :italic t)) (((class color) (background dark)) (:foreground "PaleGreen" :inverse-video t :italic t)) (t (:inverse-video t :italic t))))
+                :type "face")
+                nil [6436 6768])
+            ("gnus-server-opened" variable
+               (:default-value (quote ((((class color) (background light)) (:foreground "Green3" :bold t)) (((class color) (background dark)) (:foreground "Green1" :bold t)) (t (:bold t))))
+                :type "face")
+                nil [6770 7033])
+            ("put" code nil nil [7066 7128])
+            ("put" code nil nil [7129 7181])
+            ("gnus-server-closed" variable
+               (:default-value (quote ((((class color) (background light)) (:foreground "Steel Blue" :italic t)) (((class color) (background dark)) (:foreground "LightBlue" :italic t)) (t (:italic t))))
+                :type "face")
+                nil [7183 7464])
+            ("put" code nil nil [7497 7559])
+            ("put" code nil nil [7560 7612])
+            ("gnus-server-denied" variable
+               (:default-value (quote ((((class color) (background light)) (:foreground "Red" :bold t)) (((class color) (background dark)) (:foreground "Pink" :bold t)) (t (:inverse-video t :bold t))))
+                :type "face")
+                nil [7614 7889])
+            ("put" code nil nil [7922 7984])
+            ("put" code nil nil [7985 8037])
+            ("gnus-server-offline" variable
+               (:default-value (quote ((((class color) (background light)) (:foreground "Orange" :bold t)) (((class color) (background dark)) (:foreground "Yellow" :bold t)) (t (:inverse-video t :bold t))))
+                :type "face")
+                nil [8039 8321])
+            ("put" code nil nil [8354 8418])
+            ("put" code nil nil [8419 8472])
+            ("gnus-server-font-lock-keywords" variable (:default-value (quote (("(\\(agent\\))" 1 (quote gnus-server-agent)) ("(\\(cloud[-]sync\\))" 1 (quote gnus-server-cloud)) ("(\\(CLOUD[-]HOST\\))" 1 (quote gnus-server-cloud-host)) ("(\\(opened\\))" 1 (quote gnus-server-opened)) ("(\\(closed\\))" 1 (quote gnus-server-closed)) ("(\\(offline\\))" 1 (quote gnus-server-offline)) ("(\\(denied\\))" 1 (quote gnus-server-denied))))) nil [8474 8844])
+            ("gnus-server-mode" function (:user-visible-flag t) nil [8846 9719])
+            ("gnus-server-insert-server-line" function (:arguments ("name" "method")) nil [9721 10878])
+            ("gnus-enter-server-buffer" function nil nil [10880 11371])
+            ("gnus-server-setup-buffer" function nil nil [11373 11580])
+            ("gnus-server-prepare" function nil nil [11582 12653])
+            ("gnus-server-server-name" function nil nil [12655 12794])
+            ("gnus-server-named-server" function nil nil [12796 13034])
+            ("defalias" code nil nil [13036 13091])
+            ("gnus-server-edit-buffer" variable
+               (:constant-flag t
+                :default-value "*Gnus edit server*")
+                nil [13093 13148])
+            ("gnus-server-update-server" function (:arguments ("server")) nil [13150 13976])
+            ("gnus-server-set-info" function (:arguments ("server" "info")) nil [13978 14907])
+            ("gnus-server-kill-server" function
+               (:user-visible-flag t
+                :arguments ("server"))
+                nil [14944 15986])
+            ("gnus-server-yank-server" function (:user-visible-flag t) nil [15988 16798])
+            ("gnus-server-exit" function (:user-visible-flag t) nil [16800 16991])
+            ("gnus-server-list-servers" function (:user-visible-flag t) nil [16993 17274])
+            ("gnus-server-set-status" function (:arguments ("method" "status")) nil [17276 17502])
+            ("gnus-opened-servers-remove" function (:arguments ("method")) nil [17504 17695])
+            ("gnus-server-open-server" function
+               (:user-visible-flag t
+                :arguments ("server"))
+                nil [17697 18082])
+            ("gnus-server-open-all-servers" function (:user-visible-flag t) nil [18084 18253])
+            ("gnus-server-close-server" function
+               (:user-visible-flag t
+                :arguments ("server"))
+                nil [18255 18635])
+            ("gnus-server-offline-server" function
+               (:user-visible-flag t
+                :arguments ("server"))
+                nil [18637 19031])
+            ("gnus-server-close-all-servers" function (:user-visible-flag t) nil [19033 19287])
+            ("gnus-server-deny-server" function
+               (:user-visible-flag t
+                :arguments ("server"))
+                nil [19289 19659])
+            ("gnus-server-remove-denials" function (:user-visible-flag t) nil [19661 19912])
+            ("gnus-server-copy-server" function
+               (:user-visible-flag t
+                :arguments ("from" "to"))
+                nil [19914 20643])
+            ("gnus-server-add-server" function (:arguments ("how" "where")) nil [20645 21092])
+            ("gnus-server-goto-server" function
+               (:user-visible-flag t
+                :arguments ("server"))
+                nil [21094 21426])
+            ("gnus-server-edit-server" function
+               (:user-visible-flag t
+                :arguments ("server"))
+                nil [21428 21975])
+            ("gnus-server-show-server" function
+               (:user-visible-flag t
+                :arguments ("server"))
+                nil [21977 22354])
+            ("gnus-server-scan-server" function
+               (:user-visible-flag t
+                :arguments ("server"))
+                nil [22356 22775])
+            ("gnus-server-read-server-in-server-buffer" function
+               (:user-visible-flag t
+                :arguments ("server"))
+                nil [22777 23003])
+            ("gnus-server-read-server" function
+               (:user-visible-flag t
+                :arguments ("server"))
+                nil [23005 23318])
+            ("gnus-server-pick-server" function (:arguments ("e")) nil [23320 23451])
+            ("gnus-browse-menu-hook" variable nil nil [23487 23617])
+            ("gnus-browse-subscribe-newsgroup-method" variable (:default-value (quote gnus-subscribe-alphabetically)) nil [23619 24696])
+            ("gnus-browse-mode-hook" variable nil nil [24698 24732])
+            ("gnus-browse-mode-map" variable nil nil [24733 24766])
+            ("put" code nil nil [24767 24811])
+            ("unless" code nil nil [24813 25684])
+            ("gnus-browse-make-menu-bar" function nil nil [25686 26239])
+            ("gnus-browse-current-method" variable nil nil [26241 26280])
+            ("gnus-browse-return-buffer" variable nil nil [26281 26319])
+            ("gnus-browse-buffer" variable (:default-value "*Gnus Browse Server*") nil [26321 26371])
+            ("gnus-browse-foreign-server" function (:arguments ("server" "return-buffer")) nil [26373 30427])
+            ("define-derived-mode" code nil nil [30429 31178])
+            ("gnus-browse-read-group" function
+               (:user-visible-flag t
+                :arguments ("no-article" "number"))
+                nil [31180 31737])
+            ("gnus-browse-select-group" function
+               (:user-visible-flag t
+                :arguments ("number"))
+                nil [31739 31920])
+            ("gnus-browse-next-group" function
+               (:user-visible-flag t
+                :arguments ("n"))
+                nil [31922 32067])
+            ("gnus-browse-prev-group" function
+               (:user-visible-flag t
+                :arguments ("n"))
+                nil [32069 32182])
+            ("gnus-browse-unsubscribe-current-group" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [32184 32765])
+            ("gnus-browse-group-name" function nil nil [32767 33085])
+            ("gnus-browse-describe-group" function
+               (:user-visible-flag t
+                :arguments ("group"))
+                nil [33087 33249])
+            ("gnus-browse-delete-group" function
+               (:user-visible-flag t
+                :arguments ("group" "force"))
+                nil [33251 33709])
+            ("gnus-browse-unsubscribe-group" function nil nil [33711 35193])
+            ("gnus-browse-exit" function (:user-visible-flag t) nil [35195 35630])
+            ("gnus-browse-describe-briefly" function (:user-visible-flag t) nil [35632 36000])
+            ("gnus-server-regenerate-server" function (:user-visible-flag t) nil [36002 36712])
+            ("gnus-server-compact-server" function (:user-visible-flag t) nil [36848 37946])
+            ("gnus-server-toggle-cloud-server" function (:user-visible-flag t) nil [37948 38675])
+            ("gnus-server-toggle-cloud-method-server" function (:user-visible-flag t) nil [38677 39552])
+            ("gnus-srvr" package nil nil [39554 39574]))          
       :file "gnus-srvr.el"
+      :pointmax 39603
       :fsize 39602
-      :lastmodtime '(23525 29553 0 0))
+      :lastmodtime '(23525 29553 0 0)
+      :unmatched-syntax '((close-paren 916 . 917) (symbol 885 . 902) (open-paren 884 . 885)))
     (semanticdb-table "semanticdb-table"
       :major-mode emacs-lisp-mode
       :tags 
@@ -5062,9 +5529,42 @@ Thank you for your help in stamping out bugs.
       :fsize 24148
       :lastmodtime '(23525 29555 0 0))
     (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl" include nil nil [1806 1819])
+            ("gnus-util" include nil nil [1822 1842])
+            ("gnus" include nil nil [1843 1858])
+            ("gnus-undo" customgroup (:user-visible-flag t) nil [1860 1928])
+            ("gnus-undo-limit" variable (:default-value 2000) nil [1930 2044])
+            ("gnus-undo-mode" variable nil nil [2046 2403])
+            ("gnus-undo-mode-hook" variable nil nil [2405 2523])
+            ("gnus-undo-actions" variable nil nil [2550 2580])
+            ("gnus-undo-boundary" variable (:default-value t) nil [2581 2610])
+            ("gnus-undo-last" variable nil nil [2611 2638])
+            ("gnus-undo-boundary-inhibit" variable nil nil [2639 2678])
+            ("gnus-undo-mode-map" variable (:default-value (let ((map (make-sparse-keymap))) (gnus-define-keys map "\237" gnus-undo "" gnus-undo "u" gnus-undo [(control /)] gnus-undo) map)) nil [2708 3001])
+            ("gnus-undo-make-menu-bar" function nil nil [3003 3231])
+            ("define-minor-mode" code nil nil [3233 3662])
+            ("gnus-disable-undo" function
+               (:user-visible-flag t
+                :arguments ("buffer"))
+                nil [3690 3880])
+            ("gnus-undo-boundary" function nil nil [3882 4049])
+            ("gnus-undo-force-boundary" function nil nil [4051 4176])
+            ("gnus-undo-register" function (:arguments ("form")) nil [4178 4390])
+            ("put" code nil nil [4392 4441])
+            ("put" code nil nil [4442 4493])
+            ("gnus-undo-register-1" function (:arguments ("function")) nil [4495 5253])
+            ("gnus-undo" function
+               (:user-visible-flag t
+                :arguments ("n"))
+                nil [5255 5878])
+            ("gnus-undo" package nil nil [5880 5900]))          
       :file "gnus-undo.el"
+      :pointmax 5929
       :fsize 5928
-      :lastmodtime '(23525 29554 0 0))
+      :lastmodtime '(23525 29554 0 0)
+      :unmatched-syntax '((close-paren 1819 . 1820) (symbol 1788 . 1805) (open-paren 1787 . 1788)))
     (semanticdb-table "semanticdb-table"
       :file "nnoo.el"
       :fsize 10637
@@ -5102,9 +5602,144 @@ Thank you for your help in stamping out bugs.
       :lastmodtime '(23525 29553 0 0)
       :unmatched-syntax '((close-paren 1393 . 1394) (symbol 1362 . 1379) (open-paren 1361 . 1362)))
     (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl" include nil nil [993 1006])
+            ("nnmail-extra-headers" variable nil nil [1009 1038])
+            ("gnus-newsgroup-name" variable nil nil [1039 1067])
+            ("nnheader-file-coding-system" variable nil nil [1068 1104])
+            ("jka-compr-compression-info-list" variable nil nil [1105 1145])
+            ("mail-utils" include nil nil [1303 1324])
+            ("mm-util" include nil nil [1325 1343])
+            ("gnus-util" include nil nil [1344 1364])
+            ("gnus-range-add" function (:prototype-flag t) nil [1365 1404])
+            ("gnus-remove-from-range" function (:prototype-flag t) nil [1405 1452])
+            ("gnus-sorted-intersection" function (:prototype-flag t) nil [1510 1559])
+            ("gnus-intersection" function (:prototype-flag t) nil [1560 1602])
+            ("gnus-sorted-complement" function (:prototype-flag t) nil [1603 1650])
+            ("gnus-sorted-difference" function (:prototype-flag t) nil [1651 1698])
+            ("gnus-verbose-backends" variable (:default-value 7) nil [1700 2086])
+            ("gnus-nov-is-evil" variable nil nil [2088 2234])
+            ("nnheader-max-head-length" variable (:default-value 8192) nil [2236 2758])
+            ("nnheader-head-chop-length" variable (:default-value 2048) nil [2760 2929])
+            ("nnheader-read-timeout" variable (:default-value (if (memq system-type (quote (windows-nt cygwin))) 1.0 0.01)) nil [2931 3988])
+            ("nnheader-file-name-translation-alist" variable (:default-value (if (memq system-type (quote (windows-nt cygwin))) (mapcar (lambda (c) (cons c 95)) (quote (58 42 34 60 62 63))))) nil [3990 4486])
+            ("nnheader-directory-separator-character" variable (:default-value (string-to-char (substring (file-name-as-directory ".") -1))) nil [4488 4708])
+            ("nnmail-message-id" function (:prototype-flag t) nil [4710 4748])
+            ("mail-position-on-field" function (:prototype-flag t) nil [4749 4794])
+            ("gnus-buffer-live-p" function (:prototype-flag t) nil [4795 4837])
+            ("mail-header-number" function (:arguments ("header")) nil [5342 5437])
+            ("mail-header-set-number" function (:arguments ("header" "number")) nil [5439 5560])
+            ("mail-header-subject" function (:arguments ("header")) nil [5562 5658])
+            ("mail-header-set-subject" function (:arguments ("header" "subject")) nil [5660 5786])
+            ("mail-header-from" function (:arguments ("header")) nil [5788 5880])
+            ("mail-header-set-from" function (:arguments ("header" "from")) nil [5882 5995])
+            ("mail-header-date" function (:arguments ("header")) nil [5997 6080])
+            ("mail-header-set-date" function (:arguments ("header" "date")) nil [6082 6193])
+            ("defalias" code nil nil [6195 6245])
+            ("mail-header-id" function (:arguments ("header")) nil [6246 6325])
+            ("defalias" code nil nil [6327 6385])
+            ("mail-header-set-id" function (:arguments ("header" "id")) nil [6386 6487])
+            ("mail-header-references" function (:arguments ("header")) nil [6489 6584])
+            ("mail-header-set-references" function (:arguments ("header" "ref")) nil [6586 6706])
+            ("mail-header-chars" function (:arguments ("header")) nil [6708 6814])
+            ("mail-header-set-chars" function (:arguments ("header" "chars")) nil [6816 6945])
+            ("mail-header-lines" function (:arguments ("header")) nil [6947 7032])
+            ("mail-header-set-lines" function (:arguments ("header" "lines")) nil [7034 7150])
+            ("mail-header-xref" function (:arguments ("header")) nil [7152 7242])
+            ("mail-header-set-xref" function (:arguments ("header" "xref")) nil [7244 7355])
+            ("mail-header-extra" function (:arguments ("header")) nil [7357 7454])
+            ("mail-header-set-extra" function (:arguments ("header" "extra")) nil [7456 7570])
+            ("make-mail-header" function (:arguments ("init")) nil [7572 7702])
+            ("make-full-mail-header" function (:arguments ("number" "subject" "from" "date" "id" "references" "chars" "lines" "xref" "extra")) nil [7704 7977])
+            ("nnheader-fake-message-id" variable (:default-value 1) nil [8026 8061])
+            ("nnheader-generate-fake-message-id" function (:arguments ("number")) nil [8063 8319])
+            ("nnheader-fake-message-id-p" function (:arguments ("id")) nil [8321 8479])
+            ("nnheader-remove-cr-followed-by-lf" function nil nil [8516 8650])
+            ("nnheader-header-value" function nil nil [8652 8760])
+            ("ietf-drums-unfold-fws" function (:prototype-flag t) nil [8762 8808])
+            ("nnheader-parse-naked-head" function (:arguments ("number")) nil [8810 11848])
+            ("nnheader-parse-head" function (:arguments ("naked")) nil [11850 12418])
+            ("nnheader-nov-skip-field" function nil nil [12420 12492])
+            ("nnheader-nov-field" function nil nil [12494 12604])
+            ("nnheader-nov-read-integer" function nil nil [12606 12843])
+            ("nnheader-nov-parse-extra" function nil nil [12845 13161])
+            ("nnheader-uniquify-message-id" variable nil nil [13183 13224])
+            ("nnheader-nov-read-message-id" function (:arguments ("number")) nil [13227 13598])
+            ("nnheader-parse-nov" function nil nil [13600 14174])
+            ("nnheader-insert-nov" function (:arguments ("header")) nil [14184 15266])
+            ("nnheader-parse-overview-file" function (:arguments ("file")) nil [15268 15579])
+            ("nnheader-write-overview-file" function (:arguments ("file" "headers")) nil [15581 15725])
+            ("nnheader-insert-header" function (:arguments ("header")) nil [15727 16177])
+            ("nnheader-insert-article-line" function (:arguments ("article")) nil [16179 16448])
+            ("nnheader-nov-delete-outside-range" function (:arguments ("beg" "end")) nil [16450 16813])
+            ("nnheader-find-nov-line" function (:arguments ("article")) nil [16815 18207])
+            ("nntp-server-buffer" variable nil nil [18270 18301])
+            ("nntp-process-response" variable nil nil [18302 18336])
+            ("nnheader-callback-function" variable nil nil [18338 18377])
+            ("nnheader-init-server-buffer" function nil nil [18379 18819])
+            ("nnheader-file-error" function (:arguments ("file")) nil [18862 19154])
+            ("nnheader-insert-head" function (:arguments ("file")) nil [19156 20265])
+            ("nnheader-article-p" function nil nil [20267 20651])
+            ("nnheader-insert-references" function (:arguments ("references" "message-id")) nil [20653 21389])
+            ("declare-function" code nil nil [21391 21488])
+            ("nnheader-replace-header" function (:arguments ("header" "new-value")) nil [21490 21792])
+            ("nnheader-narrow-to-headers" function nil nil [21794 22028])
+            ("nnheader-get-lines-and-char" function nil nil [22030 22294])
+            ("nnheader-remove-body" function nil nil [22296 22498])
+            ("nnheader-set-temp-buffer" function (:arguments ("name" "noerase")) nil [22500 22759])
+            ("nnheader-numerical-files" variable (:default-value (if (boundp (quote jka-compr-compression-info-list)) (concat "\\([0-9]+\\)\\(" (mapconcat (lambda (i) (aref i 0)) jka-compr-compression-info-list "\\|") "\\)?") "[0-9]+$")) nil [22761 23028])
+            ("nnheader-numerical-short-files" variable (:default-value (concat "^" nnheader-numerical-files)) nil [23030 23153])
+            ("nnheader-numerical-full-files" variable (:default-value (concat "/" nnheader-numerical-files)) nil [23155 23282])
+            ("nnheader-file-to-number" function (:arguments ("file")) nil [23284 23566])
+            ("nnheader-directory-files-is-safe" variable (:default-value (not (eq system-type (quote windows-nt)))) nil [23568 23877])
+            ("nnheader-directory-files-safe" function (:arguments ("args")) nil [23879 24148])
+            ("nnheader-directory-articles" function (:arguments ("dir")) nil [24150 24483])
+            ("nnheader-article-to-file-alist" function (:arguments ("dir")) nil [24485 24848])
+            ("nnheader-fold-continuation-lines" function nil nil [24850 24997])
+            ("nnheader-translate-file-chars" function (:arguments ("file" "full")) nil [24999 25821])
+            ("nnheader-report" function (:arguments ("backend" "args")) nil [25823 26083])
+            ("nnheader-get-report-string" function (:arguments ("backend")) nil [26085 26298])
+            ("nnheader-get-report" function (:arguments ("backend")) nil [26300 26442])
+            ("nnheader-insert" function (:arguments ("format" "args")) nil [26444 26827])
+            ("nnheader-replace-chars-in-string" function (:arguments ("string" "from" "to")) nil [26829 26929])
+            ("nnheader-replace-duplicate-chars-in-string" function (:arguments ("string" "from" "to")) nil [26931 27397])
+            ("nnheader-file-to-group" function (:arguments ("file" "top")) nil [27399 27768])
+            ("nnheader-message" function (:arguments ("level" "args")) nil [27770 28081])
+            ("nnheader-be-verbose" function (:arguments ("level")) nil [28083 28262])
+            ("nnheader-pathname-coding-system" variable (:default-value (quote iso-8859-1)) nil [28264 28416])
+            ("nnheader-group-pathname" function (:arguments ("group" "dir" "file")) nil [28418 29012])
+            ("nnheader-concat" function (:arguments ("dir" "files")) nil [29014 29146])
+            ("nnheader-ms-strip-cr" function nil nil [29148 29278])
+            ("nnheader-file-size" function (:arguments ("file")) nil [29280 29392])
+            ("nnheader-find-etc-directory" function (:arguments ("package" "file" "first")) nil [29394 30472])
+            ("ange-ftp-path-format" variable nil nil [30474 30503])
+            ("efs-path-regexp" variable nil nil [30504 30528])
+            ("nnheader-re-read-dir" function (:arguments ("path")) nil [30529 30930])
+            ("nnheader-file-coding-system" variable (:default-value (quote raw-text)) nil [30932 31027])
+            ("nnheader-insert-file-contents" function (:arguments ("filename" "visit" "beg" "end" "replace")) nil [31029 31543])
+            ("nnheader-insert-nov-file" function (:arguments ("file" "first")) nil [31545 32401])
+            ("nnheader-find-file-noselect" function (:arguments ("args")) nil [32403 32952])
+            ("nnheader-directory-regular-files" function (:arguments ("dir")) nil [32954 33215])
+            ("nnheader-directory-files" function (:arguments ("args")) nil [33217 33526])
+            ("nnheader-skeleton-replace" function (:arguments ("from" "to" "regexp")) nil [33528 34227])
+            ("nnheader-replace-string" function (:arguments ("from" "to")) nil [34229 34375])
+            ("nnheader-replace-regexp" function (:arguments ("from" "to")) nil [34377 34532])
+            ("nnheader-strip-cr" function nil nil [34534 34641])
+            ("defalias" code nil nil [34643 34690])
+            ("defalias" code nil nil [34691 34758])
+            ("nnheader-accept-process-output" function (:arguments ("process")) nil [34851 35061])
+            ("nnheader-update-marks-actions" function (:arguments ("backend-marks" "actions")) nil [35063 35583])
+            ("nnheader-insert-buffer-substring" function (:arguments ("buffer" "start" "end")) nil [35585 36011])
+            ("nnheader-last-message-time" variable (:default-value (quote (0 0))) nil [36013 36055])
+            ("nnheader-message-maybe" function (:arguments ("args")) nil [36056 36288])
+            ("run-hooks" code nil nil [36290 36321])
+            ("nnheader" package nil nil [36323 36342]))          
       :file "nnheader.el"
+      :pointmax 36370
       :fsize 36369
-      :lastmodtime '(23525 29556 0 0))
+      :lastmodtime '(23525 29556 0 0)
+      :unmatched-syntax '((close-paren 13224 . 13225) (symbol 13164 . 13180) (open-paren 13163 . 13164) (close-paren 1006 . 1007) (symbol 975 . 992) (open-paren 974 . 975)))
     (semanticdb-table "semanticdb-table"
       :major-mode emacs-lisp-mode
       :tags 
@@ -5701,7 +6336,1370 @@ Thank you for your help in stamping out bugs.
       :pointmax 7737
       :fsize 7736
       :lastmodtime '(23525 29553 0 0)
-      :unmatched-syntax '((close-paren 1149 . 1150) (symbol 1113 . 1130) (open-paren 1112 . 1113))))
+      :unmatched-syntax '((close-paren 1149 . 1150) (symbol 1113 . 1130) (open-paren 1112 . 1113)))
+    (semanticdb-table "semanticdb-table"
+      :file "nnimap.el"
+      :fsize 75819
+      :lastmodtime '(23525 29556 0 0))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl" include nil nil [895 908])
+            ("gnus" include nil nil [911 926])
+            ("gnus-int" include nil nil [927 946])
+            ("nnheader" include nil nil [947 966])
+            ("nntp" include nil nil [967 982])
+            ("nnmail" include nil nil [983 1000])
+            ("gnus-demon" customgroup (:user-visible-flag t) nil [1002 1064])
+            ("gnus-demon-handlers" variable nil nil [1066 2036])
+            ("gnus-demon-timestep" variable (:default-value 60) nil [2038 2156])
+            ("gnus-demon-timers" variable nil nil [2183 2257])
+            ("gnus-inhibit-demon" variable nil nil [2258 2339])
+            ("gnus-demon-add-handler" function (:arguments ("function" "time" "idle")) nil [2357 2665])
+            ("gnus-demon-remove-handler" function (:arguments ("function" "no-init")) nil [2667 2878])
+            ("gnus-demon-idle-since" function nil nil [2880 3020])
+            ("gnus-demon-run-callback" function (:arguments ("func" "idle" "time" "special")) nil [3022 4133])
+            ("gnus-demon-init" function (:user-visible-flag t) nil [4135 5591])
+            ("gnus-demon-time-to-step" function (:arguments ("time")) nil [5593 6749])
+            ("gnus-add-shutdown" code nil nil [6751 6795])
+            ("gnus-demon-cancel" function (:user-visible-flag t) nil [6797 7015])
+            ("gnus-demon-add-disconnection" function nil nil [7017 7167])
+            ("gnus-demon-close-connections" function nil nil [7169 7260])
+            ("gnus-demon-add-nntp-close-connection" function nil nil [7262 7522])
+            ("gnus-demon-nntp-close-connection" function nil nil [7524 7689])
+            ("gnus-demon-add-scanmail" function nil nil [7691 7839])
+            ("gnus-demon-scan-mail" function nil nil [7841 8204])
+            ("gnus-demon-add-rescan" function nil nil [8206 8355])
+            ("gnus-demon-scan-news" function nil nil [8357 8621])
+            ("gnus-demon-add-scan-timestamps" function nil nil [8623 8786])
+            ("gnus-demon-scan-timestamps" function nil nil [8788 9337])
+            ("gnus-demon" package nil nil [9339 9360]))          
+      :file "gnus-demon.el"
+      :pointmax 9390
+      :fsize 9389
+      :lastmodtime '(23525 29551 0 0)
+      :unmatched-syntax '((close-paren 908 . 909) (symbol 877 . 894) (open-paren 876 . 877)))
+    (semanticdb-table "semanticdb-table"
+      :file "nntp.el"
+      :fsize 75891
+      :lastmodtime '(23525 29557 0 0))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl" include nil nil [950 963])
+            ("gnus" include nil nil [966 981])
+            ("gnus-art" include nil nil [982 1001])
+            ("message" include nil nil [1002 1020])
+            ("gnus-msg" include nil nil [1021 1040])
+            ("mm-decode" include nil nil [1041 1061])
+            ("yenc" include nil nil [1062 1077])
+            ("gnus-extract" customgroup (:user-visible-flag t) nil [1079 1172])
+            ("gnus-extract-view" customgroup (:user-visible-flag t) nil [1174 1258])
+            ("gnus-extract-archive" customgroup (:user-visible-flag t) nil [1260 1351])
+            ("gnus-extract-post" customgroup (:user-visible-flag t) nil [1353 1466])
+            ("gnus-uu-default-view-rules" variable (:default-value (quote (("\\.te?xt$\\|\\.doc$\\|read.*me\\|\\.c?$\\|\\.h$\\|\\.bat$\\|\\.asm$\\|makefile" "cat %s | sed 's/$//'") ("\\.pas$" "cat %s | sed 's/$//'") ("\\.[1-9]$" "groff -mandoc -Tascii %s | sed s/.//g") ("\\.\\(jpe?g\\|gif\\|tiff?\\|p[pgb]m\\|xwd\\|xbm\\|pcx\\)$" "display") ("\\.tga$" "tgatoppm %s | ee -") ("\\.\\(wav\\|aiff\\|hcom\\|u[blw]\\|s[bfw]\\|voc\\|smp\\)$" "sox -v .5 %s -t .au -u - > /dev/audio") ("\\.au$" "cat %s > /dev/audio") ("\\.midi?$" "playmidi -f") ("\\.mod$" "str32") ("\\.ps$" "ghostview") ("\\.dvi$" "xdvi") ("\\.html$" "xmosaic") ("\\.mpe?g$" "mpeg_play") ("\\.\\(flc\\|fli\\|rle\\|iff\\|pfx\\|avi\\|sme\\|rpza\\|dl\\|qt\\|rsrc\\|mov\\)$" "xanim") ("\\.\\(tar\\|arj\\|zip\\|zoo\\|arc\\|gz\\|Z\\|lzh\\|ar\\|lha\\)$" "gnus-uu-archive")))) nil [1501 3686])
+            ("gnus-uu-user-view-rules" variable nil nil [3688 3941])
+            ("gnus-uu-user-view-rules-end" variable (:default-value (quote (("" "file")))) nil [3943 4231])
+            ("gnus-uu-default-archive-rules" variable (:default-value (quote (("\\.tar$" "tar xf") ("\\.zip$" "unzip -o") ("\\.ar$" "ar x") ("\\.arj$" "unarj x") ("\\.zoo$" "zoo -e") ("\\.\\(lzh\\|lha\\)$" "lha x") ("\\.Z$" "uncompress") ("\\.gz$" "gunzip") ("\\.arc$" "arc -x")))) nil [4264 4669])
+            ("gnus-uu-destructive-archivers" variable (:default-value (list "uncompress" "gunzip")) nil [4671 4740])
+            ("gnus-uu-user-archive-rules" variable nil nil [4742 5159])
+            ("gnus-uu-ignore-files-by-name" variable nil nil [5161 5639])
+            ("gnus-uu-ignore-files-by-type" variable nil nil [5641 6140])
+            ("gnus-uu-ext-to-mime-list" variable
+               (:constant-flag t
+                :default-value (quote (("\\.gif$" "image/gif") ("\\.jpe?g$" "image/jpeg") ("\\.tiff?$" "image/tiff") ("\\.xwd$" "image/xwd") ("\\.pbm$" "image/pbm") ("\\.pgm$" "image/pgm") ("\\.ppm$" "image/ppm") ("\\.xbm$" "image/xbm") ("\\.pcx$" "image/pcx") ("\\.tga$" "image/tga") ("\\.ps$" "image/postscript") ("\\.fli$" "video/fli") ("\\.wav$" "audio/wav") ("\\.aiff$" "audio/aiff") ("\\.hcom$" "audio/hcom") ("\\.voc$" "audio/voc") ("\\.smp$" "audio/smp") ("\\.mod$" "audio/mod") ("\\.dvi$" "image/dvi") ("\\.mpe?g$" "video/mpeg") ("\\.au$" "audio/basic") ("\\.\\(te?xt\\|doc\\|c\\|h\\)$" "text/plain") ("\\.\\(c\\|h\\)$" "text/source") ("read.*me" "text/plain") ("\\.html$" "text/html") ("\\.bat$" "text/bat") ("\\.[1-6]$" "text/man") ("\\.flc$" "video/flc") ("\\.rle$" "video/rle") ("\\.pfx$" "video/pfx") ("\\.avi$" "video/avi") ("\\.sme$" "video/sme") ("\\.rpza$" "video/prza") ("\\.dl$" "video/dl") ("\\.qt$" "video/qt") ("\\.rsrc$" "video/rsrc") ("\\..*$" "unknown/unknown"))))
+                nil [6166 7299])
+            ("gnus-uu-tmp-dir" variable (:default-value temporary-file-directory) nil [7337 7506])
+            ("gnus-uu-do-not-unpack-archives" variable nil nil [7508 7706])
+            ("gnus-uu-ignore-default-view-rules" variable nil nil [7708 7936])
+            ("gnus-uu-grabbed-file-functions" variable nil nil [7938 8283])
+            ("gnus-uu-ignore-default-archive-rules" variable nil nil [8285 8537])
+            ("gnus-uu-kill-carriage-return" variable (:default-value t) nil [8539 8713])
+            ("gnus-uu-view-with-metamail" variable nil nil [8715 8996])
+            ("gnus-uu-unmark-articles-not-decoded" variable nil nil [8998 9199])
+            ("gnus-uu-correct-stripped-uucode" variable nil nil [9201 9408])
+            ("gnus-uu-save-in-digest" variable nil nil [9410 9821])
+            ("gnus-uu-pre-uudecode-hook" variable nil nil [9823 9952])
+            ("gnus-uu-digest-headers" variable (:default-value (quote ("^Date:" "^From:" "^To:" "^Cc:" "^Subject:" "^Message-ID:" "^Keywords:" "^Summary:" "^References:" "^Content-Type:" "^Content-Transfer-Encoding:" "^MIME-Version:" "^Content-Disposition:" "^Content-Description:" "^Content-ID:"))) nil [9954 10439])
+            ("gnus-uu-save-separate-articles" variable nil nil [10441 10596])
+            ("gnus-uu-be-dangerous" variable (:default-value (quote ask)) nil [10598 10968])
+            ("gnus-uu-saved-article-name" variable nil nil [10993 11032])
+            ("gnus-uu-begin-string" variable (:default-value "^begin[ 	]+0?[0-7][0-7][0-7][ 	]+\\(.*\\)$") nil [11034 11110])
+            ("gnus-uu-end-string" variable (:default-value "^end[ 	]*$") nil [11111 11152])
+            ("gnus-uu-body-line" variable (:default-value "^M") nil [11154 11185])
+            ("let" code nil nil [11186 11357])
+            ("gnus-uu-shar-begin-string" variable (:default-value "^#! */bin/sh") nil [11429 11478])
+            ("gnus-uu-shar-name-marker" variable (:default-value "begin 0?[0-7][0-7][0-7][ 	]+\\(\\(\\w\\|[.\\:]\\)*\\b\\)") nil [11480 11575])
+            ("gnus-uu-postscript-begin-string" variable (:default-value "^%!PS-") nil [11577 11626])
+            ("gnus-uu-postscript-end-string" variable (:default-value "^%%EOF$") nil [11627 11675])
+            ("gnus-uu-file-name" variable nil nil [11677 11707])
+            ("gnus-uu-uudecode-process" variable nil nil [11708 11745])
+            ("gnus-uu-binhex-article-name" variable nil nil [11746 11786])
+            ("gnus-uu-yenc-article-name" variable nil nil [11787 11825])
+            ("gnus-uu-work-dir" variable nil nil [11827 11856])
+            ("gnus-uu-output-buffer-name" variable (:default-value " *Gnus UU Output*") nil [11858 11913])
+            ("gnus-uu-default-dir" variable (:default-value gnus-article-save-directory) nil [11915 11971])
+            ("gnus-uu-digest-from-subject" variable nil nil [11972 12012])
+            ("gnus-uu-digest-buffer" variable nil nil [12013 12047])
+            ("gnus-uu-decode-uu" function
+               (:user-visible-flag t
+                :arguments ("n"))
+                nil [12063 12215])
+            ("gnus-uu-decode-uu-and-save" function
+               (:user-visible-flag t
+                :arguments ("n" "dir"))
+                nil [12217 12551])
+            ("gnus-uu-decode-unshar" function
+               (:user-visible-flag t
+                :arguments ("n"))
+                nil [12553 12722])
+            ("gnus-uu-decode-unshar-and-save" function
+               (:user-visible-flag t
+                :arguments ("n" "dir"))
+                nil [12724 13062])
+            ("gnus-uu-decode-save" function
+               (:user-visible-flag t
+                :arguments ("n" "file"))
+                nil [13064 13507])
+            ("gnus-uu-decode-binhex" function
+               (:user-visible-flag t
+                :arguments ("n" "dir"))
+                nil [13509 13942])
+            ("gnus-uu-decode-yenc" function
+               (:user-visible-flag t
+                :arguments ("n" "dir"))
+                nil [13944 14307])
+            ("gnus-uu-decode-uu-view" function
+               (:user-visible-flag t
+                :arguments ("n"))
+                nil [14309 14508])
+            ("gnus-uu-decode-uu-and-save-view" function
+               (:user-visible-flag t
+                :arguments ("n" "dir"))
+                nil [14510 14858])
+            ("gnus-uu-decode-unshar-view" function
+               (:user-visible-flag t
+                :arguments ("n"))
+                nil [14860 15065])
+            ("gnus-uu-decode-unshar-and-save-view" function
+               (:user-visible-flag t
+                :arguments ("n" "dir"))
+                nil [15067 15415])
+            ("gnus-uu-decode-save-view" function
+               (:user-visible-flag t
+                :arguments ("n" "file"))
+                nil [15417 15871])
+            ("gnus-uu-decode-binhex-view" function
+               (:user-visible-flag t
+                :arguments ("n" "file"))
+                nil [15873 16327])
+            ("gnus-uu-digest-mail-forward" function
+               (:user-visible-flag t
+                :arguments ("n" "post"))
+                nil [16362 18836])
+            ("gnus-uu-digest-post-forward" function
+               (:user-visible-flag t
+                :arguments ("n"))
+                nil [18838 18982])
+            ("gnus-message-process-mark" function (:arguments ("unmarkp" "new-marked")) nil [19005 19481])
+            ("gnus-new-processable" function (:arguments ("unmarkp" "articles")) nil [19483 19669])
+            ("gnus-uu-mark-by-regexp" function
+               (:user-visible-flag t
+                :arguments ("regexp" "unmark"))
+                nil [19671 20295])
+            ("gnus-uu-unmark-by-regexp" function
+               (:user-visible-flag t
+                :arguments ("regexp"))
+                nil [20297 20528])
+            ("gnus-uu-mark-series" function
+               (:user-visible-flag t
+                :arguments ("silent"))
+                nil [20530 20939])
+            ("gnus-uu-mark-region" function
+               (:user-visible-flag t
+                :arguments ("beg" "end" "unmark"))
+                nil [20941 21351])
+            ("gnus-uu-unmark-region" function
+               (:user-visible-flag t
+                :arguments ("beg" "end"))
+                nil [21353 21516])
+            ("gnus-uu-mark-buffer" function (:user-visible-flag t) nil [21518 21668])
+            ("gnus-uu-unmark-buffer" function (:user-visible-flag t) nil [21670 21827])
+            ("gnus-uu-mark-thread" function (:user-visible-flag t) nil [21829 22203])
+            ("gnus-uu-unmark-thread" function (:user-visible-flag t) nil [22205 22535])
+            ("gnus-uu-invert-processable" function (:user-visible-flag t) nil [22537 22932])
+            ("gnus-uu-mark-over" function
+               (:user-visible-flag t
+                :arguments ("score"))
+                nil [22934 23419])
+            ("gnus-uu-mark-sparse" function (:user-visible-flag t) nil [23421 24300])
+            ("gnus-uu-mark-all" function (:user-visible-flag t) nil [24302 24874])
+            ("gnus-uu-decode-postscript" function
+               (:user-visible-flag t
+                :arguments ("n"))
+                nil [24956 25135])
+            ("gnus-uu-decode-postscript-view" function
+               (:user-visible-flag t
+                :arguments ("n"))
+                nil [25137 25347])
+            ("gnus-uu-decode-postscript-and-save" function
+               (:user-visible-flag t
+                :arguments ("n" "dir"))
+                nil [25349 25710])
+            ("gnus-uu-decode-postscript-and-save-view" function
+               (:user-visible-flag t
+                :arguments ("n" "dir"))
+                nil [25712 26083])
+            ("gnus-uu-decode-with-method" function (:arguments ("method" "n" "save" "not-insert" "scan" "cdir")) nil [26110 26954])
+            ("gnus-uu-scan-directory" function (:arguments ("dir" "rec")) nil [26956 27418])
+            ("gnus-uu-save-files" function (:arguments ("files" "dir")) nil [27420 28143])
+            ("gnus-uu-save-article" function (:arguments ("buffer" "in-state")) nil [28294 33821])
+            ("gnus-uu-binhex-body-line" variable (:default-value "^[^:]...............................................................$") nil [33865 33972])
+            ("gnus-uu-binhex-begin-line" variable (:default-value "^:...............................................................$") nil [33973 34078])
+            ("gnus-uu-binhex-end-line" variable (:default-value ":$") nil [34079 34118])
+            ("gnus-uu-binhex-article" function (:arguments ("buffer" "in-state")) nil [34120 35238])
+            ("gnus-uu-yenc-article" function (:arguments ("buffer" "in-state")) nil [35249 36165])
+            ("gnus-uu-decode-postscript-article" function (:arguments ("process-buffer" "in-state")) nil [36182 36994])
+            ("gnus-uu-get-actions" function (:arguments ("files")) nil [37015 37474])
+            ("gnus-uu-get-action" function (:arguments ("file-name")) nil [37476 38009])
+            ("gnus-uu-reginize-string" function (:arguments ("string")) nil [38071 39127])
+            ("gnus-uu-get-list-of-articles" function (:arguments ("n")) nil [39129 39914])
+            ("gnus-uu-string<" function (:arguments ("l1" "l2")) nil [39916 39977])
+            ("gnus-uu-find-articles-matching" function (:arguments ("subject" "only-unread" "do-not-translate")) nil [39979 41216])
+            ("gnus-uu-expand-numbers" function (:arguments ("string-list" "translate")) nil [41218 42515])
+            ("gnus-uu-has-been-grabbed" variable nil nil [43616 43653])
+            ("gnus-uu-unmark-list-of-grabbed" function (:arguments ("dont-unmark-last-article")) nil [43655 44226])
+            ("gnus-uu-grab-articles" function (:arguments ("articles" "process-function" "sloppy" "limit" "no-errors")) nil [44457 49015])
+            ("gnus-uu-grab-view" function (:arguments ("file")) nil [49017 49294])
+            ("gnus-uu-grab-move" function (:arguments ("file")) nil [49296 49601])
+            ("gnus-uu-part-number" function (:arguments ("article")) nil [49603 50136])
+            ("gnus-uu-uudecode-sentinel" function (:arguments ("process" "event")) nil [50138 50228])
+            ("gnus-uu-uustrip-article" function (:arguments ("process-buffer" "in-state")) nil [50230 53667])
+            ("gnus-uu-unshar-warning" variable (:default-value "*** WARNING ***
+
+Shell archives are an archaic method of bundling files for distribution
+across computer networks.  During the unpacking process, arbitrary commands
+are executed on your system, and all kinds of nasty things can happen.
+Please examine the archive very carefully before you instruct Emacs to
+unpack it.  You can browse the archive buffer using \\[scroll-other-window].
+
+If you are unsure what to do, please answer \"no\".") nil [53669 54316])
+            ("gnus-uu-unshar-article" function (:arguments ("process-buffer" "in-state")) nil [54401 55515])
+            ("gnus-uu-choose-action" function (:arguments ("file-name" "file-action-list" "no-ignore")) nil [55730 56463])
+            ("gnus-uu-treat-archive" function (:arguments ("file-path")) nil [56465 57732])
+            ("gnus-uu-dir-files" function (:arguments ("dir")) nil [57734 58023])
+            ("gnus-uu-unpack-files" function (:arguments ("files" "ignore")) nil [58025 58945])
+            ("gnus-uu-ls-r" function (:arguments ("dir")) nil [58947 59246])
+            ("gnus-uu-directory-files" function (:arguments ("dir" "full")) nil [59266 59587])
+            ("gnus-uu-check-correct-stripped-uucode" function (:arguments ("start" "end")) nil [59589 60356])
+            ("gnus-uu-tmp-alist" variable nil nil [60358 60388])
+            ("gnus-uu-initialize" function (:arguments ("scan")) nil [60390 61317])
+            ("gnus-uu-clean-up" function nil nil [61381 61672])
+            ("gnus-uu-command" function (:arguments ("action" "file")) nil [61847 62039])
+            ("gnus-uu-delete-work-dir" function (:arguments ("dir")) nil [62041 62892])
+            ("add-hook" code nil nil [62911 62971])
+            ("add-hook" code nil nil [62972 63039])
+            ("gnus-uu-post-encode-method" variable (:default-value (quote gnus-uu-post-encode-uuencode)) nil [63323 63948])
+            ("gnus-uu-post-include-before-composing" variable nil nil [63950 64306])
+            ("gnus-uu-post-length" variable (:default-value 990) nil [64308 64510])
+            ("gnus-uu-post-threaded" variable nil nil [64512 64905])
+            ("gnus-uu-post-separate-description" variable (:default-value t) nil [64907 65287])
+            ("gnus-uu-post-binary-separator" variable (:default-value "--binary follows this line--") nil [65289 65358])
+            ("gnus-uu-post-message-id" variable nil nil [65359 65395])
+            ("gnus-uu-post-inserted-file-name" variable nil nil [65396 65440])
+            ("gnus-uu-winconf-post-news" variable nil nil [65441 65479])
+            ("gnus-uu-post-news" function (:user-visible-flag t) nil [65481 66204])
+            ("gnus-uu-post-insert-binary-in-article" function (:user-visible-flag t) nil [66206 66444])
+            ("gnus-uu-post-encode-uuencode" function (:arguments ("path" "file-name")) nil [66514 66749])
+            ("gnus-uu-post-encode-mime-uuencode" function (:arguments ("path" "file-name")) nil [66799 66965])
+            ("gnus-uu-post-encode-mime" function (:arguments ("path" "file-name")) nil [67012 67249])
+            ("gnus-uu-post-make-mime" function (:arguments ("file-name" "encoding")) nil [67273 67885])
+            ("gnus-uu-post-encode-file" function (:arguments ("command" "path" "file-name")) nil [67969 68148])
+            ("gnus-uu-post-news-inews" function (:user-visible-flag t) nil [68150 68681])
+            ("gnus-uu-post-insert-binary" function nil nil [68811 69798])
+            ("gnus-uu-post-encoded" function (:arguments ("file-name" "threaded")) nil [69850 73446])
+            ("gnus-uu" package nil nil [73448 73466]))          
+      :file "gnus-uu.el"
+      :pointmax 73493
+      :fsize 73492
+      :lastmodtime '(23525 29554 0 0)
+      :unmatched-syntax '((close-paren 963 . 964) (symbol 932 . 949) (open-paren 931 . 932)))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("gnus" include nil nil [1157 1172])
+            ("mh-e" include nil nil [1173 1188])
+            ("mh-comp" include nil nil [1189 1207])
+            ("gnus-msg" include nil nil [1208 1227])
+            ("gnus-sum" include nil nil [1228 1247])
+            ("mh-lib-progs" variable nil nil [1249 1270])
+            ("gnus-rcvstore-options" variable nil nil [1272 1477])
+            ("gnus-summary-save-article-folder" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [1479 1937])
+            ("gnus-summary-save-in-folder" function (:arguments ("folder")) nil [1939 3209])
+            ("gnus-Folder-save-name" function (:arguments ("newsgroup" "headers" "last-folder")) nil [3211 3618])
+            ("gnus-folder-save-name" function (:arguments ("newsgroup" "headers" "last-folder")) nil [3620 3999])
+            ("gnus-mh" package nil nil [4001 4019]))          
+      :file "gnus-mh.el"
+      :pointmax 4046
+      :fsize 4045
+      :lastmodtime '(23525 29552 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl" include nil nil [866 879])
+            ("gnus" include nil nil [882 897])
+            ("gnus-range" include nil nil [898 919])
+            ("gnus-art" include nil nil [920 939])
+            ("message" include nil nil [940 958])
+            ("gnus-cite" customgroup (:user-visible-flag t) nil [1013 1151])
+            ("gnus-cited-opened-text-button-line-format" variable (:default-value "%(%{[-]%}%)
+") nil [1153 1299])
+            ("gnus-cited-closed-text-button-line-format" variable (:default-value "%(%{[+]%}%)
+") nil [1301 1447])
+            ("gnus-cited-lines-visible" variable nil nil [1449 1800])
+            ("gnus-cite-parse-max-size" variable (:default-value 25000) nil [1802 2025])
+            ("gnus-cite-max-prefix" variable (:default-value 20) nil [2027 2150])
+            ("gnus-supercite-regexp" variable (:default-value (concat "^\\(" message-cite-prefix-regexp "\\)? *" ">>>>> +\"\\([^\"
+]+\\)\" +==")) nil [2152 2430])
+            ("gnus-supercite-secondary-regexp" variable (:default-value "^.*\"\\([^\"
+]+\\)\" +==") nil [2432 2659])
+            ("gnus-cite-minimum-match-count" variable (:default-value 2) nil [2661 2817])
+            ("gnus-cite-attribution-prefix" variable (:default-value "In article\\|in <\\|On \\(Mon\\|Tue\\|Wed\\|Thu\\|Fri\\|Sat\\|Sun\\),\\|----- ?Original Message ?-----") nil [3356 3597])
+            ("gnus-cite-attribution-suffix" variable (:default-value "\\(\\(wrote\\|writes\\|said\\|says\\|>\\)\\(:\\|\\.\\.\\.\\)\\|----- ?Original Message ?-----\\)[ 	]*$") nil [3599 3898])
+            ("gnus-cite-unsightly-citation-regexp" variable (:default-value "^-----Original Message-----
+From: \\(.+
+\\)+
+") nil [3900 4116])
+            ("gnus-cite-ignore-quoted-from" variable (:default-value t) nil [4118 4386])
+            ("gnus-cite-attribution" variable
+               (:default-value (quote ((t (:italic t))))
+                :type "face")
+                nil [4388 4495])
+            ("put" code nil nil [4528 4596])
+            ("put" code nil nil [4597 4652])
+            ("gnus-cite-attribution-face" variable (:default-value (quote gnus-cite-attribution)) nil [4654 4880])
+            ("gnus-cite-1" variable
+               (:default-value (quote ((((class color) (background dark)) (:foreground "light blue")) (((class color) (background light)) (:foreground "MidnightBlue")) (t (:italic t))))
+                :type "face")
+                nil [4882 5125])
+            ("put" code nil nil [5158 5206])
+            ("put" code nil nil [5207 5252])
+            ("gnus-cite-2" variable
+               (:default-value (quote ((((class color) (background dark)) (:foreground "light cyan")) (((class color) (background light)) (:foreground "firebrick")) (t (:italic t))))
+                :type "face")
+                nil [5254 5494])
+            ("put" code nil nil [5527 5575])
+            ("put" code nil nil [5576 5621])
+            ("gnus-cite-3" variable
+               (:default-value (quote ((((class color) (background dark)) (:foreground "light yellow")) (((class color) (background light)) (:foreground "dark green")) (t (:italic t))))
+                :type "face")
+                nil [5623 5866])
+            ("put" code nil nil [5899 5947])
+            ("put" code nil nil [5948 5993])
+            ("gnus-cite-4" variable
+               (:default-value (quote ((((class color) (background dark)) (:foreground "light pink")) (((class color) (background light)) (:foreground "OrangeRed")) (t (:italic t))))
+                :type "face")
+                nil [5995 6235])
+            ("put" code nil nil [6268 6316])
+            ("put" code nil nil [6317 6362])
+            ("gnus-cite-5" variable
+               (:default-value (quote ((((class color) (background dark)) (:foreground "pale green")) (((class color) (background light)) (:foreground "dark khaki")) (t (:italic t))))
+                :type "face")
+                nil [6364 6605])
+            ("put" code nil nil [6638 6686])
+            ("put" code nil nil [6687 6732])
+            ("gnus-cite-6" variable
+               (:default-value (quote ((((class color) (background dark)) (:foreground "beige")) (((class color) (background light)) (:foreground "dark violet")) (t (:italic t))))
+                :type "face")
+                nil [6734 6971])
+            ("put" code nil nil [7004 7052])
+            ("put" code nil nil [7053 7098])
+            ("gnus-cite-7" variable
+               (:default-value (quote ((((class color) (background dark)) (:foreground "orange")) (((class color) (background light)) (:foreground "SteelBlue4")) (t (:italic t))))
+                :type "face")
+                nil [7100 7337])
+            ("put" code nil nil [7370 7418])
+            ("put" code nil nil [7419 7464])
+            ("gnus-cite-8" variable
+               (:default-value (quote ((((class color) (background dark)) (:foreground "magenta")) (((class color) (background light)) (:foreground "magenta")) (t (:italic t))))
+                :type "face")
+                nil [7466 7701])
+            ("put" code nil nil [7734 7782])
+            ("put" code nil nil [7783 7828])
+            ("gnus-cite-9" variable
+               (:default-value (quote ((((class color) (background dark)) (:foreground "violet")) (((class color) (background light)) (:foreground "violet")) (t (:italic t))))
+                :type "face")
+                nil [7830 8063])
+            ("put" code nil nil [8096 8144])
+            ("put" code nil nil [8145 8190])
+            ("gnus-cite-10" variable
+               (:default-value (quote ((((class color) (background dark)) (:foreground "plum1")) (((class color) (background light)) (:foreground "medium purple")) (t (:italic t))))
+                :type "face")
+                nil [8192 8425])
+            ("put" code nil nil [8458 8508])
+            ("put" code nil nil [8509 8555])
+            ("gnus-cite-11" variable
+               (:default-value (quote ((((class color) (background dark)) (:foreground "turquoise")) (((class color) (background light)) (:foreground "turquoise")) (t (:italic t))))
+                :type "face")
+                nil [8557 8790])
+            ("put" code nil nil [8823 8873])
+            ("put" code nil nil [8874 8920])
+            ("gnus-cite-face-list" variable (:default-value (quote (gnus-cite-1 gnus-cite-2 gnus-cite-3 gnus-cite-4 gnus-cite-5 gnus-cite-6 gnus-cite-7 gnus-cite-8 gnus-cite-9 gnus-cite-10 gnus-cite-11))) nil [8922 9900])
+            ("gnus-cite-hide-percentage" variable (:default-value 50) nil [9902 10046])
+            ("gnus-cite-hide-absolute" variable (:default-value 10) nil [10048 10196])
+            ("gnus-cite-blank-line-after-header" variable (:default-value t) nil [10198 10359])
+            ("gnus-article-boring-faces" variable (:default-value (cons (quote gnus-signature) gnus-cite-face-list)) nil [10445 10812])
+            ("gnus-cite-article" variable nil nil [10839 10869])
+            ("gnus-cite-overlay-list" variable nil nil [10870 10905])
+            ("gnus-cite-prefix-alist" variable nil nil [10907 10942])
+            ("gnus-cite-attribution-alist" variable nil nil [11023 11063])
+            ("gnus-cite-loose-prefix-alist" variable nil nil [11189 11230])
+            ("gnus-cite-loose-attribution-alist" variable nil nil [11345 11391])
+            ("gnus-cited-opened-text-button-line-format-alist" variable (:default-value (\` ((98 (marker-position beg) 100) (101 (marker-position end) 100) (110 (count-lines beg end) 100) (108 (- end beg) 100)))) nil [11735 11918])
+            ("gnus-cited-opened-text-button-line-format-spec" variable nil nil [11919 11978])
+            ("gnus-cited-closed-text-button-line-format-alist" variable (:default-value gnus-cited-opened-text-button-line-format-alist) nil [11979 12085])
+            ("gnus-cited-closed-text-button-line-format-spec" variable nil nil [12086 12145])
+            ("gnus-article-highlight-citation" function
+               (:user-visible-flag t
+                :arguments ("force" "same-buffer"))
+                nil [12163 14612])
+            ("gnus-dissect-cited-text" function nil nil [14614 16443])
+            ("gnus-article-fill-cited-long-lines" function nil nil [16445 16532])
+            ("gnus-article-fill-cited-article" function
+               (:user-visible-flag t
+                :arguments ("width" "long-lines"))
+                nil [16534 18290])
+            ("gnus-article-foldable-buffer" function (:arguments ("prefix")) nil [18292 19010])
+            ("gnus-article-hide-citation" function
+               (:user-visible-flag t
+                :arguments ("arg" "force"))
+                nil [19012 22186])
+            ("gnus-article-toggle-cited-text" function (:arguments ("args" "arg")) nil [22188 23638])
+            ("gnus-article-hide-citation-maybe" function
+               (:user-visible-flag t
+                :arguments ("arg" "force"))
+                nil [23640 24976])
+            ("gnus-article-hide-citation-in-followups" function (:user-visible-flag t) nil [24978 25308])
+            ("gnus-cite-parse-maybe" function (:arguments ("force" "no-overlay")) nil [25335 25920])
+            ("gnus-cite-delete-overlays" function nil nil [25922 26277])
+            ("gnus-cite-parse-wrapper" function nil nil [26279 26574])
+            ("gnus-cite-parse" function nil nil [26576 30224])
+            ("gnus-cite-parse-attributions" function nil nil [30226 31411])
+            ("gnus-cite-connect-attributions" function nil nil [31413 33228])
+            ("gnus-cite-match-attributions" function (:arguments ("sort" "after" "fun")) nil [33230 35900])
+            ("gnus-cite-find-loose" function (:arguments ("prefix")) nil [35902 36253])
+            ("gnus-cite-add-face" function (:arguments ("number" "prefix" "face")) nil [36255 36848])
+            ("gnus-cite-toggle" function (:arguments ("prefix")) nil [36850 37854])
+            ("gnus-cite-find-prefix" function (:arguments ("line")) nil [37856 38138])
+            ("gnus-cite-localize" function nil nil [38140 38467])
+            ("gnus-message-max-citation-depth" variable (:default-value (length gnus-cite-face-list)) nil [38596 38708])
+            ("gnus-message-cite-prefix-regexp" variable (:default-value (concat "^\\(?:" message-cite-prefix-regexp "\\)")) nil [38710 38803])
+            ("gnus-message-search-citation-line" function (:arguments ("limit")) nil [38805 39551])
+            ("gnus-message-citation-keywords" variable (:default-value (\` ((gnus-message-search-citation-line (\,@ (let ((list nil) (count 1)) (dolist (face gnus-cite-face-list (nreverse list)) (push (list count (list (quote quote) face) (quote prepend) t) list) (setq count (1+ count))))))))) nil [39553 39962])
+            ("font-lock-defaults-computed" variable nil nil [39964 40000])
+            ("font-lock-keywords" variable nil nil [40001 40028])
+            ("font-lock-set-defaults" variable nil nil [40029 40060])
+            ("font-lock-set-defaults" function (:prototype-flag t) nil [40062 40108])
+            ("define-minor-mode" code nil nil [40110 41361])
+            ("turn-on-gnus-message-citation-mode" function nil nil [41363 41483])
+            ("turn-off-gnus-message-citation-mode" function nil nil [41484 41607])
+            ("gnus-cite" package nil nil [41609 41629]))          
+      :file "gnus-cite.el"
+      :pointmax 41704
+      :fsize 41703
+      :lastmodtime '(23525 29551 0 0)
+      :unmatched-syntax '((close-paren 879 . 880) (symbol 848 . 865) (open-paren 847 . 848)))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl" include nil nil [1127 1140])
+            ("gnus" include nil nil [1143 1158])
+            ("gnus-art" include nil nil [1159 1178])
+            ("gnus-duplicate" customgroup (:user-visible-flag t) nil [1180 1263])
+            ("gnus-save-duplicate-list" variable nil nil [1265 1497])
+            ("gnus-duplicate-list-length" variable (:default-value 10000) nil [1499 1658])
+            ("gnus-duplicate-file" variable (:default-value (nnheader-concat gnus-directory "suppression")) nil [1660 1843])
+            ("gnus-dup-list" variable nil nil [1869 1895])
+            ("gnus-dup-hashtb" variable nil nil [1896 1924])
+            ("gnus-dup-list-dirty" variable nil nil [1926 1958])
+            ("gnus-add-shutdown" code nil nil [1995 2036])
+            ("gnus-dup-close" function nil nil [2038 2232])
+            ("gnus-dup-open" function nil nil [2234 2606])
+            ("gnus-dup-read" function nil nil [2608 2782])
+            ("gnus-dup-save" function nil nil [2784 3046])
+            ("gnus-dup-enter-articles" function nil nil [3081 4066])
+            ("gnus-dup-suppress-articles" function nil nil [4068 4889])
+            ("gnus-dup-unsuppress-article" function (:arguments ("article")) nil [4891 5220])
+            ("gnus-dup" package nil nil [5222 5241]))          
+      :file "gnus-dup.el"
+      :pointmax 5269
+      :fsize 5268
+      :lastmodtime '(23525 29552 0 0)
+      :unmatched-syntax '((close-paren 1140 . 1141) (symbol 1109 . 1126) (open-paren 1108 . 1109)))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl" include nil nil [953 966])
+            ("gnus" include nil nil [969 984])
+            ("gnus-group" include nil nil [985 1006])
+            ("gnus-start" include nil nil [1007 1028])
+            ("gnus-util" include nil nil [1029 1049])
+            ("gnus-topic" customgroup (:user-visible-flag t) nil [1051 1115])
+            ("gnus-topic-mode" variable nil nil [1117 1184])
+            ("gnus-topic-mode-hook" variable nil nil [1186 1293])
+            ("gnus-topic-line-format" variable (:default-value "%i[ %(%{%n%}%) -- %A ]%v
+") nil [1295 1935])
+            ("gnus-topic-indent-level" variable (:default-value 2) nil [1937 2059])
+            ("gnus-topic-display-empty-topics" variable (:default-value t) nil [2061 2229])
+            ("gnus-topic-active-topology" variable nil nil [2255 2294])
+            ("gnus-topic-active-alist" variable nil nil [2295 2331])
+            ("gnus-topic-unreads" variable nil nil [2332 2363])
+            ("gnus-topology-checked-p" variable nil nil [2365 2460])
+            ("gnus-topic-killed-topics" variable nil nil [2462 2499])
+            ("gnus-topic-inhibit-change-level" variable nil nil [2500 2544])
+            ("gnus-topic-line-format-alist" variable
+               (:constant-flag t
+                :default-value (\` ((110 name 115) (118 visible 115) (105 indentation 115) (103 number-of-groups 100) (97 (gnus-topic-articles-in-topic entries) 100) (65 total-number-of-articles 100) (108 level 100))))
+                nil [2546 2782])
+            ("gnus-topic-line-format-spec" variable nil nil [2784 2824])
+            ("gnus-group-topic-name" function nil nil [2849 3029])
+            ("gnus-group-topic-level" function nil nil [3031 3167])
+            ("gnus-group-topic-unread" function nil nil [3169 3323])
+            ("gnus-topic-unread" function (:arguments ("topic")) nil [3325 3463])
+            ("gnus-group-topic-p" function nil nil [3465 3571])
+            ("gnus-topic-visible-p" function nil nil [3573 3713])
+            ("gnus-topic-articles-in-topic" function (:arguments ("entries")) nil [3715 3897])
+            ("gnus-group-topic" function (:arguments ("group")) nil [3899 4154])
+            ("gnus-topic-goto-topic" function (:arguments ("topic")) nil [4156 4311])
+            ("gnus-topic-jump-to-topic" function
+               (:user-visible-flag t
+                :arguments ("topic"))
+                nil [4313 4692])
+            ("gnus-current-topic" function nil nil [4694 5073])
+            ("gnus-current-topics" function (:arguments ("topic")) nil [5075 5396])
+            ("gnus-group-active-topic-p" function nil nil [5398 5548])
+            ("gnus-topic-find-groups" function (:arguments ("topic" "level" "all" "lowest" "recursive")) nil [5550 7514])
+            ("gnus-topic-goto-previous-topic" function
+               (:user-visible-flag t
+                :arguments ("n"))
+                nil [7516 7650])
+            ("gnus-topic-goto-next-topic" function
+               (:user-visible-flag t
+                :arguments ("n"))
+                nil [7652 8072])
+            ("gnus-topic-previous-topic" function (:arguments ("topic")) nil [8074 8397])
+            ("gnus-topic-parent-topic" function (:arguments ("topic" "topology")) nil [8399 8830])
+            ("gnus-topic-next-topic" function (:arguments ("topic" "previous")) nil [8832 9193])
+            ("gnus-topic-forward-topic" function (:arguments ("num")) nil [9195 9618])
+            ("gnus-topic-find-topology" function (:arguments ("topic" "topology" "level" "remove")) nil [9620 10185])
+            ("gnus-tmp-topics" variable nil nil [10187 10215])
+            ("gnus-topic-list" function (:arguments ("topology")) nil [10216 10492])
+            ("gnus-topic-parameters" function (:arguments ("topic")) nil [10520 10683])
+            ("gnus-topic-set-parameters" function (:arguments ("topic" "parameters")) nil [10685 11259])
+            ("gnus-group-topic-parameters" function (:arguments ("group")) nil [11261 12012])
+            ("gnus-topic-hierarchical-parameters" function (:arguments ("topic" "group-params-list")) nil [12014 13207])
+            ("gnus-topic-enter-dribble" function nil nil [13240 13363])
+            ("gnus-group-prepare-topics" function (:arguments ("level" "predicate" "lowest" "regexp" "list-topic" "topic-level")) nil [13395 15616])
+            ("gnus-topic-prepare-topic" function (:arguments ("topicl" "level" "list-level" "predicate" "silent" "lowest" "regexp")) nil [15618 18946])
+            ("gnus-topic-remove-topic" function (:arguments ("insert" "total-remove" "_hide" "in-level")) nil [18948 19919])
+            ("gnus-topic-insert-topic" function (:arguments ("topic" "level")) nil [19921 20104])
+            ("gnus-topic-fold" function (:arguments ("insert" "topic")) nil [20106 20663])
+            ("gnus-tmp-header" variable nil nil [20665 20689])
+            ("gnus-topic-insert-topic-line" function (:arguments ("name" "visiblep" "shownp" "level" "entries" "unread")) nil [20691 21429])
+            ("gnus-topic-update-unreads" function (:arguments ("topic" "unreads")) nil [21431 21621])
+            ("gnus-topic-update-topics-containing-group" function (:arguments ("group")) nil [21623 22233])
+            ("gnus-topic-update-topic" function nil nil [22235 22699])
+            ("gnus-topic-goto-missing-group" function (:arguments ("group")) nil [22701 23431])
+            ("gnus-topic-display-missing-topic" function (:arguments ("topic")) nil [23433 24412])
+            ("gnus-topic-goto-missing-topic" function (:arguments ("topic")) nil [24414 25019])
+            ("gnus-topic-update-topic-line" function (:arguments ("topic-name" "reads")) nil [25021 26261])
+            ("gnus-topic-group-indentation" function nil nil [26263 26491])
+            ("gnus-add-shutdown" code nil nil [26513 26556])
+            ("gnus-topic-close" function nil nil [26558 26713])
+            ("gnus-topic-check-topology" function nil nil [26715 28306])
+            ("gnus-topic-init-alist" function nil nil [28308 28711])
+            ("gnus-topic-clean-alist" function nil nil [28730 29355])
+            ("gnus-topic-change-level" function (:arguments ("group" "level" "oldlevel" "previous")) nil [29357 31342])
+            ("gnus-topic-goto-next-group" function (:arguments ("group" "props")) nil [31344 32630])
+            ("gnus-topic-grok-active" function (:arguments ("force")) nil [32660 33540])
+            ("gnus-topic-grok-active-1" function (:arguments ("topology" "groups")) nil [33542 34655])
+            ("gnus-topic-mode-map" variable nil nil [34695 34727])
+            ("gnus-group-topic-map" variable nil nil [34728 34761])
+            ("unless" code nil nil [34763 36602])
+            ("gnus-topic-make-menu-bar" function nil nil [36604 37626])
+            ("define-minor-mode" code nil nil [37628 39564])
+            ("gnus-topic-select-group" function
+               (:user-visible-flag t
+                :arguments ("all"))
+                nil [39566 40331])
+            ("gnus-mouse-pick-topic" function
+               (:user-visible-flag t
+                :arguments ("e"))
+                nil [40333 40493])
+            ("gnus-topic-expire-articles" function
+               (:user-visible-flag t
+                :arguments ("topic"))
+                nil [40495 41033])
+            ("gnus-topic-catchup-articles" function
+               (:user-visible-flag t
+                :arguments ("topic"))
+                nil [41035 41644])
+            ("gnus-topic-read-group" function
+               (:user-visible-flag t
+                :arguments ("all" "no-article" "group"))
+                nil [41646 42491])
+            ("gnus-topic-create-topic" function
+               (:user-visible-flag t
+                :arguments ("topic" "parent" "previous" "full-topic"))
+                nil [42493 43505])
+            ("gnus-topic-history" variable nil nil [43758 43789])
+            ("gnus-topic-move-group" function
+               (:user-visible-flag t
+                :arguments ("n" "topic" "copyp"))
+                nil [43791 44862])
+            ("gnus-topic-remove-group" function
+               (:user-visible-flag t
+                :arguments ("n"))
+                nil [44864 45490])
+            ("gnus-topic-copy-group" function
+               (:user-visible-flag t
+                :arguments ("n" "topic"))
+                nil [45492 45728])
+            ("gnus-topic-kill-group" function
+               (:user-visible-flag t
+                :arguments ("n" "discard"))
+                nil [45730 46394])
+            ("gnus-topic-yank-group" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [46396 47889])
+            ("gnus-topic-hide-topic" function
+               (:user-visible-flag t
+                :arguments ("permanent"))
+                nil [47891 48281])
+            ("gnus-topic-show-topic" function
+               (:user-visible-flag t
+                :arguments ("permanent"))
+                nil [48283 48799])
+            ("gnus-topic-mark-topic" function
+               (:user-visible-flag t
+                :arguments ("topic" "unmark" "non-recursive"))
+                nil [48801 49415])
+            ("gnus-topic-unmark-topic" function
+               (:user-visible-flag t
+                :arguments ("topic" "_dummy" "non-recursive"))
+                nil [49417 49831])
+            ("gnus-topic-get-new-news-this-topic" function
+               (:user-visible-flag t
+                :arguments ("n"))
+                nil [49833 50293])
+            ("gnus-topic-move-matching" function
+               (:user-visible-flag t
+                :arguments ("regexp" "topic" "copyp"))
+                nil [50295 50742])
+            ("gnus-topic-copy-matching" function
+               (:user-visible-flag t
+                :arguments ("regexp" "topic" "_copyp"))
+                nil [50744 51151])
+            ("gnus-topic-delete" function
+               (:user-visible-flag t
+                :arguments ("topic"))
+                nil [51153 51717])
+            ("gnus-topic-rename" function
+               (:user-visible-flag t
+                :arguments ("old-name" "new-name"))
+                nil [51719 52514])
+            ("gnus-topic-indent" function
+               (:user-visible-flag t
+                :arguments ("unindent"))
+                nil [52516 53227])
+            ("gnus-topic-unindent" function (:user-visible-flag t) nil [53229 53853])
+            ("gnus-topic-list-active" function
+               (:user-visible-flag t
+                :arguments ("force"))
+                nil [53855 54301])
+            ("gnus-topic-toggle-display-empty-topics" function (:user-visible-flag t) nil [54303 54624])
+            ("gnus-topic-edit-parameters" function
+               (:user-visible-flag t
+                :arguments ("group"))
+                nil [54655 55228])
+            ("gnus-group-sort-topic" function (:arguments ("func" "reverse")) nil [55230 55635])
+            ("gnus-topic-sort-topic" function (:arguments ("topic" "func" "reverse")) nil [55637 56179])
+            ("gnus-topic-sort-groups" function
+               (:user-visible-flag t
+                :arguments ("func" "reverse"))
+                nil [56181 56559])
+            ("gnus-topic-sort-groups-by-alphabet" function
+               (:user-visible-flag t
+                :arguments ("reverse"))
+                nil [56561 56799])
+            ("gnus-topic-sort-groups-by-unread" function
+               (:user-visible-flag t
+                :arguments ("reverse"))
+                nil [56801 57035])
+            ("gnus-topic-sort-groups-by-level" function
+               (:user-visible-flag t
+                :arguments ("reverse"))
+                nil [57037 57255])
+            ("gnus-topic-sort-groups-by-score" function
+               (:user-visible-flag t
+                :arguments ("reverse"))
+                nil [57257 57475])
+            ("gnus-topic-sort-groups-by-rank" function
+               (:user-visible-flag t
+                :arguments ("reverse"))
+                nil [57477 57692])
+            ("gnus-topic-sort-groups-by-method" function
+               (:user-visible-flag t
+                :arguments ("reverse"))
+                nil [57694 57930])
+            ("gnus-topic-sort-groups-by-server" function
+               (:user-visible-flag t
+                :arguments ("reverse"))
+                nil [57932 58167])
+            ("gnus-topic-sort-topics-1" function (:arguments ("top" "reverse")) nil [58169 58505])
+            ("gnus-topic-sort-topics" function
+               (:user-visible-flag t
+                :arguments ("topic" "reverse"))
+                nil [58507 59118])
+            ("gnus-topic-move" function
+               (:user-visible-flag t
+                :arguments ("current" "to"))
+                nil [59120 59947])
+            ("gnus-subscribe-topics" function (:arguments ("newsgroup")) nil [59949 60689])
+            ("gnus-topic" package nil nil [60691 60712]))          
+      :file "gnus-topic.el"
+      :pointmax 60742
+      :fsize 60741
+      :lastmodtime '(23525 29554 0 0)
+      :unmatched-syntax '((close-paren 966 . 967) (symbol 935 . 952) (open-paren 934 . 935)))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl" include nil nil [902 915])
+            ("gnus" include nil nil [918 933])
+            ("gnus-sum" include nil nil [934 953])
+            ("nntp" include nil nil [954 969])
+            ("gnus-asynchronous" customgroup (:user-visible-flag t) nil [971 1059])
+            ("gnus-use-article-prefetch" variable (:default-value 30) nil [1061 1382])
+            ("gnus-asynchronous" variable nil nil [1384 1561])
+            ("gnus-prefetched-article-deletion-strategy" variable (:default-value (quote (read exit))) nil [1563 1974])
+            ("gnus-use-header-prefetch" variable nil nil [1976 2117])
+            ("gnus-async-prefetch-article-p" variable (:default-value (quote gnus-async-unread-p)) nil [2119 2426])
+            ("gnus-async-post-fetch-function" variable nil nil [2428 2701])
+            ("gnus-async-prefetch-article-buffer" variable (:default-value " *Async Prefetch Article*") nil [2728 2799])
+            ("gnus-async-article-alist" variable nil nil [2800 2837])
+            ("gnus-async-article-semaphore" variable (:default-value (quote (nil))) nil [2838 2882])
+            ("gnus-async-fetch-list" variable nil nil [2883 2917])
+            ("gnus-async-hashtb" variable nil nil [2918 2948])
+            ("gnus-async-current-prefetch-group" variable nil nil [2949 2995])
+            ("gnus-async-current-prefetch-article" variable nil nil [2996 3044])
+            ("gnus-async-timer" variable nil nil [3045 3074])
+            ("gnus-async-prefetch-headers-buffer" variable (:default-value " *Async Prefetch Headers*") nil [3076 3147])
+            ("gnus-async-header-prefetched" variable nil nil [3148 3189])
+            ("gnus-group-asynchronous-p" function (:arguments ("group")) nil [3215 3392])
+            ("gnus-async-get-semaphore" function (:arguments ("semaphore")) nil [3426 3596])
+            ("gnus-async-release-semaphore" function (:arguments ("semaphore")) nil [3598 3709])
+            ("gnus-async-with-semaphore" function (:arguments ("forms")) nil [3711 3931])
+            ("put" code nil nil [3933 3989])
+            ("put" code nil nil [3990 4048])
+            ("gnus-add-shutdown" code nil nil [4080 4123])
+            ("gnus-async-close" function nil nil [4124 4358])
+            ("gnus-async-set-buffer" function nil nil [4360 4543])
+            ("gnus-async-halt-prefetch" function nil nil [4545 4637])
+            ("gnus-async-prefetch-next" function (:arguments ("group" "article" "summary")) nil [4639 5211])
+            ("gnus-async-prefetch-article" function (:arguments ("group" "article" "summary" "next")) nil [5213 7336])
+            ("gnus-make-async-article-function" function (:arguments ("group" "article" "mark" "summary" "next")) nil [7338 7538])
+            ("gnus-async-article-callback" function (:arguments ("arg" "group" "article" "mark" "summary" "next")) nil [7540 8760])
+            ("gnus-async-unread-p" function (:arguments ("data")) nil [8762 8881])
+            ("gnus-async-request-fetched-article" function (:arguments ("group" "article" "buffer")) nil [8883 9570])
+            ("gnus-async-wait-for-article" function (:arguments ("article")) nil [9572 10696])
+            ("gnus-async-delete-prefetched-entry" function (:arguments ("entry")) nil [10698 11074])
+            ("gnus-async-prefetch-remove-group" function (:arguments ("group")) nil [11076 11484])
+            ("gnus-async-prefetched-article-entry" function (:arguments ("group" "article")) nil [11486 12091])
+            ("gnus-async-prefetch-headers" function (:arguments ("group")) nil [12122 12833])
+            ("gnus-async-retrieve-fetched-headers" function (:arguments ("articles" "group")) nil [12835 13432])
+            ("gnus-async" package nil nil [13434 13455]))          
+      :file "gnus-async.el"
+      :pointmax 13485
+      :fsize 13484
+      :lastmodtime '(23525 29551 0 0)
+      :unmatched-syntax '((close-paren 915 . 916) (symbol 884 . 901) (open-paren 883 . 884)))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl" include nil nil [925 938])
+            ("gnus" include nil nil [941 956])
+            ("gnus-sum" include nil nil [957 976])
+            ("gnus-win" include nil nil [977 996])
+            ("gnus-pick-display-summary" variable nil nil [1026 1147])
+            ("gnus-pick-mode-hook" variable nil nil [1149 1269])
+            ("gnus-mark-unpicked-articles-as-read" variable nil nil [1271 1419])
+            ("gnus-pick-elegant-flow" variable (:default-value t) nil [1421 1611])
+            ("gnus-summary-pick-line-format" variable (:default-value "%-5P %U%R%z%I%(%[%4L: %-23,23n%]%) %s
+") nil [1613 1880])
+            ("gnus-pick-mode-map" variable (:default-value (let ((map (make-sparse-keymap))) (gnus-define-keys map " " gnus-pick-next-page "u" gnus-pick-unmark-article-or-thread "." gnus-pick-article-or-thread [down-mouse-2] gnus-pick-mouse-pick-region "" gnus-pick-start-reading) map)) nil [1907 2203])
+            ("gnus-pick-make-menu-bar" function nil nil [2205 2888])
+            ("define-minor-mode" code nil nil [2890 3988])
+            ("gnus-pick-setup-message" function nil nil [3990 4322])
+            ("gnus-pick-line-number" variable (:default-value 1) nil [4324 4356])
+            ("gnus-pick-line-number" function nil nil [4357 4456])
+            ("gnus-pick-start-reading" function
+               (:user-visible-flag t
+                :arguments ("catch-up"))
+                nil [4458 5211])
+            ("gnus-pick-goto-article" function (:arguments ("arg")) nil [5213 5593])
+            ("gnus-pick-article" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [5595 5830])
+            ("gnus-pick-article-or-thread" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [5832 6281])
+            ("gnus-pick-unmark-article-or-thread" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [6283 6708])
+            ("gnus-pick-mouse-pick" function (:arguments ("e")) nil [6710 6844])
+            ("gnus-pick-mouse-pick-region" function
+               (:user-visible-flag t
+                :arguments ("start-event"))
+                nil [6846 10500])
+            ("scroll-in-place" variable nil nil [10502 10526])
+            ("gnus-pick-next-page" function (:user-visible-flag t) nil [10528 10771])
+            ("gnus-binary-mode-hook" variable nil nil [10803 10882])
+            ("gnus-binary-mode-map" variable (:default-value (let ((map (make-sparse-keymap))) (gnus-define-keys map "g" gnus-binary-show-article) map)) nil [10884 11020])
+            ("gnus-binary-make-menu-bar" function nil nil [11022 11229])
+            ("define-minor-mode" code nil nil [11231 11906])
+            ("gnus-binary-display-article" function (:arguments ("article" "_all-header")) nil [11908 12165])
+            ("gnus-binary-show-article" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [12167 12373])
+            ("gnus-tree-line-format" variable (:default-value "%(%[%3,3n%]%)") nil [12403 12525])
+            ("gnus-tree-minimize-window" variable (:default-value t) nil [12527 12758])
+            ("gnus-selected-tree-face" variable (:default-value (quote mode-line)) nil [12760 12917])
+            ("gnus-tree-brackets" variable (:default-value (quote ((91 . 93) (40 . 41) (123 . 125) (60 . 62)))) nil [12919 13036])
+            ("gnus-tree-parent-child-edges" variable (:default-value (quote (45 92 124))) nil [13038 13142])
+            ("gnus-tree-mode-line-format" variable (:default-value "Gnus: %%b %S %Z") nil [13144 13297])
+            ("gnus-generate-tree-function" variable (:default-value (quote gnus-generate-vertical-tree)) nil [13299 13684])
+            ("gnus-tree-mode-hook" variable nil nil [13686 13798])
+            ("gnus-tmp-name" variable nil nil [13825 13847])
+            ("gnus-tmp-from" variable nil nil [13848 13870])
+            ("gnus-tmp-number" variable nil nil [13871 13895])
+            ("gnus-tmp-open-bracket" variable nil nil [13896 13926])
+            ("gnus-tmp-close-bracket" variable nil nil [13927 13958])
+            ("gnus-tmp-subject" variable nil nil [13959 13984])
+            ("gnus-tree-line-format-alist" variable (:default-value (\` ((110 gnus-tmp-name 115) (102 gnus-tmp-from 115) (78 gnus-tmp-number 100) (91 gnus-tmp-open-bracket 99) (93 gnus-tmp-close-bracket 99) (115 gnus-tmp-subject 115)))) nil [13986 14203])
+            ("gnus-tree-mode-line-format-alist" variable (:default-value gnus-summary-mode-line-format-alist) nil [14205 14282])
+            ("gnus-tree-mode-line-format-spec" variable nil nil [14284 14328])
+            ("gnus-tree-line-format-spec" variable nil nil [14329 14368])
+            ("gnus-tree-node-length" variable nil nil [14370 14404])
+            ("gnus-selected-tree-overlay" variable nil nil [14405 14444])
+            ("gnus-tree-displayed-thread" variable nil nil [14446 14485])
+            ("gnus-tree-inhibit" variable nil nil [14486 14516])
+            ("gnus-tree-mode-map" variable (:default-value (let ((map (make-keymap))) (suppress-keymap map) (gnus-define-keys map "" gnus-tree-select-article [mouse-2] gnus-tree-pick-article "" gnus-tree-read-summary-keys "h" gnus-tree-show-summary "	" gnus-info-find-node) (substitute-key-definition (quote undefined) (quote gnus-tree-read-summary-keys) map) map)) nil [14518 14913])
+            ("put" code nil nil [14915 14957])
+            ("gnus-tree-make-menu-bar" function nil nil [14959 15158])
+            ("define-derived-mode" code nil nil [15160 15652])
+            ("gnus-tree-read-summary-keys" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [15654 16153])
+            ("gnus-tree-show-summary" function (:user-visible-flag t) nil [16155 16461])
+            ("gnus-tree-select-article" function
+               (:user-visible-flag t
+                :arguments ("article"))
+                nil [16463 16782])
+            ("gnus-tree-pick-article" function
+               (:user-visible-flag t
+                :arguments ("e"))
+                nil [16784 16964])
+            ("gnus-tree-article-number" function nil nil [16966 17044])
+            ("gnus-tree-article-region" function (:arguments ("article")) nil [17046 17313])
+            ("gnus-tree-recenter" function nil nil [17315 18165])
+            ("gnus-get-tree-buffer" function nil nil [18167 18403])
+            ("gnus-tree-minimize" function nil nil [18405 19277])
+            ("gnus-tree-node-insert" function (:arguments ("header" "sparse" "adopted")) nil [19305 21014])
+            ("gnus--let-eval" function (:arguments ("bindings" "evalsym" "body")) nil [21016 21792])
+            ("gnus-tree-highlight-node" function (:arguments ("article" "beg" "end")) nil [21794 22938])
+            ("gnus-tree-indent" function (:arguments ("level")) nil [22940 23042])
+            ("gnus-tmp-limit" variable nil nil [23044 23067])
+            ("gnus-tmp-sparse" variable nil nil [23068 23092])
+            ("gnus-tmp-indent" variable nil nil [23093 23117])
+            ("gnus-generate-tree" function (:arguments ("thread")) nil [23119 23731])
+            ("gnus-generate-horizontal-tree" function (:arguments ("thread" "level" "dummyp" "adopted")) nil [23733 25056])
+            ("gnus-tree-indent-vertical" function nil nil [25058 25250])
+            ("gnus-tree-forward-line" function (:arguments ("n")) nil [25252 25409])
+            ("gnus-generate-vertical-tree" function (:arguments ("thread" "level" "dummyp" "adopted")) nil [25411 27113])
+            ("gnus-possibly-generate-tree" function (:arguments ("article" "force")) nil [27141 27865])
+            ("gnus-tree-open" function nil nil [27867 27917])
+            ("gnus-tree-close" function nil nil [27919 27983])
+            ("gnus-tree-perhaps-minimize" function nil nil [27985 28169])
+            ("gnus-highlight-selected-tree" function (:arguments ("article")) nil [28171 29244])
+            ("gnus-tree-highlight-article" function (:arguments ("article" "face")) nil [29246 29716])
+            ("gnus-salt" package nil nil [29718 29738]))          
+      :file "gnus-salt.el"
+      :pointmax 29767
+      :fsize 29766
+      :lastmodtime '(23525 29553 0 0)
+      :unmatched-syntax '((close-paren 938 . 939) (symbol 907 . 924) (open-paren 906 . 907)))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("wid-edit" include nil nil [885 904])
+            ("gnus" include nil nil [905 920])
+            ("gnus-agent" include nil nil [921 942])
+            ("gnus-score" include nil nil [943 964])
+            ("gnus-topic" include nil nil [965 986])
+            ("gnus-art" include nil nil [987 1006])
+            ("define-derived-mode" code nil nil [1022 2226])
+            ("gnus-group-parameters" variable
+               (:constant-flag t
+                :default-value (quote ((extra-aliases (choice :tag "Extra Aliases" (list :tag "List" (editable-list :inline t (gnus-email-address :tag "Address"))) (gnus-email-address :tag "Address")) "Store messages posted from or to this address in this group.
+
+You must be using gnus-group-split for this to work.  The VALUE of the
+nnmail-split-fancy SPLIT generated for this group will match these
+addresses.") (split-regexp (regexp :tag "gnus-group-split Regular Expression") "Like gnus-group-split Address, but expects a regular expression.") (split-exclude (list :tag "gnus-group-split Restricts" (editable-list :inline t (regexp :tag "Restrict"))) "Regular expression that cancels gnus-group-split matches.
+
+Each entry is added to the nnmail-split-fancy SPLIT as a separate
+RESTRICT clause.") (split-spec (choice :tag "gnus-group-split Overrider" (sexp :tag "Fancy Split") (const :tag "Catch All" catch-all) (const :tag "Ignore" nil)) "Override all other gnus-group-split fields.
+
+In `Fancy Split', you can enter any nnmail-split-fancy SPLIT.  Note
+that the name of this group won't be automatically assumed, you have
+to add it to the SPLITs yourself.  This means you can use such splits
+to split messages to other groups too.
+
+If you select `Catch All', this group will get postings for any
+messages not matched in any other group.  It overrides the variable
+gnus-group-split-default-catch-all-group.
+
+Selecting `Ignore' forces no SPLIT to be generated for this group,
+disabling all other gnus-group-split fields.") (broken-reply-to (const :tag "Broken Reply To" t) "Ignore `Reply-To' headers in this group.
+
+That can be useful if you're reading a mailing list group where the
+listserv has inserted `Reply-To' headers that point back to the
+listserv itself.  This is broken behavior.  So there!") (to-group (string :tag "To Group") "All posts will be sent to the specified group.") (gcc-self (choice :tag "GCC" :value t (const :tag "To current group" t) (const none) (string :format "%v" :hide-front-space t)) "Specify default value for GCC header.
+
+If this symbol is present in the group parameter list and set to t,
+new composed messages will be `Gcc''d to the current group.  If it is
+present and set to `none', no `Gcc:' header will be generated, if it
+is present and a string, this string will be inserted literally as a
+`gcc' header (this symbol takes precedence over any default `Gcc'
+rules as described later).") (expiry-wait (choice :tag "Expire Wait" :value never (const never) (const immediate) (number :hide-front-space t :format "%v")) "When to expire.
+
+Overrides any `nnmail-expiry-wait' and `nnmail-expiry-wait-function'
+when expiring expirable messages.  The value can either be a number of
+days (not necessarily an integer) or the symbols `never' or
+`immediate'.") (expiry-target (choice :tag "Expiry Target" :value delete (const delete) (function :format "%v" nnmail-) string) "Where expired messages end up.
+
+Overrides `nnmail-expiry-target'.") (score-file (file :tag "Score File") "Make the specified file into the current score file.
+This means that all score commands you issue will end up in this file.") (adapt-file (file :tag "Adapt File") "Make the specified file into the current adaptive file.
+All adaptive score entries will be put into this file.") (admin-address (gnus-email-address :tag "Admin Address") "Administration address for a mailing list.
+
+When unsubscribing to a mailing list you should never send the
+unsubscription notice to the mailing list itself.  Instead, you'd
+send messages to the administrative address.  This parameter allows
+you to put the admin address somewhere convenient.") (display (choice :tag "Display" :value default (const all) (integer) (const default) (sexp :tag "Other")) "Which articles to display on entering the group.
+
+`all'
+     Display all articles, both read and unread.
+
+`integer'
+     Display the last NUMBER articles in the group.  This is the same as
+     entering the group with C-u NUMBER.
+
+`default'
+     Display the default visible articles, which normally includes
+     unread and ticked articles.
+
+`Other'
+     Display the articles that satisfy the S-expression. The S-expression
+     should be in an array form.") (comment (string :tag "Comment") "An arbitrary comment on the group.") (visible (const :tag "Permanently visible" t) "Always display this group, even when there are no unread articles in it.") (highlight-words (choice :tag "Highlight words" :value nil (repeat (list (regexp :tag "Highlight regexp") (number :tag "Group for entire word" 0) (number :tag "Group for displayed part" 0) (symbol :tag "Face" gnus-emphasis-highlight-words)))) "highlight regexps.
+See `gnus-emphasis-alist'.") (posting-style (choice :tag "Posting style" :value nil (repeat (list (choice :tag "Type" :value nil (const signature) (const signature-file) (const organization) (const address) (const x-face-file) (const name) (const body) (symbol) (string :tag "Header")) (string :format "%v")))) "post style.
+See `gnus-posting-styles'."))))
+                nil [2254 7967])
+            ("gnus-extra-topic-parameters" variable
+               (:constant-flag t
+                :default-value (quote ((subscribe (regexp :tag "Subscribe") "If `gnus-subscribe-newsgroup-method' or
+`gnus-subscribe-options-newsgroup-method' is set to
+`gnus-subscribe-topics', new groups that matches this regexp will
+automatically be subscribed to this topic") (subscribe-level (integer :tag "Subscribe Level" :value 1) "If this topic parameter is set, when new groups are subscribed
+automatically under this topic (via the `subscribe' topic parameter)
+assign this level to the group, rather than the default level
+set in `gnus-level-default-subscribed'"))))
+                nil [7969 8808])
+            ("gnus-extra-group-parameters" variable
+               (:constant-flag t
+                :default-value (quote ((uidvalidity (string :tag "IMAP uidvalidity") "Server-assigned value attached to IMAP groups, used to maintain consistency."))))
+                nil [8810 9234])
+            ("gnus-agent-parameters" variable
+               (:constant-flag t
+                :default-value (quote ((agent-predicate (sexp :tag "Selection Predicate" :value false) "Predicate used to automatically select articles for downloading." gnus-agent-cat-predicate) (agent-score (choice :tag "Score File" :value nil (const file :tag "Use group's score files") (repeat (list (string :format "%v" :tag "File name")))) "Which score files to use when using score to select articles to fetch.
+
+    nil
+         All articles will be scored to zero (0).
+
+    `file'
+         The group's score files will be used to score the articles.
+
+    `List'
+         A list of score file names." gnus-agent-cat-score-file) (agent-short-article (integer :tag "Max Length of Short Article" :value "") "The SHORT predicate will evaluate to true when the article is
+shorter than this length." gnus-agent-cat-length-when-short) (agent-long-article (integer :tag "Min Length of Long Article" :value "") "The LONG predicate will evaluate to true when the article is
+longer than this length." gnus-agent-cat-length-when-long) (agent-low-score (integer :tag "Low Score Limit" :value "") "The LOW predicate will evaluate to true when the article scores
+lower than this limit." gnus-agent-cat-low-score) (agent-high-score (integer :tag "High Score Limit" :value "") "The HIGH predicate will evaluate to true when the article scores
+higher than this limit." gnus-agent-cat-high-score) (agent-days-until-old (integer :tag "Days Until Old" :value "") "The OLD predicate will evaluate to true when the fetched article
+has been stored locally for at least this many days." gnus-agent-cat-days-until-old) (agent-enable-expiration (radio :tag "Expire in this Group or Topic" :value nil (const :format "Enable " ENABLE) (const :format "Disable " DISABLE)) "
+Enable, or disable, agent expiration in this group or topic." gnus-agent-cat-enable-expiration) (agent-enable-undownloaded-faces (boolean :tag "Enable Agent Faces") "Have the summary buffer use the agent's undownloaded faces.
+These faces, when enabled, act as a warning that an article has not
+been fetched into either the agent nor the cache.  This is of most use
+to users who use the agent as a cache (i.e. they only operate on
+articles that have been downloaded).  Leave disabled to display normal
+article faces even when the article hasn't been downloaded." gnus-agent-cat-enable-undownloaded-faces))))
+                nil [9256 12223])
+            ("gnus-custom-params" variable nil nil [12226 12253])
+            ("gnus-custom-method" variable nil nil [12254 12281])
+            ("gnus-custom-group" variable nil nil [12282 12308])
+            ("gnus-custom-topic" variable nil nil [12309 12335])
+            ("gnus-group-customize" function
+               (:user-visible-flag t
+                :arguments ("group" "topic"))
+                nil [12337 18838])
+            ("gnus-group-customize-done" function
+               (:user-visible-flag t
+                :arguments ("ignore"))
+                nil [18840 19464])
+            ("gnus-score-parameters" variable
+               (:constant-flag t
+                :default-value (quote ((mark (number :tag "Mark") "The value of this entry should be a number.
+Any articles with a score lower than this number will be marked as read.") (expunge (number :tag "Expunge") "The value of this entry should be a number.
+Any articles with a score lower than this number will be removed from
+the summary buffer.") (mark-and-expunge (number :tag "Mark-and-expunge") "The value of this entry should be a number.
+Any articles with a score lower than this number will be marked as
+read and removed from the summary buffer.") (thread-mark-and-expunge (number :tag "Thread-mark-and-expunge") "The value of this entry should be a number.
+All articles that belong to a thread that has a total score below this
+number will be marked as read and removed from the summary buffer.
+`gnus-thread-score-function' says how to compute the total score
+for a thread.") (files (repeat :inline t :tag "Files" file) "The value of this entry should be any number of file names.
+These files are assumed to be score files as well, and will be loaded
+the same way this one was.") (exclude-files (repeat :inline t :tag "Exclude-files" file) "The clue of this entry should be any number of files.
+These files will not be loaded, even though they would normally be so,
+for some reason or other.") (eval (sexp :tag "Eval" :value nil) "The value of this entry will be `eval'uated.
+This element will be ignored when handling global score files.") (read-only (boolean :tag "Read-only" :value t) "Read-only score files will not be updated or saved.
+Global score files should feature this atom.") (orphan (number :tag "Orphan") "The value of this entry should be a number.
+Articles that do not have parents will get this number added to their
+scores.  Imagine you follow some high-volume newsgroup, like
+`comp.lang.c'.  Most likely you will only follow a few of the threads,
+also want to see any new threads.
+
+You can do this with the following two score file entries:
+
+     (orphan -500)
+     (mark-and-expunge -100)
+
+When you enter the group the first time, you will only see the new
+threads.  You then raise the score of the threads that you find
+interesting (with `I T' or `I S'), and ignore (`C y') the rest.
+Next time you enter the group, you will see new articles in the
+interesting threads, plus any new threads.
+
+I.e.---the orphan score atom is for high-volume groups where there
+exist a few interesting threads which can't be found automatically
+by ordinary scoring rules.") (adapt (choice :tag "Adapt" (const t) (const ignore) (sexp :format "%v" :hide-front-space t)) "This entry controls the adaptive scoring.
+If it is t, the default adaptive scoring rules will be used.  If it
+is `ignore', no adaptive scoring will be performed on this group.  If
+it is a list, this list will be used as the adaptive scoring rules.
+If it isn't present, or is something other than t or `ignore', the
+default adaptive scoring rules will be used.  If you want to use
+adaptive scoring on most groups, you'd set `gnus-use-adaptive-scoring'
+to t, and insert an `(adapt ignore)' in the groups where you do not
+want adaptive scoring.  If you only want adaptive scoring in a few
+groups, you'd set `gnus-use-adaptive-scoring' to nil, and insert
+`(adapt t)' in the score files of the groups where you want it.") (adapt-file (file :tag "Adapt-file") "All adaptive score entries will go to the file named by this entry.
+It will also be applied when entering the group.  This atom might
+be handy if you want to adapt on several groups at once, using the
+same adaptive file for a number of groups.") (local (repeat :tag "Local" (group :value (nil nil) (symbol :tag "Variable") (sexp :tag "Value"))) "The value of this entry should be a list of `(VAR VALUE)' pairs.
+Each VAR will be made buffer-local to the current summary buffer,
+and set to the value specified.  This is a convenient, if somewhat
+strange, way of setting variables in some groups if you don't like
+hooks much.") (touched (sexp :format "Touched
+") "Internal variable."))))
+                nil [19492 23865])
+            ("define-widget" code nil nil [23867 24003])
+            ("gnus-score-string-convert" function (:arguments ("widget")) nil [24005 26535])
+            ("define-widget" code nil nil [26537 26676])
+            ("gnus-score-integer-convert" function (:arguments ("widget")) nil [26678 27576])
+            ("define-widget" code nil nil [27578 27708])
+            ("gnus-score-date-convert" function (:arguments ("widget")) nil [27710 29636])
+            ("define-widget" code nil nil [29638 29764])
+            ("gnus-score-extra-convert" function (:arguments ("widget")) nil [29766 31474])
+            ("gnus-custom-scores" variable nil nil [31476 31503])
+            ("gnus-custom-score-alist" variable nil nil [31504 31536])
+            ("gnus-score-customize" function
+               (:user-visible-flag t
+                :arguments ("file"))
+                nil [31538 35435])
+            ("gnus-score-customize-done" function (:arguments ("ignore")) nil [35437 35739])
+            ("category-fields" variable nil nil [35741 35769])
+            ("gnus-agent-cat-name" variable nil nil [35770 35798])
+            ("gnus-agent-cat-score-file" variable nil nil [35799 35833])
+            ("gnus-agent-cat-length-when-short" variable nil nil [35834 35875])
+            ("gnus-agent-cat-length-when-long" variable nil nil [35876 35916])
+            ("gnus-agent-cat-low-score" variable nil nil [35917 35950])
+            ("gnus-agent-cat-high-score" variable nil nil [35951 35985])
+            ("gnus-agent-cat-enable-expiration" variable nil nil [35986 36027])
+            ("gnus-agent-cat-days-until-old" variable nil nil [36028 36066])
+            ("gnus-agent-cat-predicate" variable nil nil [36067 36100])
+            ("gnus-agent-cat-groups" variable nil nil [36101 36131])
+            ("gnus-agent-cat-enable-undownloaded-faces" variable nil nil [36132 36181])
+            ("gnus-trim-whitespace" function (:arguments ("s")) nil [36183 36389])
+            ("gnus-agent-cat-prepare-category-field" function (:arguments ("parameter")) nil [36391 37875])
+            ("gnus-agent-customize-category" function
+               (:user-visible-flag t
+                :arguments ("category"))
+                nil [37877 42275])
+            ("gnus-cus" package nil nil [42291 42310]))          
+      :file "gnus-cus.el"
+      :pointmax 42338
+      :fsize 42337
+      :lastmodtime '(23525 29551 0 0)
+      :unmatched-syntax '((close-paren 12223 . 12224) (symbol 9237 . 9253) (open-paren 9236 . 9237)))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl" include nil nil [899 912])
+            ("gnus" include nil nil [915 930])
+            ("gnus-backlog-buffer" variable (:default-value " *Gnus Backlog*") nil [973 1019])
+            ("gnus-backlog-articles" variable nil nil [1020 1054])
+            ("gnus-backlog-hashtb" variable nil nil [1055 1087])
+            ("gnus-backlog-buffer" function nil nil [1089 1347])
+            ("gnus-backlog-setup" function nil nil [1349 1501])
+            ("gnus-add-shutdown" code nil nil [1503 1551])
+            ("gnus-backlog-shutdown" function (:user-visible-flag t) nil [1553 1791])
+            ("gnus-backlog-enter-article" function (:arguments ("group" "number" "buffer")) nil [1793 2769])
+            ("gnus-backlog-remove-oldest-article" function nil nil [2771 3301])
+            ("gnus-backlog-remove-article" function (:arguments ("group" "number")) nil [3303 4127])
+            ("gnus-backlog-request-article" function (:arguments ("group" "number" "buffer")) nil [4129 5101])
+            ("gnus-bcklg" package nil nil [5103 5124]))          
+      :file "gnus-bcklg.el"
+      :pointmax 5154
+      :fsize 5153
+      :lastmodtime '(23525 29551 0 0)
+      :unmatched-syntax '((close-paren 912 . 913) (symbol 881 . 898) (open-paren 880 . 881)))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("gnus" include nil nil [887 902])
+            ("gnus-win" include nil nil [903 922])
+            ("gnus-edit-form" customgroup (:user-visible-flag t) nil [951 1025])
+            ("gnus-edit-form-mode-hook" variable nil nil [1027 1153])
+            ("gnus-edit-form-menu-hook" variable nil nil [1155 1301])
+            ("gnus-edit-form-buffer" variable (:default-value "*Gnus edit form*") nil [1327 1376])
+            ("gnus-edit-form-done-function" variable nil nil [1377 1418])
+            ("gnus-edit-form-mode-map" variable nil nil [1420 1456])
+            ("unless" code nil nil [1457 1724])
+            ("gnus-edit-form-make-menu-bar" function nil nil [1726 2041])
+            ("define-derived-mode" code nil nil [2043 2394])
+            ("gnus-edit-form" function (:arguments ("form" "documentation" "exit-func" "layout")) nil [2396 3302])
+            ("gnus-edit-form-done" function (:user-visible-flag t) nil [3304 3597])
+            ("gnus-edit-form-exit" function (:user-visible-flag t) nil [3599 3786])
+            ("gnus-eform" package nil nil [3788 3809]))          
+      :file "gnus-eform.el"
+      :pointmax 3839
+      :fsize 3838
+      :lastmodtime '(23525 29552 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("sendmail" include nil nil [1004 1023])
+            ("message" include nil nil [1024 1042])
+            ("gnus" include nil nil [1043 1058])
+            ("gnus-msg" include nil nil [1059 1078])
+            ("cl" include nil nil [1101 1114])
+            ("vm-mode" function (:prototype-flag t) nil [1117 1141])
+            ("vm-save-message" function (:prototype-flag t) nil [1142 1174])
+            ("gnus-vm-inhibit-window-system" variable nil nil [1176 1313])
+            ("unless" code nil nil [1315 1420])
+            ("gnus-vm-make-folder" function (:arguments ("buffer")) nil [1422 2129])
+            ("gnus-summary-save-article-vm" function
+               (:user-visible-flag t
+                :arguments ("arg"))
+                nil [2131 2580])
+            ("gnus-summary-save-in-vm" function (:arguments ("folder")) nil [2582 3045])
+            ("gnus-vm" package nil nil [3047 3065]))          
+      :file "gnus-vm.el"
+      :pointmax 3092
+      :fsize 3091
+      :lastmodtime '(23525 29554 0 0)
+      :unmatched-syntax '((close-paren 1114 . 1115) (symbol 1081 . 1098) (open-paren 1080 . 1081)))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("nnoo" include nil nil [7624 7639])
+            ("gnus-group" include nil nil [7640 7661])
+            ("message" include nil nil [7662 7680])
+            ("gnus-util" include nil nil [7681 7701])
+            ("cl-lib" include nil nil [7721 7738])
+            ("nnir-memo-query" variable nil nil [7766 7830])
+            ("nnir-memo-server" variable nil nil [7832 7898])
+            ("nnir-artlist" variable nil nil [7900 7961])
+            ("nnir-search-history" variable nil nil [7963 8056])
+            ("nnir-tmp-buffer" variable
+               (:constant-flag t
+                :default-value " *nnir*")
+                nil [8058 8126])
+            ("nnir-imap-search-arguments" variable (:default-value (quote (("whole message" . "TEXT") ("subject" . "SUBJECT") ("to" . "TO") ("from" . "FROM") ("body" . "BODY") ("imap" . "")))) nil [8148 8396])
+            ("nnir-imap-search-other" variable (:default-value "HEADER %S") nil [8398 8584])
+            ("nnir-imap-search-argument-history" variable nil nil [8586 8683])
+            ("nnir-artlist-length" function (:arguments ("artlist")) nil [8732 8836])
+            ("nnir-artlist-article" function (:arguments ("artlist" "n")) nil [8838 8995])
+            ("nnir-artitem-group" function (:arguments ("artitem")) nil [8997 9096])
+            ("nnir-artitem-number" function (:arguments ("artitem")) nil [9098 9199])
+            ("nnir-artitem-rsv" function (:arguments ("artitem")) nil [9201 9328])
+            ("nnir-article-group" function (:arguments ("article")) nil [9330 9472])
+            ("nnir-article-number" function (:arguments ("article")) nil [9474 9619])
+            ("nnir-article-rsv" function (:arguments ("article")) nil [9621 9757])
+            ("nnir-article-ids" function (:arguments ("article")) nil [9759 9897])
+            ("nnir-categorize" function (:arguments ("sequence" "keyfunc" "valuefunc")) nil [9899 10596])
+            ("gnus-sum" include nil nil [10617 10636])
+            ("nnoo-declare" code nil nil [10638 10657])
+            ("nnoo-define-basics" code nil nil [10658 10683])
+            ("gnus-declare-backend" code nil nil [10685 10729])
+            ("nnir" customgroup (:user-visible-flag t) nil [10766 10856])
+            ("nnir-ignored-newsgroups" variable nil nil [10858 11040])
+            ("nnir-summary-line-format" variable nil nil [11042 11563])
+            ("nnir-retrieve-headers-override-function" variable nil nil [11565 12065])
+            ("nnir-imap-default-search-key" variable (:default-value "whole message") nil [12067 12429])
+            ("nnir-swish++-configuration-file" variable (:default-value (expand-file-name "~/Mail/swish++.conf")) nil [12431 12584])
+            ("nnir-swish++-program" variable (:default-value "search") nil [12586 12699])
+            ("nnir-swish++-additional-switches" variable (:default-value (quote nil)) nil [12701 13074])
+            ("nnir-swish++-remove-prefix" variable (:default-value (concat (getenv "HOME") "/Mail/")) nil [13076 13442])
+            ("make-obsolete-variable" code nil nil [13590 13681])
+            ("nnir-swish-e-index-file" variable (:default-value (expand-file-name "~/Mail/index.swish-e")) nil [13682 13960])
+            ("nnir-swish-e-index-files" variable (:default-value (list nnir-swish-e-index-file)) nil [13962 14142])
+            ("nnir-swish-e-program" variable (:default-value "swish-e") nil [14144 14293])
+            ("nnir-swish-e-additional-switches" variable (:default-value (quote nil)) nil [14295 14703])
+            ("nnir-swish-e-remove-prefix" variable (:default-value (concat (getenv "HOME") "/Mail/")) nil [14705 15106])
+            ("nnir-hyrex-program" variable (:default-value "nnir-search") nil [15171 15288])
+            ("nnir-hyrex-additional-switches" variable (:default-value (quote nil)) nil [15290 15700])
+            ("nnir-hyrex-index-directory" variable (:default-value (getenv "HOME")) nil [15702 15823])
+            ("nnir-hyrex-remove-prefix" variable (:default-value (concat (getenv "HOME") "/Mail/")) nil [15825 16437])
+            ("nnir-namazu-program" variable (:default-value "namazu") nil [16491 16602])
+            ("nnir-namazu-index-directory" variable (:default-value (expand-file-name "~/Mail/namazu/")) nil [16604 16747])
+            ("nnir-namazu-additional-switches" variable (:default-value (quote nil)) nil [16749 17225])
+            ("nnir-namazu-remove-prefix" variable (:default-value (concat (getenv "HOME") "/Mail/")) nil [17227 17843])
+            ("nnir-notmuch-program" variable (:default-value "notmuch") nil [17845 17977])
+            ("nnir-notmuch-additional-switches" variable (:default-value (quote nil)) nil [17979 18370])
+            ("nnir-notmuch-remove-prefix" variable (:default-value (concat (getenv "HOME") "/Mail/")) nil [18372 18756])
+            ("nnir-engines" variable (:default-value (\` ((imap nnir-run-imap ((criteria "Imap Search in" (\, (mapcar (quote car) nnir-imap-search-arguments)) nil nil nnir-imap-search-argument-history (\, nnir-imap-default-search-key)))) (gmane nnir-run-gmane ((gmane-author . "Gmane Author: "))) (swish++ nnir-run-swish++ ((swish++-group . "Swish++ Group spec (regexp): "))) (swish-e nnir-run-swish-e ((swish-e-group . "Swish-e Group spec (regexp): "))) (namazu nnir-run-namazu nil) (notmuch nnir-run-notmuch nil) (hyrex nnir-run-hyrex ((hyrex-group . "Hyrex Group spec (regexp): "))) (find-grep nnir-run-find-grep ((grep-options . "Grep options: ")))))) nil [18793 20603])
+            ("nnir-method-default-engines" variable (:default-value (quote ((nnimap . imap) (nntp . gmane)))) nil [20605 21096])
+            ("declare-function" code nil nil [21113 21169])
+            ("gnus-group-make-nnir-group" function
+               (:user-visible-flag t
+                :arguments ("nnir-extra-parms" "specs"))
+                nil [21171 22815])
+            ("gnus-summary-make-nnir-group" function
+               (:user-visible-flag t
+                :arguments ("nnir-extra-parms"))
+                nil [22817 23170])
+            ("deffoo" code nil nil [23211 23544])
+            ("deffoo" code nil nil [23546 24572])
+            ("deffoo" code nil nil [24574 26367])
+            ("deffoo" code nil nil [26369 27907])
+            ("deffoo" code nil nil [27909 28746])
+            ("deffoo" code nil nil [28748 29653])
+            ("deffoo" code nil nil [29655 30618])
+            ("deffoo" code nil nil [30620 30870])
+            ("deffoo" code nil nil [30872 31614])
+            ("deffoo" code nil nil [31617 32875])
+            ("deffoo" code nil nil [32878 33405])
+            ("nnir-add-result" function (:arguments ("dirnam" "artno" "score" "prefix" "server" "artlist")) nil [33534 33846])
+            ("nnmaildir-base-name-to-article-number" function (:prototype-flag t) nil [33848 33909])
+            ("nnir-compose-result" function (:arguments ("dirnam" "article" "score" "prefix" "server")) nil [34026 35150])
+            ("nnimap-change-group" function (:prototype-flag t) nil [35183 35223])
+            ("declare-function" code nil nil [35224 35268])
+            ("declare-function" code nil nil [35269 35324])
+            ("nnir-run-imap" function (:arguments ("query" "srv" "groups")) nil [35344 37604])
+            ("nnir-imap-make-query" function (:arguments ("criteria" "qstring")) nil [37606 38944])
+            ("nnir-imap-query-to-imap" function (:arguments ("criteria" "query")) nil [38947 39266])
+            ("nnir-imap-expr-to-imap" function (:arguments ("criteria" "expr")) nil [39269 40089])
+            ("nnir-imap-parse-query" function (:arguments ("string")) nil [40092 40646])
+            ("nnir-imap-next-expr" function (:arguments ("count")) nil [40649 41016])
+            ("nnir-imap-next-term" function (:arguments ("count")) nil [41019 41375])
+            ("nnir-imap-peek-symbol" function nil nil [41378 41531])
+            ("nnir-imap-next-symbol" function (:arguments ("count")) nil [41533 42961])
+            ("nnir-imap-delimited-string" function (:arguments ("delimiter")) nil [42963 43437])
+            ("nnir-imap-end-of-input" function nil nil [43439 43560])
+            ("nnir-run-swish++" function (:arguments ("query" "server" "group")) nil [43699 47201])
+            ("nnir-run-swish-e" function (:arguments ("query" "server" "group")) nil [47225 50648])
+            ("nnir-run-hyrex" function (:arguments ("query" "server" "group")) nil [50669 53579])
+            ("nnir-run-namazu" function (:arguments ("query" "server" "group")) nil [53601 56444])
+            ("nnir-run-notmuch" function (:arguments ("query" "server" "group")) nil [56446 59271])
+            ("nnir-run-find-grep" function (:arguments ("query" "server" "grouplist")) nil [59273 61877])
+            ("declare-function" code nil nil [61879 61951])
+            ("declare-function" code nil nil [61952 62021])
+            ("nnir-run-gmane" function (:arguments ("query" "srv" "groups")) nil [62042 63677])
+            ("gnus-nnir-group-p" function (:arguments ("group")) nil [63695 63906])
+            ("nnir-read-parms" function (:arguments ("nnir-search-engine")) nil [63908 64128])
+            ("nnir-read-parm" function (:arguments ("parmspec")) nil [64130 64601])
+            ("nnir-run-query" function (:arguments ("specs")) nil [64603 65049])
+            ("nnir-server-to-search-engine" function (:arguments ("server")) nil [65051 65245])
+            ("nnir-read-server-parm" function (:arguments ("key" "server" "not-global")) nil [65247 65709])
+            ("nnir-possibly-change-group" function (:arguments ("group" "server")) nil [65711 66028])
+            ("nnir-server-opened" function (:arguments ("server")) nil [66030 66186])
+            ("nnimap-make-thread-query" function (:prototype-flag t) nil [66188 66233])
+            ("declare-function" code nil nil [66234 66302])
+            ("nnir-search-thread" function (:arguments ("header")) nil [66304 67325])
+            ("nnir-get-active" function (:arguments ("srv")) nil [67327 68535])
+            ("declare-function" code nil nil [68575 68694])
+            ("nnir-registry-action" function (:arguments ("action" "data-header" "from" "to" "method")) nil [68696 68958])
+            ("nnir-mode" function nil nil [68960 69662])
+            ("gnus-summary-create-nnir-group" function nil nil [69665 70070])
+            ("deffoo" code nil nil [70073 70990])
+            ("deffoo" code nil nil [70992 71061])
+            ("deffoo" code nil nil [71063 71112])
+            ("deffoo" code nil nil [71114 71159])
+            ("deffoo" code nil nil [71161 71195])
+            ("nnoo-define-skeleton" code nil nil [71197 71224])
+            ("nnir" package nil nil [71238 71253]))          
+      :file "nnir.el"
+      :pointmax 71277
+      :fsize 71277
+      :lastmodtime '(23525 29556 0 0)
+      :unmatched-syntax '((close-paren 7738 . 7739) (symbol 7703 . 7720) (open-paren 7702 . 7703)))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl" include nil nil [903 916])
+            ("gnus" include nil nil [919 934])
+            ("gnus-score" include nil nil [935 956])
+            ("gnus-util" include nil nil [957 977])
+            ("gnus-advanced-headers" variable nil nil [1004 1038])
+            ("gnus-advanced-not" variable (:default-value (intern (format "%c" 172))) nil [1096 1149])
+            ("gnus-advanced-index" variable
+               (:constant-flag t
+                :default-value (quote (("number" 0 gnus-advanced-integer) ("subject" 1 gnus-advanced-string) ("from" 2 gnus-advanced-string) ("date" 3 gnus-advanced-date) ("message-id" 4 gnus-advanced-string) ("references" 5 gnus-advanced-string) ("chars" 6 gnus-advanced-integer) ("lines" 7 gnus-advanced-integer) ("xref" 8 gnus-advanced-string) ("head" nil gnus-advanced-body) ("body" nil gnus-advanced-body) ("all" nil gnus-advanced-body))))
+                nil [1151 1659])
+            ("parse-time-string" function (:prototype-flag t) nil [1661 1703])
+            ("gnus-score-advanced" function (:arguments ("rule" "trace")) nil [1705 2596])
+            ("gnus-advanced-score-rule" function (:arguments ("rule")) nil [2598 4128])
+            ("gnus-advanced-score-article" function (:arguments ("rule")) nil [4130 4553])
+            ("gnus-advanced-string" function (:arguments ("index" "match" "type")) nil [4555 5279])
+            ("gnus-advanced-integer" function (:arguments ("index" "match" "type")) nil [5281 5488])
+            ("gnus-advanced-date" function (:arguments ("index" "match" "type")) nil [5490 5917])
+            ("gnus-advanced-body" function (:arguments ("header" "match" "type")) nil [5919 8253])
+            ("gnus-logic" package nil nil [8255 8276]))          
+      :file "gnus-logic.el"
+      :pointmax 8306
+      :fsize 8305
+      :lastmodtime '(23525 29552 0 0)
+      :unmatched-syntax '((close-paren 916 . 917) (symbol 885 . 902) (open-paren 884 . 885))))
   :file "!drive_c!Program Files!Emacs 26.1!share!emacs!26.1!lisp!gnus!semantic.cache"
   :semantic-tag-version "2.0"
   :semanticdb-version "2.2")

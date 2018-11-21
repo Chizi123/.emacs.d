@@ -41,6 +41,45 @@
       :pointmax 8954
       :fsize 8969
       :lastmodtime '(23534 43242 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cl-lib" include nil nil [1737 1754])
+            ("flycheck" include nil nil [1755 1774])
+            ("error-tip" include nil nil [1775 1795])
+            ("defvaralias" code nil nil [1797 1897])
+            ("flycheck-tip-cycle" function
+               (:user-visible-flag t
+                :arguments ("reverse"))
+                nil [2059 2350])
+            ("flycheck-tip-cycle-reverse" function (:user-visible-flag t) nil [2367 2490])
+            ("flycheck-tip-display-current-line-error-message" function (:arguments ("errors")) nil [2492 3017])
+            ("flycheck-tip--get" function (:arguments ("element" "err")) nil [3034 3225])
+            ("flycheck-tip-avoid-show-func" variable (:default-value t) nil [3300 3478])
+            ("make-obsolete-variable" code nil nil [3480 3730])
+            ("flycheck-tip-use-timer" function (:arguments ("order")) nil [3732 4508])
+            ("define-obsolete-function-alias" code nil nil [4510 4745])
+            ("flycheck-tip" package nil nil [4747 4770]))          
+      :file "flycheck-tip.el"
+      :pointmax 4868
+      :fsize 4883
+      :lastmodtime '(23534 43242 0 0)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("error-tip" include nil nil [989 1009])
+            ("flymake" include nil nil [1010 1028])
+            ("cl-lib" include nil nil [1029 1046])
+            ("flymake-tip--err-info-function" variable (:default-value (cond ((version<= "26" (number-to-string emacs-major-version)) (quote (lambda nil (cl-loop for diag in (flymake-diagnostics (point-at-bol) (point-at-eol)) collect (flymake-diagnostic-text diag))))) ((fboundp (quote flymake-find-err-info)) (quote (lambda nil (cl-loop with errors = (flymake-find-err-info flyamke-err-info (line-number-at-pos)) for err in (car errors) if (vectorp err) collect (elt err 4))))))) nil [1048 1686])
+            ("flymake-tip-cycle" function (:arguments ("reverse")) nil [1703 2171])
+            ("flymake-tip-cycle-reverse" function nil nil [2188 2264])
+            ("flymake-tip" package nil nil [2266 2288]))          
+      :file "flymake-tip.el"
+      :pointmax 2385
+      :fsize 2384
+      :lastmodtime '(23534 43242 0 0)
       :unmatched-syntax nil))
   :file "!drive_c!Users!joelg!.emacs.d!elpa!flycheck-tip-20171020.1048!semantic.cache"
   :semantic-tag-version "2.0"

@@ -284,7 +284,197 @@
       :pointmax 35386
       :fsize 35393
       :lastmodtime '(23525 29528 0 0)
-      :unmatched-syntax '((close-paren 1812 . 1813) (symbol 1781 . 1798) (open-paren 1780 . 1781))))
+      :unmatched-syntax '((close-paren 1812 . 1813) (symbol 1781 . 1798) (open-paren 1780 . 1781)))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("cedet" include nil nil [1380 1396])
+            ("semantic/tag" include nil nil [1397 1420])
+            ("semantic/lex" include nil nil [1421 1444])
+            ("cl-lib" include nil nil [1445 1462])
+            ("semantic-version" variable (:default-value "2.2") nil [1464 1528])
+            ("declare-function" code nil nil [1530 1575])
+            ("declare-function" code nil nil [1576 1647])
+            ("semantic-require-version" function (:arguments ("major" "minor" "beta")) nil [1649 2227])
+            ("semantic" customgroup (:user-visible-flag t) nil [2229 2311])
+            ("semantic-faces" customgroup (:user-visible-flag t) nil [2313 2404])
+            ("semantic/fw" include nil nil [2406 2428])
+            ("semantic--parse-table" variable nil nil [2479 2674])
+            ("make-variable-buffer-local" code nil nil [2675 2726])
+            ("semantic-varalias-obsolete" code nil nil [2727 2824])
+            ("semantic-symbol->name-assoc-list" variable (:default-value (quote ((type . "Types") (variable . "Variables") (function . "Functions") (include . "Dependencies") (package . "Provides")))) nil [2826 3365])
+            ("make-variable-buffer-local" code nil nil [3366 3428])
+            ("semantic-symbol->name-assoc-list-for-type-parts" variable nil nil [3430 3864])
+            ("make-variable-buffer-local" code nil nil [3865 3942])
+            ("semantic-case-fold" variable nil nil [3944 4022])
+            ("make-variable-buffer-local" code nil nil [4023 4071])
+            ("semantic-expand-nonterminal" variable nil nil [4073 4565])
+            ("make-variable-buffer-local" code nil nil [4566 4623])
+            ("semantic--buffer-cache" variable nil nil [4625 5038])
+            ("make-variable-buffer-local" code nil nil [5039 5091])
+            ("semantic-varalias-obsolete" code nil nil [5092 5190])
+            ("semantic-unmatched-syntax-cache" variable nil nil [5192 5282])
+            ("make-variable-buffer-local" code nil nil [5283 5344])
+            ("semantic-unmatched-syntax-cache-check" variable nil nil [5346 5503])
+            ("make-variable-buffer-local" code nil nil [5504 5571])
+            ("semantic-edits-are-safe" variable nil nil [5573 5923])
+            ("semantic-unmatched-syntax-hook" variable nil nil [5925 6550])
+            ("semantic--before-fetch-tags-hook" variable nil nil [6552 6850])
+            ("semantic-varalias-obsolete" code nil nil [6851 6969])
+            ("semantic-after-toplevel-bovinate-hook" variable nil nil [6971 7330])
+            ("make-obsolete-variable" code nil nil [7331 7405])
+            ("semantic-after-toplevel-cache-change-hook" variable nil nil [7407 7847])
+            ("semantic-before-toplevel-cache-flush-hook" variable nil nil [7849 8199])
+            ("semantic-dump-parse" variable nil nil [8201 8316])
+            ("semantic-parser-name" variable (:default-value "LL") nil [8318 8412])
+            ("make-variable-buffer-local" code nil nil [8413 8463])
+            ("semantic--completion-cache" variable nil nil [8465 8562])
+            ("make-variable-buffer-local" code nil nil [8563 8619])
+            ("semantic-parse-tree-state" variable (:default-value (quote needs-rebuild)) nil [8661 8747])
+            ("make-variable-buffer-local" code nil nil [8748 8803])
+            ("semantic-parse-tree-unparseable" function nil nil [8805 9088])
+            ("semantic-parse-tree-unparseable-p" function nil nil [9090 9254])
+            ("semantic-parse-tree-set-needs-update" function nil nil [9256 9477])
+            ("semantic-parse-tree-needs-update-p" function nil nil [9479 9641])
+            ("semantic-parse-tree-set-needs-rebuild" function nil nil [9643 9866])
+            ("semantic-parse-tree-needs-rebuild-p" function nil nil [9868 10032])
+            ("semantic-parse-tree-set-up-to-date" function nil nil [10034 10178])
+            ("semantic-parse-tree-up-to-date-p" function nil nil [10180 10322])
+            ("semantic-inhibit-functions" variable nil nil [10359 10600])
+            ("semantic-new-buffer-setup-functions" variable (:default-value (quote ((c-mode . semantic-default-c-setup) (c++-mode . semantic-default-c-setup) (html-mode . semantic-default-html-setup) (java-mode . wisent-java-default-setup) (js-mode . wisent-javascript-setup-parser) (python-mode . wisent-python-default-setup) (scheme-mode . semantic-default-scheme-setup) (srecode-template-mode . srecode-template-setup-parser) (texinfo-mode . semantic-default-texi-setup) (makefile-automake-mode . semantic-default-make-setup) (makefile-gmake-mode . semantic-default-make-setup) (makefile-makepp-mode . semantic-default-make-setup) (makefile-bsdmake-mode . semantic-default-make-setup) (makefile-imake-mode . semantic-default-make-setup) (makefile-mode . semantic-default-make-setup)))) nil [10602 11833])
+            ("semantic-init-hook" variable nil nil [11835 11930])
+            ("semantic-init-mode-hook" variable nil nil [11932 12032])
+            ("make-variable-buffer-local" code nil nil [12033 12086])
+            ("semantic-init-db-hook" variable nil nil [12088 12358])
+            ("semantic-varalias-obsolete" code nil nil [12360 12443])
+            ("semantic-varalias-obsolete" code nil nil [12444 12537])
+            ("semantic-varalias-obsolete" code nil nil [12538 12627])
+            ("semantic-error-if-unparsed" function nil nil [12629 12826])
+            ("semantic--umatched-syntax-needs-refresh-p" function nil nil [12828 13113])
+            ("semantic-new-buffer-fcn" function nil nil [13115 14752])
+            ("semantic-fetch-tags-fast" function nil nil [14754 14998])
+            ("condition-case" code nil nil [15046 15092])
+            ("semantic-edebug" variable nil nil [15095 15234])
+            ("semantic-elapsed-time" function (:arguments ("start" "end")) nil [15236 15427])
+            ("bovinate" function
+               (:user-visible-flag t
+                :arguments ("clear"))
+                nil [15429 16185])
+            ("semantic-parse-stream" function
+               (:overloadable t
+                :arguments ("stream" "nonterminal"))
+                nil [16294 16880])
+            ("semantic-parse-changes" function (:overloadable t) nil [16882 17129])
+            ("semantic-parse-region" function
+               (:overloadable t
+                :arguments ("start" "end" "nonterminal" "depth" "returnonerror"))
+                nil [17131 17961])
+            ("semantic-parse-region-default" function (:arguments ("start" "end" "nonterminal" "depth" "returnonerror")) nil [17963 19015])
+            ("semantic-set-unmatched-syntax-cache" function (:arguments ("unmatched-syntax")) nil [19043 19590])
+            ("semantic-clear-unmatched-syntax-cache" function nil nil [19592 19781])
+            ("semantic-unmatched-syntax-tokens" function nil nil [19783 20406])
+            ("semantic-clear-toplevel-cache" function (:user-visible-flag t) nil [20408 21422])
+            ("semantic-bovinate-nonterminal-check-obarray" variable nil nil [21424 21476])
+            ("semantic--set-buffer-cache" function (:arguments ("tagtable")) nil [21478 22369])
+            ("semantic-working-type" variable (:default-value (quote percent)) nil [22371 22573])
+            ("semantic-varalias-obsolete" code nil nil [22574 22673])
+            ("semantic-minimum-working-buffer-size" variable (:default-value (* 1024 5)) nil [22675 22914])
+            ("semantic-parser-working-message" function (:arguments ("arg")) nil [22916 23231])
+            ("semantic-parser-warnings" variable nil nil [23453 23486])
+            ("semantic-fetch-tags" function nil nil [23488 26616])
+            ("semantic-refresh-tags-safe" function nil nil [26618 27927])
+            ("semantic-bovinate-toplevel" function (:arguments ("ignored")) nil [27929 28044])
+            ("make-obsolete" code nil nil [28045 28116])
+            ("semantic-fetch-available-tags" function nil nil [28377 28817])
+            ("semantic-repeat-parse-whole-stream" function (:arguments ("stream" "nonterm" "returnonerror")) nil [29090 31313])
+            ("semantic-parser-warnings" variable nil nil [31589 31685])
+            ("make-variable-buffer-local" code nil nil [31686 31740])
+            ("semantic-clear-parser-warnings" function nil nil [31742 31884])
+            ("semantic-push-parser-warning" function (:arguments ("warning" "start" "end")) nil [31886 32109])
+            ("semantic-dump-parser-warnings" function (:user-visible-flag t) nil [32111 32430])
+            ("semantic-bovinate-region-until-error" function (:arguments ("start" "end" "nonterm" "depth")) nil [32622 33231])
+            ("make-obsolete" code nil nil [33232 33330])
+            ("semantic-bovinate-from-nonterminal" function (:arguments ("start" "end" "nonterm" "depth" "length")) nil [33332 33877])
+            ("semantic-bovinate-from-nonterminal-full" function (:arguments ("start" "end" "nonterm" "depth")) nil [33879 34455])
+            ("make-obsolete" code nil nil [34456 34557])
+            ("semantic-force-refresh" function (:user-visible-flag t) nil [34579 34832])
+            ("semantic-mode-map" variable (:default-value (let ((map (make-sparse-keymap))) (define-key map ",j" (quote semantic-complete-jump-local)) (define-key map ",J" (quote semantic-complete-jump)) (define-key map ",m" (quote semantic-complete-jump-local-members)) (define-key map ",g" (quote semantic-symref-symbol)) (define-key map ",G" (quote semantic-symref)) (define-key map ",p" (quote senator-previous-tag)) (define-key map ",n" (quote senator-next-tag)) (define-key map ",u" (quote senator-go-to-up-reference)) (define-key map ", " (quote semantic-complete-analyze-inline)) (define-key map "," (quote senator-kill-tag)) (define-key map ",\367" (quote senator-copy-tag)) (define-key map "," (quote senator-yank-tag)) (define-key map ",r" (quote senator-copy-tag-to-register)) (define-key map ",," (quote semantic-force-refresh)) (define-key map [3 44 up] (quote senator-transpose-tags-up)) (define-key map [3 44 down] (quote senator-transpose-tags-down)) (define-key map ",l" (quote semantic-analyze-possible-completions)) (define-key map [menu-bar cedet-menu] (list (quote menu-item) "Development" cedet-menu-map :enable (quote (not (and menu-bar-mode (bound-and-true-p global-ede-mode)))))) map)) nil [34834 36448])
+            ("let" code nil nil [36499 42986])
+            ("semantic-load-system-cache-loaded" variable nil nil [43139 43301])
+            ("semantic-submode-list" variable
+               (:constant-flag t
+                :default-value (quote (global-semantic-highlight-func-mode global-semantic-decoration-mode global-semantic-stickyfunc-mode global-semantic-idle-completions-mode global-semantic-idle-scheduler-mode global-semanticdb-minor-mode global-semantic-idle-summary-mode global-semantic-mru-bookmark-mode global-cedet-m3-minor-mode global-semantic-idle-local-symbol-highlight-mode global-semantic-highlight-edits-mode global-semantic-show-unmatched-syntax-mode global-semantic-show-parser-state-mode)))
+                nil [43303 43913])
+            ("semantic-default-submodes" variable (:default-value (quote (global-semantic-idle-scheduler-mode global-semanticdb-minor-mode))) nil [43930 45583])
+            ("define-minor-mode" code nil nil [45600 48800])
+            ("semantic-analyze-completion-at-point-function" function nil nil [48836 49487])
+            ("semantic-analyze-notc-completion-at-point-function" function nil nil [49489 50138])
+            ("semantic-analyze-nolongprefix-completion-at-point-function" function nil nil [50140 50864])
+            ("global-semantic-idle-completions-mode" function
+               (:prototype-flag t
+                :user-visible-flag t)
+                nil [50929 51143])
+            ("semantic-idle-completions-mode" function
+               (:prototype-flag t
+                :user-visible-flag t)
+                nil [51145 51555])
+            ("global-semantic-idle-summary-mode" function
+               (:prototype-flag t
+                :user-visible-flag t)
+                nil [51557 51763])
+            ("semantic-idle-summary-mode" function
+               (:prototype-flag t
+                :user-visible-flag t)
+                nil [51765 52280])
+            ("global-semantic-idle-local-symbol-highlight-mode" function
+               (:prototype-flag t
+                :user-visible-flag t)
+                nil [52282 52570])
+            ("srecode-template-setup-parser" function
+               (:prototype-flag t
+                :user-visible-flag t)
+                nil [52572 52700])
+            ("semantic" package nil nil [52702 52721])
+            ("semantic/util" include nil nil [52823 52847]))          
+      :file "semantic.el"
+      :pointmax 52904
+      :fsize 52903
+      :lastmodtime '(23525 29528 0 0)
+      :unmatched-syntax '((close-paren 15092 . 15093) (symbol 15026 . 15043) (open-paren 15025 . 15026)))
+    (semanticdb-table "semanticdb-table"
+      :major-mode emacs-lisp-mode
+      :tags 
+        '( ("pulse-available-p" function nil nil [1939 2156])
+            ("pulse-flag" variable (:default-value (pulse-available-p)) nil [2158 2643])
+            ("pulse-highlight-start-face" variable
+               (:default-value (quote ((((class color) (background dark)) (:background "#AAAA33")) (((class color) (background light)) (:background "#FFFFAA"))))
+                :type "face")
+                nil [2645 2880])
+            ("pulse-highlight-face" variable
+               (:default-value (quote ((((class color) (background dark)) (:background "#AAAA33")) (((class color) (background light)) (:background "#FFFFAA"))))
+                :type "face")
+                nil [2882 3187])
+            ("pulse-int-to-hex" function (:arguments ("int" "nb-digits")) nil [3202 3881])
+            ("pulse-color-values-to-hex" function (:arguments ("values")) nil [3883 4373])
+            ("pulse-iterations" variable (:default-value 10) nil [4382 4492])
+            ("pulse-delay" variable (:default-value 0.03) nil [4493 4598])
+            ("pulse-lighten-highlight" function nil nil [4600 5726])
+            ("pulse-reset-face" function (:arguments ("face")) nil [5728 6094])
+            ("pulse-momentary-overlay" variable nil nil [6125 6194])
+            ("pulse-momentary-timer" variable nil nil [6196 6261])
+            ("pulse-momentary-highlight-overlay" function (:arguments ("o" "face")) nil [6263 7398])
+            ("pulse-tick" function (:arguments ("stop-time")) nil [7400 7542])
+            ("pulse-momentary-unhighlight" function nil nil [7544 8253])
+            ("pulse-momentary-highlight-one-line" function (:arguments ("point" "face")) nil [8270 8768])
+            ("pulse-momentary-highlight-region" function (:arguments ("start" "end" "face")) nil [8785 9141])
+            ("pulse-command-advice-flag" variable nil nil [9184 9222])
+            ("pulse-line-hook-function" function nil nil [9224 9461])
+            ("pulse" package nil nil [9463 9479]))          
+      :file "pulse.el"
+      :pointmax 9504
+      :fsize 9503
+      :lastmodtime '(23525 29528 0 0)
+      :unmatched-syntax nil))
   :file "!drive_c!Program Files!Emacs 26.1!share!emacs!26.1!lisp!cedet!semantic.cache"
   :semantic-tag-version "2.0"
   :semanticdb-version "2.2")
