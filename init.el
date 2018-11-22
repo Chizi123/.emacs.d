@@ -305,6 +305,15 @@
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
 
+(use-package flycheck-clang-analyzer
+  :ensure t
+  :after flycheck
+  :config
+  (flycheck-clang-analyzer-setup)
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
+
 ;; nyan mode
 (use-package nyan-mode
   :if window-system
@@ -313,10 +322,22 @@
   (nyan-mode))
 
 ;; semantic refactor
-(use-package srefactor
+(use-package semantic
   :ensure t
   :config
-  (semantic-mode 1)
+  (semantic-mode 1))
+
+(use-package srefactor
+  :ensure t
+  :bind (("M-RET o" . 'srefactor-lisp-one-line)
+	 ("M-RET m" . 'srefactor-lisp-format-sexp)
+	 ("M-RET d" . 'srefactor-lisp-format-defun)
+	 ("M-RET b" . 'srefactor-lisp-format-buffer)
+	 :map c-mode-base-map
+	      ("M-RET" . 'srefactor-refactor-at-point)
+	      :map c++-mode-map
+	      ("M-RET" . 'srefactor-refactor-at-point))
+  :config
   (setq auto-package-update-delete-old-versions t)
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
@@ -362,6 +383,7 @@
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
 
+;; org
 (use-package org
   :ensure t
   :config
@@ -369,9 +391,12 @@
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
 
+;; tex/AUCTex
 (use-package tex
   :ensure auctex
   :config
+  (setq TeX-auto-save t)
+  (setq TeX-parse-self t)
   (setq auto-package-update-delete-old-versions t)
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
