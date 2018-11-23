@@ -248,14 +248,6 @@
     (defadvice git-commit-abort (after delete-window activate)
       (delete-window))
 
-    ;; these two force a new line to be inserted into a commit window,
-    ;; which stops the invalid style showing up.
-    ;; From: http://git.io/rPBE0Q
-    (defun magit-commit-mode-init ()
-      (when (looking-at "\n")
-        (open-line 1)))
-
-    (add-hook 'git-commit-mode-hook 'magit-commit-mode-init))
   :config
   (progn
     ;; restore previously hidden windows
@@ -276,13 +268,8 @@
 
     (define-key magit-mode-map "c" 'magit-maybe-commit)
 
-    ;; major mode for editing `git rebase -i` files
-    (use-package rebase-mode)
-
     ;; magit settings
     (setq
-     ;; use ido to look for branches
-     magit-completing-read-function 'magit-ido-completing-read
      ;; don't put "origin-" in front of new branch names by default
      magit-default-tracking-name-function 'magit-default-tracking-name-branch-only
      ;; open magit status in same window as current buffer
@@ -436,7 +423,7 @@
     ("ec5f697561eaf87b1d3b087dd28e61a2fc9860e4c862ea8e6b0b77bd4967d0ba" default)))
  '(package-selected-packages
    (quote
-    (company-math latex-preview-pane auctex zenburn-theme org flycheck-pos-tip flycheck rtags racket-mode geiser auto-package-update use-package pdf-tools org-bullets x86-lookup ztree yasnippet workgroups2 volatile-highlights undo-tree srefactor smartparens nyan-mode magit ibuffer-vc helm-projectile guide-key ggtags diff-hl company-c-headers clean-aindent-mode))))
+    (company-math latex-preview-pane auctex zenburn-theme org flycheck-pos-tip flycheck rtags racket-mode geiser auto-package-update use-package pdf-tools org-bullets x86-lookup ztree yasnippet workgroups2 volatile-highlights undo-tree srefactor smartparens nyan-mode magit ibuffer-vc helm-projectile ggtags diff-hl company-c-headers clean-aindent-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
