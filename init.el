@@ -142,7 +142,7 @@
   (auto-package-update-maybe))
 
 ;; workgroups2
-(use-package workgroups
+(use-package workgroups2
   :ensure t
   :config
   (workgroups-mode 1)
