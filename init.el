@@ -357,14 +357,12 @@
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
 
-;; guide-key
-(use-package guide-key
+;; which-key
+(use-package which-key
   :ensure t
   :config
-  (setq guide-key/guide-key-sequence '("C-x" "C-c" "M-g" "C-h"))
-  (setq guide-key/recursive-key-sequence-flag t)
-  (setq guide-key/popup-window-position 'bottom)
-  (guide-key-mode 1)
+  (which-key-mode)
+  (which-key-setup-side-window-bottom)
   (setq auto-package-update-delete-old-versions t)
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
