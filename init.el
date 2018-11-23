@@ -1,7 +1,7 @@
 (provide 'init)
 
 ;; set paths for executable
-;; use mingw64 for aspell, poppler (pdf-tools), gcc
+;; use mingw64 for aspell, poppler (pdf-tools), gcc, ghostscript
 (add-to-list 'exec-path "C:/msys64/usr/bin")
 (add-to-list 'exec-path "C:/msys64/mingw64/bin")
 (add-to-list 'exec-path "c:/Program Files/Racket")
@@ -30,6 +30,10 @@
 ;; setting up aspell
 (require 'ispell)
 (setq-default ispell-program-name "aspell")
+(add-hook 'latex-mode-hook 'flyspell-mode)
+(add-hook 'latex-mode-hook 'flyspell-buffer)
+(add-hook 'org-mode-hook 'flyspell-mode)
+(add-hook 'org-mode-hook 'flyspell-buffer)
 
 ;; Repos
 (require 'package)
@@ -49,6 +53,7 @@
 
 ;; auto-package-update
 (use-package auto-package-update
+  :ensure t
   :config
   (setq auto-package-update-delete-old-versions t)
   (setq auto-package-update-hide-results t)
@@ -180,8 +185,18 @@
 
 (use-package company-c-headers
   :ensure t
+  :after company
   :config
   (add-to-list 'company-backends 'company-c-headers)
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
+
+(use-package company-math
+  :ensure t
+  :after company
+  :config
+  (add-to-list 'company-backends 'company-math-symbols-unicode)
   (setq auto-package-update-delete-old-versions t)
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
@@ -368,8 +383,8 @@
 ;; org-bullets
 (use-package org-bullets
   :ensure t
-  :hook org-mode
   :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   (setq auto-package-update-delete-old-versions t)
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
@@ -387,6 +402,7 @@
 (use-package org
   :ensure t
   :config
+  (setq org-src-tab-acts-natively t)
   (setq auto-package-update-delete-old-versions t)
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
@@ -397,6 +413,17 @@
   :config
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
+  (setq doc-view-ghostscript-program "c:/msys64/mingw64/bin/gswin32c.exe")
+  (setq preview-gs-command "c:/msys64/mingw64/bin/gs.exe")
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
+
+;; latex-preview-pane
+(use-package latex-preview-pane
+  :ensure t
+  :config
+  (latex-preview-pane-enable)
   (setq auto-package-update-delete-old-versions t)
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
@@ -411,7 +438,7 @@
     ("ec5f697561eaf87b1d3b087dd28e61a2fc9860e4c862ea8e6b0b77bd4967d0ba" default)))
  '(package-selected-packages
    (quote
-    (auctex zenburn-theme org flycheck-pos-tip flycheck rtags racket-mode geiser auto-package-update use-package pdf-tools org-bullets x86-lookup ztree yasnippet workgroups2 volatile-highlights undo-tree srefactor smartparens nyan-mode magit ibuffer-vc helm-projectile guide-key ggtags diff-hl company-c-headers clean-aindent-mode))))
+    (company-math latex-preview-pane auctex zenburn-theme org flycheck-pos-tip flycheck rtags racket-mode geiser auto-package-update use-package pdf-tools org-bullets x86-lookup ztree yasnippet workgroups2 volatile-highlights undo-tree srefactor smartparens nyan-mode magit ibuffer-vc helm-projectile guide-key ggtags diff-hl company-c-headers clean-aindent-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
