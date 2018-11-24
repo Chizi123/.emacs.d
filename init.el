@@ -1,5 +1,3 @@
-(provide 'init)
-
 (setq inhibit-startup-message t)
 
 ;; set paths for executable
@@ -252,11 +250,7 @@
 (use-package magit
   :ensure t
   :commands magit-get-top-dir
-  :bind (("C-x g s" . magit-status)
-         ("C-x g f" . magit-file-log)
-         ("C-x g h" . magit-log)
-	 ("C-x g c" . magit-branch)
-	 ("C-x g t" . magit-tag))
+  :bind ("C-x g" . magit-status)
   :init
   (progn
     ;; make magit status go full-screen but remember previous window
