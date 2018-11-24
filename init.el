@@ -1,5 +1,7 @@
 (provide 'init)
 
+(setq inhibit-startup-message t)
+
 ;; set paths for executable
 ;; use mingw64 for aspell, poppler (pdf-tools), gcc, ghostscript
 (add-to-list 'exec-path "C:/msys64/usr/bin")
@@ -425,16 +427,12 @@
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(column-number-mode t)
- '(custom-safe-themes
-   (quote
-    ("ec5f697561eaf87b1d3b087dd28e61a2fc9860e4c862ea8e6b0b77bd4967d0ba" default)))
- '(debug-on-quit t)
- '(package-selected-packages
-   (quote
-    (company-math latex-preview-pane auctex zenburn-theme org flycheck-pos-tip flycheck rtags racket-mode geiser auto-package-update use-package pdf-tools org-bullets x86-lookup ztree yasnippet workgroups2 volatile-highlights undo-tree srefactor smartparens nyan-mode magit ibuffer-vc helm-projectile ggtags diff-hl company-c-headers clean-aindent-mode))))
+;; plantuml
+(use-package plantuml-mode
+  :ensure t
+  :init
+  (setq plantuml-jar-path "c:/ProgramData/chocolatey/lib/plantuml/tools/plantuml.jar")
+  :config
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
