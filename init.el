@@ -27,6 +27,9 @@
 (require 'setup-text)
 (require 'setup-local)
 
+;; set default font
+(set-default-font "DejaVu Sans Mono-10")
+
 ;; setting up aspell
 (require 'ispell)
 (setq-default ispell-program-name "aspell")
@@ -101,6 +104,28 @@
   (setq auto-package-update-delete-old-versions t)
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
+
+;; CEDET
+(use-package cedet)
+
+(use-package semantic
+  :config
+  (global-semanticdb-minor-mode 1)
+  (global-semantic-idle-scheduler-mode 1)
+  (global-semantic-idle-summary-mode 1)
+  (semantic-mode 1))
+
+(use-package ede
+  :config
+  (global-ede-mode))
+
+(setq
+ ;; use gdb-many-windows by default
+ gdb-many-windows t
+
+ ;; Non-nil means display source file containing the main routine at startup
+ gdb-show-main t
+ )
 
 ;; undo-tree
 (use-package undo-tree
@@ -223,6 +248,7 @@
 
 ;; magit config
 (use-package magit
+  :ensure t
   :commands magit-get-top-dir
   :bind (("C-x g s" . magit-status)
          ("C-x g f" . magit-file-log)
@@ -257,35 +283,26 @@
         ;; we only want to jump to register when the last seen buffer
         ;; was a magit-status buffer.
         (when (eq 'magit-status-mode current-mode)
-          (jump-to-register :magit-fullscreen))))
+          (jump-to-register :magit-fullscreen)))))
 
-    (defun magit-maybe-commit (&optional show-options)
-      "Runs magit-commit unless prefix is passed"
-      (interactive "P")
-      (if show-options
-          (magit-key-mode-popup-committing)
-        (magit-commit)))
-
-    (define-key magit-mode-map "c" 'magit-maybe-commit)
-
-    ;; magit settings
-    (setq
-     ;; don't put "origin-" in front of new branch names by default
-     magit-default-tracking-name-function 'magit-default-tracking-name-branch-only
-     ;; open magit status in same window as current buffer
-     magit-status-buffer-switch-function 'switch-to-buffer
-     ;; highlight word/letter changes in hunk diffs
-     magit-diff-refine-hunk t
-     ;; ask me if I want to include a revision when rewriting
-     magit-rewrite-inclusive 'ask
-     ;; ask me to save buffers
-     magit-save-some-buffers t
-     ;; pop the process buffer if we're taking a while to complete
-     magit-process-popup-time 10
-     ;; ask me if I want a tracking upstream
-     magit-set-upstream-on-push 'askifnotset
-     )
-    (setq auto-package-update-delete-old-versions t)
+  ;; magit settings
+  (setq
+   ;; don't put "origin-" in front of new branch names by default
+   magit-default-tracking-name-function 'magit-default-tracking-name-branch-only
+   ;; open magit status in same window as current buffer
+   magit-status-buffer-switch-function 'switch-to-buffer
+   ;; highlight word/letter changes in hunk diffs
+   magit-diff-refine-hunk t
+   ;; ask me if I want to include a revision when rewriting
+   magit-rewrite-inclusive 'ask
+   ;; ask me to save buffers
+   magit-save-some-buffers t
+   ;; pop the process buffer if we're taking a while to complete
+   magit-process-popup-time 10
+   ;; ask me if I want a tracking upstream
+   magit-set-upstream-on-push 'askifnotset
+   )
+  (setq auto-package-update-delete-old-versions t)
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe)))
 
@@ -324,11 +341,6 @@
   (nyan-mode))
 
 ;; semantic refactor
-(use-package semantic
-  :ensure t
-  :config
-  (semantic-mode 1))
-
 (use-package srefactor
   :ensure t
   :bind (("M-RET o" . 'srefactor-lisp-one-line)
@@ -418,15 +430,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
  '(custom-safe-themes
    (quote
     ("ec5f697561eaf87b1d3b087dd28e61a2fc9860e4c862ea8e6b0b77bd4967d0ba" default)))
+ '(debug-on-quit t)
  '(package-selected-packages
    (quote
     (company-math latex-preview-pane auctex zenburn-theme org flycheck-pos-tip flycheck rtags racket-mode geiser auto-package-update use-package pdf-tools org-bullets x86-lookup ztree yasnippet workgroups2 volatile-highlights undo-tree srefactor smartparens nyan-mode magit ibuffer-vc helm-projectile ggtags diff-hl company-c-headers clean-aindent-mode))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
