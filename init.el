@@ -117,7 +117,8 @@
 
 (use-package ede
   :config
-  (global-ede-mode))
+  (global-ede-mode t))
+
 
 (setq
  ;; use gdb-many-windows by default
@@ -430,3 +431,15 @@
   (setq auto-package-update-delete-old-versions t)
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ede-project-directories (quote ("c:/Users/joelg/.emacs.d"))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
