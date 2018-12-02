@@ -41,7 +41,7 @@
 ;; Repos
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
-;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 
 ;; use-package
@@ -52,7 +52,6 @@
 
 (eval-when-compile
   (require 'use-package))
-
 
 ;; auto-package-update
 (use-package auto-package-update
@@ -66,10 +65,7 @@
 (use-package zenburn-theme
   :ensure t
   :config
-  (load-theme 'zenburn t)
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  (load-theme 'zenburn t))
 
 ;; helm
 (use-package helm-config
@@ -100,14 +96,9 @@
 	(setq-local cursor-type nil))))
   (add-hook 'helm-minibuffer-set-up-hook
             'spacemacs//helm-hide-minibuffer-maybe)
-  (helm-mode 1)
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  (helm-mode 1))
 
 ;; CEDET
-(use-package cedet)
-
 (use-package semantic
   :config
   (global-semanticdb-minor-mode 1)
@@ -125,35 +116,25 @@
  gdb-many-windows t
 
  ;; Non-nil means display source file containing the main routine at startup
- gdb-show-main t
- )
+ gdb-show-main t)
 
 ;; undo-tree
 (use-package undo-tree
   :ensure t
   :config
-  (global-undo-tree-mode)
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  (global-undo-tree-mode))
 
 ;; volatile highlights
 (use-package volatile-highlights
   :ensure t
   :config
-  (volatile-highlights-mode t)
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  (volatile-highlights-mode t))
 
 ;; yasnippet
 (use-package yasnippet
   :ensure t
   :config
-  (yas-global-mode 1)
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  (yas-global-mode 1))
 
 ;; ggtags
 (use-package ggtags
@@ -162,19 +143,13 @@
   (add-hook 'c-mode-common-hook
             (lambda
 	      (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-		(ggtags-mode 1))))
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+		(ggtags-mode 1)))))
 
 ;; workgroups2
 (use-package workgroups2
   :ensure t
   :config
-  (workgroups-mode 1)
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  (workgroups-mode 1))
 
 ;; smartparens
 (use-package smartparens
@@ -183,19 +158,12 @@
   :config
   (progn
     (require 'smartparens-config)
-    (smartparens-global-mode 1))
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+    (smartparens-global-mode 1)))
 
 ;; clean-aindent-mode
 (use-package clean-aindent-mode
   :ensure t
-  :hook prog-mode
-  :config
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  :hook prog-mode)
 
 ;; company config
 (use-package company
@@ -204,28 +172,19 @@
   :config
   (add-hook 'c-mode-common-hook
 	    (lambda ()
-	      (define-key c-mode-base-map  [(tab)] 'company-complete)))
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+	      (define-key c-mode-base-map  [(tab)] 'company-complete))))
 
 (use-package company-c-headers
   :ensure t
   :after company
   :config
-  (add-to-list 'company-backends 'company-c-headers)
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  (add-to-list 'company-backends 'company-c-headers))
 
 (use-package company-math
   :ensure t
   :after company
   :config
-  (add-to-list 'company-backends 'company-math-symbols-unicode)
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  (add-to-list 'company-backends 'company-math-symbols-unicode))
 
 ;; projectile config
 (use-package projectile
@@ -234,18 +193,12 @@
   :config
   (projectile-global-mode)
   (setq projectile-completion-system 'helm)
-  (setq projectile-indexing-method 'alien)
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  (setq projectile-indexing-method 'alien))
 
 (use-package helm-projectile
   :ensure t
   :config
-  (helm-projectile-on)
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  (helm-projectile-on))
 
 ;; magit config
 (use-package magit
@@ -298,37 +251,24 @@
    magit-process-popup-time 10
    ;; ask me if I want a tracking upstream
    magit-set-upstream-on-push 'askifnotset
-   )
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe)))
+   )))
 
 ;; flycheck
 (use-package flycheck
   :ensure t
-  :init (global-flycheck-mode)
-  :config
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  :init (global-flycheck-mode))
 
 (use-package flycheck-pos-tip
   :ensure t
   :after flycheck
   :config
-  (flycheck-pos-tip-mode)
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  (flycheck-pos-tip-mode))
 
 (use-package flycheck-clang-analyzer
   :ensure t
   :after flycheck
   :config
-  (flycheck-clang-analyzer-setup)
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  (flycheck-clang-analyzer-setup))
 
 ;; nyan mode
 (use-package nyan-mode
@@ -347,59 +287,39 @@
 	 :map c-mode-base-map
 	      ("M-RET" . 'srefactor-refactor-at-point)
 	      :map c++-mode-map
-	      ("M-RET" . 'srefactor-refactor-at-point))
-  :config
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+	      ("M-RET" . 'srefactor-refactor-at-point)))
 
 ;; which-key
 (use-package which-key
   :ensure t
   :config
   (which-key-mode)
-  (which-key-setup-side-window-bottom)
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  (which-key-setup-side-window-bottom))
 
 ;; x86 lookup
 (use-package x86-lookup
   :ensure t
   :init
   (setq x86-lookup-pdf "D:/Coding/x86-instructions.pdf")
-  :bind ("C-h x" . x86-lookup)
-  :config
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  :bind ("C-h x" . x86-lookup))
 
 ;; org-bullets
 (use-package org-bullets
   :ensure t
   :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 ;; pdf-tools
 (use-package pdf-tools
   :ensure t
   :config
-  (pdf-tools-install)
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  (pdf-tools-install))
 
 ;; org
 (use-package org
   :ensure t
   :config
-  (setq org-src-tab-acts-natively t)
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  (setq org-src-tab-acts-natively t))
 
 ;; tex/AUCTex
 (use-package tex
@@ -408,35 +328,29 @@
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
   (setq doc-view-ghostscript-program "c:/msys64/mingw64/bin/gswin32c.exe")
-  (setq preview-gs-command "c:/msys64/mingw64/bin/gs.exe")
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  (setq preview-gs-command "c:/msys64/mingw64/bin/gs.exe"))
 
 ;; latex-preview-pane
 (use-package latex-preview-pane
   :ensure t
   :config
-  (latex-preview-pane-enable)
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  (latex-preview-pane-enable))
 
 ;; plantuml
 (use-package plantuml-mode
   :ensure t
   :init
-  (setq plantuml-jar-path "c:/ProgramData/chocolatey/lib/plantuml/tools/plantuml.jar")
-  :config
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  (setq plantuml-jar-path "c:/ProgramData/chocolatey/lib/plantuml/tools/plantuml.jar"))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ede-project-directories (quote ("c:/Users/joelg/.emacs.d"))))
+ '(ede-project-directories (quote ("c:/Users/joelg/.emacs.d")))
+ '(package-selected-packages
+   (quote
+    (zenburn-theme yasnippet x86-lookup workgroups2 which-key volatile-highlights use-package undo-tree srefactor smartparens racket-mode popwin plantuml-mode pdf-tools org-bullets org nyan-mode magit latex-preview-pane helm-projectile ggtags flycheck-pos-tip flycheck-clang-analyzer company-math company-c-headers clean-aindent-mode auto-package-update auctex))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
