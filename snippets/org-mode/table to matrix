@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Org table to latex matrix
+# key: lmatrix
+# --
+#+attr_latex: :mode math :environment matrix
+$0

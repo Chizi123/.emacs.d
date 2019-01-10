@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: Latex snippet
+# key: <l
+# group: code snippets
+# --
+#+BEGIN_SRC latex
+$0
+#+END_SRC

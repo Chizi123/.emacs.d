@@ -3,7 +3,7 @@
 Dependencies needed for Aspell, poppler PDF-tools, compilers and ghost-script provided by mingw64
 #+BEGIN_SRC emacs-lisp
   (when (eq system-type 'windows-nt)
-    (add-to-list 'exec-path "C:/msys64/usr/bin")
+    ;; (add-to-list 'exec-path "C:/msys64/usr/bin")
     (add-to-list 'exec-path "C:/msys64/mingw64/bin")
     (add-to-list 'exec-path "c:/Program Files/Racket")
     (setenv "PATH" (mapconcat #'identity exec-path path-separator)))
@@ -565,27 +565,24 @@ Company is auto-complete for emacs
 #+END_SRC
 **** company
 #+BEGIN_SRC emacs-lisp
-  (add-hook 'c-mode-common-hook
-	    (lambda ()
-	      (define-key c-mode-base-map  [(tab)] 'company-complete)))
-
     (use-package company-c-headers
-	:ensure t
-	:after company
-	:config
-	(add-hook 'c++-mode-hook 'company-mode)
-	(add-hook 'c-mode-hook 'company-mode))
+        :ensure t
+        :after company
+        :config
+        (add-hook 'c++-mode-hook 'company-mode)
+        (add-hook 'c-mode-hook 'company-mode))
 
     (use-package company-irony
       :ensure t
       :config
       (add-to-list 'company-backends '(company-c-headers
-				       company-dabbrev-code
-				       company-irony)))
+                                       company-dabbrev-code
+                                       company-irony)))
 
     (use-package irony
       :ensure t
       :config
+      (setq w32-pipe-read-delay 0)
       (add-hook 'c++-mode-hook 'irony-mode)
       (add-hook 'c-mode-hook 'irony-mode)
       (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
