@@ -6,6 +6,8 @@ Dependencies needed for Aspell, poppler PDF-tools, compilers and ghost-script pr
     ;; (add-to-list 'exec-path "C:/msys64/usr/bin")
     (add-to-list 'exec-path "C:/msys64/mingw64/bin")
     (add-to-list 'exec-path "c:/Program Files/Racket")
+    (add-to-list 'exec-path "c:/Users/joelg/TeXcount_3_1_1")
+    (add-to-list 'exec-path "c:/Program Files/gnuplot")
     (setenv "PATH" (mapconcat #'identity exec-path path-separator)))
 #+END_SRC
 
@@ -647,6 +649,31 @@ Company is auto-complete for emacs
   :config
   (latex-preview-pane-enable))
 #+END_SRC
+**** TeXcount
+     Word counts in latex
+     #+BEGIN_SRC emacs-lisp
+       (defun texcount ()
+	 (interactive)
+	 (let*
+	     ( (this-file (buffer-file-name))
+	       (enc-str (symbol-name buffer-file-coding-system))
+	       (enc-opt
+		(cond
+		 ((string-match "utf-8" enc-str) "-utf8")
+		 ((string-match "latin" enc-str) "-latin1")
+		 ("-encoding=guess")
+		 ) )
+	       (word-count
+		(with-output-to-string
+		  (with-current-buffer standard-output
+		    (call-process "texcount" nil t nil "-0" enc-opt this-file)
+		    ) ) ) )
+	   (message word-count)
+	   ) )
+       (add-hook 'LaTeX-mode-hook (lambda () (define-key LaTeX-mode-map (kbd "C-c c") 'texcount)))
+       (add-hook 'latex-mode-hook (lambda () (define-key latex-mode-map (kbd "C-c c") 'texcount)))
+     #+END_SRC
+
 *** PlantUML
 #+BEGIN_SRC emacs-lisp
 (use-package plantuml-mode
