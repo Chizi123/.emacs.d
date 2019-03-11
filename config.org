@@ -3,7 +3,7 @@
 Dependencies needed for Aspell, poppler PDF-tools, compilers and ghost-script provided by mingw64
 #+BEGIN_SRC emacs-lisp
   (when (eq system-type 'windows-nt)
-    ;; (add-to-list 'exec-path "C:/msys64/usr/bin")
+    (add-to-list 'exec-path "C:/msys64/usr/bin")
     (add-to-list 'exec-path "C:/msys64/mingw64/bin")
     (add-to-list 'exec-path "c:/Program Files/gnuplot")
     (setenv "PATH" (mapconcat #'identity exec-path path-separator)))
@@ -282,11 +282,11 @@ Colour the material just copied
 ** Workgroups
 Open the pages when you quit
 #+BEGIN_SRC emacs-lisp
-(use-package workgroups2
-  :ensure t
-  :diminish workgroups-mode
-  :config
-  (workgroups-mode 1))
+  ;; (use-package workgroups2
+  ;;   :ensure t
+  ;;   :diminish workgroups-mode
+  ;;   :config
+  ;;   (workgroups-mode 1))
 #+END_SRC
 ** ibuffer
 #+BEGIN_SRC emacs-lisp
@@ -731,7 +731,7 @@ Company is auto-complete for emacs
       (setq matlab-indent-function t))
 #+END_SRC
 
-* Org mode 
+* Org mode
 ** Up to date org
 #+BEGIN_SRC emacs-lisp
     (use-package org
@@ -762,3 +762,10 @@ Company is auto-complete for emacs
   :config
     (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
 #+END_SRC
+** Org Babel
+*** Languages
+Add C to org babel supported languages
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'org-babel-load-languages '(C . t))
+#+END_SRC
+
