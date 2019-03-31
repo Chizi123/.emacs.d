@@ -1,4 +1,4 @@
-;; -*- emacs-lisp -*- <19/03/05 19:57:13 c:/Users/joelg/.emacs.d/tramp>
+;; -*- emacs-lisp -*- <19/03/19 19:32:56 c:/Users/joelg/.emacs.d/tramp>
 ;; Tramp connection history.  Don't change this file.
 ;; You can delete it, forcing Tramp to reapply the checks.
 
@@ -84,10 +84,8 @@
   ("perl-cwd-realpath" t)
   ("perl" "\\perl")
   ("git" "\\git"))
- ((tramp-file-name "pscp" nil nil "192.168.1.26" nil nil nil)
-  nil)
  ((tramp-file-name "pscp" "joel" nil "192.168.1.26" nil nil nil)
-  ("uname" "Linux 4.20.12-1.gb35c1fc-default")
+  ("uname" "Linux 5.0.0-4.g6bc6477-default")
   ("locale" "LC_ALL=en_US.utf8")
   ("test" "test")
   ("remote-path"
@@ -104,12 +102,5 @@
   ("perl" "\\perl")
   ("case-insensitive" nil)
   ("readlink" "\\readlink")
-  ("git" "\\git")
-  ("uid-integer" 1000)
-  ("tmpdir" "/pscp:joel@192.168.1.26:/tmp")
-  ("touch-t" t)
-  ("touch" "\\touch")
   ("ls" "/bin/ls --color=never")
-  ("ls-quoting-style" t))
- ((tramp-file-name "pscp" nil nil "49.177.178.176" nil nil nil)
-  nil))
+  ("ls-quoting-style" t)))

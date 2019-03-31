@@ -19,13 +19,21 @@ Dependencies needed for Aspell, poppler PDF-tools, compilers and ghost-script pr
 #+END_SRC
 ** Default font
 #+BEGIN_SRC emacs-lisp
-(set-default-font "DejaVu Sans Mono-10")
+  (set-frame-font "DejaVu Sans Mono" nil t)
 #+END_SRC
+** Remove menu bar, toolbar, but keep scroll bar
+#+BEGIN_SRC emacs-lisp
+  (menu-bar-mode 0)
+  (tool-bar-mode 0)
+  (scroll-bar-mode 1)
+#+END_SRC
+
 * Writing requirements
 ** Spellchecking
 #+BEGIN_SRC emacs-lisp
   (require 'ispell)
   (setq-default ispell-program-name "aspell")
+  (setq-default ispell-local-dictionary "en_AU")
   (add-hook 'latex-mode-hook 'flyspell-mode)
   (add-hook 'latex-mode-hook 'flyspell-buffer)
   (add-hook 'org-mode-hook 'flyspell-mode)
@@ -74,35 +82,35 @@ Helps to change windows easily when many are open at once
 * Helm and Projectile
 ** Helm core
 #+BEGIN_SRC emacs-lisp
-(use-package helm-config
-  :ensure helm
-  :bind (("M-x" . helm-M-x)
-	 ("C-x C-f" . helm-find-files)
-	 ("M-y" . helm-show-kill-ring)
-	 ("C-x b" . helm-mini)
-	 ("C-c h o" . helm-occur))
-  :config
-  (setq helm-M-x-fuzzy-match t)
-  (setq helm-buffers-fuzzy-matching t
-	helm-recentf-fuzzy-match    t)
-  (setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
-	helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
-	helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
-	helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
-	helm-ff-file-name-history-use-recentf t
-	helm-echo-input-in-header-line t)
-  (defun spacemacs//helm-hide-minibuffer-maybe ()
-    "Hide minibuffer in Helm session if we use the header line as input field."
-    (when (with-helm-buffer helm-echo-input-in-header-line)
-      (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
-	(overlay-put ov 'window (selected-window))
-	(overlay-put ov 'face
-                     (let ((bg-color (face-background 'default nil)))
-                       `(:background ,bg-color :foreground ,bg-color)))
-	(setq-local cursor-type nil))))
-  (add-hook 'helm-minibuffer-set-up-hook
-            'spacemacs//helm-hide-minibuffer-maybe)
-  (helm-mode 1))
+  (use-package helm-config
+    :ensure helm
+    :bind (("M-x" . helm-M-x)
+           ("C-x C-f" . helm-find-files)
+           ("M-y" . helm-show-kill-ring)
+           ("C-x b" . helm-mini)
+           ("C-c h o" . helm-occur))
+    :config
+    (setq helm-M-x-fuzzy-match t)
+    (setq helm-buffers-fuzzy-matching t
+          helm-recentf-fuzzy-match    t)
+    (setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
+          helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
+          helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
+          helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
+          helm-ff-file-name-history-use-recentf t
+          helm-echo-input-in-header-line t)
+    (defun spacemacs//helm-hide-minibuffer-maybe ()
+      "Hide minibuffer in Helm session if we use the header line as input field."
+      (when (with-helm-buffer helm-echo-input-in-header-line)
+        (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
+          (overlay-put ov 'window (selected-window))
+          (overlay-put ov 'face
+                       (let ((bg-color (face-background 'default nil)))
+                         `(:background ,bg-color :foreground ,bg-color)))
+          (setq-local cursor-type nil))))
+    (add-hook 'helm-minibuffer-set-up-hook
+              'spacemacs//helm-hide-minibuffer-maybe)
+    (helm-mode 1))
 #+END_SRC
 ** Projectile
 *** Enable it
@@ -513,12 +521,12 @@ Company is auto-complete for emacs
 ** CEDET
 *** semantic
 #+BEGIN_SRC emacs-lisp
-(use-package semantic
-  :config
-  (global-semanticdb-minor-mode 1)
-  (global-semantic-idle-scheduler-mode 1)
-  (global-semantic-idle-summary-mode 1)
-  (semantic-mode 1))
+  (use-package semantic
+    :config
+    (global-semanticdb-minor-mode 1)
+    (global-semantic-idle-scheduler-mode 1)
+    (global-semantic-idle-summary-mode 1)
+    (semantic-mode 1))
 #+END_SRC
 *** EDE
 #+BEGIN_SRC emacs-lisp
@@ -566,27 +574,29 @@ Company is auto-complete for emacs
 #+END_SRC
 **** company
 #+BEGIN_SRC emacs-lisp
-    (use-package company-c-headers
-        :ensure tk
-        :after company
-        :config
-        (add-hook 'c++-mode-hook 'company-mode)
-        (add-hook 'c-mode-hook 'company-mode))
-
-    (use-package company-irony
+  (use-package company-c-headers
       :ensure t
+      :after company
       :config
-      (add-to-list 'company-backends '(company-c-headers
-                                       company-dabbrev-code
-                                       company-irony)))
+      (add-hook 'c++-mode-hook 'company-mode)
+      (add-hook 'c-mode-hook 'company-mode))
 
-    (use-package irony
-      :ensure t
-      :config
-      (setq w32-pipe-read-delay 0)
-      (add-hook 'c++-mode-hook 'irony-mode)
-      (add-hook 'c-mode-hook 'irony-mode)
-      (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+  (use-package company-irony
+    :ensure t
+    :config
+    (add-to-list 'company-backends '(company-c-headers
+                                     company-dabbrev-code
+                                     company-irony)))
+
+  (use-package irony
+    :ensure t
+    :init
+    (setq w32-pipe-read-delay 0)
+    (setq irony-server-w32-pipe-buffer-size (* 64 1024))
+    (add-hook 'c++-mode-hook 'irony-mode)
+    (add-hook 'c-mode-hook 'irony-mode)
+    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 #+END_SRC
 *** emacs-lisp
 **** eldoc
@@ -702,18 +712,6 @@ Company is auto-complete for emacs
   (setq plantuml-jar-path "c:/ProgramData/chocolatey/lib/plantuml/tools/plantuml.jar"))
 #+END_SRC
 
-*** Matlab
-**** Matlab mode
-#+BEGIN_SRC emacs-lisp
-  (use-package matlab-mode
-    :ensure t
-    :config
-    (autoload 'matlab-mode "matlab" "Matlab Editing Mode" t)
-    (add-to-list
-     'auto-mode-alist
-     '("\\.m$" . matlab-mode))
-    (setq matlab-indent-function t))
-#+END_SRC
 *** Racket
 **** Major mode
 #+BEGIN_SRC emacs-lisp
@@ -731,6 +729,15 @@ Company is auto-complete for emacs
       (setq matlab-indent-function t))
 #+END_SRC
 
+*** Verilog
+Add updated version and integrate it with Emacs.
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'load-path "~/.emacs.d/elpa/verilog-mode-20190324/verilog-mode.el")
+  (require 'verilog-mode)
+
+  (autoload 'verilog-mode "verilog-mode" "Verilog mode" t )
+  (add-to-list 'auto-mode-alist '("\\.[ds]?vh?\\'" . verilog-mode))
+#+END_SRC
 * Org mode
 ** Up to date org
 #+BEGIN_SRC emacs-lisp
@@ -777,3 +784,11 @@ Add C to org babel supported languages
                                                            (fortran . t)
                                                            (java . t)))
 #+END_SRC
+** Latex preview fragments match colour
+Make the previews match theme colour of Emacs.
+#+BEGIN_SRC emacs-lisp
+  (let ((dvipng--plist (alist-get 'dvipng org-preview-latex-process-alist)))
+    (plist-put dvipng--plist :use-xcolor t)
+    (plist-put dvipng--plist :image-converter '("dvipng -D %D -T tight -o %O %f")))
+#+END_SRC
+
