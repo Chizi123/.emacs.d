@@ -10,12 +10,25 @@ Dependencies needed for Aspell, poppler PDF-tools, compilers and ghost-script pr
 #+END_SRC
 
 * Aesthetic changes
-** Zenburn theme
+** Emacs theme
+Zenburn theme is the default
 #+BEGIN_SRC emacs-lisp
-  (use-package zenburn-theme
-    :ensure t
-    :config
-    (load-theme 'zenburn t))
+  (setq emacs-theme 'zenburn)
+
+  (cond ((eq emacs-theme 'zenburn)
+         (use-package zenburn-theme
+           :ensure t
+           :config
+           (load-theme 'zenburn t)))
+        ((eq emacs-theme 'doom-one)
+         (use-package doom-themes
+           :ensure t
+           :config
+           (setq doom-themes-enable-bolt t
+                 doom-themes-enable-italic t)
+           (load-theme 'doom-one t)
+           (doom-themes-visual-bell-config)
+           (doom-themes-org-config))))
 #+END_SRC
 ** Default font
 #+BEGIN_SRC emacs-lisp

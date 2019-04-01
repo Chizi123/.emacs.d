@@ -34,10 +34,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ede-project-directories (quote ("c:/Users/joelg/.emacs.d")))
+ '(ede-project-directories '("c:/Users/joelg/.emacs.d"))
  '(package-selected-packages
-   (quote
-    (csv-mode magit minesweeper speed-type spray fireplace powershell company-auctex company-bibtex company-irony-c-headers company-reftex gnuplot-mode gnuplot matlab-mode diminish keyfreq zenburn-theme yasnippet x86-lookup workgroups2 which-key volatile-highlights use-package undo-tree srefactor smartparens racket-mode popwin plantuml-mode pdf-tools org-bullets nyan-mode latex-preview-pane helm-projectile ggtags flycheck-pos-tip flycheck-clang-analyzer company-math company-c-headers clean-aindent-mode auto-package-update))))
+   '(doom-themes csv-mode magit minesweeper speed-type spray fireplace powershell company-auctex company-bibtex company-irony-c-headers company-reftex gnuplot-mode gnuplot matlab-mode diminish keyfreq zenburn-theme yasnippet x86-lookup workgroups2 which-key volatile-highlights use-package undo-tree srefactor smartparens racket-mode popwin plantuml-mode pdf-tools org-bullets nyan-mode latex-preview-pane helm-projectile ggtags flycheck-pos-tip flycheck-clang-analyzer company-math company-c-headers clean-aindent-mode auto-package-update)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
