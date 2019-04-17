@@ -1,4 +1,6 @@
 #+TITLE: My Emacs configuration
+#  LocalWords:  poppler mingw emacs eq nt gnuplot setenv mapconcat el cond minibuffer pdf color Smartparens smartparens yas aindent whitespace eldoc ielm ibuffer hippie pscp pos Spaceline spaceline powerline spacemacs seperator dir Yasnippet yasnippet flycheck magit fullscreen CEDET askifnotset semanticdb EDE ede gdb srefactor analyzer eval cdb autosetup ghostscript math unicode reftex bibtex TeXcount texcount str latin rkt PlantUML plantuml autoload alist matlab verilog ds vh src fontify natively fortran dvipng plist xcolor
+
 * Windows dependencies
 Dependencies needed for Aspell, poppler PDF-tools, compilers and ghost-script provided by mingw64
 #+BEGIN_SRC emacs-lisp
@@ -30,10 +32,12 @@ Zenburn theme is the default
            (doom-themes-visual-bell-config)
            (doom-themes-org-config))))
 #+END_SRC
+
 ** Default font
 #+BEGIN_SRC emacs-lisp
   (set-frame-font "DejaVu Sans Mono" nil t)
 #+END_SRC
+
 ** Remove menu bar, toolbar, but keep scroll bar
 #+BEGIN_SRC emacs-lisp
   (menu-bar-mode 0)
@@ -68,6 +72,7 @@ Helps to change windows easily when many are open at once
   :bind
     ([remap other-window] . switch-window))
 #+END_SRC
+
 ** Go to new window when opened
 #+BEGIN_SRC emacs-lisp
   (defun split-and-follow-horizontally ()
@@ -84,14 +89,15 @@ Helps to change windows easily when many are open at once
     (other-window 1))
   (global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
 #+END_SRC
+
 ** PDF-tools
 #+BEGIN_SRC emacs-lisp
 (use-package pdf-tools
   :ensure t
   :config
   (pdf-tools-install))
-
 #+END_SRC
+
 * Helm and Projectile
 ** Helm core
 #+BEGIN_SRC emacs-lisp
@@ -125,6 +131,7 @@ Helps to change windows easily when many are open at once
               'spacemacs//helm-hide-minibuffer-maybe)
     (helm-mode 1))
 #+END_SRC
+
 ** Projectile
 *** Enable it
  #+BEGIN_SRC emacs-lisp
@@ -138,10 +145,12 @@ Helps to change windows easily when many are open at once
      (when (eq system-type 'windows-nt)
        (setq projectile-indexing-method 'alien)))
  #+END_SRC
+
 *** Let it compile things
  #+BEGIN_SRC emacs-lisp
    (global-set-key (kbd "<f5>") 'projectile-compile-project)
  #+END_SRC
+
 *** Enable communication with helm
 #+BEGIN_SRC emacs-lisp
 (use-package helm-projectile
@@ -149,16 +158,19 @@ Helps to change windows easily when many are open at once
   :config
   (helm-projectile-on))
 #+END_SRC
+
 * Small tweaks
 ** Remove startup screen
 #+BEGIN_SRC emacs-lisp
 (setq inhibit-startup-message t)
 #+END_SRC
+
 ** Disable bell
 Bloody bell dings every time you hit a key too much
 #+BEGIN_SRC emacs-lisp
 (setq ring-bell-function 'ignore)
 #+END_SRC
+
 ** Pretty symbols
 Why not? They make it look nice
 #+BEGIN_SRC emacs-lisp
@@ -169,6 +181,7 @@ Why not? They make it look nice
       :config
       (global-pretty-mode)))
 #+END_SRC
+
 ** find file other window
 Lets it accept more than one file. Works recursively.
 #+BEGIN_SRC emacs-lisp
@@ -177,6 +190,7 @@ Lets it accept more than one file. Works recursively.
       (loop for f in filename do (find-file-other-window f wildcards))
     ad-do-it))
 #+END_SRC
+
 ** Which key
 Helps to explain keybindings if you get lost
 #+BEGIN_SRC emacs-lisp
@@ -186,6 +200,7 @@ Helps to explain keybindings if you get lost
     :config
     (which-key-mode))
 #+END_SRC
+
 ** Go to this file
 #+BEGIN_SRC emacs-lisp
 (defun config-visit ()
@@ -193,6 +208,7 @@ Helps to explain keybindings if you get lost
   (find-file "~/.emacs.d/config.org"))
 (global-set-key (kbd "C-c e d") 'config-visit)
 #+END_SRC
+
 ** Go to init.el
 #+BEGIN_SRC emacs-lisp
   (defun init-visit ()
@@ -200,6 +216,7 @@ Helps to explain keybindings if you get lost
     (find-file "~/.emacs.d/init.el"))
   (global-set-key (kbd "C-c e i") 'init-visit)
 #+END_SRC
+
 ** Reload configuration
 #+BEGIN_SRC emacs-lisp
 (defun config-reload ()
@@ -208,6 +225,7 @@ Helps to explain keybindings if you get lost
   (org-babel-load-file (expand-file-name "~/.emacs.d/config.org")))
 (global-set-key (kbd "C-c e r") 'config-reload)
 #+END_SRC
+
 ** Smartparens
 Matches brackets automatically
 #+BEGIN_SRC emacs-lisp
@@ -219,6 +237,7 @@ Matches brackets automatically
     (require 'smartparens-config)
     (smartparens-global-mode 1)))
 #+END_SRC
+
 ** Rainbow
 Its a little gimmicky but its still cool
 #+BEGIN_SRC emacs-lisp
@@ -228,6 +247,7 @@ Its a little gimmicky but its still cool
     :init
     (add-hook 'prog-mode-hook 'rainbow-mode))
 #+END_SRC
+
 ** Rainbow delimiters
 A bit more useful than above.
 Colours the brackets so that they stand out more.
@@ -237,6 +257,7 @@ Colours the brackets so that they stand out more.
     :init
       (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 #+END_SRC
+
 ** clean-aindent-mode
 Removes unnecessary white space
 #+BEGIN_SRC emacs-lisp
@@ -248,6 +269,7 @@ Shows trailing white space
 #+BEGIN_SRC emacs-lisp
 (add-hook 'prog-mode-hook (lambda () (interactive) (setq show-trailing-whitespace 1)))
 #+END_SRC
+
 ** whitespace mode
 Reveals whitespace characters
 #+BEGIN_SRC emacs-lisp
@@ -267,12 +289,14 @@ Reveals whitespace characters
                             (whitespace-mode 1)))
 
 #+END_SRC
+
 ** eldoc
 #+BEGIN_SRC emacs-lisp
   (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
   (add-hook 'lisp-interaction-mode-hook 'eldoc-mode)
   (add-hook 'ielm-mode-hook 'eldoc-mode)
 #+END_SRC
+
 ** key-freq
 collects interesting statistics
 #+BEGIN_SRC emacs-lisp
@@ -282,6 +306,7 @@ collects interesting statistics
   (keyfreq-mode 1)
   (keyfreq-autosave-mode 1))
 #+END_SRC
+
 ** undo-tree
 A more advanced undo mechanism
 #+BEGIN_SRC emacs-lisp
@@ -291,6 +316,7 @@ A more advanced undo mechanism
   :config
   (global-undo-tree-mode))
 #+END_SRC
+
 ** volatile highlights
 Colour the material just copied
 #+BEGIN_SRC emacs-lisp
@@ -300,20 +326,13 @@ Colour the material just copied
   :config
   (volatile-highlights-mode t))
 #+END_SRC
-** Workgroups
-Open the pages when you quit
-#+BEGIN_SRC emacs-lisp
-  ;; (use-package workgroups2
-  ;;   :ensure t
-  ;;   :diminish workgroups-mode
-  ;;   :config
-  ;;   (workgroups-mode 1))
-#+END_SRC
+
 ** ibuffer
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (setq ibuffer-use-other-window t)
 #+END_SRC
+
 ** hippie expand
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "M-/") 'hippie-expand) ;; replace dabbrev-expand
@@ -331,10 +350,12 @@ Open the pages when you quit
    try-complete-lisp-symbol) ;; Try to complete word as an Emacs Lisp symbol.
  )
 #+END_SRC
+
 ** Highlight line
 #+BEGIN_SRC emacs-lisp
 (global-hl-line-mode)
 #+END_SRC
+
 ** Line numbers
 #+BEGIN_SRC emacs-lisp
 (add-hook 'prog-mode-hook 'linum-mode)
@@ -355,6 +376,7 @@ Changes the kill ring size to 5000.
 	kill-ring-max 5000
 	kill-whole-line t)
 #+END_SRC
+
 ** Coding style
 #+BEGIN_SRC emacs-lisp
 (setq c-default-style "linux")
@@ -370,6 +392,7 @@ Changes the kill ring size to 5000.
 (delete-selection-mode)
 (global-set-key (kbd "RET") 'newline-and-indent)
 #+END_SRC
+
 ** Move to beginning of line ignoring whitespace
 Move point back to indentation of beginning of line.
 
@@ -397,6 +420,7 @@ point reaches the beginning or end of the buffer, stop there.
 
 (global-set-key (kbd "C-a") 'prelude-move-beginning-of-line)
 #+END_SRC
+
 ** Indent region or buffer
 #+BEGIN_SRC emacs-lisp
 (defun indent-region-or-buffer ()
@@ -415,6 +439,7 @@ point reaches the beginning or end of the buffer, stop there.
 
 (global-set-key (kbd "C-c i") 'indent-region-or-buffer)
 #+END_SRC
+
 ** Tramp
 #+BEGIN_SRC emacs-lisp
   (when (eq system-type 'windows-nt)
@@ -437,10 +462,12 @@ A little easier to read than the default emacs mode line
     (setq powerline-default-separator (quote arrow))
     (spaceline-spacemacs-theme))
 #+END_SRC
+
 ** No separator
 #+BEGIN_SRC emacs-lisp
 (setq powerline-default-seperator nil)
 #+END_SRC
+
 * Programming tweaks
 ** Yasnippet
 #+BEGIN_SRC emacs-lisp
@@ -453,10 +480,14 @@ A little easier to read than the default emacs mode line
       (yas-reload-all)
       (yas-global-mode 1))
 #+END_SRC
+
 ** flycheck
 #+BEGIN_SRC emacs-lisp
-(use-package flycheck
-  :ensure t)
+  (use-package flycheck
+    :ensure t
+    :diminish flycheck-mode
+    :config
+    (global-flycheck-mode))
 #+END_SRC
 *** flycheck-pos-tip
 #+BEGIN_SRC emacs-lisp
@@ -466,8 +497,9 @@ A little easier to read than the default emacs mode line
   :config
   (flycheck-pos-tip-mode))
 #+END_SRC
+
 ** Company
-Company is auto-complete for emacs
+Company is auto-complete for Emacs
 #+BEGIN_SRC emacs-lisp
   (use-package company
     :ensure t
@@ -477,6 +509,7 @@ Company is auto-complete for emacs
     (setq company-idle-delay 0)
     (setq company-minimum-prefix-length 3))
 #+END_SRC
+
 ** Magit
 #+BEGIN_SRC emacs-lisp
   (use-package magit
@@ -531,6 +564,7 @@ Company is auto-complete for emacs
        magit-set-upstream-on-push 'askifnotset
        )))
 #+END_SRC
+
 ** CEDET
 *** semantic
 #+BEGIN_SRC emacs-lisp
@@ -541,12 +575,14 @@ Company is auto-complete for emacs
     (global-semantic-idle-summary-mode 1)
     (semantic-mode 1))
 #+END_SRC
+
 *** EDE
 #+BEGIN_SRC emacs-lisp
 (use-package ede
   :config
   (global-ede-mode t))
 #+END_SRC
+
 *** gdb-many-windows
 #+BEGIN_SRC emacs-lisp
 (setq
@@ -556,6 +592,7 @@ Company is auto-complete for emacs
  ;; Non-nil means display source file containing the main routine at startup
  gdb-show-main t)
 #+END_SRC
+
 *** Semantic refactor
 #+BEGIN_SRC emacs-lisp
 (use-package srefactor
@@ -569,6 +606,7 @@ Company is auto-complete for emacs
 	      :map c++-mode-map
 	      ("M-RET" . 'srefactor-refactor-at-point)))
 #+END_SRC
+
 ** Language specific configs
 *** C/C++
 **** yasnippet
@@ -576,6 +614,7 @@ Company is auto-complete for emacs
 (add-hook 'c++-mode-hook 'yas-minor-mode)
 (add-hook 'c-mode-hook 'yas-minor-mode)
 #+END_SRC
+
 **** flycheck clang
 #+BEGIN_SRC emacs-lisp
 (use-package flycheck-clang-analyzer
@@ -585,6 +624,7 @@ Company is auto-complete for emacs
     (require 'flycheck-clang-analyzer)
      (flycheck-clang-analyzer-setup)))
 #+END_SRC
+
 **** company
 #+BEGIN_SRC emacs-lisp
   (use-package company-c-headers
@@ -611,15 +651,18 @@ Company is auto-complete for emacs
     (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
     (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 #+END_SRC
+
 *** emacs-lisp
 **** eldoc
 #+BEGIN_SRC emacs-lisp
 (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
 #+END_SRC
+
 **** yasnippet
 #+BEGIN_SRC emacs-lisp
 (add-hook 'emacs-lisp-mode-hook 'yas-minor-mode)
 #+END_SRC
+
 **** company
 #+BEGIN_SRC emacs-lisp
 (add-hook 'emacs-lisp-mode-hook 'company-mode)
@@ -636,6 +679,7 @@ Company is auto-complete for emacs
     (require 'company)
     (slime-setup '(slime-fancy slime-company)))
 #+END_SRC
+
 *** x86
 **** x86-lookup
 #+BEGIN_SRC emacs-lisp
@@ -645,6 +689,7 @@ Company is auto-complete for emacs
   (setq x86-lookup-pdf "D:/Coding/x86-instructions.pdf")
   :bind ("C-h x" . x86-lookup))
 #+END_SRC
+
 *** Latex
 **** AucTex
 #+BEGIN_SRC emacs-lisp
@@ -656,6 +701,7 @@ Company is auto-complete for emacs
   (setq doc-view-ghostscript-program "c:/msys64/mingw64/bin/gswin32c.exe")
   (setq preview-gs-command "c:/msys64/mingw64/bin/gs.exe"))
 #+END_SRC
+
 **** Company
 #+BEGIN_SRC emacs-lisp
   (use-package company-math
@@ -681,6 +727,7 @@ Company is auto-complete for emacs
     :after company
     (add-to-list 'company-backends 'company-bibtex))
 #+END_SRC
+
 **** Preview pane
 #+BEGIN_SRC emacs-lisp
 (use-package latex-preview-pane
@@ -688,6 +735,7 @@ Company is auto-complete for emacs
   :config
   (latex-preview-pane-enable))
 #+END_SRC
+
 **** TeXcount
      Word counts in latex
      #+BEGIN_SRC emacs-lisp
@@ -738,7 +786,7 @@ Company is auto-complete for emacs
       (autoload 'racket-mode "Racket" "Racket Editing Mode" t)
       (add-to-list
        'auto-mode-alist
-       '("\\.rkt$" . matlab-mode))
+       '("\\.rkt$" . racket-mode))
       (setq matlab-indent-function t))
 #+END_SRC
 
@@ -751,6 +799,7 @@ Add updated version and integrate it with Emacs.
   (autoload 'verilog-mode "verilog-mode" "Verilog mode" t )
   (add-to-list 'auto-mode-alist '("\\.[ds]?vh?\\'" . verilog-mode))
 #+END_SRC
+
 * Org mode
 ** Up to date org
 #+BEGIN_SRC emacs-lisp
@@ -758,6 +807,7 @@ Add updated version and integrate it with Emacs.
       :ensure t
       :pin org)
 #+END_SRC
+
 ** Small tweaks
 #+BEGIN_SRC emacs-lisp
 (setq org-src-fontify-natively t)
@@ -769,12 +819,14 @@ Add updated version and integrate it with Emacs.
 (diminish 'org-indent-mode)
 (diminish 'visual-line-mode)
 #+END_SRC
+
 ** Line wrapping
 #+BEGIN_SRC emacs-lisp
   (add-hook 'org-mode-hook
 	      '(lambda ()
 		 (visual-line-mode 1)))
 #+END_SRC
+
 ** org-bullets
 #+BEGIN_SRC emacs-lisp
 (use-package org-bullets
@@ -782,6 +834,7 @@ Add updated version and integrate it with Emacs.
   :config
     (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
 #+END_SRC
+
 ** Org Babel
 *** Languages
 Add C to org babel supported languages
@@ -797,6 +850,7 @@ Add C to org babel supported languages
                                                            (fortran . t)
                                                            (java . t)))
 #+END_SRC
+
 ** Latex preview fragments match colour
 Make the previews match theme colour of Emacs.
 #+BEGIN_SRC emacs-lisp
@@ -804,4 +858,5 @@ Make the previews match theme colour of Emacs.
     (plist-put dvipng--plist :use-xcolor t)
     (plist-put dvipng--plist :image-converter '("dvipng -D %D -T tight -o %O %f")))
 #+END_SRC
+
 
