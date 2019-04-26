@@ -153,10 +153,10 @@ Helps to change windows easily when many are open at once
 
 *** Enable communication with helm
 #+BEGIN_SRC emacs-lisp
-(use-package helm-projectile
-  :ensure t
-  :config
-  (helm-projectile-on))
+  (use-package helm-projectile
+    :ensure t
+    :config
+    (helm-projectile-on))
 #+END_SRC
 
 * Small tweaks
@@ -791,13 +791,24 @@ Company is auto-complete for Emacs
 #+END_SRC
 
 *** Verilog
+**** Get latest version
+Pull the latest version from the web
+#+BEGIN_SRC emacs-lisp
+  (defun get-verilog-latest()
+    (interactive)
+    (url-copy-file "https://www.veripool.org/ftp/verilog-mode.el" "c:/Users/joelg/.emacs.d/elpa/verilog-mode/verilog-mode.el" 1))
+#+END_SRC
+
+**** Integrate into emacs
 Add updated version and integrate it with Emacs.
 #+BEGIN_SRC emacs-lisp
-  (add-to-list 'load-path "~/.emacs.d/elpa/verilog-mode-20190324/verilog-mode.el")
-  (require 'verilog-mode)
-
-  (autoload 'verilog-mode "verilog-mode" "Verilog mode" t )
-  (add-to-list 'auto-mode-alist '("\\.[ds]?vh?\\'" . verilog-mode))
+  (use-package verilog-mode
+    :init
+    (get-verilog-latest)
+    (add-to-list 'load-path "~/.emacs.d/elpa/verilog-mode/verilog-mode.el")
+    :config
+    (autoload 'verilog-mode "verilog-mode" "Verilog mode" t )
+    (add-to-list 'auto-mode-alist '("\\.[ds]?vh?\\'" . verilog-mode)))
 #+END_SRC
 
 * Org mode
@@ -839,16 +850,22 @@ Add updated version and integrate it with Emacs.
 *** Languages
 Add C to org babel supported languages
 #+BEGIN_SRC emacs-lisp
-  (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t)
-                                                           (C . t)
-                                                           (python . t)
-                                                           (latex . t)
-                                                           (scheme . t)
-                                                           (gnuplot . t)
-                                                           (matlab . t)
-                                                           (plantuml . t)
-                                                           (fortran . t)
-                                                           (java . t)))
+    (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t)
+                                                             (C . t)
+                                                             (python . t)
+                                                             (latex . t)
+                                                             (scheme . t)
+                                                             (gnuplot . t)
+                                                             (matlab . t)
+                                                             (plantuml . t)
+                                                             (fortran . t)
+                                                             (java . t)
+                                                             (plantuml . t)))
+#+END_SRC
+
+**** Plantuml path
+#+BEGIN_SRC emacs-lisp
+  (setq org-plantuml-jar-path plantuml-jar-path)
 #+END_SRC
 
 ** Latex preview fragments match colour
