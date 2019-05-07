@@ -17,20 +17,30 @@ Zenburn theme is the default
 #+BEGIN_SRC emacs-lisp
   (setq emacs-theme 'zenburn)
 
+  (defun disable-all-themes ()
+    (dolist (i custom-enabled-themes)
+      (disable-theme i)))
+
   (cond ((eq emacs-theme 'zenburn)
          (use-package zenburn-theme
            :ensure t
+           :init
+           (disable-all-themes)
            :config
            (load-theme 'zenburn t)))
         ((eq emacs-theme 'doom-one)
          (use-package doom-themes
            :ensure t
+           :init
+           (disable-all-themes)
            :config
            (setq doom-themes-enable-bolt t
                  doom-themes-enable-italic t)
            (load-theme 'doom-one t)
            (doom-themes-visual-bell-config)
-           (doom-themes-org-config))))
+           (doom-themes-org-config)))
+        ((eq emacs-theme 'none)
+         (disable-all-themes)))
 #+END_SRC
 
 ** Default font
@@ -452,15 +462,16 @@ Diminish is used but is included in init.el such that it can be used throughout 
 ** Spaceline
 A little easier to read than the default emacs mode line
 #+BEGIN_SRC emacs-lisp
-  (use-package spaceline
-    :ensure t
-    :config
-    (require 'spaceline-config)
-    (setq spaceline-buffer-encoding-abbrev-p t)
-    (setq spaceline-line-column-p t)
-    (setq spaceline-line-p t)
-    (setq powerline-default-separator (quote arrow))
-    (spaceline-spacemacs-theme))
+    (use-package spaceline
+      :ensure t
+      :config
+      (require 'spaceline-config)
+      (setq spaceline-buffer-encoding-abbrev-p t)
+      (setq spaceline-line-column-p t)
+      (setq spaceline-line-p t)
+      (setq powerline-default-separator (quote arrow))
+      (spaceline-spacemacs-theme)
+      (spaceline-helm-mode))
 #+END_SRC
 
 ** No separator
