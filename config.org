@@ -1,5 +1,5 @@
 #+TITLE: My Emacs configuration
-#  LocalWords:  poppler mingw emacs eq nt gnuplot setenv mapconcat el cond minibuffer pdf color Smartparens smartparens yas aindent whitespace eldoc ielm ibuffer hippie pscp pos Spaceline spaceline powerline spacemacs seperator dir Yasnippet yasnippet flycheck magit fullscreen CEDET askifnotset semanticdb EDE ede gdb srefactor analyzer eval cdb autosetup ghostscript math unicode reftex bibtex TeXcount texcount str latin rkt PlantUML plantuml autoload alist matlab verilog ds vh src fontify natively fortran dvipng plist xcolor
+#  LocalWords:  poppler mingw emacs eq nt gnuplot setenv mapconcat el cond minibuffer pdf color Smartparens smartparens yas aindent whitespace eldoc ielm ibuffer hippie pscp pos Spaceline spaceline powerline spacemacs seperator dir Yasnippet yasnippet flycheck magit fullscreen CEDET askifnotset semanticdb EDE ede gdb srefactor analyzer eval cdb autosetup ghostscript math unicode reftex bibtex TeXcount texcount str latin rkt PlantUML plantuml autoload alist matlab verilog ds vh src fontify natively fortran dvipng plist xcolor EXWM
 
 * Windows dependencies
 Dependencies needed for Aspell, poppler PDF-tools, compilers and ghost-script provided by mingw64
@@ -9,6 +9,17 @@ Dependencies needed for Aspell, poppler PDF-tools, compilers and ghost-script pr
     (add-to-list 'exec-path "C:/msys64/mingw64/bin")
     (add-to-list 'exec-path "c:/Program Files/gnuplot")
     (setenv "PATH" (mapconcat #'identity exec-path path-separator)))
+#+END_SRC
+
+* EXWM for emacs machines
+This is for machines I just want to use to run emacs.
+#+BEGIN_SRC emacs-lisp
+  (when (eq system-type 'linux)
+    (use-package exwm
+      :ensure t
+      :config
+      (require 'exwm-config)
+      (exwm-config-default)))
 #+END_SRC
 
 * Aesthetic changes
