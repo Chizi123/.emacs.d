@@ -11,17 +11,6 @@ Dependencies needed for Aspell, poppler PDF-tools, compilers and ghost-script pr
     (setenv "PATH" (mapconcat #'identity exec-path path-separator)))
 #+END_SRC
 
-* EXWM for emacs machines
-This is for machines I just want to use to run emacs.
-#+BEGIN_SRC emacs-lisp
-  (when (eq system-type 'linux)
-    (use-package exwm
-      :ensure t
-      :config
-      (require 'exwm-config)
-      (exwm-config-default)))
-#+END_SRC
-
 * Aesthetic changes
 ** Emacs theme
 Zenburn theme is the default
@@ -818,7 +807,7 @@ Pull the latest version from the web
 #+BEGIN_SRC emacs-lisp
   (defun get-verilog-latest()
     (interactive)
-    (url-copy-file "https://www.veripool.org/ftp/verilog-mode.el" "c:/Users/joelg/.emacs.d/elpa/verilog-mode/verilog-mode.el" 1))
+    (url-copy-file "https://www.veripool.org/ftp/verilog-mode.el" "~/.emacs.d/elpa/verilog-mode/verilog-mode.el" 1))
 #+END_SRC
 
 **** Integrate into emacs
