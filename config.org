@@ -1,5 +1,5 @@
 #+TITLE: My Emacs configuration
-#  LocalWords:  poppler mingw emacs eq nt gnuplot setenv mapconcat el cond minibuffer pdf color Smartparens smartparens yas aindent whitespace eldoc ielm ibuffer hippie pscp pos Spaceline spaceline powerline spacemacs seperator dir Yasnippet yasnippet flycheck magit fullscreen CEDET askifnotset semanticdb EDE ede gdb srefactor analyzer eval cdb autosetup ghostscript math unicode reftex bibtex TeXcount texcount str latin rkt PlantUML plantuml autoload alist matlab verilog ds vh src fontify natively fortran dvipng plist xcolor EXWM
+#  LocalWords:  poppler mingw emacs eq nt gnuplot setenv mapconcat el cond minibuffer pdf color Smartparens smartparens yas aindent whitespace eldoc ielm ibuffer hippie pscp pos Spaceline spaceline powerline spacemacs seperator dir Yasnippet yasnippet flycheck magit fullscreen CEDET askifnotset semanticdb EDE ede gdb srefactor analyzer eval cdb autosetup ghostscript math unicode reftex bibtex TeXcount texcount str latin rkt PlantUML plantuml autoload alist matlab verilog ds vh src fontify natively fortran dvipng plist xcolor EXWM Zenburn setq zenburn defun dolist init config DejaVu ispell aspell flyspell kbd recentf sexp ov bg listp defadvice progn prog keyfreq autosave dabbrev hl gc linum linux utf RET ARG arg configs backends contribs AucTex tex auctex LaTeX url
 
 * Windows dependencies
 Dependencies needed for Aspell, poppler PDF-tools, compilers and ghost-script provided by mingw64
@@ -44,8 +44,11 @@ Zenburn theme is the default
 #+END_SRC
 
 ** Default font
-#+BEGIN_SRC emacs-lisp
-  (set-frame-font "DejaVu Sans Mono" nil t)
+#+BEGIN_SRC emacs-lisp 
+  ;;(set-frame-font "DejaVu Sans Mono" nil t)
+  (set-frame-font "Dank Mono-11" nil t)
+  (set-face-italic 'font-lock-comment-face t)
+  (set-face-italic 'font-lock-keyword-face t)
 #+END_SRC
 
 ** Remove menu bar, toolbar, but keep scroll bar
@@ -704,13 +707,14 @@ Company is auto-complete for Emacs
 *** Latex
 **** AucTex
 #+BEGIN_SRC emacs-lisp
-(use-package tex
-  :ensure auctex
-  :config
-  (setq TeX-auto-save t)
-  (setq TeX-parse-self t)
-  (setq doc-view-ghostscript-program "c:/msys64/mingw64/bin/gswin32c.exe")
-  (setq preview-gs-command "c:/msys64/mingw64/bin/gs.exe"))
+  (use-package tex
+    :ensure auctex
+    :config
+    (setq TeX-auto-save t)
+    (setq TeX-parse-self t)
+    (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+          TeX-source-correlate-start-server t)
+    (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer))
 #+END_SRC
 
 **** Company
@@ -739,20 +743,15 @@ Company is auto-complete for Emacs
     (add-to-list 'company-backends 'company-bibtex))
 #+END_SRC
 
-**** Preview pane
-#+BEGIN_SRC emacs-lisp
-(use-package latex-preview-pane
-  :ensure t
-  :config
-  (latex-preview-pane-enable))
-#+END_SRC
-
-**** TeXcount
+**** COMMENT TeXcount
      Word counts in latex
      #+BEGIN_SRC emacs-lisp
-       (when (eq system-type 'windows-nt)
-         (add-to-list 'exec-path "c:/Users/joelg/TeXcount_3_1_1")
-         (setenv "PATH" (mapconcat #'identity exec-path path-separator)))
+       (defun get-texcount-latest()
+         (url-copy-file "https://app.uio.no/ifi/texcount/download.php?file=texcount_3_1_1.zip" "~/.texcount/texcount.zip" 1)
+         (shell-command "unzip -o ~/.texcount/texcount.zip -d ~/.texcount")
+         (add-to-list 'exec-path "~/.texcount/texcount.pl"))
+
+       (get-texcount-latest)
 
        (defun texcount ()
          (interactive)
@@ -806,7 +805,6 @@ Company is auto-complete for Emacs
 Pull the latest version from the web
 #+BEGIN_SRC emacs-lisp
   (defun get-verilog-latest()
-    (interactive)
     (url-copy-file "https://www.veripool.org/ftp/verilog-mode.el" "~/.emacs.d/elpa/verilog-mode/verilog-mode.el" 1))
 #+END_SRC
 
@@ -886,5 +884,3 @@ Make the previews match theme colour of Emacs.
     (plist-put dvipng--plist :use-xcolor t)
     (plist-put dvipng--plist :image-converter '("dvipng -D %D -T tight -o %O %f")))
 #+END_SRC
-
-
