@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: new document
+# key: new
+# --
+
+#+TITLE:$1
+#+AUTHOR:Joel Grunbaum
+#+DATE:$2
+$0
