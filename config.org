@@ -1,7 +1,7 @@
 #+TITLE: My Emacs configuration
 #  LocalWords:  poppler mingw emacs eq nt gnuplot setenv mapconcat el cond minibuffer pdf color Smartparens smartparens yas aindent whitespace eldoc ielm ibuffer hippie pscp pos Spaceline spaceline powerline spacemacs seperator dir Yasnippet yasnippet flycheck magit fullscreen CEDET askifnotset semanticdb EDE ede gdb srefactor analyzer eval cdb autosetup ghostscript math unicode reftex bibtex TeXcount texcount str latin rkt PlantUML plantuml autoload alist matlab verilog ds vh src fontify natively fortran dvipng plist xcolor EXWM Zenburn setq zenburn defun dolist init config DejaVu ispell aspell flyspell kbd recentf sexp ov bg listp defadvice progn prog keyfreq autosave dabbrev hl gc linum linux utf RET ARG arg configs backends contribs AucTex tex auctex LaTeX url
 
-* Windows dependencies
+* COMMENT Windows dependencies
 Dependencies needed for Aspell, poppler PDF-tools, compilers and ghost-script provided by mingw64
 #+BEGIN_SRC emacs-lisp
   (when (eq system-type 'windows-nt)
@@ -105,10 +105,10 @@ Helps to change windows easily when many are open at once
 
 ** PDF-tools
 #+BEGIN_SRC emacs-lisp
-(use-package pdf-tools
-  :ensure t
-  :config
-  (pdf-tools-install))
+  (use-package pdf-tools
+	:ensure t
+	:config
+	(pdf-tools-install 1))
 #+END_SRC
 
 * Helm and Projectile
@@ -172,6 +172,129 @@ Helps to change windows easily when many are open at once
     (helm-projectile-on))
 #+END_SRC
 
+** ggtags
+#+BEGIN_SRC emacs-lisp
+    (use-package ggtags
+      :ensure t
+      :bind (("C-c g s" . ggtags-find-other-symbol)
+           ("C-c g h" . ggtags-view-tag-history)
+           ("C-c g r" . ggtags-find-reference)
+           ("C-c g f" . ggtags-find-file)
+           ("C-c g c" . ggtags-create-tags)
+           ("C-c g u" . ggtags-update-tags))
+      :config
+      (add-hook 'c-mode-common-hook
+              (lambda ()
+                (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+                  (ggtags-mode 1))))
+      )
+
+    (setq
+     helm-gtags-ignore-case t
+     helm-gtags-auto-update t
+     helm-gtags-use-input-at-cursor t
+     helm-gtags-pulse-at-cursor t
+     helm-gtags-prefix-key "\C-c g"
+     helm-gtags-suggested-key-mapping t
+     )
+
+    (use-package helm-gtags
+      :ensure t
+      :config
+      (add-hook 'dired-mode-hook 'helm-gtags-mode)
+      (add-hook 'eshell-mode-hook 'helm-gtags-mode)
+      (add-hook 'c-mode-hook 'helm-gtags-mode)
+      (add-hook 'c++-mode-hook 'helm-gtags-mode)
+      (add-hook 'asm-mode-hook 'helm-gtags-mode)
+	
+      (define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
+      (define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
+      (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
+      (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
+      (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
+      (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history))
+#+END_SRC
+
+** Ctags
+#+BEGIN_SRC emacs-lisp
+  (defvar ctags-command "ctags -e -R --languages=vhdl")
+
+  (defun ctags ()
+    (call-process-shell-command ctags-command nil "*Ctags*"))
+
+
+  (defun ctags-find-tags-file ()
+    "Recursively searches each parent directory for a file named
+                TAGS and returns the path to that file or nil if a tags file is
+                not found or if the buffer is not visiting a file."
+    (progn
+      (defun find-tags-file-r (path)
+        "Find the tags file from current to the parent directories."
+        (let* ((parent-directory (file-name-directory (directory-file-name path)))
+               (tags-file-name (concat (file-name-as-directory path) "TAGS")))
+          (cond
+           ((file-exists-p tags-file-name) (throw 'found tags-file-name))
+           ((string= "/TAGS" tags-file-name) nil)
+           (t (find-tags-file-r parent-directory)))))
+
+      (if (buffer-file-name)
+          (catch 'found
+            (find-tags-file-r (file-name-directory buffer-file-name)))
+        nil)))
+
+  (defun ctags-set-tags-file ()
+    "Uses `ctags-find-tags-file' to find a TAGS file. If found,
+                set 'tags-file-name' with its path or set as nil."
+    (setq-default tags-file-name (ctags-find-tags-file)))
+
+  (defun ctags-create-tags-table ()
+    (interactive)
+    (let* ((current-directory default-directory)
+           (top-directory (read-directory-name
+                           "Top of source tree: " default-directory))
+           (file-name (concat (file-name-as-directory top-directory) "TAGS")))
+      (cd top-directory)
+      (if (not (= 0 (ctags)))
+          (message "Error creating %s!" file-name)
+        (setq-default tags-file-name file-name)
+        (message "Table %s created and configured." tags-file-name))
+      (cd current-directory)))
+
+  (defun ctags-update-tags-table ()
+    (interactive)
+    (let ((current-directory default-directory))
+      (if (not tags-file-name)
+          (message "Tags table not configured.")
+        (cd (file-name-directory tags-file-name))
+        (if (not (= 0 (ctags)))
+            (message "Error updating %s!" tags-file-name)
+          (message "Table %s updated." tags-file-name))
+        (cd current-directory))))
+
+  (defun ctags-create-or-update-tags-table ()
+    "Create or update a tags table with `ctags-command'."
+    (interactive)
+    (if (not (ctags-set-tags-file))
+        (ctags-create-tags-table)
+      (ctags-update-tags-table)))
+
+
+  (defun ctags-search ()
+    "A wrapper for `tags-search' that provide a default input."
+    (interactive)
+    (let* ((symbol-at-point (symbol-at-point))
+           (default (symbol-name symbol-at-point))
+           (input (read-from-minibuffer
+                   (if (symbol-at-point)
+                       (concat "Tags search (default " default "): ")
+                     "Tags search (regexp): "))))
+      (if (and (symbol-at-point) (string= input ""))
+          (tags-search default)
+        (if (string= input "")
+            (message "You must provide a regexp.")
+          (tags-search input)))))
+#+END_SRC
+
 * Small tweaks
 ** Remove startup screen
 #+BEGIN_SRC emacs-lisp
@@ -214,7 +337,8 @@ Helps to explain keybindings if you get lost
     (which-key-mode))
 #+END_SRC
 
-** Go to this file
+** Config shortcuts
+*** Go to this file
 #+BEGIN_SRC emacs-lisp
 (defun config-visit ()
   (interactive)
@@ -222,7 +346,7 @@ Helps to explain keybindings if you get lost
 (global-set-key (kbd "C-c e d") 'config-visit)
 #+END_SRC
 
-** Go to init.el
+*** Go to init.el
 #+BEGIN_SRC emacs-lisp
   (defun init-visit ()
     (interactive)
@@ -230,7 +354,7 @@ Helps to explain keybindings if you get lost
   (global-set-key (kbd "C-c e i") 'init-visit)
 #+END_SRC
 
-** Reload configuration
+*** Reload configuration
 #+BEGIN_SRC emacs-lisp
 (defun config-reload ()
   "Reloads ~/.emacs.d/config.org at run time"
@@ -392,18 +516,21 @@ Changes the kill ring size to 5000.
 
 ** Coding style
 #+BEGIN_SRC emacs-lisp
-(setq c-default-style "linux")
+  (setq c-default-style '((java-mode . "java")
+                         (awk-mode . "awk")
+                         (other . "k&r")))
 #+END_SRC
 
 ** Coding system
 #+BEGIN_SRC emacs-lisp
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(set-language-environment "UTF-8")
-(prefer-coding-system 'utf-8)
-(setq-default indent-tabs-mode t)
-(delete-selection-mode)
-(global-set-key (kbd "RET") 'newline-and-indent)
+  (set-terminal-coding-system 'utf-8)
+  (set-keyboard-coding-system 'utf-8)
+  (set-language-environment "UTF-8")
+  (prefer-coding-system 'utf-8)
+  (setq-default indent-tabs-mode t
+            tab-width 4)
+  (delete-selection-mode)
+  (global-set-key (kbd "RET") 'newline-and-indent)
 #+END_SRC
 
 ** Move to beginning of line ignoring whitespace
@@ -485,14 +612,14 @@ A little easier to read than the default emacs mode line
 * Programming tweaks
 ** Yasnippet
 #+BEGIN_SRC emacs-lisp
-    (use-package yasnippet
-      :ensure t
-      :diminish yas-minor-mode
-      :config
-      (use-package yasnippet-snippets
-	:ensure t)
-      (yas-reload-all)
-      (yas-global-mode 1))
+  (use-package yasnippet
+    :ensure t
+    :diminish yas-minor-mode
+    :config
+    (use-package yasnippet-snippets
+      :ensure t)
+    (yas-reload-all)
+    (yas-global-mode 1))
 #+END_SRC
 
 ** flycheck
@@ -503,7 +630,7 @@ A little easier to read than the default emacs mode line
     :config
     (global-flycheck-mode))
 #+END_SRC
-*** flycheck-pos-tip
+*** flycheck-pos-tipe
 #+BEGIN_SRC emacs-lisp
 (use-package flycheck-pos-tip
   :ensure t
@@ -694,7 +821,7 @@ Company is auto-complete for Emacs
     (slime-setup '(slime-fancy slime-company)))
 #+END_SRC
 
-*** x86
+*** COMMENT x86
 **** x86-lookup
 #+BEGIN_SRC emacs-lisp
 (use-package x86-lookup
@@ -743,47 +870,53 @@ Company is auto-complete for Emacs
     (add-to-list 'company-backends 'company-bibtex))
 #+END_SRC
 
-**** COMMENT TeXcount
+**** TeXcount
      Word counts in latex
      #+BEGIN_SRC emacs-lisp
-       (defun get-texcount-latest()
-         (url-copy-file "https://app.uio.no/ifi/texcount/download.php?file=texcount_3_1_1.zip" "~/.texcount/texcount.zip" 1)
-         (shell-command "unzip -o ~/.texcount/texcount.zip -d ~/.texcount")
-         (add-to-list 'exec-path "~/.texcount/texcount.pl"))
+	   (defun get-texcount-latest()
+		 (if (not(file-directory-p "~/.texcount"))
+			 (make-directory "~/.texcount"))
+		 (url-copy-file "https://app.uio.no/ifi/texcount/download.php?file=texcount_3_1_1.zip" "~/.texcount/texcount.zip" 1)
+		 (shell-command "unzip -o ~/.texcount/texcount.zip -d ~/.texcount")
+		 (add-to-list 'exec-path "~/.texcount/texcount.pl"))
 
-       (get-texcount-latest)
+	   (if (not(file-exists-p "~/.texcount/texcount.pl"))
+		   (get-texcount-latest))
 
-       (defun texcount ()
-         (interactive)
-         (let*
-             ( (this-file (buffer-file-name))
-               (enc-str (symbol-name buffer-file-coding-system))
-               (enc-opt
-                (cond
-                 ((string-match "utf-8" enc-str) "-utf8")
-                 ((string-match "latin" enc-str) "-latin1")
-                 ("-encoding=guess")
-                 ) )
-               (word-count
-                (with-output-to-string
-                  (with-current-buffer standard-output
-                    (call-process "texcount" nil t nil "-0" enc-opt this-file)
-                    ) ) ) )
-           (message word-count)
-           ) )
-       (add-hook 'LaTeX-mode-hook (lambda () (define-key LaTeX-mode-map (kbd "C-c c") 'texcount)))
-       (add-hook 'latex-mode-hook (lambda () (define-key latex-mode-map (kbd "C-c c") 'texcount)))
+	   (defun texcount ()
+		 (interactive)
+		 (let*
+			 ( (this-file (buffer-file-name))
+			   (enc-str (symbol-name buffer-file-coding-system))
+			   (enc-opt
+				(cond
+				 ((string-match "utf-8" enc-str) "-utf8")
+				 ((string-match "latin" enc-str) "-latin1")
+				 ("-encoding=guess")
+				 ) )
+			   (word-count
+				(with-output-to-string
+				  (with-current-buffer standard-output
+					(call-process "texcount" nil t nil "-0" enc-opt this-file)
+					) ) ) )
+		   (message word-count)
+		   ) )
+	   (add-hook 'LaTeX-mode-hook (lambda () (define-key LaTeX-mode-map (kbd "C-c c") 'texcount)))
+	   (add-hook 'latex-mode-hook (lambda () (define-key latex-mode-map (kbd "C-c c") 'texcount)))
      #+END_SRC
 
 *** PlantUML
 #+BEGIN_SRC emacs-lisp
-(use-package plantuml-mode
-  :ensure t
-  :init
-  (setq plantuml-jar-path "c:/ProgramData/chocolatey/lib/plantuml/tools/plantuml.jar"))
+  (use-package plantuml-mode
+    :ensure t
+    :init
+    (cond ((eq system-type 'windows-nt)
+           (setq plantuml-jar-path "c:/ProgramData/chocolatey/lib/plantuml/tools/plantuml.jar"))
+          ((eq system-type 'gnu/linux)
+           (setq plantuml-jar-path "/usr/share/java/plantuml/plantuml.jar"))))
 #+END_SRC
 
-*** Racket
+*** COMMENT Racket
 **** Major mode
 #+BEGIN_SRC emacs-lisp
   (when (eq system-type 'windows-nt)
@@ -888,15 +1021,15 @@ Add updated version and integrate it with Emacs.
 ** Line wrapping
 #+BEGIN_SRC emacs-lisp
   (add-hook 'org-mode-hook
-	      '(lambda ()
-		 (visual-line-mode 1)))
+            '(lambda ()
+               (visual-line-mode 1)))
 #+END_SRC
 
 ** org-bullets
 #+BEGIN_SRC emacs-lisp
-(use-package org-bullets
-  :ensure t
-  :config
+  (use-package org-bullets
+    :ensure t
+    :config
     (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
 #+END_SRC
 
@@ -929,3 +1062,4 @@ Make the previews match theme colour of Emacs.
     (plist-put dvipng--plist :use-xcolor t)
     (plist-put dvipng--plist :image-converter '("dvipng -D %D -T tight -o %O %f")))
 #+END_SRC
+
