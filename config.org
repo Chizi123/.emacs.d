@@ -111,6 +111,14 @@ Helps to change windows easily when many are open at once
 	(pdf-tools-install 1))
 #+END_SRC
 
+** Writegood-mode
+Supposedly should provide insight to writing quality
+#+BEGIN_SRC emacs-lisp
+  (use-package writegood-mode
+    :ensure t
+    :hook (text-mode . writegood-mode))
+#+END_SRC
+
 * Helm and Projectile
 ** Helm core
 #+BEGIN_SRC emacs-lisp
@@ -996,6 +1004,26 @@ Add updated version and integrate it with Emacs.
       :config
       (autoload 'verilog-mode "verilog-mode" "Verilog mode" t )
       (add-to-list 'auto-mode-alist '("\\.[ds]?vh?\\'" . verilog-mode)))
+#+END_SRC
+
+*** MATLAB
+Mode for editing MATLAB m-files.
+Have to manually install matlab-mode
+#+BEGIN_SRC emacs-lisp
+  (autoload 'matlab-mode "matlab" "Matlab Editing Mode" t)
+  (add-to-list
+   'auto-mode-alist
+   '("\\.m$" . matlab-mode))
+  (setq matlab-indent-function t)
+  (setq matlab-shell-command "matlab")
+  (matlab-cedet-setup)
+#+END_SRC
+
+*** MIPS
+#+BEGIN_SRC emacs-lisp
+  (use-package mips-mode
+    :ensure t
+    :mode "\\.mips$")
 #+END_SRC
 
 * Org mode
