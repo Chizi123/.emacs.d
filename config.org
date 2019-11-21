@@ -1026,6 +1026,13 @@ Have to manually install matlab-mode
     :mode "\\.mips$")
 #+END_SRC
 
+*** IPython notebooks
+Allow emacs to view and use IPython notebooks
+#+BEGIN_SRC emacs-lisp
+  (use-package ein
+    :ensure t)
+#+END_SRC
+
 * Org mode
 ** Up to date org
 #+BEGIN_SRC emacs-lisp
