@@ -1,5 +1,5 @@
 #+TITLE: My Emacs configuration
-#  LocalWords:  poppler mingw emacs eq nt gnuplot setenv mapconcat el cond minibuffer pdf color Smartparens smartparens yas aindent whitespace eldoc ielm ibuffer hippie pscp pos Spaceline spaceline powerline spacemacs seperator dir Yasnippet yasnippet flycheck magit fullscreen CEDET askifnotset semanticdb EDE ede gdb srefactor analyzer eval cdb autosetup ghostscript math unicode reftex bibtex TeXcount texcount str latin rkt PlantUML plantuml autoload alist matlab verilog ds vh src fontify natively fortran dvipng plist xcolor EXWM Zenburn setq zenburn defun dolist init config DejaVu ispell aspell flyspell kbd recentf sexp ov bg listp defadvice progn prog keyfreq autosave dabbrev hl gc linum linux utf RET ARG arg configs backends contribs AucTex tex auctex LaTeX url
+#  LocalWords:  poppler mingw emacs eq nt gnuplot setenv mapconcat el cond minibuffer pdf color Smartparens smartparens yas aindent whitespace eldoc ielm ibuffer hippie pscp pos Spaceline spaceline powerline spacemacs seperator dir Yasnippet yasnippet flycheck magit fullscreen CEDET askifnotset semanticdb EDE ede gdb srefactor analyzer eval cdb autosetup ghostscript math unicode reftex bibtex TeXcount texcount str latin rkt PlantUML plantuml autoload alist matlab verilog ds vh src fontify natively fortran dvipng plist xcolor EXWM Zenburn setq zenburn defun dolist init config DejaVu ispell aspell flyspell kbd recentf sexp ov bg listp defadvice progn prog keyfreq autosave dabbrev hl gc linum linux utf RET ARG arg configs backends contribs AucTex tex auctex LaTeX url htmlize
 
 * COMMENT Windows dependencies
 Dependencies needed for Aspell, poppler PDF-tools, compilers and ghost-script provided by mingw64
@@ -45,8 +45,9 @@ Zenburn theme is the default
 
 ** Default font
 #+BEGIN_SRC emacs-lisp 
-  ;;(set-frame-font "DejaVu Sans Mono" nil t)
+  ;; (set-frame-font "DejaVu Sans Mono" nil t)
   (set-frame-font "Dank Mono-11" nil t)
+  ;; (set-frame-font "Source Code Pro-10" nil t)
   (set-face-italic 'font-lock-comment-face t)
   (set-face-italic 'font-lock-keyword-face t)
 #+END_SRC
@@ -111,7 +112,7 @@ Helps to change windows easily when many are open at once
 	(pdf-tools-install 1))
 #+END_SRC
 
-** Writegood-mode
+** COMMENT Writegood-mode
 Supposedly should provide insight to writing quality
 #+BEGIN_SRC emacs-lisp
   (use-package writegood-mode
@@ -180,7 +181,7 @@ Supposedly should provide insight to writing quality
     (helm-projectile-on))
 #+END_SRC
 
-** ggtags
+** COMMENT ggtags
 #+BEGIN_SRC emacs-lisp
     (use-package ggtags
       :ensure t
@@ -223,7 +224,7 @@ Supposedly should provide insight to writing quality
       (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history))
 #+END_SRC
 
-** Ctags
+** COMMENT Ctags
 #+BEGIN_SRC emacs-lisp
   (defvar ctags-command "ctags -e -R --languages=vhdl")
 
@@ -1098,3 +1099,114 @@ Make the previews match theme colour of Emacs.
     (plist-put dvipng--plist :image-converter '("dvipng -D %D -T tight -o %O %f")))
 #+END_SRC
 
+* EMMS
+Emacs media manager.
+#+BEGIN_SRC emacs-lisp
+  (use-package emms-setup
+    :ensure emms
+    :init
+    (add-to-list 'load-path "~/elisp/emms/")
+    :config
+    (emms-all)
+    (emms-default-players)
+    (setq emms-source-file-directory "~/Music/"))
+#+END_SRC
+
+* Org Blog
+** Org static blog config
+Boiler plate template code for site.
+#+BEGIN_SRC emacs-lisp
+  (use-package org-static-blog
+    :ensure t
+    :config
+    (setq org-static-blog-publish-title "Joel's Site")
+    (setq org-static-blog-publish-url "https://blog.joelg.cf/")
+    (setq org-static-blog-publish-directory "/backup/home/joel/Downloads/Chizi123.github.io/")
+    (setq org-static-blog-posts-directory "/backup/home/joel/Downloads/Chizi123.github.io/posts/")
+    (setq org-static-blog-drafts-directory "/backup/home/joel/Downloads/Chizi123.github.io/drafts/")
+    (setq org-static-blog-enable-tags t)
+    (setq org-export-with-toc nil)
+    (setq org-export-with-section-numbers nil)
+
+    ;; This header is inserted into the <head> section of every page:
+    ;;   (you will need to create the style sheet at
+    ;;    ~/projects/blog/static/style.css
+    ;;    and the favicon at
+    ;;    ~/projects/blog/static/favicon.ico)
+    (setq org-static-blog-page-header
+    "<meta name=\"author\" content=\"Joel Grunbaum\">
+    <meta name=\"referrer\" content=\"no-referrer\">
+    <link href= \"static/style.css\" rel=\"stylesheet\" type=\"text/css\" />
+    <link rel=\"icon\" href=\"static/favicon.png\">
+    <script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-147303155-2\"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-147303155-2');
+    </script>
+    ")
+
+    ;; This preamble is inserted at the beginning of the <body> of every page:
+    ;;   This particular HTML creates a <div> with a simple linked headline
+    (setq org-static-blog-page-preamble
+    "<div class=\"header\">
+      <a href=\"https://blog.joelg.cf\">Joel's Site - Personal site and constant work in progress</a>
+      <div class=\"sitelinks\">
+        <a href=\"https://blog.joelg.cf/about-me.html\">About Me</a> |
+        <a href=\"https://github.com/Chizi123\">Github</a> |
+        <a href=\"https://facebook.com/joel.grun.5\">Facebook</a>
+      </div>
+    </div>")
+
+    ;; This postamble is inserted at the end of the <body> of every page:
+    ;;   This particular HTML creates a <div> with a link to the archive page
+    ;;   and a licensing stub.
+    (setq org-static-blog-page-postamble
+    "<div id=\"archive\">
+      <a href=\"https://blog.joelg.cf/archive.html\">Other posts</a>
+    </div>
+    <br>
+    <div id=\"commento\"></div>
+    <script src=\"https://cdn.commento.io/js/commento.js\"></script>")
+    ;; <center><button id=\"disqus_button\" onclick=\"load_disqus()\">Load Disqus Comments</button></center>
+    ;; <div id=\"disqus_thread\"></div>
+    ;; <script type=\"text/javascript\">
+    ;;   function load_disqus() {
+    ;;       var dsq = document.createElement('script');
+    ;;       dsq.type = 'text/javascript';
+    ;;       dsq.async = true;
+    ;;       dsq.src = 'https://joelg-cf.disqus.com/embed.js';
+    ;;       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    ;;       document.getElementById('disqus_button').style.visibility = 'hidden';
+    ;;   };
+    ;; </script>")
+
+    ;; generate blog files and create sitemap for files
+    (defun blog-publish()
+      (interactive)
+      (org-static-blog-publish)
+      (setq n 0)
+      (setq site "https://blog.joelg.cf/")
+      (setq posts (directory-files org-static-blog-publish-directory))
+      (generate-new-buffer "sitemap.xml.gen")
+      (with-current-buffer "sitemap.xml.gen" (insert "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n"))
+      (while (< n (length (directory-files org-static-blog-publish-directory)))
+        (setq curr (nth n posts))
+        (if (string-match "\\(html\\)" curr)
+            (if (string-match "index.html" curr)
+                (with-current-buffer "sitemap.xml.gen" (insert (concat "\t<url>\n\t\t<loc>" site "</loc>\n\t</url>\n")))
+              (with-current-buffer "sitemap.xml.gen" (insert (concat "\t<url>\n\t\t<loc>" site curr "</loc>\n\t</url>\n")))))
+        (setq n (1+ n)))
+      (with-current-buffer "sitemap.xml.gen" (insert "</urlset>"))
+      (with-current-buffer "sitemap.xml.gen" (write-region (point-min) (point-max) (concat org-static-blog-publish-directory "sitemap.xml")) t)
+      (kill-buffer "sitemap.xml.gen"))
+  )
+#+END_SRC
+
+** Emacs-htmlize
+Allow org features to be exported to HTML for site
+#+BEGIN_SRC emacs-lisp
+  (use-package htmlize
+    :ensure t)
+#+END_SRC

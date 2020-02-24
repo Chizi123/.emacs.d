@@ -34,3 +34,4 @@
   (org-babel-load-file "~/.emacs.d/config.org"))
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+(put 'list-timers 'disabled nil)
