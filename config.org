@@ -1,5 +1,5 @@
 #+TITLE: My Emacs configuration
-#  LocalWords:  poppler mingw emacs eq nt gnuplot setenv mapconcat el cond minibuffer pdf color Smartparens smartparens yas aindent whitespace eldoc ielm ibuffer hippie pscp pos Spaceline spaceline powerline spacemacs seperator dir Yasnippet yasnippet flycheck magit fullscreen CEDET askifnotset semanticdb EDE ede gdb srefactor analyzer eval cdb autosetup ghostscript math unicode reftex bibtex TeXcount texcount str latin rkt PlantUML plantuml autoload alist matlab verilog ds vh src fontify natively fortran dvipng plist xcolor EXWM Zenburn setq zenburn defun dolist init config DejaVu ispell aspell flyspell kbd recentf sexp ov bg listp defadvice progn prog keyfreq autosave dabbrev hl gc linum linux utf RET ARG arg configs backends contribs AucTex tex auctex LaTeX url htmlize
+#  LocalWords:  poppler mingw emacs eq nt gnuplot setenv mapconcat el cond minibuffer pdf color Smartparens smartparens yas aindent whitespace eldoc ielm ibuffer hippie pscp pos Spaceline spaceline powerline spacemacs seperator dir Yasnippet yasnippet flycheck magit fullscreen CEDET askifnotset semanticdb EDE ede gdb srefactor analyzer eval cdb autosetup ghostscript math unicode reftex bibtex TeXcount texcount str latin rkt PlantUML plantuml autoload alist matlab verilog ds vh src fontify natively fortran dvipng plist xcolor EXWM Zenburn setq zenburn defun dolist init config DejaVu ispell aspell flyspell kbd recentf sexp ov bg listp defadvice progn prog keyfreq autosave dabbrev hl gc linum linux utf RET ARG arg configs backends contribs AucTex tex auctex LaTeX url htmlize linter backend writegood ggtags gtags dired eshell asm cd dwim VHDL defvar ctags vhdl concat sp html awk defalias cedet mips IPython ein contrib pandoc dokuwiki EMMS MPD emms toc favicon href css stylesheet async dataLayer gtag js UA sitelinks br Github postamble isso center disqus onclick Disqus javascript dsq createElement getElementsByTagName xml urlset xmlns curr loc
 
 * COMMENT Windows dependencies
 Dependencies needed for Aspell, poppler PDF-tools, compilers and ghost-script provided by mingw64
@@ -16,10 +16,6 @@ Dependencies needed for Aspell, poppler PDF-tools, compilers and ghost-script pr
 Zenburn theme is the default
 #+BEGIN_SRC emacs-lisp
   (setq emacs-theme 'zenburn)
-
-  (defun disable-all-themes ()
-    (dolist (i custom-enabled-themes)
-      (disable-theme i)))
 
   (cond ((eq emacs-theme 'zenburn)
          (use-package zenburn-theme
@@ -40,7 +36,8 @@ Zenburn theme is the default
            (doom-themes-visual-bell-config)
            (doom-themes-org-config)))
         ((eq emacs-theme 'none)
-         (disable-all-themes)))
+         (dolist (i custom-enabled-themes)
+           (disable-theme i))))
 #+END_SRC
 
 ** Default font
@@ -66,9 +63,9 @@ Zenburn theme is the default
   (setq-default ispell-program-name "aspell")
   (setq-default ispell-local-dictionary "en_AU")
   (add-hook 'latex-mode-hook 'flyspell-mode)
-  (add-hook 'latex-mode-hook 'flyspell-buffer)
+  ;; (add-hook 'latex-mode-hook 'flyspell-buffer)
   (add-hook 'org-mode-hook 'flyspell-mode)
-  (add-hook 'org-mode-hook 'flyspell-buffer)
+  ;; (add-hook 'org-mode-hook 'flyspell-buffer)
 #+END_SRC
 
 ** Switch-window
@@ -182,6 +179,7 @@ Supposedly should provide insight to writing quality
 #+END_SRC
 
 ** COMMENT ggtags
+Use GNU Global Tags. Can be useful for large projects.
 #+BEGIN_SRC emacs-lisp
     (use-package ggtags
       :ensure t
@@ -225,6 +223,8 @@ Supposedly should provide insight to writing quality
 #+END_SRC
 
 ** COMMENT Ctags
+Ctags is an older tagging program that supports more languages.
+Currently setup for VHDL as I had to work with a large existing VHDL code-base.
 #+BEGIN_SRC emacs-lisp
   (defvar ctags-command "ctags -e -R --languages=vhdl")
 
@@ -306,18 +306,19 @@ Supposedly should provide insight to writing quality
 
 * Small tweaks
 ** Remove startup screen
+Start on scratch buffer instead.
 #+BEGIN_SRC emacs-lisp
 (setq inhibit-startup-message t)
 #+END_SRC
 
 ** Disable bell
-Bloody bell dings every time you hit a key too much
+Bloody bell dings every time you hit a key too much.
 #+BEGIN_SRC emacs-lisp
 (setq ring-bell-function 'ignore)
 #+END_SRC
 
 ** Pretty symbols
-Why not? They make it look nice
+Why not? They make it look nice.
 #+BEGIN_SRC emacs-lisp
   (when window-system
     (use-package pretty-mode
@@ -327,7 +328,7 @@ Why not? They make it look nice
       (global-pretty-mode)))
 #+END_SRC
 
-** find file other window
+** COMMENT Find file other window
 Lets it accept more than one file. Works recursively.
 #+BEGIN_SRC emacs-lisp
 (defadvice find-file-other-window (around find-files activate)
@@ -337,7 +338,7 @@ Lets it accept more than one file. Works recursively.
 #+END_SRC
 
 ** Which key
-Helps to explain keybindings if you get lost
+Helps to explain keybindings if you get lost.
 #+BEGIN_SRC emacs-lisp
   (use-package which-key
     :ensure t
@@ -373,19 +374,22 @@ Helps to explain keybindings if you get lost
 #+END_SRC
 
 ** Smartparens
-Matches brackets automatically
+Matches brackets automatically. Added "$" for latex in org mode.
 #+BEGIN_SRC emacs-lisp
-(use-package smartparens
-  :ensure t
-  :diminish smartparens-mode
-  :config
-  (progn
-    (require 'smartparens-config)
-    (smartparens-global-mode 1)))
+  (use-package smartparens
+    :ensure t
+    :diminish smartparens-mode
+    :config
+    (progn
+      (require 'smartparens-config)
+      (smartparens-global-mode 1))
+    (sp-with-modes 'org-mode
+      (sp-local-pair "$" "$")))
 #+END_SRC
 
-** Rainbow
-Its a little gimmicky but its still cool
+** COMMENT Rainbow
+Its a little gimmicky but its still cool.
+Colours according to code after a "#", works with 3 and 6 character hex codes.
 #+BEGIN_SRC emacs-lisp
   (use-package rainbow-mode
     :ensure t
@@ -404,19 +408,19 @@ Colours the brackets so that they stand out more.
       (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 #+END_SRC
 
-** clean-aindent-mode
+** Following whitespace
 Removes unnecessary white space
 #+BEGIN_SRC emacs-lisp
-(use-package clean-aindent-mode
-  :ensure t
-  :hook prog-mode)
+  (use-package clean-aindent-mode
+    :ensure t
+    :hook prog-mode)
 #+END_SRC
 Shows trailing white space
 #+BEGIN_SRC emacs-lisp
 (add-hook 'prog-mode-hook (lambda () (interactive) (setq show-trailing-whitespace 1)))
 #+END_SRC
 
-** whitespace mode
+** Whitespace mode
 Reveals whitespace characters
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "C-c w") 'whitespace-mode)
@@ -437,14 +441,17 @@ Reveals whitespace characters
 #+END_SRC
 
 ** eldoc
+Shows function arguments in echo area below mode line.
 #+BEGIN_SRC emacs-lisp
+  (diminish eldoc-mode)
   (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
   (add-hook 'lisp-interaction-mode-hook 'eldoc-mode)
   (add-hook 'ielm-mode-hook 'eldoc-mode)
 #+END_SRC
 
-** key-freq
-collects interesting statistics
+** Key frequency statistics
+Collects interesting statistics about key presses.
+Use M-x keyfreq-show to show in emacs or M-x keyfreq-html to output
 #+BEGIN_SRC emacs-lisp
 (use-package keyfreq
   :ensure t
@@ -453,8 +460,10 @@ collects interesting statistics
   (keyfreq-autosave-mode 1))
 #+END_SRC
 
-** undo-tree
-A more advanced undo mechanism
+** Undo tree
+A more advanced undo mechanism.
+Supports branched undo history (thus the tree).
+Pretty neat, if seldom used.
 #+BEGIN_SRC emacs-lisp
 (use-package undo-tree
   :ensure t
@@ -463,7 +472,7 @@ A more advanced undo mechanism
   (global-undo-tree-mode))
 #+END_SRC
 
-** volatile highlights
+** Volatile highlights
 Colour the material just copied
 #+BEGIN_SRC emacs-lisp
 (use-package volatile-highlights
@@ -474,12 +483,15 @@ Colour the material just copied
 #+END_SRC
 
 ** ibuffer
+View all open buffers in their own buffer rather in the temporary mini buffer.
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (setq ibuffer-use-other-window t)
 #+END_SRC
 
-** hippie expand
+** Hippie expand
+Seems cool, but I don't think I ever use this.
+Meant to suggest completions to beginning of a word.
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "M-/") 'hippie-expand) ;; replace dabbrev-expand
 (setq
@@ -498,17 +510,19 @@ Colour the material just copied
 #+END_SRC
 
 ** Highlight line
+Very useful for finding where you are.
 #+BEGIN_SRC emacs-lisp
 (global-hl-line-mode)
 #+END_SRC
 
 ** Line numbers
+Everyone needs line numbers when programming.
 #+BEGIN_SRC emacs-lisp
 (add-hook 'prog-mode-hook 'linum-mode)
 #+END_SRC
 
 ** Garbage collection
-starts garbage collection every 100MB
+Starts garbage collection every 100MB.
 #+BEGIN_SRC emacs-lisp
 (setq gc-cons-threshold 100000000)
 #+END_SRC
@@ -524,6 +538,8 @@ Changes the kill ring size to 5000.
 #+END_SRC
 
 ** Coding style
+Use java for java, awk for awk and K&R for everything else.
+K&R uses 4 space tabs.
 #+BEGIN_SRC emacs-lisp
   (setq c-default-style '((java-mode . "java")
                          (awk-mode . "awk")
@@ -531,6 +547,7 @@ Changes the kill ring size to 5000.
 #+END_SRC
 
 ** Coding system
+Cause we all love UTF8
 #+BEGIN_SRC emacs-lisp
   (set-terminal-coding-system 'utf-8)
   (set-keyboard-coding-system 'utf-8)
@@ -544,6 +561,7 @@ Changes the kill ring size to 5000.
 
 ** Move to beginning of line ignoring whitespace
 Move point back to indentation of beginning of line.
+Pretty good for getting to the start of what you actually wanted.
 
 Move point to the first non-whitespace character on this line.
 If point is already there, move to the beginning of the line.
@@ -571,6 +589,7 @@ point reaches the beginning or end of the buffer, stop there.
 #+END_SRC
 
 ** Indent region or buffer
+Indent, slightly different to standard tab or C-M-\.
 #+BEGIN_SRC emacs-lisp
 (defun indent-region-or-buffer ()
   "Indent a region if selected, otherwise the whole buffer."
@@ -590,16 +609,24 @@ point reaches the beginning or end of the buffer, stop there.
 #+END_SRC
 
 ** Tramp
+Remote editing mode.
+Hate having to re-input passwords.
 #+BEGIN_SRC emacs-lisp
   (when (eq system-type 'windows-nt)
     (setq tramp-default-method "pscp"))
   (setq password-cache-expiry nil)
 #+END_SRC
 
+** COMMENT Y or N instead of yes or no
+Need not type out whole word.
+#+BEGIN_SRC emacs-lisp
+  (defalias 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
 * Mode line tweaks
 Diminish is used but is included in init.el such that it can be used throughout this document
 ** Spaceline
-A little easier to read than the default emacs mode line
+A little easier to read than the default emacs mode line.
 #+BEGIN_SRC emacs-lisp
     (use-package spaceline
       :ensure t
@@ -613,13 +640,10 @@ A little easier to read than the default emacs mode line
       (spaceline-helm-mode))
 #+END_SRC
 
-** No separator
-#+BEGIN_SRC emacs-lisp
-(setq powerline-default-seperator nil)
-#+END_SRC
-
 * Programming tweaks
 ** Yasnippet
+Add snippets, pretty useful.
+Manually added snippets are in ~/.emacs.d/snippets/{mode}.
 #+BEGIN_SRC emacs-lisp
   (use-package yasnippet
     :ensure t
@@ -631,7 +655,8 @@ A little easier to read than the default emacs mode line
     (yas-global-mode 1))
 #+END_SRC
 
-** flycheck
+** Flycheck
+Basic linter. Works pretty well.
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck
     :ensure t
@@ -639,7 +664,8 @@ A little easier to read than the default emacs mode line
     :config
     (global-flycheck-mode))
 #+END_SRC
-*** flycheck-pos-tipe
+*** flycheck-pos-tip
+Add suggestions at the cursor.
 #+BEGIN_SRC emacs-lisp
 (use-package flycheck-pos-tip
   :ensure t
@@ -649,7 +675,8 @@ A little easier to read than the default emacs mode line
 #+END_SRC
 
 ** Company
-Company is auto-complete for Emacs
+Company is auto-complete for Emacs.
+Uses various backends, more of which are added later.
 #+BEGIN_SRC emacs-lisp
   (use-package company
     :ensure t
@@ -661,6 +688,8 @@ Company is auto-complete for Emacs
 #+END_SRC
 
 ** Magit
+Emacs git client.
+Pretty good and offers fairly decent features.
 #+BEGIN_SRC emacs-lisp
   (use-package magit
     :ensure t
@@ -716,7 +745,9 @@ Company is auto-complete for Emacs
 #+END_SRC
 
 ** CEDET
-*** semantic
+*** Semantic
+Parser library for code, supports many other packages.
+Allows emacs to be mode aware of what is being written.
 #+BEGIN_SRC emacs-lisp
   (use-package semantic
     :config
@@ -727,6 +758,8 @@ Company is auto-complete for Emacs
 #+END_SRC
 
 *** EDE
+Emacs Development Environment.
+Can be used to manage and create build files for a project.
 #+BEGIN_SRC emacs-lisp
 (use-package ede
   :config
@@ -734,38 +767,42 @@ Company is auto-complete for Emacs
 #+END_SRC
 
 *** gdb-many-windows
+Enhances the use of GDB in emacs.
+Shows register contents, variable contents and others in addition to GDB shell.
+Also shows source code while debugging.
 #+BEGIN_SRC emacs-lisp
 (setq
- ;; use gdb-many-windows by default
  gdb-many-windows t
-
- ;; Non-nil means display source file containing the main routine at startup
  gdb-show-main t)
 #+END_SRC
 
-*** Semantic refactor
+*** COMMENT Semantic refactor
+Trying to get this to work.
+Should help to refactor file.
 #+BEGIN_SRC emacs-lisp
-(use-package srefactor
-  :ensure t
-  :bind (("M-RET o" . 'srefactor-lisp-one-line)
-	 ("M-RET m" . 'srefactor-lisp-format-sexp)
-	 ("M-RET d" . 'srefactor-lisp-format-defun)
-	 ("M-RET b" . 'srefactor-lisp-format-buffer)
-	 :map c-mode-base-map
-	      ("M-RET" . 'srefactor-refactor-at-point)
-	      :map c++-mode-map
-	      ("M-RET" . 'srefactor-refactor-at-point)))
+  (use-package srefactor
+    :ensure t
+    :bind (("M-RET o" . 'srefactor-lisp-one-line)
+       ("M-RET m" . 'srefactor-lisp-format-sexp)
+       ("M-RET d" . 'srefactor-lisp-format-defun)
+       ("M-RET b" . 'srefactor-lisp-format-buffer)
+       :map c-mode-base-map
+            ("M-RET" . 'srefactor-refactor-at-point)
+            :map c++-mode-map
+            ("M-RET" . 'srefactor-refactor-at-point)))
 #+END_SRC
 
 ** Language specific configs
 *** C/C++
-**** yasnippet
+**** COMMENT yasnippet
+Enable yasnippet for C/C++.
 #+BEGIN_SRC emacs-lisp
 (add-hook 'c++-mode-hook 'yas-minor-mode)
 (add-hook 'c-mode-hook 'yas-minor-mode)
 #+END_SRC
 
-**** flycheck clang
+**** Flycheck clang
+Add the clang backend for linting.
 #+BEGIN_SRC emacs-lisp
 (use-package flycheck-clang-analyzer
   :ensure t
@@ -775,7 +812,8 @@ Company is auto-complete for Emacs
      (flycheck-clang-analyzer-setup)))
 #+END_SRC
 
-**** company
+**** Company
+Add header completion as well as Irony, which uses clang for suggestions.
 #+BEGIN_SRC emacs-lisp
   (use-package company-c-headers
       :ensure t
@@ -783,13 +821,6 @@ Company is auto-complete for Emacs
       :config
       (add-hook 'c++-mode-hook 'company-mode)
       (add-hook 'c-mode-hook 'company-mode))
-
-  (use-package company-irony
-    :ensure t
-    :config
-    (add-to-list 'company-backends '(company-c-headers
-                                     company-dabbrev-code
-                                     company-irony)))
 
   (use-package irony
     :ensure t
@@ -800,20 +831,24 @@ Company is auto-complete for Emacs
     (add-hook 'c-mode-hook 'irony-mode)
     (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
     (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+
+  (use-package company-irony
+    :ensure t
+    :config
+    (add-to-list 'company-backends '(company-c-headers
+                                     company-dabbrev-code
+                                     company-irony)))
 #+END_SRC
 
 *** emacs-lisp
-**** eldoc
-#+BEGIN_SRC emacs-lisp
-(add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
-#+END_SRC
-
-**** yasnippet
+**** COMMENT yasnippet
+Enable yasnippet.
 #+BEGIN_SRC emacs-lisp
 (add-hook 'emacs-lisp-mode-hook 'yas-minor-mode)
 #+END_SRC
 
-**** company
+**** COMMENT company
+Add slime backend.
 #+BEGIN_SRC emacs-lisp
 (add-hook 'emacs-lisp-mode-hook 'company-mode)
 
@@ -832,6 +867,7 @@ Company is auto-complete for Emacs
 
 *** COMMENT x86
 **** x86-lookup
+Look up reference PDF. Use Intel manual.
 #+BEGIN_SRC emacs-lisp
 (use-package x86-lookup
   :ensure t
@@ -842,6 +878,7 @@ Company is auto-complete for Emacs
 
 *** Latex
 **** AucTex
+AucTex contains many additions to make tex editing good.
 #+BEGIN_SRC emacs-lisp
   (use-package tex
     :ensure auctex
@@ -854,6 +891,7 @@ Company is auto-complete for Emacs
 #+END_SRC
 
 **** Company
+Help company complete tex math and references.
 #+BEGIN_SRC emacs-lisp
   (use-package company-math
     :ensure t
@@ -880,41 +918,43 @@ Company is auto-complete for Emacs
 #+END_SRC
 
 **** TeXcount
-     Word counts in latex
-     #+BEGIN_SRC emacs-lisp
-	   (defun get-texcount-latest()
-		 (if (not(file-directory-p "~/.texcount"))
-			 (make-directory "~/.texcount"))
-		 (url-copy-file "https://app.uio.no/ifi/texcount/download.php?file=texcount_3_1_1.zip" "~/.texcount/texcount.zip" 1)
-		 (shell-command "unzip -o ~/.texcount/texcount.zip -d ~/.texcount")
-		 (add-to-list 'exec-path "~/.texcount/texcount.pl"))
+Word counts in latex.
+Uses a Perl script.
+#+BEGIN_SRC emacs-lisp
+  (defun get-texcount-latest()
+    (if (not(file-directory-p "~/.texcount"))
+        (make-directory "~/.texcount"))
+    (url-copy-file "https://app.uio.no/ifi/texcount/download.php?file=texcount_3_1_1.zip" "~/.texcount/texcount.zip" 1)
+    (shell-command "unzip -o ~/.texcount/texcount.zip -d ~/.texcount")
+    (add-to-list 'exec-path "~/.texcount/texcount.pl"))
 
-	   (if (not(file-exists-p "~/.texcount/texcount.pl"))
-		   (get-texcount-latest))
+  (if (not(file-exists-p "~/.texcount/texcount.pl"))
+      (get-texcount-latest))
 
-	   (defun texcount ()
-		 (interactive)
-		 (let*
-			 ( (this-file (buffer-file-name))
-			   (enc-str (symbol-name buffer-file-coding-system))
-			   (enc-opt
-				(cond
-				 ((string-match "utf-8" enc-str) "-utf8")
-				 ((string-match "latin" enc-str) "-latin1")
-				 ("-encoding=guess")
-				 ) )
-			   (word-count
-				(with-output-to-string
-				  (with-current-buffer standard-output
-					(call-process "texcount" nil t nil "-0" enc-opt this-file)
-					) ) ) )
-		   (message word-count)
-		   ) )
-	   (add-hook 'LaTeX-mode-hook (lambda () (define-key LaTeX-mode-map (kbd "C-c c") 'texcount)))
-	   (add-hook 'latex-mode-hook (lambda () (define-key latex-mode-map (kbd "C-c c") 'texcount)))
-     #+END_SRC
+  (defun texcount ()
+    (interactive)
+    (let*
+        ( (this-file (buffer-file-name))
+          (enc-str (symbol-name buffer-file-coding-system))
+          (enc-opt
+           (cond
+            ((string-match "utf-8" enc-str) "-utf8")
+            ((string-match "latin" enc-str) "-latin1")
+            ("-encoding=guess")
+            ) )
+          (word-count
+           (with-output-to-string
+             (with-current-buffer standard-output
+               (call-process "texcount" nil t nil "-0" enc-opt this-file)
+               ) ) ) )
+      (message word-count)
+      ) )
+  (add-hook 'LaTeX-mode-hook (lambda () (define-key LaTeX-mode-map (kbd "C-c c") 'texcount)))
+  (add-hook 'latex-mode-hook (lambda () (define-key latex-mode-map (kbd "C-c c") 'texcount)))
+#+END_SRC
 
 *** PlantUML
+Sets the PlantUML path for the mode to generate models.
 #+BEGIN_SRC emacs-lisp
   (use-package plantuml-mode
     :ensure t
@@ -927,6 +967,7 @@ Company is auto-complete for Emacs
 
 *** COMMENT Racket
 **** Major mode
+Set racket path in windows and enable racket mode.
 #+BEGIN_SRC emacs-lisp
   (when (eq system-type 'windows-nt)
     (add-to-list 'exec-path "c:/Program Files/Racket")
@@ -942,9 +983,9 @@ Company is auto-complete for Emacs
       (setq matlab-indent-function t))
 #+END_SRC
 
-*** Verilog
+*** COMMENT Verilog
 **** Get latest version
-Pull the latest version from the web
+Pull the latest version from the web.
 #+BEGIN_SRC emacs-lisp
   (defun get-verilog-latest()
     (if (not(file-directory-p "~/.emacs.d/elpa/verilog-mode"))
@@ -955,7 +996,7 @@ Pull the latest version from the web
 #+END_SRC
 
 **** Integrate into emacs
-Add updated version and integrate it with Emacs.
+Add updated version (based off auto-package-update) and integrate it with Emacs.
 #+BEGIN_SRC emacs-lisp
     (defun verilog-read-file-as-string (file)
       "Read FILE contents."
@@ -1007,27 +1048,30 @@ Add updated version and integrate it with Emacs.
       (add-to-list 'auto-mode-alist '("\\.[ds]?vh?\\'" . verilog-mode)))
 #+END_SRC
 
-*** MATLAB
+*** COMMENT MATLAB
 Mode for editing MATLAB m-files.
-Have to manually install matlab-mode
 #+BEGIN_SRC emacs-lisp
-  (autoload 'matlab-mode "matlab" "Matlab Editing Mode" t)
-  (add-to-list
-   'auto-mode-alist
-   '("\\.m$" . matlab-mode))
-  (setq matlab-indent-function t)
-  (setq matlab-shell-command "matlab")
-  (matlab-cedet-setup)
+  (use-package matlab
+    :ensure matlab-mode
+    :config
+    (autoload 'matlab-mode "matlab" "Matlab Editing Mode" t)
+    (add-to-list
+     'auto-mode-alist
+     '("\\.m$" . matlab-mode))
+    (setq matlab-indent-function t)
+    (setq matlab-shell-command "matlab")
+    (matlab-cedet-setup))
 #+END_SRC
 
-*** MIPS
+*** COMMENT MIPS
+For editing MIPS assembly.
 #+BEGIN_SRC emacs-lisp
   (use-package mips-mode
     :ensure t
     :mode "\\.mips$")
 #+END_SRC
 
-*** IPython notebooks
+*** COMMENT IPython notebooks
 Allow emacs to view and use IPython notebooks
 #+BEGIN_SRC emacs-lisp
   (use-package ein
@@ -1036,13 +1080,15 @@ Allow emacs to view and use IPython notebooks
 
 * Org mode
 ** Up to date org
+Pull the latest org mode from the repository, rather than the org which comes with emacs.
 #+BEGIN_SRC emacs-lisp
     (use-package org
-      :ensure t
+      :ensure org-plus-contrib
       :pin org)
 #+END_SRC
 
 ** Small tweaks
+Small quality of life changes to org-mode.
 #+BEGIN_SRC emacs-lisp
 (setq org-src-fontify-natively t)
 (setq org-src-tab-acts-natively t)
@@ -1055,6 +1101,7 @@ Allow emacs to view and use IPython notebooks
 #+END_SRC
 
 ** Line wrapping
+Enable line wrapping for long lines.
 #+BEGIN_SRC emacs-lisp
   (add-hook 'org-mode-hook
             '(lambda ()
@@ -1062,6 +1109,7 @@ Allow emacs to view and use IPython notebooks
 #+END_SRC
 
 ** org-bullets
+Use bullets of different colours and styles instead of the "\*\*\*" to denote indentation levels.
 #+BEGIN_SRC emacs-lisp
   (use-package org-bullets
     :ensure t
@@ -1070,8 +1118,10 @@ Allow emacs to view and use IPython notebooks
 #+END_SRC
 
 ** Org Babel
+Allows the execution of code from within an org buffer.
+Code output can also be input to the buffer.
 *** Languages
-Add C to org babel supported languages
+Add a bunch of languages to org babel supported languages
 #+BEGIN_SRC emacs-lisp
     (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t)
                                                              (C . t)
@@ -1086,21 +1136,39 @@ Add C to org babel supported languages
                                                              (plantuml . t)))
 #+END_SRC
 
-**** Plantuml path
+**** PlantUML path
+Org uses its own path for some reason.
 #+BEGIN_SRC emacs-lisp
   (setq org-plantuml-jar-path plantuml-jar-path)
 #+END_SRC
 
 ** Latex preview fragments match colour
 Make the previews match theme colour of Emacs.
+Gets very annoying very quickly without it.
 #+BEGIN_SRC emacs-lisp
   (let ((dvipng--plist (alist-get 'dvipng org-preview-latex-process-alist)))
     (plist-put dvipng--plist :use-xcolor t)
     (plist-put dvipng--plist :image-converter '("dvipng -D %D -T tight -o %O %f")))
 #+END_SRC
 
-* EMMS
+** Org export additions
+*** Pandoc
+Call pandoc on org buffer from org export.
+#+BEGIN_SRC emacs-lisp
+  (use-package ox-pandoc
+    :ensure t)
+#+END_SRC
+
+*** COMMENT Dokuwiki Wiki
+Allow export to dokuwiki markup from org.
+#+BEGIN_SRC emacs-lisp
+  (use-package ox-wk
+    :ensure t)
+#+END_SRC
+
+* COMMENT EMMS
 Emacs media manager.
+I come back to it every now and again as an MPD front-end, but haven't quite gotten the hang of it.
 #+BEGIN_SRC emacs-lisp
   (use-package emms-setup
     :ensure emms
@@ -1113,100 +1181,107 @@ Emacs media manager.
 #+END_SRC
 
 * Org Blog
+I use org to write my blog and use org-static-blog to generate the HTML.
 ** Org static blog config
-Boiler plate template code for site.
+Basic configuration for site.
+Copied and modified from the example configuration.
 #+BEGIN_SRC emacs-lisp
-  (use-package org-static-blog
-    :ensure t
-    :config
-    (setq org-static-blog-publish-title "Joel's Site")
-    (setq org-static-blog-publish-url "https://blog.joelg.cf/")
-    (setq org-static-blog-publish-directory "/backup/home/joel/Downloads/Chizi123.github.io/")
-    (setq org-static-blog-posts-directory "/backup/home/joel/Downloads/Chizi123.github.io/posts/")
-    (setq org-static-blog-drafts-directory "/backup/home/joel/Downloads/Chizi123.github.io/drafts/")
-    (setq org-static-blog-enable-tags t)
-    (setq org-export-with-toc nil)
-    (setq org-export-with-section-numbers nil)
+    (use-package org-static-blog
+      :ensure t
+      :config
+      (setq org-static-blog-publish-title "Joel's Site")
+      (setq org-static-blog-publish-url "https://blog.joelg.cf/")
+      (setq org-static-blog-publish-directory "/backup/home/joel/Downloads/Chizi123.github.io/")
+      (setq org-static-blog-posts-directory "/backup/home/joel/Downloads/Chizi123.github.io/posts/")
+      (setq org-static-blog-drafts-directory "/backup/home/joel/Downloads/Chizi123.github.io/drafts/")
+      (setq org-static-blog-enable-tags t)
+      (setq org-export-with-toc nil)
+      (setq org-export-with-section-numbers nil)
 
-    ;; This header is inserted into the <head> section of every page:
-    ;;   (you will need to create the style sheet at
-    ;;    ~/projects/blog/static/style.css
-    ;;    and the favicon at
-    ;;    ~/projects/blog/static/favicon.ico)
-    (setq org-static-blog-page-header
-    "<meta name=\"author\" content=\"Joel Grunbaum\">
-    <meta name=\"referrer\" content=\"no-referrer\">
-    <link href= \"static/style.css\" rel=\"stylesheet\" type=\"text/css\" />
-    <link rel=\"icon\" href=\"static/favicon.png\">
-    <script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-147303155-2\"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-147303155-2');
-    </script>
-    ")
+      ;; This header is inserted into the <head> section of every page:
+      ;;   (you will need to create the style sheet at
+      ;;    ~/projects/blog/static/style.css
+      ;;    and the favicon at
+      ;;    ~/projects/blog/static/favicon.ico)
+      (setq org-static-blog-page-header
+      "<meta name=\"author\" content=\"Joel Grunbaum\">
+      <meta name=\"referrer\" content=\"no-referrer\">
+      <link href= \"static/style.css\" rel=\"stylesheet\" type=\"text/css\" />
+      <link rel=\"icon\" href=\"static/favicon.png\">
+      <script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-147303155-2\"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-147303155-2');
+      </script>
+      ")
 
-    ;; This preamble is inserted at the beginning of the <body> of every page:
-    ;;   This particular HTML creates a <div> with a simple linked headline
-    (setq org-static-blog-page-preamble
-    "<div class=\"header\">
-      <a href=\"https://blog.joelg.cf\">Joel's Site - Personal site and constant work in progress</a>
-      <div class=\"sitelinks\">
-        <a href=\"https://blog.joelg.cf/about-me.html\">About Me</a> |
-        <a href=\"https://github.com/Chizi123\">Github</a> |
-        <a href=\"https://facebook.com/joel.grun.5\">Facebook</a>
+      ;; This preamble is inserted at the beginning of the <body> of every page:
+      ;;   This particular HTML creates a <div> with a simple linked headline
+      (setq org-static-blog-page-preamble
+      "<div class=\"header\">
+        <a href=\"https://blog.joelg.cf\">Joel's Site - Personal site and constant work in progress</a>
+        <div class=\"sitelinks\">
+          <a href=\"https://blog.joelg.cf/about-me.html\">About Me</a> |
+          <a href=\"https://github.com/Chizi123\">Github</a> |
+          <a href=\"https://facebook.com/joel.grun.5\">Facebook</a>
+        </div>
+      </div>")
+
+      ;; This postamble is inserted at the end of the <body> of every page:
+      ;;   This particular HTML creates a <div> with a link to the archive page
+      ;;   and a licensing stub.
+      (setq org-static-blog-page-postamble
+      "<div id=\"archive\">
+        <a href=\"https://blog.joelg.cf/archive.html\">Other posts</a>
       </div>
-    </div>")
-
-    ;; This postamble is inserted at the end of the <body> of every page:
-    ;;   This particular HTML creates a <div> with a link to the archive page
-    ;;   and a licensing stub.
-    (setq org-static-blog-page-postamble
-    "<div id=\"archive\">
-      <a href=\"https://blog.joelg.cf/archive.html\">Other posts</a>
-    </div>
-    <br>
-    <div id=\"commento\"></div>
-    <script src=\"https://cdn.commento.io/js/commento.js\"></script>")
-    ;; <center><button id=\"disqus_button\" onclick=\"load_disqus()\">Load Disqus Comments</button></center>
-    ;; <div id=\"disqus_thread\"></div>
-    ;; <script type=\"text/javascript\">
-    ;;   function load_disqus() {
-    ;;       var dsq = document.createElement('script');
-    ;;       dsq.type = 'text/javascript';
-    ;;       dsq.async = true;
-    ;;       dsq.src = 'https://joelg-cf.disqus.com/embed.js';
-    ;;       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    ;;       document.getElementById('disqus_button').style.visibility = 'hidden';
-    ;;   };
-    ;; </script>")
-
-    ;; generate blog files and create sitemap for files
-    (defun blog-publish()
-      (interactive)
-      (org-static-blog-publish)
-      (setq n 0)
-      (setq site "https://blog.joelg.cf/")
-      (setq posts (directory-files org-static-blog-publish-directory))
-      (generate-new-buffer "sitemap.xml.gen")
-      (with-current-buffer "sitemap.xml.gen" (insert "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n"))
-      (while (< n (length (directory-files org-static-blog-publish-directory)))
-        (setq curr (nth n posts))
-        (if (string-match "\\(html\\)" curr)
-            (if (string-match "index.html" curr)
-                (with-current-buffer "sitemap.xml.gen" (insert (concat "\t<url>\n\t\t<loc>" site "</loc>\n\t</url>\n")))
-              (with-current-buffer "sitemap.xml.gen" (insert (concat "\t<url>\n\t\t<loc>" site curr "</loc>\n\t</url>\n")))))
-        (setq n (1+ n)))
-      (with-current-buffer "sitemap.xml.gen" (insert "</urlset>"))
-      (with-current-buffer "sitemap.xml.gen" (write-region (point-min) (point-max) (concat org-static-blog-publish-directory "sitemap.xml")) t)
-      (kill-buffer "sitemap.xml.gen"))
+      <br>
+      <script data-isso=\"//commento.joelg.cf/\"
+            src=\"//commento.joelg.cf/js/embed.min.js\"></script>
+      <section id=\"isso-thread\"></section>")
+      ;; <center><button id=\"disqus_button\" onclick=\"load_disqus()\">Load Disqus Comments</button></center>
+      ;; <div id=\"disqus_thread\"></div>
+      ;; <script type=\"text/javascript\">
+      ;;   function load_disqus() {
+      ;;       var dsq = document.createElement('script');
+      ;;       dsq.type = 'text/javascript';
+      ;;       dsq.async = true;
+      ;;       dsq.src = 'https://joelg-cf.disqus.com/embed.js';
+      ;;       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      ;;       document.getElementById('disqus_button').style.visibility = 'hidden';
+      ;;   };
+      ;; </script>")
   )
 #+END_SRC
 
+** Sitemap addition
+Creates a sitemap.xml for the blog based on the generated HTML files output in the final directory.
+#+BEGIN_SRC emacs-lisp
+  (defun blog-publish()
+    (interactive)
+    (org-static-blog-publish)
+    (setq n 0)
+    (setq site "https://blog.joelg.cf/")
+    (setq posts (directory-files org-static-blog-publish-directory))
+    (generate-new-buffer "sitemap.xml.gen")
+    (with-current-buffer "sitemap.xml.gen" (insert "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n"))
+    (while (< n (length (directory-files org-static-blog-publish-directory)))
+      (setq curr (nth n posts))
+      (if (string-match "\\(html\\)" curr)
+          (if (string-match "index.html" curr)
+              (with-current-buffer "sitemap.xml.gen" (insert (concat "\t<url>\n\t\t<loc>" site "</loc>\n\t</url>\n")))
+            (with-current-buffer "sitemap.xml.gen" (insert (concat "\t<url>\n\t\t<loc>" site curr "</loc>\n\t</url>\n")))))
+      (setq n (1+ n)))
+    (with-current-buffer "sitemap.xml.gen" (insert "</urlset>"))
+    (with-current-buffer "sitemap.xml.gen" (write-region (point-min) (point-max) (concat org-static-blog-publish-directory "sitemap.xml")) t)
+    (kill-buffer "sitemap.xml.gen"))
+#+END_SRC
+
 ** Emacs-htmlize
-Allow org features to be exported to HTML for site
+Allow org features to be exported to HTML for site.
 #+BEGIN_SRC emacs-lisp
   (use-package htmlize
     :ensure t)
 #+END_SRC
+
