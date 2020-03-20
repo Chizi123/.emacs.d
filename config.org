@@ -2,7 +2,7 @@
 #  LocalWords:  poppler mingw emacs eq nt gnuplot setenv mapconcat el cond minibuffer pdf color Smartparens smartparens yas aindent whitespace eldoc ielm ibuffer hippie pscp pos Spaceline spaceline powerline spacemacs seperator dir Yasnippet yasnippet flycheck magit fullscreen CEDET askifnotset semanticdb EDE ede gdb srefactor analyzer eval cdb autosetup ghostscript math unicode reftex bibtex TeXcount texcount str latin rkt PlantUML plantuml autoload alist matlab verilog ds vh src fontify natively fortran dvipng plist xcolor EXWM Zenburn setq zenburn defun dolist init config DejaVu ispell aspell flyspell kbd recentf sexp ov bg listp defadvice progn prog keyfreq autosave dabbrev hl gc linum linux utf RET ARG arg configs backends contribs AucTex tex auctex LaTeX url htmlize linter backend writegood ggtags gtags dired eshell asm cd dwim VHDL defvar ctags vhdl concat sp html awk defalias cedet mips IPython ein contrib pandoc dokuwiki EMMS MPD emms toc favicon href css stylesheet async dataLayer gtag js UA sitelinks br Github postamble isso center disqus onclick Disqus javascript dsq createElement getElementsByTagName xml urlset xmlns curr loc
 
 * COMMENT Windows dependencies
-Dependencies needed for Aspell, poppler PDF-tools, compilers and ghost-script provided by mingw64
+Dependencies needed for Aspell, poppler PDF-tools, compilers and ghost-script provided by mingw64 in windows.
 #+BEGIN_SRC emacs-lisp
   (when (eq system-type 'windows-nt)
     (add-to-list 'exec-path "C:/msys64/usr/bin")
@@ -13,9 +13,14 @@ Dependencies needed for Aspell, poppler PDF-tools, compilers and ghost-script pr
 
 * Aesthetic changes
 ** Emacs theme
-Zenburn theme is the default
+Theme switcher, using a cond allows loading of many preconfigured themes which can be switched between easily.
+Zenburn theme is my default.
 #+BEGIN_SRC emacs-lisp
   (setq emacs-theme 'zenburn)
+
+  (defun disable-all-themes ()
+      (dolist (i custom-enabled-themes)
+           (disable-theme i)))
 
   (cond ((eq emacs-theme 'zenburn)
          (use-package zenburn-theme
@@ -36,11 +41,11 @@ Zenburn theme is the default
            (doom-themes-visual-bell-config)
            (doom-themes-org-config)))
         ((eq emacs-theme 'none)
-         (dolist (i custom-enabled-themes)
-           (disable-theme i))))
+         (disable-all-themes)))
 #+END_SRC
 
 ** Default font
+Set default font and faces.
 #+BEGIN_SRC emacs-lisp 
   ;; (set-frame-font "DejaVu Sans Mono" nil t)
   (set-frame-font "Dank Mono-11" nil t)
@@ -50,6 +55,7 @@ Zenburn theme is the default
 #+END_SRC
 
 ** Remove menu bar, toolbar, but keep scroll bar
+Make the emacs interface slightly nicer.
 #+BEGIN_SRC emacs-lisp
   (menu-bar-mode 0)
   (tool-bar-mode 0)
@@ -58,6 +64,8 @@ Zenburn theme is the default
 
 * Writing requirements
 ** Spellchecking
+Use aspell for spellchecking. 
+Auto-enable in latex and org as they're the main writing modes.
 #+BEGIN_SRC emacs-lisp
   (require 'ispell)
   (setq-default ispell-program-name "aspell")
@@ -69,7 +77,7 @@ Zenburn theme is the default
 #+END_SRC
 
 ** Switch-window
-Helps to change windows easily when many are open at once
+Helps to change windows easily when many are open at once.
 #+BEGIN_SRC emacs-lisp
 (use-package switch-window
   :ensure t
@@ -85,6 +93,7 @@ Helps to change windows easily when many are open at once
 #+END_SRC
 
 ** Go to new window when opened
+Go to new window when its opened instead of staying with current one.
 #+BEGIN_SRC emacs-lisp
   (defun split-and-follow-horizontally ()
     (interactive)
@@ -102,6 +111,7 @@ Helps to change windows easily when many are open at once
 #+END_SRC
 
 ** PDF-tools
+Helpful pdf viewer.
 #+BEGIN_SRC emacs-lisp
   (use-package pdf-tools
 	:ensure t
@@ -110,7 +120,7 @@ Helps to change windows easily when many are open at once
 #+END_SRC
 
 ** COMMENT Writegood-mode
-Supposedly should provide insight to writing quality
+Supposedly should provide insight to writing quality.
 #+BEGIN_SRC emacs-lisp
   (use-package writegood-mode
     :ensure t
@@ -119,6 +129,7 @@ Supposedly should provide insight to writing quality
 
 * Helm and Projectile
 ** Helm core
+Helm aids the user interface for emacs. Adds visual and auto-complete feedback for emacs commands.
 #+BEGIN_SRC emacs-lisp
   (use-package helm-config
     :ensure helm
@@ -152,6 +163,9 @@ Supposedly should provide insight to writing quality
 #+END_SRC
 
 ** Projectile
+Projectile is project management framework for emacs.
+Helps in navigation and management of projects.
+Identifies project layout from git.
 *** Enable it
  #+BEGIN_SRC emacs-lisp
    (use-package projectile
@@ -166,11 +180,13 @@ Supposedly should provide insight to writing quality
  #+END_SRC
 
 *** Let it compile things
+Shortcut for compilation.
  #+BEGIN_SRC emacs-lisp
    (global-set-key (kbd "<f5>") 'projectile-compile-project)
  #+END_SRC
 
 *** Enable communication with helm
+Use helm to manage project.
 #+BEGIN_SRC emacs-lisp
   (use-package helm-projectile
     :ensure t
