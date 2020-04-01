@@ -656,6 +656,12 @@ A little easier to read than the default emacs mode line.
       (spaceline-helm-mode))
 #+END_SRC
 
+*** Separator
+Slightly nicer separator.
+#+BEGIN_SRC emacs-lisp
+(setq powerline-default-separator nil)
+#+END_SRC
+
 * Programming tweaks
 ** Yasnippet
 Add snippets, pretty useful.
@@ -913,13 +919,15 @@ Help company complete tex math and references.
     :ensure t
     :after company
     :config
-    (add-to-list 'company-backends 'company-math-symbols-unicode))
+    (add-to-list 'company-backends '(company-math-symbols-unicode company-math-symbols-latex
+                                     compant-latex-commands))
+    (setq company-math-allow-latex-symbols-in-faces t))
 
   (use-package company-reftex
     :ensure t
     :after company
     :config
-    (add-to-list 'company-backends 'company-reftex))
+    (add-to-list 'company-backends 'company-reftex-citations))
 
   (use-package company-auctex
     :ensure t
@@ -1202,25 +1210,25 @@ I use org to write my blog and use org-static-blog to generate the HTML.
 Basic configuration for site.
 Copied and modified from the example configuration.
 #+BEGIN_SRC emacs-lisp
-    (use-package org-static-blog
-      :ensure t
-      :config
-      (setq org-static-blog-publish-title "Joel's Site")
-      (setq org-static-blog-publish-url "https://blog.joelg.cf/")
-      (setq org-static-blog-publish-directory "/backup/home/joel/Downloads/Chizi123.github.io/")
-      (setq org-static-blog-posts-directory "/backup/home/joel/Downloads/Chizi123.github.io/posts/")
-      (setq org-static-blog-drafts-directory "/backup/home/joel/Downloads/Chizi123.github.io/drafts/")
-      (setq org-static-blog-enable-tags t)
-      (setq org-export-with-toc nil)
-      (setq org-export-with-section-numbers nil)
+  (use-package org-static-blog
+    :ensure t
+    :config
+    (setq org-static-blog-publish-title "Joel's Site")
+    (setq org-static-blog-publish-url "https://blog.joelg.cf/")
+    (setq org-static-blog-publish-directory "/backup/home/joel/Downloads/Chizi123.github.io/")
+    (setq org-static-blog-posts-directory "/backup/home/joel/Downloads/Chizi123.github.io/posts/")
+    (setq org-static-blog-drafts-directory "/backup/home/joel/Downloads/Chizi123.github.io/drafts/")
+    (setq org-static-blog-enable-tags t)
+    (setq org-export-with-toc nil)
+    (setq org-export-with-section-numbers nil)
 
-      ;; This header is inserted into the <head> section of every page:
-      ;;   (you will need to create the style sheet at
-      ;;    ~/projects/blog/static/style.css
-      ;;    and the favicon at
-      ;;    ~/projects/blog/static/favicon.ico)
-      (setq org-static-blog-page-header
-      "<meta name=\"author\" content=\"Joel Grunbaum\">
+    ;; This header is inserted into the <head> section of every page:
+    ;;   (you will need to create the style sheet at
+    ;;    ~/projects/blog/static/style.css
+    ;;    and the favicon at
+    ;;    ~/projects/blog/static/favicon.ico)
+    (setq org-static-blog-page-header
+          "<meta name=\"author\" content=\"Joel Grunbaum\">
       <meta name=\"referrer\" content=\"no-referrer\">
       <link href= \"static/style.css\" rel=\"stylesheet\" type=\"text/css\" />
       <link rel=\"icon\" href=\"static/favicon.png\">
@@ -1233,10 +1241,10 @@ Copied and modified from the example configuration.
       </script>
       ")
 
-      ;; This preamble is inserted at the beginning of the <body> of every page:
-      ;;   This particular HTML creates a <div> with a simple linked headline
-      (setq org-static-blog-page-preamble
-      "<div class=\"header\">
+    ;; This preamble is inserted at the beginning of the <body> of every page:
+    ;;   This particular HTML creates a <div> with a simple linked headline
+    (setq org-static-blog-page-preamble
+          "<div class=\"header\">
         <a href=\"https://blog.joelg.cf\">Joel's Site - Personal site and constant work in progress</a>
         <div class=\"sitelinks\">
           <a href=\"https://blog.joelg.cf/about-me.html\">About Me</a> |
@@ -1245,30 +1253,26 @@ Copied and modified from the example configuration.
         </div>
       </div>")
 
-      ;; This postamble is inserted at the end of the <body> of every page:
-      ;;   This particular HTML creates a <div> with a link to the archive page
-      ;;   and a licensing stub.
-      (setq org-static-blog-page-postamble
-      "<div id=\"archive\">
+    ;; This postamble is inserted at the end of the <body> of every page:
+    ;;   This particular HTML creates a <div> with a link to the archive page
+    ;;   and a licensing stub.
+    (setq org-static-blog-page-postamble
+          "<div id=\"archive\">
         <a href=\"https://blog.joelg.cf/archive.html\">Other posts</a>
       </div>
       <br>
-      <script data-isso=\"//commento.joelg.cf/\"
-            src=\"//commento.joelg.cf/js/embed.min.js\"></script>
-      <section id=\"isso-thread\"></section>")
-      ;; <center><button id=\"disqus_button\" onclick=\"load_disqus()\">Load Disqus Comments</button></center>
-      ;; <div id=\"disqus_thread\"></div>
-      ;; <script type=\"text/javascript\">
-      ;;   function load_disqus() {
-      ;;       var dsq = document.createElement('script');
-      ;;       dsq.type = 'text/javascript';
-      ;;       dsq.async = true;
-      ;;       dsq.src = 'https://joelg-cf.disqus.com/embed.js';
-      ;;       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      ;;       document.getElementById('disqus_button').style.visibility = 'hidden';
-      ;;   };
-      ;; </script>")
-  )
+      <center><button id=\"disqus_button\" onclick=\"load_disqus()\">Load Disqus Comments</button></center>
+    <div id=\"disqus_thread\"></div>
+    <script type=\"text/javascript\">
+      function load_disqus() {
+          var dsq = document.createElement('script');
+          dsq.type = 'text/javascript';
+          dsq.async = true;
+          dsq.src = 'https://joelg-cf.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          document.getElementById('disqus_button').style.visibility = 'hidden';
+      };
+    </script>"))
 #+END_SRC
 
 ** Sitemap addition
