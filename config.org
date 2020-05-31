@@ -40,6 +40,13 @@ Zenburn theme is my default.
            (load-theme 'doom-one t)
            (doom-themes-visual-bell-config)
            (doom-themes-org-config)))
+        ((eq emacs-theme 'nord)
+         (use-package nord-theme
+           :ensure t
+           :init
+           (disable-all-themes)
+           :config
+           (load-theme 'nord t)))
         ((eq emacs-theme 'none)
          (disable-all-themes)))
 #+END_SRC
@@ -74,6 +81,7 @@ Auto-enable in latex and org as they're the main writing modes.
   ;; (add-hook 'latex-mode-hook 'flyspell-buffer)
   (add-hook 'org-mode-hook 'flyspell-mode)
   ;; (add-hook 'org-mode-hook 'flyspell-buffer)
+
 #+END_SRC
 
 ** Switch-window
@@ -779,7 +787,7 @@ Allows emacs to be mode aware of what is being written.
     (semantic-mode 1))
 #+END_SRC
 
-*** EDE
+*** COMMENT EDE
 Emacs Development Environment.
 Can be used to manage and create build files for a project.
 #+BEGIN_SRC emacs-lisp
@@ -1123,6 +1131,12 @@ Small quality of life changes to org-mode.
 (diminish 'org-indent-mode)
 (diminish 'visual-line-mode)
 #+END_SRC
+*** Spell checking for code and latex
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'ispell-skip-region-alist '("#\\+BEGIN_SRC" . "#\\+END_SRC"))
+  (add-to-list 'ispell-skip-region-alist '("\\$" . "\\$"))
+  (add-to-list 'ispell-skip-region-alist '("\\$\\$" . "\\$\\$"))
+#+END_SRC
 
 ** Line wrapping
 Enable line wrapping for long lines.
@@ -1204,7 +1218,7 @@ I come back to it every now and again as an MPD front-end, but haven't quite got
     (setq emms-source-file-directory "~/Music/"))
 #+END_SRC
 
-* Org Blog
+* COMMENT Org Blog
 I use org to write my blog and use org-static-blog to generate the HTML.
 ** Org static blog config
 Basic configuration for site.
@@ -1304,4 +1318,54 @@ Allow org features to be exported to HTML for site.
   (use-package htmlize
     :ensure t)
 #+END_SRC
+
+* Journaling
+** Noteworthy entries
+I write weekly journal entries recapping my week.
+These files are in org mode.
+This is inspired by org-static-blog.
+#+BEGIN_SRC emacs-lisp
+  (defun journal-create-new-post ()
+      "Create a new entry, prompt for title and insert header"
+    (interactive)
+    (let ((title (read-string "Title: ")))
+      (find-file (concat "~/Documents/Journal/entry/"
+                         (read-string "Filename: "
+                                      (concat (format-time-string "%Y-%m-%d-" (current-time))
+                                              (replace-regexp-in-string "\s" "-" (downcase title))
+                                              ".org"))))
+      (insert "#+title: " title "\n"
+              "#+date: " (format-time-string "<%Y-%m-%d %H:%M>") "\n"
+              "#+filetags: ")))
+#+END_SRC
+*** Publish entries
+Use org-publish to collate entries into a single unit.
+#+BEGIN_SRC emacs-lisp
+  (setq org-publish-project-alist
+               '(("Journal"
+                 :base-directory "~/Documents/Journal/entry/"
+                 :publishing-directory "~/Documents/Journal/out/"
+                 :publishing-function org-html-publish-to-html
+                 :htmlized-source t
+                 :section-numbers nil
+                 :html-preamble t
+                 :validation-link nil
+                 ;; :makeindex t
+                 :auto-sitemap t
+                 :sitemap-file-entry-format "%d"
+                 :sitemap-format-entry (concat (org-publish-find-date) " - " (org-publish-find-title)))))
+#+END_SRC
+** COMMENT Daily
+Using Org-Journal for daily journaling.
+Package provides journaling support files for org mode.
+#+BEGIN_SRC emacs-lisp
+  (use-package org-journal
+    :ensure t
+    :custom
+    (org-journal-dir "~/Documents/Journal/daily")
+    (org-journal-date-format "%A, %d %B %Y")
+    (org-journal-time-format "%I:%M %p")
+    (org-journal-file-type "daily"))
+#+END_SRC
+
 
