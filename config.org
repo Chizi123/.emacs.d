@@ -47,6 +47,13 @@ Zenburn theme is my default.
            (disable-all-themes)
            :config
            (load-theme 'nord t)))
+        ((eq emacs-theme 'solarized)
+         (use-package solarized-theme
+           :ensure t
+           :init
+           (disable-all-themes)
+           :config
+           (load-theme 'solarized-dark t)))
         ((eq emacs-theme 'none)
          (disable-all-themes)))
 #+END_SRC
