@@ -935,7 +935,7 @@ Help company complete tex math and references.
     :after company
     :config
     (add-to-list 'company-backends '(company-math-symbols-unicode company-math-symbols-latex
-                                     compant-latex-commands))
+                                     company-latex-commands))
     (setq company-math-allow-latex-symbols-in-faces t))
 
   (use-package company-reftex
@@ -1353,14 +1353,17 @@ Use org-publish to collate entries into a single unit.
                  :base-directory "~/Documents/Journal/entry/"
                  :publishing-directory "~/Documents/Journal/out/"
                  :publishing-function org-html-publish-to-html
-                 :htmlized-source t
+                 ;;:htmlized-source t
                  :section-numbers nil
                  :html-preamble t
-                 :validation-link nil
-                 ;; :makeindex t
+                 :html-validation-link nil
+
                  :auto-sitemap t
-                 :sitemap-file-entry-format "%d"
-                 :sitemap-format-entry (concat (org-publish-find-date) " - " (org-publish-find-title)))))
+                 :sitemap-sort-files anti-chronologically
+                 :sitemap-file-entry-format "%d - %t"
+                 :sitemap-title "Home"
+                 :sitemap-filename "index.html"
+                 :sitemap-function org-publish-sitemap)))
 #+END_SRC
 ** COMMENT Daily
 Using Org-Journal for daily journaling.
