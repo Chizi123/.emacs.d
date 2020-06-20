@@ -61,9 +61,13 @@ Zenburn theme is my default.
 ** Default font
 Set default font and faces.
 #+BEGIN_SRC emacs-lisp 
-  ;; (set-frame-font "DejaVu Sans Mono" nil t)
-  (set-frame-font "Dank Mono-11" nil t)
-  ;; (set-frame-font "Source Code Pro-10" nil t)
+  (cond ((member "Dank Mono" (font-family-list))
+         (set-frame-font "Dank Mono-11" nil t))
+        ((member "DejaVu Sans Mono" (font-family-list))
+         (set-frame-font "DejaVu Sans Mono" nil t))
+        ((member "Source Code Pro" (font-family-list))
+         (set-frame-font "Source Code Pro-10" nil t)))
+
   (set-face-italic 'font-lock-comment-face t)
   (set-face-italic 'font-lock-keyword-face t)
 #+END_SRC
@@ -74,6 +78,16 @@ Make the emacs interface slightly nicer.
   (menu-bar-mode 0)
   (tool-bar-mode 0)
   (scroll-bar-mode 1)
+#+END_SRC
+* COMMENT EXWM
+Emacs window manager.
+Tiling window manager that runs in emacs.
+#+BEGIN_SRC emacs-lisp
+  (use-package exwm
+    :ensure t
+    :config
+    (require 'exwm-config)
+    (exwm-config-default))
 #+END_SRC
 
 * Writing requirements
