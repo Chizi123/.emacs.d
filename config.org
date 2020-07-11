@@ -1,5 +1,5 @@
 #+TITLE: My Emacs configuration
-#  LocalWords:  poppler mingw emacs eq nt gnuplot setenv mapconcat el cond minibuffer pdf color Smartparens smartparens yas aindent whitespace eldoc ielm ibuffer hippie pscp pos Spaceline spaceline powerline spacemacs seperator dir Yasnippet yasnippet flycheck magit fullscreen CEDET askifnotset semanticdb EDE ede gdb srefactor analyzer eval cdb autosetup ghostscript math unicode reftex bibtex TeXcount texcount str latin rkt PlantUML plantuml autoload alist matlab verilog ds vh src fontify natively fortran dvipng plist xcolor EXWM Zenburn setq zenburn defun dolist init config DejaVu ispell aspell flyspell kbd recentf sexp ov bg listp defadvice progn prog keyfreq autosave dabbrev hl gc linum linux utf RET ARG arg configs backends contribs AucTex tex auctex LaTeX url htmlize linter backend writegood ggtags gtags dired eshell asm cd dwim VHDL defvar ctags vhdl concat sp html awk defalias cedet mips IPython ein contrib pandoc dokuwiki EMMS MPD emms toc favicon href css stylesheet async dataLayer gtag js UA sitelinks br Github postamble isso center disqus onclick Disqus javascript dsq createElement getElementsByTagName xml urlset xmlns curr loc
+#  LocalWords:  poppler mingw emacs eq nt gnuplot setenv mapconcat el cond minibuffer pdf color Smartparens smartparens yas aindent whitespace eldoc ielm ibuffer hippie pscp pos Spaceline spaceline powerline spacemacs seperator dir Yasnippet yasnippet flycheck magit fullscreen CEDET askifnotset semanticdb EDE ede gdb srefactor analyzer eval cdb autosetup ghostscript math unicode reftex bibtex TeXcount texcount str latin rkt PlantUML plantuml autoload alist matlab verilog ds vh src fontify natively fortran dvipng plist xcolor EXWM Zenburn setq zenburn defun dolist init config DejaVu ispell aspell flyspell kbd recentf sexp ov bg listp defadvice progn prog keyfreq autosave dabbrev hl gc linum linux utf RET ARG arg configs backends contribs AucTex tex auctex LaTeX url htmlize linter backend writegood ggtags gtags dired eshell asm cd dwim VHDL defvar ctags vhdl concat sp html awk defalias cedet mips IPython ein contrib pandoc dokuwiki EMMS MPD emms toc favicon href css stylesheet async dataLayer gtag js UA sitelinks br Github postamble isso center disqus onclick Disqus javascript dsq createElement getElementsByTagName xml urlset xmlns curr loc RSS elfeed
 
 * COMMENT Windows dependencies
 Dependencies needed for Aspell, poppler PDF-tools, compilers and ghost-script provided by mingw64 in windows.
@@ -82,6 +82,7 @@ Make the emacs interface slightly nicer.
 * COMMENT EXWM
 Emacs window manager.
 Tiling window manager that runs in emacs.
+Open external applications with =s-&=
 #+BEGIN_SRC emacs-lisp
   (use-package exwm
     :ensure t
@@ -1202,6 +1203,14 @@ Org uses its own path for some reason.
   (setq org-plantuml-jar-path plantuml-jar-path)
 #+END_SRC
 
+*** Async export
+Allow the editing of files while execution of blocks is occurring.
+Needs :async tag in src header.
+#+BEGIN_SRC emacs-lisp
+  (use-package ob-async
+    :ensure t)
+#+END_SRC
+
 ** Latex preview fragments match colour
 Make the previews match theme colour of Emacs.
 Gets very annoying very quickly without it.
@@ -1393,4 +1402,29 @@ Package provides journaling support files for org mode.
     (org-journal-file-type "daily"))
 #+END_SRC
 
+* RSS
+Various packages for reading RSS feeds in emacs.
+** COMMENT Elfeed
+Watch feeds using elfeed.
+Add feeds to elfeed-feeds in the format ("URL" tags).
+#+BEGIN_SRC emacs-lisp
+  (use-package elfeed
+    :ensure t
+    :config
+    (setq elfeed-feeds
+          '(;;("https://www.abc.net.au/news/feed/51120/rss.xml" news affairs)
+            ;;("https://www.theage.com.au/rss/feed.xml" news affairs)
+            ("https://www.archlinux.org/feeds/news/" linux arch)
+            ("https://xkcd.com/rss.xml" fun comics)
+            ("http://feeds.feedburner.com/Explosm" fun comics)
+            ("https://www.anandtech.com/rss/" news tech)
+            ("https://www.webtoons.com/en/challenge/system32comics/rss?title_no=235074" comics fun)
+            ("https://www.economist.com/international/rss.xml" news affairs economics)
+            ("https://www.phoronix.com/rss.php" news linux tech)
+            ("http://feeds.feedburner.com/servethehome" tech))))
 
+  (use-package elfeed-goodies
+    :ensure t
+    :config
+    (elfeed-goodies/setup))
+#+END_SRC
