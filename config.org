@@ -103,6 +103,7 @@ Auto-enable in latex and org as they're the main writing modes.
   ;; (add-hook 'latex-mode-hook 'flyspell-buffer)
   (add-hook 'org-mode-hook 'flyspell-mode)
   ;; (add-hook 'org-mode-hook 'flyspell-buffer)
+  (diminish 'flyspell-mode)
 
 #+END_SRC
 
@@ -489,7 +490,7 @@ Reveals whitespace characters
 ** eldoc
 Shows function arguments in echo area below mode line.
 #+BEGIN_SRC emacs-lisp
-  (diminish eldoc-mode)
+  (diminish 'eldoc-mode)
   (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
   (add-hook 'lisp-interaction-mode-hook 'eldoc-mode)
   (add-hook 'ielm-mode-hook 'eldoc-mode)
@@ -1388,43 +1389,4 @@ Use org-publish to collate entries into a single unit.
                  :sitemap-title "Home"
                  :sitemap-filename "index.html"
                  :sitemap-function org-publish-sitemap)))
-#+END_SRC
-** COMMENT Daily
-Using Org-Journal for daily journaling.
-Package provides journaling support files for org mode.
-#+BEGIN_SRC emacs-lisp
-  (use-package org-journal
-    :ensure t
-    :custom
-    (org-journal-dir "~/Documents/Journal/daily")
-    (org-journal-date-format "%A, %d %B %Y")
-    (org-journal-time-format "%I:%M %p")
-    (org-journal-file-type "daily"))
-#+END_SRC
-
-* RSS
-Various packages for reading RSS feeds in emacs.
-** COMMENT Elfeed
-Watch feeds using elfeed.
-Add feeds to elfeed-feeds in the format ("URL" tags).
-#+BEGIN_SRC emacs-lisp
-  (use-package elfeed
-    :ensure t
-    :config
-    (setq elfeed-feeds
-          '(;;("https://www.abc.net.au/news/feed/51120/rss.xml" news affairs)
-            ;;("https://www.theage.com.au/rss/feed.xml" news affairs)
-            ("https://www.archlinux.org/feeds/news/" linux arch)
-            ("https://xkcd.com/rss.xml" fun comics)
-            ("http://feeds.feedburner.com/Explosm" fun comics)
-            ("https://www.anandtech.com/rss/" news tech)
-            ("https://www.webtoons.com/en/challenge/system32comics/rss?title_no=235074" comics fun)
-            ("https://www.economist.com/international/rss.xml" news affairs economics)
-            ("https://www.phoronix.com/rss.php" news linux tech)
-            ("http://feeds.feedburner.com/servethehome" tech))))
-
-  (use-package elfeed-goodies
-    :ensure t
-    :config
-    (elfeed-goodies/setup))
 #+END_SRC
