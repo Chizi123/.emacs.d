@@ -740,6 +740,12 @@ Uses various backends, more of which are added later.
     (setq company-minimum-prefix-length 3))
 #+END_SRC
 
+** Version control
+Settings for emacs' own version control system.
+*** Enable version control on the mode line
+#+BEGIN_SRC emacs-lisp
+  (vc-mode)
+#+END_SRC
 ** Magit
 Emacs git client.
 Pretty good and offers fairly decent features.
