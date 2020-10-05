@@ -700,6 +700,15 @@ Slightly nicer separator.
 (setq powerline-default-separator nil)
 #+END_SRC
 
+** Nyan mode
+Use nyan cat as a reference for buffer progression.
+#+BEGIN_SRC emacs-lisp
+  (use-package nyan-mode
+    :ensure t
+    :config
+    (nyan-mode 1))
+#+END_SRC
+
 * Programming tweaks
 ** Yasnippet
 Add snippets, pretty useful.
