@@ -677,6 +677,28 @@ Need not type out whole word.
   (defalias 'yes-or-no-p 'y-or-n-p)
 #+END_SRC
 
+** COMMENT Sublime-like minimap
+Get a minimap preview of the file on the side like sublime text.
+Want to make work but need to find a good way of doing so.
+#+BEGIN_SRC emacs-lisp
+  (use-package sublimity
+    :ensure t
+    :config
+    (require 'sublimity-scroll)
+    (setq sublimity-scroll-weight 4
+          sublimity-scroll-drift-length 3)
+    (require 'sublimity-map)
+    (setq sublimity-map-size 20
+          sublimity-map-scale 0.3)
+    (sublimity-map-set-delay nil)
+    (sublimity-mode 1))
+
+  (use-package minimap
+    :ensure t
+    :config
+    (minimap-mode))
+#+END_SRC
+
 * Mode line tweaks
 Diminish is used but is included in init.el such that it can be used throughout this document
 ** Spaceline
