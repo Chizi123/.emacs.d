@@ -1027,7 +1027,7 @@ Uses a Perl script.
     (shell-command "unzip -o ~/.texcount/texcount.zip -d ~/.texcount")
     (add-to-list 'exec-path "~/.texcount/texcount.pl"))
 
-  (if (not(file-exists-p "~/.texcount/texcount.pl"))
+  (if (not(or (file-exists-p "~/.texcount/texcount.pl") (file-exists-p "/usr/bin/texcount")))
       (get-texcount-latest))
 
   (defun texcount ()
