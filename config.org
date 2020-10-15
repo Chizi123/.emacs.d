@@ -778,6 +778,27 @@ Uses various backends, more of which are added later.
     (setq company-minimum-prefix-length 3))
 #+END_SRC
 
+** LSP Mode
+Use LSP for completion suggestions
+#+BEGIN_SRC emacs-lisp
+  (use-package lsp-mode
+    :ensure t
+    :hook ((lsp-mode . lsp-enable-which-key-integration))
+    :init
+    (setq lsp-keymap-prefix "C-c l")
+    :commands lsp
+    :config
+    (setq read-process-output-max (* 1024 1024))
+    (setq lsp-completion-provider :capf))
+
+  (use-package lsp-ui
+    :ensure t
+    :commands lsp-ui-mode)
+
+  (use-package helm-lsp
+    :ensure t
+    :commands helm-lsp-workspace-symbol)
+#+END_SRC
 ** Version control
 Settings for emacs' own version control system.
 *** Enable version control on the mode line
@@ -937,6 +958,12 @@ Add header completion as well as Irony, which uses clang for suggestions.
                                      company-irony)))
 #+END_SRC
 
+**** LSP
+Allow completion with LSP.
+#+BEGIN_SRC emacs-lisp
+(add-hook 'c-mode-hook 'lsp)
+(add-hook 'cpp-mode-hook 'lsp)
+#+END_SRC
 *** emacs-lisp
 **** COMMENT yasnippet
 Enable yasnippet.
@@ -1098,54 +1125,55 @@ Pull the latest version from the web.
 **** Integrate into emacs
 Add updated version (based off auto-package-update) and integrate it with Emacs.
 #+BEGIN_SRC emacs-lisp
-    (defun verilog-read-file-as-string (file)
-      "Read FILE contents."
-      (when (file-exists-p file)
-        (with-temp-buffer
-          (insert-file-contents file)
-          (buffer-string))))
-
-    (defun verilog-write-string-to-file (file string)
-      "Substitute FILE contents with STRING."
+  (defun verilog-read-file-as-string (file)
+    "Read FILE contents."
+    (when (file-exists-p file)
       (with-temp-buffer
-        (insert string)
-        (when (file-writable-p file)
-          (write-region (point-min)
-                        (point-max)
-                        file))))
+        (insert-file-contents file)
+        (buffer-string))))
 
-    (defun verilog-today-day ()
-      (time-to-days (current-time)))
+  (defun verilog-write-string-to-file (file string)
+    "Substitute FILE contents with STRING."
+    (with-temp-buffer
+      (insert string)
+      (when (file-writable-p file)
+        (write-region (point-min)
+                      (point-max)
+                      file))))
 
-    (defun should-update-verilog-p ()
-      "Return non-nil when an update is due."
-      (and
-       (or
-        (not (file-exists-p "~/.emacs.d/.last-verilog-update-day"))
-        (if (>= (/ (- (verilog-today-day) (verilog-read-last-update-day)) 7) 1)
-            t
-          nil))))
+  (defun verilog-today-day ()
+    (time-to-days (current-time)))
 
-    (defun verilog-read-last-update-day ()
-      "Read last update day."
-      (string-to-number
-       (verilog-read-file-as-string "~/.emacs.d/.last-verilog-update-day")))
+  (defun should-update-verilog-p ()
+    "Return non-nil when an update is due."
+    (and
+     (or
+      (not (file-exists-p "~/.emacs.d/.last-verilog-update-day"))
+      (if (>= (/ (- (verilog-today-day) (verilog-read-last-update-day)) 7) 1)
+          t
+        nil))))
 
-    (defun verilog-write-current-day ()
-      "Store current day."
-      (verilog-write-string-to-file
-       "~/.emacs.d/.last-verilog-update-day"
-       (int-to-string (verilog-today-day))))
+  (defun verilog-read-last-update-day ()
+    "Read last update day."
+    (string-to-number
+     (verilog-read-file-as-string "~/.emacs.d/.last-verilog-update-day")))
 
-    (use-package verilog-mode
-      :init
-      (when (should-update-verilog-p)
-          (get-verilog-latest)
-          (verilog-write-current-day))
-      (add-to-list 'load-path "~/.emacs.d/elpa/verilog-mode/verilog-mode.el")
-      :config
-      (autoload 'verilog-mode "verilog-mode" "Verilog mode" t )
-      (add-to-list 'auto-mode-alist '("\\.[ds]?vh?\\'" . verilog-mode)))
+  (defun verilog-write-current-day ()
+    "Store current day."
+    (verilog-write-string-to-file
+     "~/.emacs.d/.last-verilog-update-day"
+     (int-to-string (verilog-today-day))))
+
+  (use-package verilog-mode
+    :hook (verilog-mode . lsp)
+    :init
+    (when (should-update-verilog-p)
+        (get-verilog-latest)
+        (verilog-write-current-day))
+    (add-to-list 'load-path "~/.emacs.d/elpa/verilog-mode/verilog-mode.el")
+    :config
+    (autoload 'verilog-mode "verilog-mode" "Verilog mode" t )
+    (add-to-list 'auto-mode-alist '("\\.[ds]?vh?\\'" . verilog-mode)))
 #+END_SRC
 
 *** COMMENT MATLAB
@@ -1184,6 +1212,7 @@ Get the major mode for rust files.
 #+BEGIN_SRC emacs-lisp
   (use-package rust-mode
     :ensure t
+    :hook (rust-mode . lsp)
     :config
     ;; style guide suggests spaces not tabs
     (add-hook 'rust-mode-hook (lambda () (setq indent-tabs-mode nil)))
@@ -1218,6 +1247,12 @@ Code completion with racer.
            (racer-mode . (eldoc-mode company-mode)))
     :init
     (setq racer-command "~/.cargo/bin/racer"))
+#+END_SRC
+*** Bash
+**** LSP
+Completion with LSP
+#+BEGIN_SRC emacs-lisp
+(add-hook 'sh-mode-hook 'lsp)
 #+END_SRC
 * Org mode
 ** Up to date org
