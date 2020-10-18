@@ -14,7 +14,8 @@ Using mingw64 in windows and general path in mac.
          (use-package exec-path-from-shell
            :ensure t
            :config
-           (exec-path-from-shell-initialize))))
+           (exec-path-from-shell-initialize))
+         (setq default-directory "~/")))
 #+END_SRC
 
 * Aesthetic changes
