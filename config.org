@@ -1,14 +1,20 @@
 #+TITLE: My Emacs configuration
 #  LocalWords:  poppler mingw emacs eq nt gnuplot setenv mapconcat el cond minibuffer pdf color Smartparens smartparens yas aindent whitespace eldoc ielm ibuffer hippie pscp pos Spaceline spaceline powerline spacemacs seperator dir Yasnippet yasnippet flycheck magit fullscreen CEDET askifnotset semanticdb EDE ede gdb srefactor analyzer eval cdb autosetup ghostscript math unicode reftex bibtex TeXcount texcount str latin rkt PlantUML plantuml autoload alist matlab verilog ds vh src fontify natively fortran dvipng plist xcolor EXWM Zenburn setq zenburn defun dolist init config DejaVu ispell aspell flyspell kbd recentf sexp ov bg listp defadvice progn prog keyfreq autosave dabbrev hl gc linum linux utf RET ARG arg configs backends contribs AucTex tex auctex LaTeX url htmlize linter backend writegood ggtags gtags dired eshell asm cd dwim VHDL defvar ctags vhdl concat sp html awk defalias cedet mips IPython ein contrib pandoc dokuwiki EMMS MPD emms toc favicon href css stylesheet async dataLayer gtag js UA sitelinks br Github postamble isso center disqus onclick Disqus javascript dsq createElement getElementsByTagName xml urlset xmlns curr loc RSS elfeed
 
-* COMMENT Windows dependencies
-Dependencies needed for Aspell, poppler PDF-tools, compilers and ghost-script provided by mingw64 in windows.
+* OS dependencies
+Windows and Mac have some interesting paths when starting emacs which needs to be fixed.
+Using mingw64 in windows and general path in mac.
 #+BEGIN_SRC emacs-lisp
-  (when (eq system-type 'windows-nt)
-    (add-to-list 'exec-path "C:/msys64/usr/bin")
-    (add-to-list 'exec-path "C:/msys64/mingw64/bin")
-    (add-to-list 'exec-path "c:/Program Files/gnuplot")
-    (setenv "PATH" (mapconcat #'identity exec-path path-separator)))
+  (cond ((eq system-type 'windows-nt)
+         (add-to-list 'exec-path "C:/msys64/usr/bin")
+         (add-to-list 'exec-path "C:/msys64/mingw64/bin")
+         (add-to-list 'exec-path "c:/Program Files/gnuplot")
+         (setenv "PATH" (mapconcat #'identity exec-path path-separator)))
+        ((eq system-type 'darwin)
+         (use-package exec-path-from-shell
+           :ensure t
+           :config
+           (exec-path-from-shell-initialize))))
 #+END_SRC
 
 * Aesthetic changes
