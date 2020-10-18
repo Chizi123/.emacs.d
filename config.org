@@ -112,7 +112,10 @@ Auto-enable in latex and org as they're the main writing modes.
   (require 'ispell)
   (setq-default ispell-program-name "aspell")
   (setq-default ispell-local-dictionary "en_AU")
+  (add-hook 'tex-mode-hook 'flyspell-mode)
   (add-hook 'latex-mode-hook 'flyspell-mode)
+  (add-hook 'TeX-mode-hook 'flyspell-mode)
+  (add-hook 'LaTeX-mode-hook 'flyspell-mode)
   ;; (add-hook 'latex-mode-hook 'flyspell-buffer)
   (add-hook 'org-mode-hook 'flyspell-mode)
   ;; (add-hook 'org-mode-hook 'flyspell-buffer)
@@ -795,7 +798,8 @@ Use LSP for completion suggestions
     :commands lsp
     :config
     (setq read-process-output-max (* 1024 1024))
-    (setq lsp-completion-provider :capf))
+    (setq lsp-completion-provider :capf)
+    (add-to-list 'exec-path "~/.cargo/bin"))
 
   (use-package lsp-ui
     :ensure t
@@ -1085,6 +1089,14 @@ Uses a Perl script.
   (add-hook 'latex-mode-hook (lambda () (define-key latex-mode-map (kbd "C-c c") 'texcount)))
 #+END_SRC
 
+**** LSP
+Allow LSP completion
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'tex-mode-hook 'lsp)
+  (add-hook 'latex-mode-hook 'lsp)
+  (add-hook 'TeX-mode-hook 'lsp)
+  (add-hook 'LaTeX-mode-hook 'lsp)
+#+END_SRC
 *** PlantUML
 Sets the PlantUML path for the mode to generate models.
 #+BEGIN_SRC emacs-lisp
