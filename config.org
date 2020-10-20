@@ -100,6 +100,7 @@ Open external applications with =s-&=
 #+BEGIN_SRC emacs-lisp
   (use-package exwm
     :ensure t
+    :defer t
     :config
     (require 'exwm-config)
     (exwm-config-default))
@@ -162,9 +163,9 @@ Go to new window when its opened instead of staying with current one.
 Helpful pdf viewer.
 #+BEGIN_SRC emacs-lisp
   (use-package pdf-tools
-	:ensure t
-	:config
-	(pdf-tools-install 1))
+    :ensure t
+    :config
+    (pdf-tools-install 1))
 #+END_SRC
 
 ** COMMENT Writegood-mode
@@ -384,12 +385,12 @@ Bloody bell dings every time you hit a key too much.
 ** Pretty symbols
 Why not? They make it look nice.
 #+BEGIN_SRC emacs-lisp
-  (when window-system
-    (use-package pretty-mode
-      :ensure t
-      :diminish t
-      :config
-      (global-pretty-mode)))
+  (use-package pretty-mode
+    :ensure t
+    :diminish t
+    :if window-system
+    :config
+    (global-pretty-mode))
 #+END_SRC
 
 ** COMMENT Find file other window
@@ -468,8 +469,7 @@ Colours the brackets so that they stand out more.
 #+BEGIN_SRC emacs-lisp
   (use-package rainbow-delimiters
     :ensure t
-    :init
-      (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+    :hook (prog-mode . rainbow-delimiters-mode))
 #+END_SRC
 
 ** Following whitespace
@@ -611,7 +611,7 @@ K&R uses 4 space tabs.
 #+END_SRC
 
 ** Coding system
-Cause we all love UTF8
+Cause we all love UTF8.
 #+BEGIN_SRC emacs-lisp
   (set-terminal-coding-system 'utf-8)
   (set-keyboard-coding-system 'utf-8)
@@ -752,10 +752,11 @@ Manually added snippets are in ~/.emacs.d/snippets/{mode}.
     :ensure t
     :diminish yas-minor-mode
     :config
-    (use-package yasnippet-snippets
-      :ensure t)
-    (yas-reload-all)
     (yas-global-mode 1))
+
+  (use-package yasnippet-snippets
+    :ensure t
+    :after yasnippet)
 #+END_SRC
 
 ** Flycheck
@@ -764,6 +765,7 @@ Basic linter. Works pretty well.
   (use-package flycheck
     :ensure t
     :diminish flycheck-mode
+    :hook (prog-mode . flycheck-mode)
     :config
     (global-flycheck-mode))
 #+END_SRC
@@ -795,11 +797,20 @@ Use LSP for completion suggestions
 #+BEGIN_SRC emacs-lisp
   (use-package lsp-mode
     :ensure t
-    :hook ((lsp-mode . lsp-enable-which-key-integration))
+    :hook (((c-mode
+             cpp-mode
+             tex-mode
+             latex-mode
+             TeX-mode
+             LaTeX-mode
+             rust-mode
+             sh-mode
+             verilog-mode) . lsp))
     :init
     (setq lsp-keymap-prefix "C-c l")
     :commands lsp
     :config
+    (add-hook lsp-mode-hook lsp-enable-which-key-integration)
     (setq read-process-output-max (* 1024 1024))
     (setq lsp-completion-provider :capf)
     (add-to-list 'exec-path "~/.cargo/bin"))
@@ -812,12 +823,14 @@ Use LSP for completion suggestions
     :ensure t
     :commands helm-lsp-workspace-symbol)
 #+END_SRC
+
 ** Version control
 Settings for emacs' own version control system.
 *** Enable version control on the mode line
 #+BEGIN_SRC emacs-lisp
   (vc-mode)
 #+END_SRC
+
 ** Magit
 Emacs git client.
 Pretty good and offers fairly decent features.
@@ -878,9 +891,10 @@ Pretty good and offers fairly decent features.
 ** CEDET
 *** Semantic
 Parser library for code, supports many other packages.
-Allows emacs to be mode aware of what is being written.
+Allows emacs to be more aware of what is being written.
 #+BEGIN_SRC emacs-lisp
   (use-package semantic
+    :hook (prog-mode . semantic-mode)
     :config
     (global-semanticdb-minor-mode 1)
     (global-semantic-idle-scheduler-mode 1)
@@ -925,22 +939,16 @@ Should help to refactor file.
 
 ** Language specific configs
 *** C/C++
-**** COMMENT yasnippet
-Enable yasnippet for C/C++.
-#+BEGIN_SRC emacs-lisp
-(add-hook 'c++-mode-hook 'yas-minor-mode)
-(add-hook 'c-mode-hook 'yas-minor-mode)
-#+END_SRC
-
 **** Flycheck clang
 Add the clang backend for linting.
 #+BEGIN_SRC emacs-lisp
-(use-package flycheck-clang-analyzer
-  :ensure t
-  :config
-  (with-eval-after-load 'flycheck
-    (require 'flycheck-clang-analyzer)
-     (flycheck-clang-analyzer-setup)))
+  (use-package flycheck-clang-analyzer
+    :ensure t
+    :after flycheck
+    :config
+    (with-eval-after-load 'flycheck
+      (require 'flycheck-clang-analyzer)
+       (flycheck-clang-analyzer-setup)))
 #+END_SRC
 
 **** Company
@@ -965,25 +973,14 @@ Add header completion as well as Irony, which uses clang for suggestions.
 
   (use-package company-irony
     :ensure t
+    :after irony
     :config
     (add-to-list 'company-backends '(company-c-headers
                                      company-dabbrev-code
                                      company-irony)))
 #+END_SRC
 
-**** LSP
-Allow completion with LSP.
-#+BEGIN_SRC emacs-lisp
-(add-hook 'c-mode-hook 'lsp)
-(add-hook 'cpp-mode-hook 'lsp)
-#+END_SRC
 *** emacs-lisp
-**** COMMENT yasnippet
-Enable yasnippet.
-#+BEGIN_SRC emacs-lisp
-(add-hook 'emacs-lisp-mode-hook 'yas-minor-mode)
-#+END_SRC
-
 **** COMMENT company
 Add slime backend.
 #+BEGIN_SRC emacs-lisp
@@ -1020,9 +1017,9 @@ AucTex contains many additions to make tex editing good.
   (use-package tex
     :ensure auctex
     :config
-    (setq TeX-auto-save t)
-    (setq TeX-parse-self t)
-    (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+    (setq TeX-auto-save t
+          TeX-parse-self t
+          TeX-view-program-selection '((output-pdf "PDF Tools"))
           TeX-source-correlate-start-server t)
     (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer))
 #+END_SRC
@@ -1092,14 +1089,6 @@ Uses a Perl script.
   (add-hook 'latex-mode-hook (lambda () (define-key latex-mode-map (kbd "C-c c") 'texcount)))
 #+END_SRC
 
-**** LSP
-Allow LSP completion
-#+BEGIN_SRC emacs-lisp
-  (add-hook 'tex-mode-hook 'lsp)
-  (add-hook 'latex-mode-hook 'lsp)
-  (add-hook 'TeX-mode-hook 'lsp)
-  (add-hook 'LaTeX-mode-hook 'lsp)
-#+END_SRC
 *** PlantUML
 Sets the PlantUML path for the mode to generate models.
 #+BEGIN_SRC emacs-lisp
@@ -1186,7 +1175,6 @@ Add updated version (based off auto-package-update) and integrate it with Emacs.
      (int-to-string (verilog-today-day))))
 
   (use-package verilog-mode
-    :hook (verilog-mode . lsp)
     :init
     (when (should-update-verilog-p)
         (get-verilog-latest)
@@ -1233,7 +1221,6 @@ Get the major mode for rust files.
 #+BEGIN_SRC emacs-lisp
   (use-package rust-mode
     :ensure t
-    :hook (rust-mode . lsp)
     :config
     ;; style guide suggests spaces not tabs
     (add-hook 'rust-mode-hook (lambda () (setq indent-tabs-mode nil)))
@@ -1268,12 +1255,6 @@ Code completion with racer.
            (racer-mode . (eldoc-mode company-mode)))
     :init
     (setq racer-command "~/.cargo/bin/racer"))
-#+END_SRC
-*** Bash
-**** LSP
-Completion with LSP
-#+BEGIN_SRC emacs-lisp
-(add-hook 'sh-mode-hook 'lsp)
 #+END_SRC
 * Org mode
 ** Up to date org
@@ -1363,7 +1344,7 @@ Gets very annoying very quickly without it.
 #+END_SRC
 
 ** Org export additions
-*** Pandoc
+*** COMMENT Pandoc
 Call pandoc on org buffer from org export.
 #+BEGIN_SRC emacs-lisp
   (use-package ox-pandoc
@@ -1489,7 +1470,8 @@ Creates a sitemap.xml for the blog based on the generated HTML files output in t
 Allow org features to be exported to HTML for site.
 #+BEGIN_SRC emacs-lisp
   (use-package htmlize
-    :ensure t)
+    :ensure t
+    :defer t)
 #+END_SRC
 
 * Journaling
