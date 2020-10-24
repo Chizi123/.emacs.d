@@ -792,8 +792,9 @@ Uses various backends, more of which are added later.
     (setq company-minimum-prefix-length 3))
 #+END_SRC
 
-** LSP Mode
-Use LSP for completion suggestions
+** COMMENT LSP Mode
+Use LSP for completion suggestions.
+Causes too much memory usage, need to debug.
 #+BEGIN_SRC emacs-lisp
   (use-package lsp-mode
     :ensure t
