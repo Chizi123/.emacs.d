@@ -607,7 +607,7 @@ K&R uses 4 space tabs.
 #+BEGIN_SRC emacs-lisp
   (setq c-default-style '((java-mode . "java")
                          (awk-mode . "awk")
-                         (other . "k&r")))
+                         (other . "linux")))
 #+END_SRC
 
 ** Coding system
@@ -618,7 +618,7 @@ Cause we all love UTF8.
   (set-language-environment "UTF-8")
   (prefer-coding-system 'utf-8)
   (setq-default indent-tabs-mode t
-                tab-width 4
+                tab-width 8
                 c-basic-offset tab-width
                 cperl-indent-level tab-width)
   (delete-selection-mode)
@@ -980,7 +980,23 @@ Add header completion as well as Irony, which uses clang for suggestions.
                                      company-dabbrev-code
                                      company-irony)))
 #+END_SRC
-
+**** Clang-format
+Automatically format buffer on save.
+#+BEGIN_SRC emacs-lisp
+  (when (file-exists-p "/usr/share/clang/clang-format.el")
+    (load "/usr/share/clang/clang-format.el")
+    (setq clang-format-linux-style (concat "{BasedOnStyle: LLVM,"
+                                           "IndentWidth: 8,"
+                                           "UseTab: Always,"
+                                           "BreakBeforeBraces: Linux,"
+                                           "AllowShortIfStatementsOnASingleLine: false,"
+                                           "IndentCaseLabels: false}"))
+    (setq-default clang-format-style clang-format-linux-style)
+    (defun clang-format-on-save ()
+      (add-hook 'before-save-hook 'clang-format-buffer))
+    (add-hook 'c-mode-hook 'clang-format-on-save)
+    (add-hook 'c++-mode-hook 'clang-format-on-save))
+#+END_SRC
 *** emacs-lisp
 **** COMMENT company
 Add slime backend.
