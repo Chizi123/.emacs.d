@@ -124,7 +124,14 @@ Auto-enable in latex and org as they're the main writing modes.
   (diminish 'flyspell-mode)
 
 #+END_SRC
-
+** Language Tool
+Language tool is an open source grammar checker.
+#+BEGIN_SRC emacs-lisp
+  (use-package langtool
+    :ensure t
+    :init
+    (setq langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*"))
+#+END_SRC
 ** Switch-window
 Helps to change windows easily when many are open at once.
 #+BEGIN_SRC emacs-lisp
