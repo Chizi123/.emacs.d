@@ -799,7 +799,7 @@ Uses various backends, more of which are added later.
     (setq company-minimum-prefix-length 3))
 #+END_SRC
 
-** COMMENT LSP Mode
+** LSP Mode
 Use LSP for completion suggestions.
 Causes too much memory usage, need to debug.
 #+BEGIN_SRC emacs-lisp
@@ -987,7 +987,7 @@ Add header completion as well as Irony, which uses clang for suggestions.
                                      company-dabbrev-code
                                      company-irony)))
 #+END_SRC
-**** Clang-format
+**** COMMENT Clang-format
 Automatically format buffer on save.
 #+BEGIN_SRC emacs-lisp
   (when (file-exists-p "/usr/share/clang/clang-format.el")
