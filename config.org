@@ -821,6 +821,7 @@ Causes too much memory usage, need to debug.
     (add-hook lsp-mode-hook lsp-enable-which-key-integration)
     (setq read-process-output-max (* 1024 1024))
     (setq lsp-completion-provider :capf)
+    (setq lsp-keep-workspace-alive 'nil)
     (add-to-list 'exec-path "~/.cargo/bin"))
 
   (use-package lsp-ui
