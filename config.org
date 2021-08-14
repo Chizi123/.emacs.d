@@ -1084,7 +1084,7 @@ Uses a Perl script.
   (defun get-texcount-latest()
     (if (not(file-directory-p "~/.texcount"))
         (make-directory "~/.texcount"))
-    (url-copy-file "https://app.uio.no/ifi/texcount/download.php?file=texcount_3_1_1.zip" "~/.texcount/texcount.zip" 1)
+    (url-copy-file "https://app.uio.no/ifi/texcount/download.php?file=texcount_3_2_0_41.zip" "~/.texcount/texcount.zip" 1)
     (shell-command "unzip -o ~/.texcount/texcount.zip -d ~/.texcount")
     (add-to-list 'exec-path "~/.texcount/texcount.pl"))
 
