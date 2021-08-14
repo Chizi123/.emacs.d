@@ -772,7 +772,6 @@ Basic linter. Works pretty well.
   (use-package flycheck
     :ensure t
     :diminish flycheck-mode
-    :hook (prog-mode . flycheck-mode)
     :config
     (global-flycheck-mode))
 #+END_SRC
