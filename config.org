@@ -1368,8 +1368,9 @@ Gets very annoying very quickly without it.
 #+END_SRC
 
 ** Org export additions
-*** COMMENT Pandoc
+*** Pandoc
 Call pandoc on org buffer from org export.
+Need to add ~#+OPTIONS: H:99~ to enable large level header exports.
 #+BEGIN_SRC emacs-lisp
   (use-package ox-pandoc
     :ensure t)
