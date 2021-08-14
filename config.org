@@ -986,7 +986,7 @@ Add header completion as well as Irony, which uses clang for suggestions.
                                      company-dabbrev-code
                                      company-irony)))
 #+END_SRC
-**** COMMENT Clang-format
+**** Clang-format
 Automatically format buffer on save.
 #+BEGIN_SRC emacs-lisp
   (when (file-exists-p "/usr/share/clang/clang-format.el")
@@ -999,12 +999,12 @@ Automatically format buffer on save.
                                            "IndentCaseLabels: false}"))
     (setq-default clang-format-style clang-format-linux-style)
     (defun clang-format-on-save ()
-      (add-hook 'before-save-hook 'clang-format-buffer))
-    (add-hook 'c-mode-hook 'clang-format-on-save)
-    (add-hook 'c++-mode-hook 'clang-format-on-save))
+      (add-hook 'before-save-hook 'clang-format-buffer nil t))
+    (add-hook 'c-mode-hook 'clang-format-on-save nil t)
+    (add-hook 'c++-mode-hook 'clang-format-on-save nil t))
 #+END_SRC
 *** emacs-lisp
-**** COMMENT company
+**** COMMENT Company
 Add slime backend.
 #+BEGIN_SRC emacs-lisp
 (add-hook 'emacs-lisp-mode-hook 'company-mode)
