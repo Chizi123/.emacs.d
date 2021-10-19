@@ -1270,15 +1270,6 @@ Linting with flycheck.
     :config
     (add-hook 'flyckeck-mode-hook #'flycheck-rust-setup))
 #+END_SRC
-
-**** Completion
-Code completion with racer.
-#+BEGIN_SRC emacs-lisp
-  (use-package racer
-    :ensure t
-    :hook ((rust-mode . racer-mode)
-           (racer-mode . (eldoc-mode company-mode))))
-#+END_SRC
 *** Go
 **** Major mode
 #+BEGIN_SRC emacs-lisp
