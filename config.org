@@ -86,12 +86,12 @@ Set default font and faces.
   (set-face-italic 'font-lock-keyword-face t)
 #+END_SRC
 
-** Remove menu bar, toolbar, but keep scroll bar
+** Remove menu bar, toolbar, and scroll bar
 Make the emacs interface slightly nicer.
 #+BEGIN_SRC emacs-lisp
   (menu-bar-mode 0)
   (tool-bar-mode 0)
-  (scroll-bar-mode 1)
+  (scroll-bar-mode 0)
 #+END_SRC
 * COMMENT EXWM
 Emacs window manager.
@@ -795,7 +795,7 @@ Uses various backends, more of which are added later.
     :config
     (global-company-mode)
     (setq company-idle-delay 0)
-    (setq company-minimum-prefix-length 3))
+    (setq company-minimum-prefix-length 1))
 #+END_SRC
 
 ** LSP Mode
@@ -1141,8 +1141,7 @@ Set racket path in windows and enable racket mode.
       (autoload 'racket-mode "Racket" "Racket Editing Mode" t)
       (add-to-list
        'auto-mode-alist
-       '("\\.rkt$" . racket-mode))
-      (setq matlab-indent-function t))
+       '("\\.rkt$" . racket-mode)))
 #+END_SRC
 
 *** COMMENT Verilog
