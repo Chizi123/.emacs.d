@@ -1146,67 +1146,14 @@ Set racket path in windows and enable racket mode.
 
 *** COMMENT Verilog
 **** Get latest version
-Pull the latest version from the web.
+Use latest version from repositories.
 #+BEGIN_SRC emacs-lisp
-  (defun get-verilog-latest()
-    (if (not(file-directory-p "~/.emacs.d/elpa/verilog-mode"))
-        (make-directory "~/.emacs.d/elpa/verilog-mode"))
-    (if (file-exists-p "~/.emacs.d/elpa/verilog-mode/verilog-mode.el")
-        (delete-file "~/.emacs.d/elpa/verilog-mode/verilog-mode.el"))
-    (url-copy-file "https://www.veripool.org/ftp/verilog-mode.el" "~/.emacs.d/elpa/verilog-mode/verilog-mode.el" 1))
-#+END_SRC
-
-**** Integrate into emacs
-Add updated version (based off auto-package-update) and integrate it with Emacs.
-#+BEGIN_SRC emacs-lisp
-  (defun verilog-read-file-as-string (file)
-    "Read FILE contents."
-    (when (file-exists-p file)
-      (with-temp-buffer
-        (insert-file-contents file)
-        (buffer-string))))
-
-  (defun verilog-write-string-to-file (file string)
-    "Substitute FILE contents with STRING."
-    (with-temp-buffer
-      (insert string)
-      (when (file-writable-p file)
-        (write-region (point-min)
-                      (point-max)
-                      file))))
-
-  (defun verilog-today-day ()
-    (time-to-days (current-time)))
-
-  (defun should-update-verilog-p ()
-    "Return non-nil when an update is due."
-    (and
-     (or
-      (not (file-exists-p "~/.emacs.d/.last-verilog-update-day"))
-      (if (>= (/ (- (verilog-today-day) (verilog-read-last-update-day)) 7) 1)
-          t
-        nil))))
-
-  (defun verilog-read-last-update-day ()
-    "Read last update day."
-    (string-to-number
-     (verilog-read-file-as-string "~/.emacs.d/.last-verilog-update-day")))
-
-  (defun verilog-write-current-day ()
-    "Store current day."
-    (verilog-write-string-to-file
-     "~/.emacs.d/.last-verilog-update-day"
-     (int-to-string (verilog-today-day))))
-
   (use-package verilog-mode
-    :init
-    (when (should-update-verilog-p)
-        (get-verilog-latest)
-        (verilog-write-current-day))
-    (add-to-list 'load-path "~/.emacs.d/elpa/verilog-mode/verilog-mode.el")
+    :ensure t
+    :pin gnu
     :config
     (autoload 'verilog-mode "verilog-mode" "Verilog mode" t )
-    (add-to-list 'auto-mode-alist '("\\.[ds]?vh?\\'" . verilog-mode)))
+    (add-to-list 'auto-mode-alist '("\\.[ds]?va?h?\\'" . verilog-mode)))
 #+END_SRC
 
 *** COMMENT MATLAB
