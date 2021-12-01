@@ -1284,9 +1284,8 @@ Code completion with racer.
 ** Up to date org
 Pull the latest org mode from the repository, rather than the org which comes with emacs.
 #+BEGIN_SRC emacs-lisp
-    (use-package org
-      :ensure org-plus-contrib
-      :pin org)
+        (use-package org
+          :ensure org-contrib)
 #+END_SRC
 
 ** Small tweaks
@@ -1316,13 +1315,13 @@ Enable line wrapping for long lines.
                (visual-line-mode 1)))
 #+END_SRC
 
-** org-bullets
+** Fancy org points
 Use bullets of different colours and styles instead of the "\*\*\*" to denote indentation levels.
 #+BEGIN_SRC emacs-lisp
-  (use-package org-bullets
+  (use-package org-superstar
     :ensure t
     :config
-    (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
+    (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
 #+END_SRC
 
 ** Org Babel
