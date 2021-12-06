@@ -685,9 +685,14 @@ Indent, slightly different to standard tab or C-M-\.
 Remote editing mode.
 Hate having to re-input passwords.
 #+BEGIN_SRC emacs-lisp
-  (when (eq system-type 'windows-nt)
-    (setq tramp-default-method "pscp"))
-  (setq password-cache-expiry nil)
+  (use-package tramp
+    :ensure t
+    :pin gnu
+    :config
+    ;; (setq tramp-default-method "ssh")
+    (when (eq system-type 'windows-nt)
+      (setq tramp-default-method "pscp"))
+    (setq password-cache-expiry nil))
 #+END_SRC
 
 ** COMMENT Y or N instead of yes or no
