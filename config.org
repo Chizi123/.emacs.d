@@ -1154,7 +1154,7 @@ Set racket path in windows and enable racket mode.
        '("\\.rkt$" . racket-mode)))
 #+END_SRC
 
-*** COMMENT Verilog
+*** Verilog
 **** Get latest version
 Use latest version from repositories.
 #+BEGIN_SRC emacs-lisp
