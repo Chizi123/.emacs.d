@@ -1128,10 +1128,13 @@ Sets the PlantUML path for the mode to generate models.
     :ensure t
     :init
     (cond ((eq system-type 'windows-nt)
-           (setq plantuml-jar-path "c:/ProgramData/chocolatey/lib/plantuml/tools/plantuml.jar"))
+           (when (file-exists-p "c:/ProgramData/chocolatey/lib/plantuml/tools/plantuml.jar")
+             (setq plantuml-jar-path "c:/ProgramData/chocolatey/lib/plantuml/tools/plantuml.jar")
+             (setq planuml-default-exec-mode 'jar)))
           ((eq system-type 'gnu/linux)
-           (setq plantuml-jar-path "/usr/share/java/plantuml/plantuml.jar")))
-    (setq planuml-default-exec-mode 'jar))
+           (when (file-exists-p "/usr/share/java/plantuml/plantuml.jar")
+             (setq plantuml-jar-path "/usr/share/java/plantuml/plantuml.jar")
+             (setq planuml-default-exec-mode 'jar)))))
 #+END_SRC
 
 *** COMMENT Racket
@@ -1304,7 +1307,6 @@ Add a bunch of languages to org babel supported languages
                                                              (scheme . t)
                                                              (gnuplot . t)
                                                              (matlab . t)
-                                                             (plantuml . t)
                                                              (fortran . t)
                                                              (java . t)
                                                              (plantuml . t)))
