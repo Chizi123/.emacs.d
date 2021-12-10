@@ -960,7 +960,8 @@ Should help to refactor file.
 
 ** Language specific configs
 *** C/C++
-**** Flycheck clang
+**** Flycheck
+***** Flycheck clang
 Add the clang backend for linting.
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck-clang-analyzer
@@ -970,6 +971,23 @@ Add the clang backend for linting.
     (with-eval-after-load 'flycheck
       (require 'flycheck-clang-analyzer)
        (flycheck-clang-analyzer-setup)))
+#+END_SRC
+***** Flycheck project root
+Flycheck tends to fail finding the project root, giving errors about missing files.
+This should remove them.
+#+BEGIN_SRC emacs-lisp
+  (defun setup-flycheck-project-path ()
+    (let ((root (ignore-errors (projectile-project-root))))
+      (when root
+        (add-to-list
+         (make-variable-buffer-local 'flycheck-clang-include-path)
+         root)
+        (add-to-list
+         (make-variable-buffer-local 'flycheck-gcc-include-path)
+         root))))
+
+  (add-hook 'c-mode-hook 'setup-flycheck-project-path)
+  (add-hook 'c++-mode-hook 'setup-flycheck-project-path)
 #+END_SRC
 
 **** COMMENT Company
