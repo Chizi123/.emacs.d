@@ -614,7 +614,7 @@ K&R uses 4 space tabs.
 #+BEGIN_SRC emacs-lisp
   (setq c-default-style '((java-mode . "java")
                          (awk-mode . "awk")
-                         (other . "linux")))
+                         (other . "k&r")))
 #+END_SRC
 
 ** Coding system
@@ -624,12 +624,22 @@ Cause we all love UTF8.
   (set-keyboard-coding-system 'utf-8)
   (set-language-environment "UTF-8")
   (prefer-coding-system 'utf-8)
-  (setq-default indent-tabs-mode t
-                tab-width 8
+  (setq-default indent-tabs-mode nil
+                tab-width 4
                 c-basic-offset tab-width
                 cperl-indent-level tab-width)
+  (c-set-offset 'inline-open '0)
   (delete-selection-mode)
   (global-set-key (kbd "RET") 'newline-and-indent)
+#+END_SRC
+*** Smart tabs
+Tabs for indentation, spaces for alignment
+#+BEGIN_SRC emacs-lisp
+    (use-package smart-tabs-mode
+      :ensure t
+      :config
+      (smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl 'python 'ruby
+                            'nxml))
 #+END_SRC
 
 ** Move to beginning of line ignoring whitespace
