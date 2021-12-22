@@ -867,57 +867,89 @@ Settings for emacs' own version control system.
 Emacs git client.
 Pretty good and offers fairly decent features.
 #+BEGIN_SRC emacs-lisp
-  (use-package magit
-    :ensure t
-    :commands magit-get-top-dir
-    :bind ("C-x g" . magit-status)
-    :init
-    (progn
-      ;; make magit status go full-screen but remember previous window
-      ;; settings
-      ;; from: http://whattheemacsd.com/setup-magit.el-01.html
-      (defadvice magit-status (around magit-fullscreen activate)
-        (window-configuration-to-register :magit-fullscreen)
-        ad-do-it
-        (delete-other-windows))
-
-      ;; Close popup when committing - this stops the commit window
-      ;; hanging around
-      ;; From: http://git.io/rPBE0Q
-      (defadvice git-commit-commit (after delete-window activate)
-        (delete-window))
-
-      (defadvice git-commit-abort (after delete-window activate)
-        (delete-window))
-
-      :config
+    (use-package magit
+      :ensure t
+      :commands magit-get-top-dir
+      :bind ("C-x g" . magit-status)
+      :init
       (progn
-        ;; restore previously hidden windows
-        (defadvice magit-quit-window (around magit-restore-screen activate)
-          (let ((current-mode major-mode))
-            ad-do-it
-            ;; we only want to jump to register when the last seen buffer
-            ;; was a magit-status buffer.
-            (when (eq 'magit-status-mode current-mode)
-              (jump-to-register :magit-fullscreen)))))
+        ;; make magit status go full-screen but remember previous window
+        ;; settings
+        ;; from: http://whattheemacsd.com/setup-magit.el-01.html
+        (defadvice magit-status (around magit-fullscreen activate)
+          (window-configuration-to-register :magit-fullscreen)
+          ad-do-it
+          (delete-other-windows))
 
-      ;; magit settings
-      (setq
-       ;; don't put "origin-" in front of new branch names by default
-       magit-default-tracking-name-function 'magit-default-tracking-name-branch-only
-       ;; open magit status in same window as current buffer
-       magit-status-buffer-switch-function 'switch-to-buffer
-       ;; highlight word/letter changes in hunk diffs
-       magit-diff-refine-hunk t
-       ;; ask me if I want to include a revision when rewriting
-       magit-rewrite-inclusive 'ask
-       ;; ask me to save buffers
-       magit-save-some-buffers t
-       ;; pop the process buffer if we're taking a while to complete
-       magit-process-popup-time 10
-       ;; ask me if I want a tracking upstream
-       magit-set-upstream-on-push 'askifnotset
-       )))
+        ;; Close popup when committing - this stops the commit window
+        ;; hanging around
+        ;; From: http://git.io/rPBE0Q
+        (defadvice git-commit-commit (after delete-window activate)
+          (delete-window))
+
+        (defadvice git-commit-abort (after delete-window activate)
+          (delete-window))
+
+        :config
+        (progn
+          ;; restore previously hidden windows
+          (defadvice magit-quit-window (around magit-restore-screen activate)
+            (let ((current-mode major-mode))
+              ad-do-it
+              ;; we only want to jump to register when the last seen buffer
+              ;; was a magit-status buffer.
+              (when (eq 'magit-status-mode current-mode)
+                (jump-to-register :magit-fullscreen)))))
+
+        ;; magit settings
+        (setq
+         ;; don't put "origin-" in front of new branch names by default
+         magit-default-tracking-name-function 'magit-default-tracking-name-branch-only
+         ;; open magit status in same window as current buffer
+         magit-status-buffer-switch-function 'switch-to-buffer
+         ;; highlight word/letter changes in hunk diffs
+         magit-diff-refine-hunk t
+         ;; ask me if I want to include a revision when rewriting
+         magit-rewrite-inclusive 'ask
+         ;; ask me to save buffers
+         magit-save-some-buffers t
+         ;; pop the process buffer if we're taking a while to complete
+         magit-process-popup-time 10
+         ;; ask me if I want a tracking upstream
+         magit-set-upstream-on-push 'askifnotset
+         ))
+      )
+#+END_SRC
+
+*** More general yes and no prompt
+The default setting can miss some.
+Don't redefine the regex in case this is too general.
+#+BEGIN_SRC emacs-lisp
+  ;;(when-let ((regex "[\[\(]]?\\([Yy]\\(es\\)?\\)[/|]\\([Nn]o?\\)[\]\)]")
+  (defun magit-process-general-yn-prompt-hook (proc str)
+    "Handle [y/n] prompts"
+    (when-let ((beg (string-match "[\[\(]]?\\([Yy]\\(es\\)?\\)[/|]\\([Nn]o?\\)[\]\)]" str)))
+      (let ;; ((max-mini-window-height 30))
+          (process-send-string
+           proc
+           (downcase
+            (concat
+             (match-string
+              (if (save-match-data
+                    (magit-process-kill-on-abort proc
+                                                 (y-or-n-p (substring str 0 beg)))) 1 2)
+              str)
+             "\n"))))))
+
+  (add-hook 'magit-process-prompt-functions
+            #'magit-process-general-yn-prompt-hook)
+#+END_SRC
+*** Gerrit integration
+Gerrit takes ~origin:refs/for/master~ as a destination.
+Enable magit to work with its oddities.
+#+BEGIN_SRC emacs-lisp
+  (use-package magit-gerrit
+    :ensure t)
 #+END_SRC
 
 ** CEDET
