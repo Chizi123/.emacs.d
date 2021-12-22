@@ -1032,19 +1032,29 @@ Add header completion as well as Irony, which uses clang for suggestions.
 **** Clang-format
 Automatically format buffer on save.
 #+BEGIN_SRC emacs-lisp
-  (when (file-exists-p "/usr/share/clang/clang-format.el")
-    (load "/usr/share/clang/clang-format.el")
-    (setq clang-format-linux-style (concat "{BasedOnStyle: LLVM,"
-                                           "IndentWidth: 8,"
-                                           "UseTab: Always,"
-                                           "BreakBeforeBraces: Linux,"
-                                           "AllowShortIfStatementsOnASingleLine: false,"
-                                           "IndentCaseLabels: false}"))
-    (setq-default clang-format-style clang-format-linux-style)
-    (defun clang-format-on-save ()
-      (add-hook 'before-save-hook 'clang-format-buffer nil t))
-    (add-hook 'c-mode-hook 'clang-format-on-save nil t)
-    (add-hook 'c++-mode-hook 'clang-format-on-save nil t))
+      (defun set-clang-format-style ()
+          (if (file-exists-p (concat
+                              (projectile-project-root)
+                              ".clang-format"))
+              (setq-local clang-format-style nil)
+            (setq-local clang-format-style (concat "{BasedOnStyle: LLVM,"
+                                                   "IndentWidth: " (format "%s" tab-width) ","
+                                                   "UseTab: " (if (eq indent-tabs-mode nil)
+                                                                  "Never"
+                                                                "AlignWithSpaces")
+  ","
+                                                   "BreakBeforeBraces: Linux,"
+                                                   "AllowShortIfStatementsOnASingleLine: false,"
+                                                   "IndentCaseLabels: false}"))))
+
+      (use-package clang-format
+        :ensure t
+        :hook (c-mode-common . (set-clang-format-style)))
+
+      ;;   (defun clang-format-on-save ()
+      ;;     (add-hook 'before-save-hook 'clang-format-buffer nil t))
+      ;;   (add-hook 'c-mode-hook 'clang-format-on-save nil t)
+      ;;   (add-hook 'c++-mode-hook 'clang-format-on-save nil t))
 #+END_SRC
 *** emacs-lisp
 **** COMMENT Company
