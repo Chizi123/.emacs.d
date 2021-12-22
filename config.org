@@ -835,7 +835,7 @@ Need to generate ~compile_flags~ for c/c++, can use ~bear~ but may need other to
              LaTeX-mode
              rust-mode
              sh-mode
-             verilog-mode
+             ;; verilog-mode
              go-mode) . lsp))
     :init
     (setq lsp-keymap-prefix "C-c l")
@@ -1197,9 +1197,29 @@ Use latest version from repositories.
     :pin gnu
     :config
     (autoload 'verilog-mode "verilog-mode" "Verilog mode" t )
-    (add-to-list 'auto-mode-alist '("\\.[ds]?va?h?\\'" . verilog-mode)))
+    (add-to-list 'auto-mode-alist '("\\.[ds]?va?h?\\'" . verilog-mode))
+    (setq-default verilog-align-ifelse t
+                  verilog-auto-delete-trailing-whitespace t
+                  verilog-auto-inst-param-value t
+                  verilog-auto-lineup 'all
+                  verilog-auto-newline nil
+                  verilog-auto-save-policy nil
+                  verilog-auto-template-warn-unused t
+                  verilog-auto-endcomments nil
+                  verilog-highlight-grouping-keywords t
+                  verilog-highlight-modules t
+                  verilog-tab-to-comment t
+                  verilog-indent-begin-after-if nil
+                  verilog-indent-lists nil
+                  verilog-case-indent 4
+                  verilog-cexp-indent 0
+                  verilog-indent-level 4
+                  verilog-indent-level-behavioral 4
+                  verilog-indent-level-declaration 4
+                  verilog-indent-level-directive 4
+                  verilog-indent-level-module 4))
 #+END_SRC
-
+#+END_SRC
 *** COMMENT MATLAB
 Mode for editing MATLAB m-files.
 #+BEGIN_SRC emacs-lisp
