@@ -702,7 +702,8 @@ Hate having to re-input passwords.
     ;; (setq tramp-default-method "ssh")
     (when (eq system-type 'windows-nt)
       (setq tramp-default-method "pscp"))
-    (setq password-cache-expiry nil))
+    (setq password-cache-expiry nil)
+    (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
 #+END_SRC
 
 ** COMMENT Y or N instead of yes or no
