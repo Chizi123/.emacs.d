@@ -796,7 +796,6 @@ Add suggestions at the cursor.
   :config
   (flycheck-pos-tip-mode))
 #+END_SRC
-
 ** Company
 Company is auto-complete for Emacs.
 Uses various backends, more of which are added later.
@@ -835,11 +834,11 @@ Causes too much memory usage, need to debug.
     (setq lsp-completion-provider :capf)
     (setq lsp-keep-workspace-alive 'nil)
     (add-to-list 'exec-path "~/.cargo/bin"))
-  
+
   (use-package lsp-ui
     :ensure t
     :commands lsp-ui-mode)
-  
+
   (use-package helm-lsp
     :ensure t
     :commands helm-lsp-workspace-symbol)
