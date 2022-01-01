@@ -104,20 +104,10 @@ Open external applications with =s-&=
 Use aspell for spellchecking. 
 Auto-enable in latex and org as they're the main writing modes.
 #+BEGIN_SRC emacs-lisp
-  ;; (require 'ispell)
-  ;; (setq-default ispell-program-name "aspell")
-  ;; (setq-default ispell-local-dictionary "en_AU")
-  ;; (add-hook 'tex-mode-hook 'flyspell-mode)
-  ;; (add-hook 'latex-mode-hook 'flyspell-mode)
-  ;; (add-hook 'TeX-mode-hook 'flyspell-mode)
-  ;; (add-hook 'LaTeX-mode-hook 'flyspell-mode)
-  ;; (add-hook 'latex-mode-hook 'flyspell-buffer)
-  ;; (add-hook 'org-mode-hook 'flyspell-mode)
-  ;; (add-hook 'org-mode-hook 'flyspell-buffer)
-  ;; (diminish 'flyspell-mode)
   (use-package flyspell
     :hook (tex-mode latex-mode TeX-mode LaTeX-mode org-mode)
     :diminish flyspell-mode
+    :init (require 'ispell)
     :config
     (setq-default ispell-program-name "aspell")
     (setq-default ispell-local-dictionary "en_AU"))
