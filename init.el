@@ -16,6 +16,8 @@
 
 (eval-when-compile
   (require 'use-package))
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
 
 ;; auto-package-update
 (use-package auto-package-update
@@ -26,8 +28,7 @@
   (auto-package-update-maybe))
 
 ;; diminish
-(use-package diminish
-  :ensure t)
+(use-package diminish)
 
 ;; redirect to org config file
 (when (file-readable-p "~/.emacs.d/config.org")

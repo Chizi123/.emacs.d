@@ -12,7 +12,6 @@ Using mingw64 in windows and general path in mac.
          (setenv "PATH" (mapconcat #'identity exec-path path-separator)))
         ((eq system-type 'darwin)
          (use-package exec-path-from-shell
-           :ensure t
            :config
            (exec-path-from-shell-initialize))
          (setq default-directory "~/")))
@@ -26,19 +25,17 @@ Zenburn theme is my default.
   (setq emacs-theme 'zenburn)
 
   (defun disable-all-themes ()
-      (dolist (i custom-enabled-themes)
-           (disable-theme i)))
+    (dolist (i custom-enabled-themes)
+      (disable-theme i)))
 
   (cond ((eq emacs-theme 'zenburn)
          (use-package zenburn-theme
-           :ensure t
            :init
            (disable-all-themes)
            :config
            (load-theme 'zenburn t)))
         ((eq emacs-theme 'doom-one)
          (use-package doom-themes
-           :ensure t
            :init
            (disable-all-themes)
            :config
@@ -49,21 +46,18 @@ Zenburn theme is my default.
            (doom-themes-org-config)))
         ((eq emacs-theme 'nord)
          (use-package nord-theme
-           :ensure t
            :init
            (disable-all-themes)
            :config
            (load-theme 'nord t)))
         ((eq emacs-theme 'solarized)
          (use-package solarized-theme
-           :ensure t
            :init
            (disable-all-themes)
            :config
            (load-theme 'solarized-dark t)))
         ((eq emacs-theme 'jetbrains-darcula)
          (use-package jetbrains-darcula-theme
-           :ensure t
            :init
            (disable-all-themes)
            :config
@@ -99,7 +93,6 @@ Tiling window manager that runs in emacs.
 Open external applications with =s-&=
 #+BEGIN_SRC emacs-lisp
   (use-package exwm
-    :ensure t
     :defer t
     :config
     (require 'exwm-config)
@@ -111,24 +104,28 @@ Open external applications with =s-&=
 Use aspell for spellchecking. 
 Auto-enable in latex and org as they're the main writing modes.
 #+BEGIN_SRC emacs-lisp
-  (require 'ispell)
-  (setq-default ispell-program-name "aspell")
-  (setq-default ispell-local-dictionary "en_AU")
-  (add-hook 'tex-mode-hook 'flyspell-mode)
-  (add-hook 'latex-mode-hook 'flyspell-mode)
-  (add-hook 'TeX-mode-hook 'flyspell-mode)
-  (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+  ;; (require 'ispell)
+  ;; (setq-default ispell-program-name "aspell")
+  ;; (setq-default ispell-local-dictionary "en_AU")
+  ;; (add-hook 'tex-mode-hook 'flyspell-mode)
+  ;; (add-hook 'latex-mode-hook 'flyspell-mode)
+  ;; (add-hook 'TeX-mode-hook 'flyspell-mode)
+  ;; (add-hook 'LaTeX-mode-hook 'flyspell-mode)
   ;; (add-hook 'latex-mode-hook 'flyspell-buffer)
-  (add-hook 'org-mode-hook 'flyspell-mode)
+  ;; (add-hook 'org-mode-hook 'flyspell-mode)
   ;; (add-hook 'org-mode-hook 'flyspell-buffer)
-  (diminish 'flyspell-mode)
-
+  ;; (diminish 'flyspell-mode)
+  (use-package flyspell
+    :hook (tex-mode latex-mode TeX-mode LaTeX-mode org-mode)
+    :diminish flyspell-mode
+    :config
+    (setq-default ispell-program-name "aspell")
+    (setq-default ispell-local-dictionary "en_AU"))
 #+END_SRC
 ** COMMENT Language Tool
 Language tool is an open source grammar checker.
 #+BEGIN_SRC emacs-lisp
   (use-package langtool
-    :ensure t
     :init
     (setq langtool-java-classpath "/usr/share/languagetool:/usr/share/java/languagetool/*"))
 #+END_SRC
@@ -136,13 +133,12 @@ Language tool is an open source grammar checker.
 Helps to change windows easily when many are open at once.
 #+BEGIN_SRC emacs-lisp
   (use-package switch-window
-    :ensure t
     :config
-      ;; (setq switch-window-input-style 'minibuffer)
-      (setq switch-window-threshold 2)
-      (setq switch-window-shortcut-style 'qwerty)
+    ;; (setq switch-window-input-style 'minibuffer)
+    (setq switch-window-threshold 2)
+    (setq switch-window-shortcut-style 'qwerty)
     :bind
-      ([remap other-window] . switch-window))
+    ([remap other-window] . switch-window))
 #+END_SRC
 
 ** Go to new window when opened
@@ -167,7 +163,6 @@ Go to new window when its opened instead of staying with current one.
 Helpful pdf viewer.
 #+BEGIN_SRC emacs-lisp
   (use-package pdf-tools
-    :ensure t
     :config
     (pdf-tools-install 1))
 #+END_SRC
@@ -176,7 +171,6 @@ Helpful pdf viewer.
 Supposedly should provide insight to writing quality.
 #+BEGIN_SRC emacs-lisp
   (use-package writegood-mode
-    :ensure t
     :hook (text-mode . writegood-mode))
 #+END_SRC
 
@@ -220,29 +214,27 @@ Projectile is project management framework for emacs.
 Helps in navigation and management of projects.
 Identifies project layout from git.
 *** Enable it
- #+BEGIN_SRC emacs-lisp
-   (use-package projectile
-     :ensure t
-     :bind ("C-c p" . projectile-command-map)
-     :diminish projectile-mode
-     :config
-     (projectile-global-mode)
-     (setq projectile-completion-system 'helm)
-     (when (eq system-type 'windows-nt)
-       (setq projectile-indexing-method 'alien)))
- #+END_SRC
+#+BEGIN_SRC emacs-lisp
+  (use-package projectile
+    :bind ("C-c p" . projectile-command-map)
+    :diminish projectile-mode
+    :config
+    (projectile-global-mode)
+    (setq projectile-completion-system 'helm)
+    (when (eq system-type 'windows-nt)
+      (setq projectile-indexing-method 'alien)))
+#+END_SRC
 
 *** Let it compile things
 Shortcut for compilation.
- #+BEGIN_SRC emacs-lisp
-   (global-set-key (kbd "<f5>") 'projectile-compile-project)
- #+END_SRC
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "<f5>") 'projectile-compile-project)
+#+END_SRC
 
 *** Enable communication with helm
 Use helm to manage project.
 #+BEGIN_SRC emacs-lisp
   (use-package helm-projectile
-    :ensure t
     :config
     (helm-projectile-on))
 #+END_SRC
@@ -250,45 +242,43 @@ Use helm to manage project.
 ** COMMENT ggtags
 Use GNU Global Tags. Can be useful for large projects.
 #+BEGIN_SRC emacs-lisp
-    (use-package ggtags
-      :ensure t
-      :bind (("C-c g s" . ggtags-find-other-symbol)
+  (use-package ggtags
+    :bind (("C-c g s" . ggtags-find-other-symbol)
            ("C-c g h" . ggtags-view-tag-history)
            ("C-c g r" . ggtags-find-reference)
            ("C-c g f" . ggtags-find-file)
            ("C-c g c" . ggtags-create-tags)
            ("C-c g u" . ggtags-update-tags))
-      :config
-      (add-hook 'c-mode-common-hook
+    :config
+    (add-hook 'c-mode-common-hook
               (lambda ()
                 (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
                   (ggtags-mode 1))))
-      )
+    )
 
-    (setq
-     helm-gtags-ignore-case t
-     helm-gtags-auto-update t
-     helm-gtags-use-input-at-cursor t
-     helm-gtags-pulse-at-cursor t
-     helm-gtags-prefix-key "\C-c g"
-     helm-gtags-suggested-key-mapping t
-     )
+  (setq
+   helm-gtags-ignore-case t
+   helm-gtags-auto-update t
+   helm-gtags-use-input-at-cursor t
+   helm-gtags-pulse-at-cursor t
+   helm-gtags-prefix-key "\C-c g"
+   helm-gtags-suggested-key-mapping t
+   )
 
-    (use-package helm-gtags
-      :ensure t
-      :config
-      (add-hook 'dired-mode-hook 'helm-gtags-mode)
-      (add-hook 'eshell-mode-hook 'helm-gtags-mode)
-      (add-hook 'c-mode-hook 'helm-gtags-mode)
-      (add-hook 'c++-mode-hook 'helm-gtags-mode)
-      (add-hook 'asm-mode-hook 'helm-gtags-mode)
-	
-      (define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
-      (define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
-      (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
-      (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
-      (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
-      (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history))
+  (use-package helm-gtags
+    :config
+    (add-hook 'dired-mode-hook 'helm-gtags-mode)
+    (add-hook 'eshell-mode-hook 'helm-gtags-mode)
+    (add-hook 'c-mode-hook 'helm-gtags-mode)
+    (add-hook 'c++-mode-hook 'helm-gtags-mode)
+    (add-hook 'asm-mode-hook 'helm-gtags-mode)
+
+    (define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
+    (define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
+    (define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
+    (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
+    (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
+    (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history))
 #+END_SRC
 
 ** COMMENT Ctags
@@ -377,20 +367,19 @@ Currently setup for VHDL as I had to work with a large existing VHDL code-base.
 ** Remove startup screen
 Start on scratch buffer instead.
 #+BEGIN_SRC emacs-lisp
-(setq inhibit-startup-message t)
+  (setq inhibit-startup-message t)
 #+END_SRC
 
 ** Disable bell
 Bloody bell dings every time you hit a key too much.
 #+BEGIN_SRC emacs-lisp
-(setq ring-bell-function 'ignore)
+  (setq ring-bell-function 'ignore)
 #+END_SRC
 
 ** Pretty symbols
 Why not? They make it look nice.
 #+BEGIN_SRC emacs-lisp
   (use-package pretty-mode
-    :ensure t
     :diminish t
     :if window-system
     :config
@@ -400,17 +389,16 @@ Why not? They make it look nice.
 ** COMMENT Find file other window
 Lets it accept more than one file. Works recursively.
 #+BEGIN_SRC emacs-lisp
-(defadvice find-file-other-window (around find-files activate)
-  (if (listp filename)
-      (loop for f in filename do (find-file-other-window f wildcards))
-    ad-do-it))
+  (defadvice find-file-other-window (around find-files activate)
+    (if (listp filename)
+        (loop for f in filename do (find-file-other-window f wildcards))
+      ad-do-it))
 #+END_SRC
 
 ** Which key
 Helps to explain keybindings if you get lost.
 #+BEGIN_SRC emacs-lisp
   (use-package which-key
-    :ensure t
     :diminish which-key-mode
     :config
     (which-key-mode))
@@ -419,10 +407,10 @@ Helps to explain keybindings if you get lost.
 ** Config shortcuts
 *** Go to this file
 #+BEGIN_SRC emacs-lisp
-(defun config-visit ()
-  (interactive)
-  (find-file "~/.emacs.d/config.org"))
-(global-set-key (kbd "C-c e d") 'config-visit)
+  (defun config-visit ()
+    (interactive)
+    (find-file "~/.emacs.d/config.org"))
+  (global-set-key (kbd "C-c e d") 'config-visit)
 #+END_SRC
 
 *** Go to init.el
@@ -435,18 +423,17 @@ Helps to explain keybindings if you get lost.
 
 *** Reload configuration
 #+BEGIN_SRC emacs-lisp
-(defun config-reload ()
-  "Reloads ~/.emacs.d/config.org at run time"
-  (interactive)
-  (org-babel-load-file (expand-file-name "~/.emacs.d/config.org")))
-(global-set-key (kbd "C-c e r") 'config-reload)
+  (defun config-reload ()
+    "Reloads ~/.emacs.d/config.org at run time"
+    (interactive)
+    (org-babel-load-file (expand-file-name "~/.emacs.d/config.org")))
+  (global-set-key (kbd "C-c e r") 'config-reload)
 #+END_SRC
 
 ** Smartparens
 Matches brackets automatically. Added "$" for latex in org mode.
 #+BEGIN_SRC emacs-lisp
   (use-package smartparens
-    :ensure t
     :diminish smartparens-mode
     :config
     (progn
@@ -461,7 +448,6 @@ Its a little gimmicky but its still cool.
 Colours according to code after a "#", works with 3 and 6 character hex codes.
 #+BEGIN_SRC emacs-lisp
   (use-package rainbow-mode
-    :ensure t
     :diminish rainbow-mode
     :init
     (add-hook 'prog-mode-hook 'rainbow-mode))
@@ -472,7 +458,6 @@ A bit more useful than above.
 Colours the brackets so that they stand out more.
 #+BEGIN_SRC emacs-lisp
   (use-package rainbow-delimiters
-    :ensure t
     :hook (prog-mode . rainbow-delimiters-mode))
 #+END_SRC
 
@@ -480,7 +465,6 @@ Colours the brackets so that they stand out more.
 Removes unnecessary white space
 #+BEGIN_SRC emacs-lisp
   (use-package clean-aindent-mode
-    :ensure t
     :hook prog-mode)
 #+END_SRC
 Shows trailing white space
@@ -491,20 +475,20 @@ Shows trailing white space
 ** Whitespace mode
 Reveals whitespace characters
 #+BEGIN_SRC emacs-lisp
-(global-set-key (kbd "C-c w") 'whitespace-mode)
-(add-hook 'diff-mode-hook (lambda ()
-                            (setq-local whitespace-style
-                                        '(face
-                                          tabs
-                                          tab-mark
-                                          spaces
-                                          space-mark
-                                          trailing
-                                          indentation::space
-                                          indentation::tab
-                                          newline
-                                          newline-mark))
-                            (whitespace-mode 1)))
+  (global-set-key (kbd "C-c w") 'whitespace-mode)
+  (add-hook 'diff-mode-hook (lambda ()
+                              (setq-local whitespace-style
+                                          '(face
+                                            tabs
+                                            tab-mark
+                                            spaces
+                                            space-mark
+                                            trailing
+                                            indentation::space
+                                            indentation::tab
+                                            newline
+                                            newline-mark))
+                              (whitespace-mode 1)))
 
 #+END_SRC
 
@@ -521,11 +505,10 @@ Shows function arguments in echo area below mode line.
 Collects interesting statistics about key presses.
 Use M-x keyfreq-show to show in emacs or M-x keyfreq-html to output
 #+BEGIN_SRC emacs-lisp
-(use-package keyfreq
-  :ensure t
-  :config
-  (keyfreq-mode 1)
-  (keyfreq-autosave-mode 1))
+  (use-package keyfreq
+    :config
+    (keyfreq-mode 1)
+    (keyfreq-autosave-mode 1))
 #+END_SRC
 
 ** Undo tree
@@ -533,60 +516,58 @@ A more advanced undo mechanism.
 Supports branched undo history (thus the tree).
 Pretty neat, if seldom used.
 #+BEGIN_SRC emacs-lisp
-(use-package undo-tree
-  :ensure t
-  :diminish undo-tree-mode
-  :config
-  (global-undo-tree-mode))
+  (use-package undo-tree
+    :diminish undo-tree-mode
+    :config
+    (global-undo-tree-mode))
 #+END_SRC
 
 ** Volatile highlights
 Colour the material just copied
 #+BEGIN_SRC emacs-lisp
-(use-package volatile-highlights
-  :ensure t
-  :diminish volatile-highlights-mode
-  :config
-  (volatile-highlights-mode t))
+  (use-package volatile-highlights
+    :diminish volatile-highlights-mode
+    :config
+    (volatile-highlights-mode t))
 #+END_SRC
 
 ** ibuffer
 View all open buffers in their own buffer rather in the temporary mini buffer.
 #+BEGIN_SRC emacs-lisp
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-(setq ibuffer-use-other-window t)
+  (global-set-key (kbd "C-x C-b") 'ibuffer)
+  (setq ibuffer-use-other-window t)
 #+END_SRC
 
 ** Hippie expand
 Seems cool, but I don't think I ever use this.
 Meant to suggest completions to beginning of a word.
 #+BEGIN_SRC emacs-lisp
-(global-set-key (kbd "M-/") 'hippie-expand) ;; replace dabbrev-expand
-(setq
- hippie-expand-try-functions-list
- '(try-expand-dabbrev ;; Try to expand word "dynamically", searching the current buffer.
-   try-expand-dabbrev-all-buffers ;; Try to expand word "dynamically", searching all other buffers.
-   try-expand-dabbrev-from-kill ;; Try to expand word "dynamically", searching the kill ring.
-   try-complete-file-name-partially ;; Try to complete text as a file name, as many characters as unique.
-   try-complete-file-name ;; Try to complete text as a file name.
-   try-expand-all-abbrevs ;; Try to expand word before point according to all abbrev tables.
-   try-expand-list ;; Try to complete the current line to an entire line in the buffer.
-   try-expand-line ;; Try to complete the current line to an entire line in the buffer.
-   try-complete-lisp-symbol-partially ;; Try to complete as an Emacs Lisp symbol, as many characters as unique.
-   try-complete-lisp-symbol) ;; Try to complete word as an Emacs Lisp symbol.
- )
+  (global-set-key (kbd "M-/") 'hippie-expand) ;; replace dabbrev-expand
+  (setq
+   hippie-expand-try-functions-list
+   '(try-expand-dabbrev ;; Try to expand word "dynamically", searching the current buffer.
+     try-expand-dabbrev-all-buffers ;; Try to expand word "dynamically", searching all other buffers.
+     try-expand-dabbrev-from-kill ;; Try to expand word "dynamically", searching the kill ring.
+     try-complete-file-name-partially ;; Try to complete text as a file name, as many characters as unique.
+     try-complete-file-name ;; Try to complete text as a file name.
+     try-expand-all-abbrevs ;; Try to expand word before point according to all abbrev tables.
+     try-expand-list ;; Try to complete the current line to an entire line in the buffer.
+     try-expand-line ;; Try to complete the current line to an entire line in the buffer.
+     try-complete-lisp-symbol-partially ;; Try to complete as an Emacs Lisp symbol, as many characters as unique.
+     try-complete-lisp-symbol) ;; Try to complete word as an Emacs Lisp symbol.
+   )
 #+END_SRC
 
 ** Highlight line
 Very useful for finding where you are.
 #+BEGIN_SRC emacs-lisp
-(global-hl-line-mode)
+  (global-hl-line-mode)
 #+END_SRC
 
 ** Line numbers
 Everyone needs line numbers when programming.
 #+BEGIN_SRC emacs-lisp
-(add-hook 'prog-mode-hook 'linum-mode)
+  (add-hook 'prog-mode-hook 'linum-mode)
 #+END_SRC
 
 ** Garbage collection
@@ -599,10 +580,10 @@ Starts garbage collection every 100MB.
 Changes the kill ring size to 5000.
 #+BEGIN_SRC emacs-lisp
   (setq global-mark-ring-max 5000
-	mark-ring-max 5000
-	mode-require-final-newline t
-	kill-ring-max 5000
-	kill-whole-line t)
+        mark-ring-max 5000
+        mode-require-final-newline t
+        kill-ring-max 5000
+        kill-whole-line t)
 #+END_SRC
 
 ** Coding style
@@ -610,8 +591,8 @@ Use java for java, awk for awk and K&R for everything else.
 K&R uses 4 space tabs.
 #+BEGIN_SRC emacs-lisp
   (setq c-default-style '((java-mode . "java")
-                         (awk-mode . "awk")
-                         (other . "k&r")))
+                          (awk-mode . "awk")
+                          (other . "k&r")))
 #+END_SRC
 
 ** Coding system
@@ -632,11 +613,10 @@ Cause we all love UTF8.
 *** Smart tabs
 Tabs for indentation, spaces for alignment
 #+BEGIN_SRC emacs-lisp
-    (use-package smart-tabs-mode
-      :ensure t
-      :config
-      (smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl 'python 'ruby
-                            'nxml))
+  (use-package smart-tabs-mode
+    :config
+    (smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl 'python 'ruby
+                          'nxml))
 #+END_SRC
 
 ** Move to beginning of line ignoring whitespace
@@ -651,41 +631,41 @@ the beginning of the line.
 If ARG is not nil or 1, move forward ARG - 1 lines first. If
 point reaches the beginning or end of the buffer, stop there.
 #+BEGIN_SRC emacs-lisp
-(defun prelude-move-beginning-of-line (arg)
-  (interactive "^p")
-  (setq arg (or arg 1))
+  (defun prelude-move-beginning-of-line (arg)
+    (interactive "^p")
+    (setq arg (or arg 1))
 
-  ;; Move lines first
-  (when (/= arg 1)
-    (let ((line-move-visual nil))
-      (forward-line (1- arg))))
+    ;; Move lines first
+    (when (/= arg 1)
+      (let ((line-move-visual nil))
+        (forward-line (1- arg))))
 
-  (let ((orig-point (point)))
-    (back-to-indentation)
-    (when (= orig-point (point))
-      (move-beginning-of-line 1))))
+    (let ((orig-point (point)))
+      (back-to-indentation)
+      (when (= orig-point (point))
+        (move-beginning-of-line 1))))
 
-(global-set-key (kbd "C-a") 'prelude-move-beginning-of-line)
+  (global-set-key (kbd "C-a") 'prelude-move-beginning-of-line)
 #+END_SRC
 
 ** Indent region or buffer
 Indent, slightly different to standard tab or C-M-\.
 #+BEGIN_SRC emacs-lisp
-(defun indent-region-or-buffer ()
-  "Indent a region if selected, otherwise the whole buffer."
-  (interactive)
-  (unless (member major-mode prelude-indent-sensitive-modes)
-    (save-excursion
-      (if (region-active-p)
+  (defun indent-region-or-buffer ()
+    "Indent a region if selected, otherwise the whole buffer."
+    (interactive)
+    (unless (member major-mode prelude-indent-sensitive-modes)
+      (save-excursion
+        (if (region-active-p)
+            (progn
+              (indent-region (region-beginning) (region-end))
+              (message "Indented selected region."))
           (progn
-            (indent-region (region-beginning) (region-end))
-            (message "Indented selected region."))
-        (progn
-          (indent-buffer)
-          (message "Indented buffer.")))
-      (whitespace-cleanup))))
+            (indent-buffer)
+            (message "Indented buffer.")))
+        (whitespace-cleanup))))
 
-(global-set-key (kbd "C-c i") 'indent-region-or-buffer)
+  (global-set-key (kbd "C-c i") 'indent-region-or-buffer)
 #+END_SRC
 
 ** Tramp
@@ -693,7 +673,6 @@ Remote editing mode.
 Hate having to re-input passwords.
 #+BEGIN_SRC emacs-lisp
   (use-package tramp
-    :ensure t
     :pin gnu
     :config
     ;; (setq tramp-default-method "ssh")
@@ -714,7 +693,6 @@ Get a minimap preview of the file on the side like sublime text.
 Want to make work but need to find a good way of doing so.
 #+BEGIN_SRC emacs-lisp
   (use-package sublimity
-    :ensure t
     :config
     (require 'sublimity-scroll)
     (setq sublimity-scroll-weight 4
@@ -726,7 +704,6 @@ Want to make work but need to find a good way of doing so.
     (sublimity-mode 1))
 
   (use-package minimap
-    :ensure t
     :config
     (minimap-mode))
 #+END_SRC
@@ -735,7 +712,6 @@ Want to make work but need to find a good way of doing so.
 Vertical demarcations for indent levels
 #+BEGIN_SRC emacs-lisp
   (use-package highlight-indentation
-    :ensure t
     :hook (prog-mode . highlight-indentation-mode))
 #+END_SRC
 * Mode line tweaks
@@ -743,29 +719,27 @@ Diminish is used but is included in init.el such that it can be used throughout 
 ** Spaceline
 A little easier to read than the default emacs mode line.
 #+BEGIN_SRC emacs-lisp
-    (use-package spaceline
-      :ensure t
-      :config
-      (require 'spaceline-config)
-      (setq spaceline-buffer-encoding-abbrev-p t)
-      (setq spaceline-line-column-p t)
-      (setq spaceline-line-p t)
-      (setq powerline-default-separator (quote arrow))
-      (spaceline-spacemacs-theme)
-      (spaceline-helm-mode))
+  (use-package spaceline
+    :config
+    (require 'spaceline-config)
+    (setq spaceline-buffer-encoding-abbrev-p t)
+    (setq spaceline-line-column-p t)
+    (setq spaceline-line-p t)
+    (setq powerline-default-separator (quote arrow))
+    (spaceline-spacemacs-theme)
+    (spaceline-helm-mode))
 #+END_SRC
 
 *** Separator
 Slightly nicer separator.
 #+BEGIN_SRC emacs-lisp
-(setq powerline-default-separator nil)
+  (setq powerline-default-separator nil)
 #+END_SRC
 
 ** Nyan mode
 Use nyan cat as a reference for buffer progression.
 #+BEGIN_SRC emacs-lisp
   (use-package nyan-mode
-    :ensure t
     :config
     (nyan-mode 1))
 #+END_SRC
@@ -776,21 +750,17 @@ Add snippets, pretty useful.
 Manually added snippets are in ~/.emacs.d/snippets/{mode}.
 #+BEGIN_SRC emacs-lisp
   (use-package yasnippet
-    :ensure t
     :diminish yas-minor-mode
     :config
     (yas-global-mode 1))
 
   (use-package yasnippet-snippets
-    :ensure t
     :after yasnippet)
 #+END_SRC
-
 ** Flycheck
 Basic linter. Works pretty well.
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck
-    :ensure t
     :diminish flycheck-mode
     :config
     (global-flycheck-mode))
@@ -798,18 +768,16 @@ Basic linter. Works pretty well.
 *** flycheck-pos-tip
 Add suggestions at the cursor.
 #+BEGIN_SRC emacs-lisp
-(use-package flycheck-pos-tip
-  :ensure t
-  :after flycheck
-  :config
-  (flycheck-pos-tip-mode))
+  (use-package flycheck-pos-tip
+    :after flycheck
+    :config
+    (flycheck-pos-tip-mode))
 #+END_SRC
 ** Company
 Company is auto-complete for Emacs.
 Uses various backends, more of which are added later.
 #+BEGIN_SRC emacs-lisp
   (use-package company
-    :ensure t
     :diminish company-mode
     :config
     (global-company-mode)
@@ -823,7 +791,6 @@ Causes too much memory usage, need to debug.
 Need to generate ~compile_flags~ for c/c++, can use ~bear~ but may need other tools.
 #+BEGIN_SRC emacs-lisp
   (use-package lsp-mode
-    :ensure t
     :hook (((c-mode
              c++-mode
              tex-mode
@@ -845,11 +812,9 @@ Need to generate ~compile_flags~ for c/c++, can use ~bear~ but may need other to
     (add-to-list 'exec-path "~/.cargo/bin"))
 
   (use-package lsp-ui
-    :ensure t
     :commands lsp-ui-mode)
 
   (use-package helm-lsp
-    :ensure t
     :commands helm-lsp-workspace-symbol)
 #+END_SRC
 
@@ -864,58 +829,57 @@ Settings for emacs' own version control system.
 Emacs git client.
 Pretty good and offers fairly decent features.
 #+BEGIN_SRC emacs-lisp
-    (use-package magit
-      :ensure t
-      :commands magit-get-top-dir
-      :bind ("C-x g" . magit-status)
-      :init
+  (use-package magit
+    :commands magit-get-top-dir
+    :bind ("C-x g" . magit-status)
+    :init
+    (progn
+      ;; make magit status go full-screen but remember previous window
+      ;; settings
+      ;; from: http://whattheemacsd.com/setup-magit.el-01.html
+      (defadvice magit-status (around magit-fullscreen activate)
+        (window-configuration-to-register :magit-fullscreen)
+        ad-do-it
+        (delete-other-windows))
+
+      ;; Close popup when committing - this stops the commit window
+      ;; hanging around
+      ;; From: http://git.io/rPBE0Q
+      (defadvice git-commit-commit (after delete-window activate)
+        (delete-window))
+
+      (defadvice git-commit-abort (after delete-window activate)
+        (delete-window))
+
+      :config
       (progn
-        ;; make magit status go full-screen but remember previous window
-        ;; settings
-        ;; from: http://whattheemacsd.com/setup-magit.el-01.html
-        (defadvice magit-status (around magit-fullscreen activate)
-          (window-configuration-to-register :magit-fullscreen)
-          ad-do-it
-          (delete-other-windows))
+        ;; restore previously hidden windows
+        (defadvice magit-quit-window (around magit-restore-screen activate)
+          (let ((current-mode major-mode))
+            ad-do-it
+            ;; we only want to jump to register when the last seen buffer
+            ;; was a magit-status buffer.
+            (when (eq 'magit-status-mode current-mode)
+              (jump-to-register :magit-fullscreen)))))
 
-        ;; Close popup when committing - this stops the commit window
-        ;; hanging around
-        ;; From: http://git.io/rPBE0Q
-        (defadvice git-commit-commit (after delete-window activate)
-          (delete-window))
-
-        (defadvice git-commit-abort (after delete-window activate)
-          (delete-window))
-
-        :config
-        (progn
-          ;; restore previously hidden windows
-          (defadvice magit-quit-window (around magit-restore-screen activate)
-            (let ((current-mode major-mode))
-              ad-do-it
-              ;; we only want to jump to register when the last seen buffer
-              ;; was a magit-status buffer.
-              (when (eq 'magit-status-mode current-mode)
-                (jump-to-register :magit-fullscreen)))))
-
-        ;; magit settings
-        (setq
-         ;; don't put "origin-" in front of new branch names by default
-         magit-default-tracking-name-function 'magit-default-tracking-name-branch-only
-         ;; open magit status in same window as current buffer
-         magit-status-buffer-switch-function 'switch-to-buffer
-         ;; highlight word/letter changes in hunk diffs
-         magit-diff-refine-hunk t
-         ;; ask me if I want to include a revision when rewriting
-         magit-rewrite-inclusive 'ask
-         ;; ask me to save buffers
-         magit-save-some-buffers t
-         ;; pop the process buffer if we're taking a while to complete
-         magit-process-popup-time 10
-         ;; ask me if I want a tracking upstream
-         magit-set-upstream-on-push 'askifnotset
-         ))
-      )
+      ;; magit settings
+      (setq
+       ;; don't put "origin-" in front of new branch names by default
+       magit-default-tracking-name-function 'magit-default-tracking-name-branch-only
+       ;; open magit status in same window as current buffer
+       magit-status-buffer-switch-function 'switch-to-buffer
+       ;; highlight word/letter changes in hunk diffs
+       magit-diff-refine-hunk t
+       ;; ask me if I want to include a revision when rewriting
+       magit-rewrite-inclusive 'ask
+       ;; ask me to save buffers
+       magit-save-some-buffers t
+       ;; pop the process buffer if we're taking a while to complete
+       magit-process-popup-time 10
+       ;; ask me if I want a tracking upstream
+       magit-set-upstream-on-push 'askifnotset
+       ))
+    )
 #+END_SRC
 
 *** More general yes and no prompt
@@ -934,7 +898,7 @@ Don't redefine the regex in case this is too general.
              (match-string
               (if (save-match-data
                     (magit-process-kill-on-abort proc
-                                                 (y-or-n-p (substring str 0 beg)))) 1 2)
+                      (y-or-n-p (substring str 0 beg)))) 1 2)
               str)
              "\n"))))))
 
@@ -945,8 +909,7 @@ Don't redefine the regex in case this is too general.
 Gerrit takes ~origin:refs/for/master~ as a destination.
 Enable magit to work with its oddities.
 #+BEGIN_SRC emacs-lisp
-  (use-package magit-gerrit
-    :ensure t)
+  (use-package magit-gerrit)
 #+END_SRC
 
 ** CEDET
@@ -967,9 +930,9 @@ Allows emacs to be more aware of what is being written.
 Emacs Development Environment.
 Can be used to manage and create build files for a project.
 #+BEGIN_SRC emacs-lisp
-(use-package ede
-  :config
-  (global-ede-mode t))
+  (use-package ede
+    :config
+    (global-ede-mode t))
 #+END_SRC
 
 *** gdb-many-windows
@@ -977,9 +940,9 @@ Enhances the use of GDB in emacs.
 Shows register contents, variable contents and others in addition to GDB shell.
 Also shows source code while debugging.
 #+BEGIN_SRC emacs-lisp
-(setq
- gdb-many-windows t
- gdb-show-main t)
+  (setq
+   gdb-many-windows t
+   gdb-show-main t)
 #+END_SRC
 
 *** COMMENT Semantic refactor
@@ -987,15 +950,14 @@ Trying to get this to work.
 Should help to refactor file.
 #+BEGIN_SRC emacs-lisp
   (use-package srefactor
-    :ensure t
     :bind (("M-RET o" . 'srefactor-lisp-one-line)
-       ("M-RET m" . 'srefactor-lisp-format-sexp)
-       ("M-RET d" . 'srefactor-lisp-format-defun)
-       ("M-RET b" . 'srefactor-lisp-format-buffer)
-       :map c-mode-base-map
-            ("M-RET" . 'srefactor-refactor-at-point)
-            :map c++-mode-map
-            ("M-RET" . 'srefactor-refactor-at-point)))
+           ("M-RET m" . 'srefactor-lisp-format-sexp)
+           ("M-RET d" . 'srefactor-lisp-format-defun)
+           ("M-RET b" . 'srefactor-lisp-format-buffer)
+           :map c-mode-base-map
+           ("M-RET" . 'srefactor-refactor-at-point)
+           :map c++-mode-map
+           ("M-RET" . 'srefactor-refactor-at-point)))
 #+END_SRC
 
 ** Language specific configs
@@ -1005,12 +967,11 @@ Should help to refactor file.
 Add the clang backend for linting.
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck-clang-analyzer
-    :ensure t
     :after flycheck
     :config
     (with-eval-after-load 'flycheck
       (require 'flycheck-clang-analyzer)
-       (flycheck-clang-analyzer-setup)))
+      (flycheck-clang-analyzer-setup)))
 #+END_SRC
 ***** Flycheck project root
 Flycheck tends to fail finding the project root, giving errors about missing files.
@@ -1033,16 +994,14 @@ This should remove them.
 Add header completion as well as Irony, which uses clang for suggestions.
 #+BEGIN_SRC emacs-lisp
   (use-package company-c-headers
-      :ensure t
-      :after company
-      :config
-      (add-hook 'c++-mode-hook 'company-mode)
-      (add-hook 'c-mode-hook 'company-mode))
+    :after company
+    :config
+    (add-hook 'c++-mode-hook 'company-mode)
+    (add-hook 'c-mode-hook 'company-mode))
 #+END_SRC
 **** COMMENT Irony
 #+BEGIN_SRC emacs-lisp
   (use-package irony
-    :ensure t
     :init
     (setq w32-pipe-read-delay 0)
     (setq irony-server-w32-pipe-buffer-size (* 64 1024))
@@ -1052,7 +1011,6 @@ Add header completion as well as Irony, which uses clang for suggestions.
     (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 
   (use-package company-irony
-    :ensure t
     :after irony
     :config
     (add-to-list 'company-backends '(company-c-headers
@@ -1062,45 +1020,42 @@ Add header completion as well as Irony, which uses clang for suggestions.
 **** Clang-format
 Automatically format buffer on save.
 #+BEGIN_SRC emacs-lisp
-      (defun set-clang-format-style ()
-          (if (file-exists-p (concat
-                              (projectile-project-root)
-                              ".clang-format"))
-              (setq-local clang-format-style nil)
-            (setq-local clang-format-style (concat "{BasedOnStyle: LLVM,"
-                                                   "IndentWidth: " (format "%s" tab-width) ","
-                                                   "UseTab: " (if (eq indent-tabs-mode nil)
-                                                                  "Never"
-                                                                "AlignWithSpaces")
-  ","
-                                                   "BreakBeforeBraces: Linux,"
-                                                   "AllowShortIfStatementsOnASingleLine: false,"
-                                                   "IndentCaseLabels: false}"))))
+  (defun set-clang-format-style ()
+    (if (file-exists-p (concat
+                        (projectile-project-root)
+                        ".clang-format"))
+        (setq-local clang-format-style nil)
+      (setq-local clang-format-style (concat "{BasedOnStyle: LLVM,"
+                                             "IndentWidth: " (format "%s" tab-width) ","
+                                             "UseTab: " (if (eq indent-tabs-mode nil)
+                                                            "Never"
+                                                          "AlignWithSpaces")
+                                             ","
+                                             "BreakBeforeBraces: Linux,"
+                                             "AllowShortIfStatementsOnASingleLine: false,"
+                                             "IndentCaseLabels: false}"))))
 
-      (use-package clang-format
-        :ensure t
-        :hook (c-mode-common . (set-clang-format-style)))
+  (use-package clang-format
+    :hook (c-mode-common . (set-clang-format-style)))
 
-      ;;   (defun clang-format-on-save ()
-      ;;     (add-hook 'before-save-hook 'clang-format-buffer nil t))
-      ;;   (add-hook 'c-mode-hook 'clang-format-on-save nil t)
-      ;;   (add-hook 'c++-mode-hook 'clang-format-on-save nil t))
+  ;;   (defun clang-format-on-save ()
+  ;;     (add-hook 'before-save-hook 'clang-format-buffer nil t))
+  ;;   (add-hook 'c-mode-hook 'clang-format-on-save nil t)
+  ;;   (add-hook 'c++-mode-hook 'clang-format-on-save nil t))
 #+END_SRC
 *** emacs-lisp
 **** COMMENT Company
 Add slime backend.
 #+BEGIN_SRC emacs-lisp
-(add-hook 'emacs-lisp-mode-hook 'company-mode)
+  (add-hook 'emacs-lisp-mode-hook 'company-mode)
 
-(use-package slime
-  :ensure t
-  :config
-  (setq inferior-lisp-program "/usr/bin/sbcl")
-  (setq slime-contribs '(slime-fancy)))
+  (use-package slime
+    :config
+    (setq inferior-lisp-program "/usr/bin/sbcl")
+    (setq slime-contribs '(slime-fancy)))
 
-(use-package slime-company
-  :ensure t
-  :init
+  (use-package slime-company
+    :init
     (require 'company)
     (slime-setup '(slime-fancy slime-company)))
 #+END_SRC
@@ -1109,11 +1064,10 @@ Add slime backend.
 **** x86-lookup
 Look up reference PDF. Use Intel manual.
 #+BEGIN_SRC emacs-lisp
-(use-package x86-lookup
-  :ensure t
-  :init
-  (setq x86-lookup-pdf "D:/Coding/x86-instructions.pdf")
-  :bind ("C-h x" . x86-lookup))
+  (use-package x86-lookup
+    :init
+    (setq x86-lookup-pdf "D:/Coding/x86-instructions.pdf")
+    :bind ("C-h x" . x86-lookup))
 #+END_SRC
 
 *** Latex
@@ -1134,27 +1088,23 @@ AucTex contains many additions to make tex editing good.
 Help company complete tex math and references.
 #+BEGIN_SRC emacs-lisp
   (use-package company-math
-    :ensure t
     :after company
     :config
     (add-to-list 'company-backends '(company-math-symbols-unicode company-math-symbols-latex
-                                     company-latex-commands))
+                                                                  company-latex-commands))
     (setq company-math-allow-latex-symbols-in-faces t))
 
   (use-package company-reftex
-    :ensure t
     :after company
     :config
     (add-to-list 'company-backends 'company-reftex-citations))
 
   (use-package company-auctex
-    :ensure t
     :after company
     :config
     (company-auctex-init))
 
   (use-package company-bibtex
-    :ensure t
     :after company
     (add-to-list 'company-backends 'company-bibtex))
 #+END_SRC
@@ -1199,7 +1149,6 @@ Uses a Perl script.
 Sets the PlantUML path for the mode to generate models.
 #+BEGIN_SRC emacs-lisp
   (use-package plantuml-mode
-    :ensure t
     :init
     (cond ((eq system-type 'windows-nt)
            (when (file-exists-p "c:/ProgramData/chocolatey/lib/plantuml/tools/plantuml.jar")
@@ -1220,12 +1169,11 @@ Set racket path in windows and enable racket mode.
     (setenv "PATH" (mapconcat #'identity exec-path path-separator)))
 
   (use-package racket-mode
-      :ensure t
-      :config
-      (autoload 'racket-mode "Racket" "Racket Editing Mode" t)
-      (add-to-list
-       'auto-mode-alist
-       '("\\.rkt$" . racket-mode)))
+    :config
+    (autoload 'racket-mode "Racket" "Racket Editing Mode" t)
+    (add-to-list
+     'auto-mode-alist
+     '("\\.rkt$" . racket-mode)))
 #+END_SRC
 
 *** Verilog
@@ -1233,7 +1181,6 @@ Set racket path in windows and enable racket mode.
 Use latest version from repositories.
 #+BEGIN_SRC emacs-lisp
   (use-package verilog-mode
-    :ensure t
     :pin gnu
     :config
     (autoload 'verilog-mode "verilog-mode" "Verilog mode" t )
@@ -1279,15 +1226,13 @@ Mode for editing MATLAB m-files.
 For editing MIPS assembly.
 #+BEGIN_SRC emacs-lisp
   (use-package mips-mode
-    :ensure t
     :mode "\\.mips$")
 #+END_SRC
 
 *** COMMENT IPython notebooks
 Allow emacs to view and use IPython notebooks
 #+BEGIN_SRC emacs-lisp
-  (use-package ein
-    :ensure t)
+  (use-package ein)
 #+END_SRC
 
 *** Rust
@@ -1295,20 +1240,17 @@ Allow emacs to view and use IPython notebooks
 Get the major mode for rust files.
 #+BEGIN_SRC emacs-lisp
   (use-package rust-mode
-    :ensure t
     :config
     ;; style guide suggests spaces not tabs
     (add-hook 'rust-mode-hook (lambda () (setq indent-tabs-mode nil)))
     (setq rust-format-on-save t))
 
-  (use-package toml-mode
-    :ensure t)
+  (use-package toml-mode)
 #+END_SRC
 **** Cargo integration
 Integrate Cargo, rust's package manager.
 #+BEGIN_SRC emacs-lisp
   (use-package cargo
-    :ensure t
     :hook
     (rust-mode . cargo-minor-mode))
 #+END_SRC
@@ -1316,7 +1258,6 @@ Integrate Cargo, rust's package manager.
 Linting with flycheck.
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck-rust
-    :ensure t
     :config
     (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 #+END_SRC
@@ -1324,7 +1265,6 @@ Linting with flycheck.
 **** Major mode
 #+BEGIN_SRC emacs-lisp
   (use-package go-mode
-    :ensure t
     :config
     (add-hook 'before-save-hook #'gofmt-before-save))
 #+END_SRC
@@ -1332,21 +1272,19 @@ Linting with flycheck.
 **** Flycheck
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck-golangci-lint
-    :ensure t
     :config
     (add-hook 'flycheck-mode-hook #'flycheck-golangci-lint-setup))
 #+END_SRC
 **** Company
 #+BEGIN_SRC emacs-lisp
-  (use-package company-go
-    :ensure t)
+  (use-package company-go)
 #+END_SRC
 * Org mode
 ** Up to date org
 Pull the latest org mode from the repository, rather than the org which comes with emacs.
 #+BEGIN_SRC emacs-lisp
-        (use-package org
-          :ensure org-contrib)
+  (use-package org
+    :ensure org-contrib)
 #+END_SRC
 
 ** Small tweaks
@@ -1380,7 +1318,6 @@ Enable line wrapping for long lines.
 Use bullets of different colours and styles instead of the "\*\*\*" to denote indentation levels.
 #+BEGIN_SRC emacs-lisp
   (use-package org-superstar
-    :ensure t
     :config
     (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
 #+END_SRC
@@ -1391,16 +1328,16 @@ Code output can also be input to the buffer.
 *** Languages
 Add a bunch of languages to org babel supported languages
 #+BEGIN_SRC emacs-lisp
-    (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t)
-                                                             (C . t)
-                                                             (python . t)
-                                                             (latex . t)
-                                                             (scheme . t)
-                                                             (gnuplot . t)
-                                                             (matlab . t)
-                                                             (fortran . t)
-                                                             (java . t)
-                                                             (plantuml . t)))
+  (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t)
+                                                           (C . t)
+                                                           (python . t)
+                                                           (latex . t)
+                                                           (scheme . t)
+                                                           (gnuplot . t)
+                                                           (matlab . t)
+                                                           (fortran . t)
+                                                           (java . t)
+                                                           (plantuml . t)))
 #+END_SRC
 
 **** PlantUML path
@@ -1413,8 +1350,7 @@ Org uses its own path for some reason.
 Allow the editing of files while execution of blocks is occurring.
 Needs :async tag in src header.
 #+BEGIN_SRC emacs-lisp
-  (use-package ob-async
-    :ensure t)
+  (use-package ob-async)
 #+END_SRC
 
 ** Latex preview fragments match colour
@@ -1431,15 +1367,13 @@ Gets very annoying very quickly without it.
 Call pandoc on org buffer from org export.
 Need to add ~#+OPTIONS: H:99~ to enable large level header exports.
 #+BEGIN_SRC emacs-lisp
-  (use-package ox-pandoc
-    :ensure t)
+  (use-package ox-pandoc)
 #+END_SRC
 
 *** COMMENT Dokuwiki Wiki
 Allow export to dokuwiki markup from org.
 #+BEGIN_SRC emacs-lisp
-  (use-package ox-wk
-    :ensure t)
+  (use-package ox-wk)
 #+END_SRC
 
 * COMMENT EMMS
@@ -1463,7 +1397,6 @@ Basic configuration for site.
 Copied and modified from the example configuration.
 #+BEGIN_SRC emacs-lisp
   (use-package org-static-blog
-    :ensure t
     :config
     (setq org-static-blog-publish-title "Joel's Site")
     (setq org-static-blog-publish-url "https://blog.joelg.cf/")
@@ -1554,7 +1487,6 @@ Creates a sitemap.xml for the blog based on the generated HTML files output in t
 Allow org features to be exported to HTML for site.
 #+BEGIN_SRC emacs-lisp
   (use-package htmlize
-    :ensure t
     :defer t)
 #+END_SRC
 
@@ -1565,7 +1497,7 @@ These files are in org mode.
 This is inspired by org-static-blog.
 #+BEGIN_SRC emacs-lisp
   (defun journal-create-new-post ()
-      "Create a new entry, prompt for title and insert header"
+    "Create a new entry, prompt for title and insert header"
     (interactive)
     (let ((title (read-string "Title: ")))
       (find-file (concat "~/Documents/Journal/entry/"
@@ -1581,19 +1513,19 @@ This is inspired by org-static-blog.
 Use org-publish to collate entries into a single unit.
 #+BEGIN_SRC emacs-lisp
   (setq org-publish-project-alist
-               '(("Journal"
-                 :base-directory "~/Documents/Journal/entry/"
-                 :publishing-directory "~/Documents/Journal/out/"
-                 :publishing-function org-html-publish-to-html
-                 ;;:htmlized-source t
-                 :section-numbers nil
-                 :html-preamble t
-                 :html-validation-link nil
+        '(("Journal"
+           :base-directory "~/Documents/Journal/entry/"
+           :publishing-directory "~/Documents/Journal/out/"
+           :publishing-function org-html-publish-to-html
+           ;;:htmlized-source t
+           :section-numbers nil
+           :html-preamble t
+           :html-validation-link nil
 
-                 :auto-sitemap t
-                 :sitemap-sort-files anti-chronologically
-                 :sitemap-file-entry-format "%d - %t"
-                 :sitemap-title "Home"
-                 :sitemap-filename "index.html"
-                 :sitemap-function org-publish-sitemap)))
+           :auto-sitemap t
+           :sitemap-sort-files anti-chronologically
+           :sitemap-file-entry-format "%d - %t"
+           :sitemap-title "Home"
+           :sitemap-filename "index.html"
+           :sitemap-function org-publish-sitemap)))
 #+END_SRC
