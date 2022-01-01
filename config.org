@@ -1363,7 +1363,8 @@ Gets very annoying very quickly without it.
 Call pandoc on org buffer from org export.
 Need to add ~#+OPTIONS: H:99~ to enable large level header exports.
 #+BEGIN_SRC emacs-lisp
-  (use-package ox-pandoc)
+  (when (executable-find "pandoc")
+    (use-package ox-pandoc))
 #+END_SRC
 
 *** COMMENT Dokuwiki Wiki
