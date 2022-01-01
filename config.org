@@ -704,6 +704,12 @@ Vertical demarcations for indent levels
   (use-package highlight-indentation
     :hook (prog-mode . highlight-indentation-mode))
 #+END_SRC
+
+** Auto revert mode
+Update unchanged buffers if underlying file changes.
+#+BEGIN_SRC emacs-lisp
+  (global-auto-revert-mode)
+#+END_SRC
 * Mode line tweaks
 Diminish is used but is included in init.el such that it can be used throughout this document
 ** Spaceline
