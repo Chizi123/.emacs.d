@@ -901,7 +901,7 @@ Don't redefine the regex in case this is too general.
   (add-hook 'magit-process-prompt-functions
             #'magit-process-general-yn-prompt-hook)
 #+END_SRC
-*** Gerrit integration
+*** COMMENT Gerrit integration
 Gerrit takes ~origin:refs/for/master~ as a destination.
 Enable magit to work with its oddities.
 #+BEGIN_SRC emacs-lisp
