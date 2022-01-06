@@ -168,8 +168,7 @@ Supposedly should provide insight to writing quality.
 ** Helm core
 Helm aids the user interface for emacs. Adds visual and auto-complete feedback for emacs commands.
 #+BEGIN_SRC emacs-lisp
-  (use-package helm-config
-    :ensure helm
+  (use-package helm
     :bind (("M-x" . helm-M-x)
            ("C-x C-f" . helm-find-files)
            ("M-y" . helm-show-kill-ring)
