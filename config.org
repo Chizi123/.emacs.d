@@ -796,7 +796,8 @@ Need to generate ~compile_flags~ for c/c++, can use ~bear~ but may need other to
              rust-mode
              sh-mode
              ;; verilog-mode
-             go-mode) . lsp))
+             go-mode
+             python-mode) . lsp))
     :init
     (setq lsp-keymap-prefix "C-c l")
     :commands lsp
@@ -1030,9 +1031,9 @@ Automatically format buffer on save.
                                              "BreakBeforeBraces: Linux,"
                                              "AllowShortIfStatementsOnASingleLine: false,"
                                              "IndentCaseLabels: false}"))))
-
-  (use-package clang-format
-    :hook (c-mode-common . (set-clang-format-style)))
+  (add-hook 'c-mode-common-hook 'set-clang-format-style)
+  
+  (use-package clang-format)
 
   ;;   (defun clang-format-on-save ()
   ;;     (add-hook 'before-save-hook 'clang-format-buffer nil t))
@@ -1274,6 +1275,15 @@ Linting with flycheck.
 **** Company
 #+BEGIN_SRC emacs-lisp
   (use-package company-go)
+#+END_SRC
+*** Python
+**** COMMENT LSP server
+Use jedi, idk why.
+#+BEGIN_SRC emacs-lisp
+  (use-package lsp-jedi
+    :config
+    (add-to-list 'lsp-disabled-clients 'pyls)
+    (add-to-list 'lsp-enabled-clients 'jedi))
 #+END_SRC
 * Org mode
 ** Up to date org
