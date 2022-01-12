@@ -961,6 +961,18 @@ Should help to refactor file.
            ("M-RET" . 'srefactor-refactor-at-point)))
 #+END_SRC
 
+** Tree sitter
+Parser library.
+Provides better syntax highlighting and some other neat features.
+#+BEGIN_SRC emacs-lisp
+  (use-package tree-sitter
+    :diminish t)
+  (use-package tree-sitter-langs
+    :config
+    (global-tree-sitter-mode)
+    (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
+#+END_SRC
+
 ** Language specific configs
 *** C/C++
 **** Flycheck
