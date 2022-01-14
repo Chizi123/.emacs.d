@@ -22,48 +22,36 @@ Using mingw64 in windows and general path in mac.
 Theme switcher, using a cond allows loading of many preconfigured themes which can be switched between easily.
 Zenburn theme is my default.
 #+BEGIN_SRC emacs-lisp
-  (setq emacs-theme 'zenburn)
-
   (defun disable-all-themes ()
     (dolist (i custom-enabled-themes)
       (disable-theme i)))
 
-  (cond ((eq emacs-theme 'zenburn)
-         (use-package zenburn-theme
-           :init
-           (disable-all-themes)
-           :config
-           (load-theme 'zenburn t)))
-        ((eq emacs-theme 'doom-one)
-         (use-package doom-themes
-           :init
-           (disable-all-themes)
-           :config
-           (setq doom-themes-enable-bolt t
-                 doom-themes-enable-italic t)
-           (load-theme 'doom-one t)
-           (doom-themes-visual-bell-config)
-           (doom-themes-org-config)))
-        ((eq emacs-theme 'nord)
-         (use-package nord-theme
-           :init
-           (disable-all-themes)
-           :config
-           (load-theme 'nord t)))
-        ((eq emacs-theme 'solarized)
-         (use-package solarized-theme
-           :init
-           (disable-all-themes)
-           :config
-           (load-theme 'solarized-dark t)))
-        ((eq emacs-theme 'jetbrains-darcula)
-         (use-package jetbrains-darcula-theme
-           :init
-           (disable-all-themes)
-           :config
-           (load-theme 'jetbrains-darcula t)))
-        ((eq emacs-theme 'none)
-         (disable-all-themes)))
+  (defun set-theme (theme)
+    "Set the theme with theme downloading"
+    (interactive "SWhat theme to load? ")
+    (cond ((eq theme 'zenburn)
+           (use-package zenburn-theme))
+          ((string-match-p "^doom" "doom-one")
+           (use-package doom-themes
+             :config
+             (setq doom-themes-enable-bolt t
+                   doom-themes-enable-italic t)
+             (doom-themes-visual-bell-config)
+             (doom-themes-org-config)))
+          ((eq theme 'nord)
+           (use-package nord-theme))
+          ((eq theme 'solarized)
+           (use-package solarized-theme))
+          ((eq theme 'jetbrains-darcula)
+           (use-package jetbrains-darcula-theme))
+          ((eq theme 'none)
+           (disable-all-themes)))
+    (setq emacs-theme theme)
+    (when (not (eq theme 'none))
+      (load-theme theme))
+    (message (format "Theme set to: %s" theme)))
+
+  (set-theme 'zenburn)
 #+END_SRC
 
 ** Default font
