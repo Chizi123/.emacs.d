@@ -48,7 +48,7 @@ Zenburn theme is my default.
            (disable-all-themes)))
     (setq emacs-theme theme)
     (when (not (eq theme 'none))
-      (load-theme theme))
+      (load-theme theme t))
     (message (format "Theme set to: %s" theme)))
 
   (set-theme 'zenburn)
@@ -93,9 +93,10 @@ Use aspell for spellchecking.
 Auto-enable in latex and org as they're the main writing modes.
 #+BEGIN_SRC emacs-lisp
   (use-package flyspell
-    :hook (tex-mode latex-mode TeX-mode LaTeX-mode org-mode)
+    :hook ((tex-mode latex-mode TeX-mode LaTeX-mode org-mode text-mode) . flyspell-mode)
     :diminish flyspell-mode
-    :init (require 'ispell)
+    :init
+    (require 'ispell)
     :config
     (setq-default ispell-program-name "aspell")
     (setq-default ispell-local-dictionary "en_AU"))
@@ -712,7 +713,6 @@ A little easier to read than the default emacs mode line.
     (require 'spaceline-config)
     (setq spaceline-buffer-encoding-abbrev-p t)
     (setq spaceline-line-column-p t)
-    (setq spaceline-line-p t)
     (setq powerline-default-separator (quote arrow))
     (spaceline-spacemacs-theme)
     (spaceline-helm-mode))
@@ -1028,15 +1028,19 @@ Automatically format buffer on save.
         (setq-local clang-format-style nil)
       (setq-local clang-format-style (concat "{BasedOnStyle: LLVM,"
                                              "IndentWidth: " (format "%s" tab-width) ","
+                                             "TabWidth: " (format "%s" tab-width) ","
                                              "UseTab: " (if (eq indent-tabs-mode nil)
                                                             "Never"
                                                           "AlignWithSpaces")
                                              ","
                                              "BreakBeforeBraces: Linux,"
                                              "AllowShortIfStatementsOnASingleLine: false,"
-                                             "IndentCaseLabels: false}"))))
+                                             "PointerAlignment: Left,"
+                                             "IndentCaseBlocks: true,"
+                                             "IndentCaseLabels: false,"
+                                             "SortUsingDeclarations: true}"))))
   (add-hook 'c-mode-common-hook 'set-clang-format-style)
-  
+
   (use-package clang-format)
 
   ;;   (defun clang-format-on-save ()
