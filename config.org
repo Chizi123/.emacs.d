@@ -503,6 +503,8 @@ Pretty neat, if seldom used.
   (use-package undo-tree
     :diminish undo-tree-mode
     :config
+    (setq-default undo-tree-auto-save-history t)
+    (add-to-list 'undo-tree-incompatible-major-modes 'archive-mode)
     (global-undo-tree-mode))
 #+END_SRC
 
@@ -551,7 +553,9 @@ Very useful for finding where you are.
 ** Line numbers
 Everyone needs line numbers when programming.
 #+BEGIN_SRC emacs-lisp
-  (add-hook 'prog-mode-hook 'linum-mode)
+  (if (version<= "26.0.50" emacs-version)
+      (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+    (add-hook 'prog-mode-hook 'linum-mode))
 #+END_SRC
 
 ** Garbage collection
@@ -799,7 +803,8 @@ Need to generate ~compile_flags~ for c/c++, can use ~bear~ but may need other to
     (setq read-process-output-max (* 1024 1024))
     (setq lsp-completion-provider :capf)
     (setq lsp-keep-workspace-alive 'nil)
-    (add-to-list 'exec-path "~/.cargo/bin"))
+    (add-to-list 'exec-path "~/.cargo/bin")
+    (add-to-list 'exec-path "~/.local/bin"))
 
   (use-package lsp-ui
     :commands lsp-ui-mode)
@@ -1212,6 +1217,27 @@ Use latest version from repositories.
                   verilog-indent-level-directive 4
                   verilog-indent-level-module 4))
 #+END_SRC
+**** FPGA
+#+BEGIN_SRC emacs-lisp
+  (use-package fpga
+    :init
+    (setq fpga-feature-list '(xilinx)))
+#+END_SRC
+**** Run and test
+Run the open buffer and display the output in a new buffer.
+#+BEGIN_SRC emacs-lisp
+  (defun run-verilator ()
+    (interactive)
+    (save-buffer)
+    (if (not (eq (shell-command (concat "verilator --binary -j 0 " (buffer-file-name)) "*verilator output*") 0))
+        (display-buffer "*verilator output*" 'display-buffer-reuse-window)
+      (shell-command (concat (file-name-directory (buffer-file-name))
+                             '"obj_dir/V"
+                             (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))
+                     "*test output*")
+      (display-buffer "*test output*" 'display-buffer-reuse-window))
+    t)
+  (define-key verilog-mode-map (kbd "C-c c") 'run-verilator)
 #+END_SRC
 *** MATLAB
 Mode for editing MATLAB m-files.
@@ -1300,7 +1326,7 @@ Use jedi, idk why.
 Pull the latest org mode from the repository, rather than the org which comes with emacs.
 #+BEGIN_SRC emacs-lisp
   (use-package org
-    :ensure org-contrib)
+    :pin gnu)
 #+END_SRC
 
 ** Small tweaks
