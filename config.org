@@ -1323,10 +1323,10 @@ Linting with flycheck.
   (use-package company-go)
 #+END_SRC
 *** Python
-**** COMMENT LSP server
-Use jedi, idk why.
+**** LSP server
+Use pyright, idk why.
 #+BEGIN_SRC emacs-lisp
-  (use-package lsp-jedi
+  (use-package lsp-pyright
     :config
     (add-to-list 'lsp-disabled-clients 'pyls)
     (add-to-list 'lsp-enabled-clients 'jedi))
