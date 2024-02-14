@@ -1,5 +1,7 @@
 /*
 !config.org
 !init.el
+!early-init.el
+!package-manager.el
 !.gitignore
 !snippets

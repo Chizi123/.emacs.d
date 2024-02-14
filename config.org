@@ -405,6 +405,14 @@ Helps to explain keybindings if you get lost.
   (global-set-key (kbd "C-c e i") 'init-visit)
 #+END_SRC
 
+*** Go to early-init.el
+#+BEGIN_SRC emacs-lisp
+  (defun early-init-visit ()
+    (interactive)
+    (find-file "~/.emacs.d/early-init.el"))
+  (global-set-key (kbd "C-c e e") 'early-init-visit)
+#+END_SRC
+
 *** Reload configuration
 #+BEGIN_SRC emacs-lisp
   (defun config-reload ()
@@ -1087,6 +1095,7 @@ AucTex contains many additions to make tex editing good.
 #+BEGIN_SRC emacs-lisp
   (use-package tex
     :ensure auctex
+    :straight auctex
     :config
     (setq TeX-auto-save t
           TeX-parse-self t
@@ -1242,17 +1251,18 @@ Run the open buffer and display the output in a new buffer.
 *** MATLAB
 Mode for editing MATLAB m-files.
 #+BEGIN_SRC emacs-lisp
-    (use-package matlab
-      :ensure matlab-mode
-      :config
-      (autoload 'matlab-mode "matlab" "Matlab Editing Mode" t)
-      (add-to-list
-       'auto-mode-alist
-       '("\\.m$" . matlab-mode))
-      (setq matlab-indent-function t)
-      (setq matlab-shell-command "matlab")
-      (matlab-cedet-setup)
-      (add-to-list 'company-backends 'company-matlab-shell))
+  (use-package matlab
+    :ensure matlab-mode
+    :straight matlab-mode
+    :config
+    (autoload 'matlab-mode "matlab" "Matlab Editing Mode" t)
+    (add-to-list
+     'auto-mode-alist
+     '("\\.m$" . matlab-mode))
+    (setq matlab-indent-function t)
+    (setq matlab-shell-command "matlab")
+    (matlab-cedet-setup)
+    (add-to-list 'company-backends 'company-matlab-shell))
 #+END_SRC
 
 *** COMMENT MIPS
@@ -1322,13 +1332,6 @@ Use jedi, idk why.
     (add-to-list 'lsp-enabled-clients 'jedi))
 #+END_SRC
 * Org mode
-** Up to date org
-Pull the latest org mode from the repository, rather than the org which comes with emacs.
-#+BEGIN_SRC emacs-lisp
-  (use-package org
-    :pin gnu)
-#+END_SRC
-
 ** Small tweaks
 Small quality of life changes to org-mode.
 #+BEGIN_SRC emacs-lisp
@@ -1425,6 +1428,7 @@ I come back to it every now and again as an MPD front-end, but haven't quite got
 #+BEGIN_SRC emacs-lisp
   (use-package emms-setup
     :ensure emms
+    :straight emms
     :init
     (add-to-list 'load-path "~/elisp/emms/")
     :config
